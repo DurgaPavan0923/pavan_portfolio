@@ -2,13 +2,18 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+<<<<<<< HEAD
 import { ArrowRight, FileText, Bot, Sparkles, MapPin } from 'lucide-react';
+=======
+import { ArrowRight, FileText, Bot, Sparkles, MapPin, Award } from 'lucide-react';
+>>>>>>> origin/main
 import { PROFILE_DATA } from '@/data/profile';
 
 interface HeroProps {
   onOpenChat: () => void;
 }
 
+<<<<<<< HEAD
 const ROLES = [
   'Building Enterprise RAG Systems',
   'Training Deep Learning Models',
@@ -16,13 +21,27 @@ const ROLES = [
   'Deploying Scalable Cloud Architectures',
 ];
 
+=======
+>>>>>>> origin/main
 export function Hero({ onOpenChat }: HeroProps) {
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
 
+<<<<<<< HEAD
   useEffect(() => {
     const currentFullText = ROLES[currentRoleIndex];
+=======
+  const roles = [
+    'Building Enterprise RAG Systems',
+    'Training Deep Learning Models',
+    'Architecting Multi-Agent AI Workflows',
+    'Deploying Scalable Cloud Architectures',
+  ];
+
+  useEffect(() => {
+    const currentFullText = roles[currentRoleIndex];
+>>>>>>> origin/main
     const typingSpeed = isDeleting ? 30 : 70;
 
     const timer = setTimeout(() => {
@@ -37,7 +56,11 @@ export function Hero({ onOpenChat }: HeroProps) {
           setDisplayedText(currentFullText.slice(0, displayedText.length - 1));
         } else {
           setIsDeleting(false);
+<<<<<<< HEAD
           setCurrentRoleIndex((prev) => (prev + 1) % ROLES.length);
+=======
+          setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+>>>>>>> origin/main
         }
       }
     }, typingSpeed);
