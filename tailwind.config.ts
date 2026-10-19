@@ -51,16 +51,24 @@ const config: Config = {
       },
       animation: {
         'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+        'pulse-slow': 'pulseSlow 4s ease-in-out infinite',
         'spin-slow': 'spin 12s linear infinite',
         'reverse-spin': 'reverseSpin 14s linear infinite',
         'gradient-flow': 'gradientFlow 6s ease infinite',
         'fade-up': 'fadeUp 0.5s ease-out forwards',
         'float-slow': 'floatSlow 4s ease-in-out infinite',
+        'marquee': 'marquee 30s linear infinite',
+        'marquee-reverse': 'marqueeReverse 30s linear infinite',
+        'shimmer': 'shimmer 2.5s ease-in-out infinite',
       },
       keyframes: {
         glowPulse: {
           '0%, 100%': { opacity: '0.4', transform: 'scale(1)' },
           '50%': { opacity: '0.8', transform: 'scale(1.05)' },
+        },
+        pulseSlow: {
+          '0%, 100%': { opacity: '0.5', transform: 'scale(1)' },
+          '50%': { opacity: '0.9', transform: 'scale(1.08)' },
         },
         reverseSpin: {
           from: { transform: 'rotate(360deg)' },
@@ -77,6 +85,18 @@ const config: Config = {
         floatSlow: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+        marqueeReverse: {
+          '0%': { transform: 'translateX(-50%)' },
+          '100%': { transform: 'translateX(0%)' },
+        },
+        shimmer: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
         },
       },
       backdropBlur: {

@@ -9,7 +9,6 @@ export function Footer() {
 
   useEffect(() => {
     const updateTime = () => {
-      // Calculate IST time (UTC+5:30)
       const options: Intl.DateTimeFormatOptions = {
         timeZone: 'Asia/Kolkata',
         hour: '2-digit',
@@ -31,45 +30,45 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-white/[0.08] bg-slate-950/60 backdrop-blur-md pt-12 pb-8 px-4 sm:px-6">
+    <footer className="relative border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/80 dark:bg-slate-950/60 backdrop-blur-md pt-12 pb-8 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         {/* Top Tier */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Tagline */}
           <div className="text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-2">
-              <span className="font-display font-bold text-lg tracking-tight text-slate-100">
+              <span className="font-display font-bold text-lg tracking-tight text-slate-900 dark:text-slate-100">
                 {PROFILE_DATA.fullName}
               </span>
-              <span className="text-cyan-400 font-mono text-xs">/ AI & ML Engineer</span>
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">/ AI & ML Engineer</span>
             </div>
-            <p className="text-xs text-slate-400 max-w-md">
+            <p className="text-xs text-slate-600 dark:text-slate-400 max-w-md">
               SOA University (ITER) · Neo4j Certified · Google Cloud Diamond League · TIH IIT Guwahati Intern
             </p>
           </div>
 
           {/* Time & Availability Badge */}
           <div className="flex flex-col sm:flex-row items-center gap-3">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
               <span>Available for AI/ML Roles</span>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-slate-400 text-xs font-mono">
-              <Clock className="w-3.5 h-3.5 text-cyan-400" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-slate-600 dark:text-slate-400 text-xs font-mono shadow-sm">
+              <Clock className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
               <span>Bhubaneswar, IN: {localTime || '10:45 PM IST'}</span>
             </div>
           </div>
         </div>
 
         {/* Middle Tier: Social & Back to Top */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/[0.04]">
-          <div className="flex items-center gap-4 text-xs text-slate-400 font-medium">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-slate-200 dark:border-white/[0.04]">
+          <div className="flex items-center gap-4 text-xs text-slate-600 dark:text-slate-400 font-medium">
             <a
               href={PROFILE_DATA.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cyan-400 transition-colors flex items-center gap-1"
+              className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1"
             >
               <Github className="w-3.5 h-3.5" />
               <span>GitHub</span>
@@ -78,14 +77,14 @@ export function Footer() {
               href={PROFILE_DATA.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-cyan-400 transition-colors flex items-center gap-1"
+              className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1"
             >
               <Linkedin className="w-3.5 h-3.5" />
               <span>LinkedIn</span>
             </a>
             <a
               href={`mailto:${PROFILE_DATA.contact.email}`}
-              className="hover:text-cyan-400 transition-colors flex items-center gap-1"
+              className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1"
             >
               <Mail className="w-3.5 h-3.5" />
               <span>{PROFILE_DATA.contact.email}</span>
@@ -95,11 +94,11 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-slate-100 text-xs transition-colors border border-white/[0.08]"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 text-xs transition-colors border border-slate-200 dark:border-white/[0.08] shadow-sm"
             aria-label="Back to top of page"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3 h-3 text-cyan-400" />
+            <ArrowUp className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
           </button>
         </div>
 
@@ -108,7 +107,7 @@ export function Footer() {
           <p>© {new Date().getFullYear()} Rajana Durga Pavan Kumar. Engineered with Next.js 15, TypeScript & Tailwind.</p>
           <p className="flex items-center gap-1">
             <span>Built with precision & passion</span>
-            <Heart className="w-3 h-3 text-cyan-400 fill-cyan-400" />
+            <Heart className="w-3 h-3 text-cyan-500 fill-cyan-500" />
           </p>
         </div>
       </div>

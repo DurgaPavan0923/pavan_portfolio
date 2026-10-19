@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, X, Send, Sparkles, Trash2, ArrowUpRight, ShieldCheck, User } from 'lucide-react';
+import { Bot, X, Send, Sparkles, Trash2, ShieldCheck, User } from 'lucide-react';
 import { ChatMessage } from '@/types';
 
 interface ChatBotProps {
@@ -75,7 +75,6 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
         let assistantReply = '';
         const assistantId = `assistant-${Date.now()}`;
 
-        // Add blank assistant message
         setMessages((prev) => [
           ...prev,
           { id: assistantId, role: 'assistant', content: '', timestamp: Date.now() },
@@ -131,7 +130,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
       <button
         type="button"
         onClick={onToggle}
-        className="fixed bottom-5 right-5 z-[90] flex items-center gap-2 px-3.5 py-3 rounded-full bg-gradient-to-tr from-cyan-400 to-violet-600 text-slate-950 font-bold text-xs shadow-xl shadow-cyan-500/25 hover:scale-105 transition-all group"
+        className="fixed bottom-5 right-5 z-[90] flex items-center gap-2 px-3.5 py-3 rounded-full bg-gradient-to-tr from-cyan-400 to-violet-600 text-slate-950 font-bold text-xs shadow-xl shadow-cyan-500/25 hover:scale-105 active:scale-95 transition-all group"
         aria-label={isOpen ? 'Close AI Assistant' : 'Open Neural AI Assistant'}
       >
         {isOpen ? (
@@ -139,8 +138,8 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
         ) : (
           <>
             <div className="relative">
-              <Bot className="w-5 h-5 text-slate-950" />
-              <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+              <Bot className="w-5 h-5 text-slate-950 transition-transform group-hover:rotate-12" />
+              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
             </div>
             <span className="hidden sm:inline font-display tracking-tight">Ask AI</span>
           </>
@@ -153,20 +152,20 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Pavan Neural AI Assistant"
-          className="fixed bottom-20 right-4 sm:right-6 w-[92vw] sm:w-[420px] h-[550px] max-h-[80vh] rounded-3xl glass-panel border border-white/[0.12] shadow-2xl z-[90] flex flex-col overflow-hidden animate-fade-up"
+          className="fixed bottom-20 right-4 sm:right-6 w-[92vw] sm:w-[420px] h-[550px] max-h-[80vh] rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.12] shadow-2xl z-[90] flex flex-col overflow-hidden animate-fade-up backdrop-blur-xl"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-slate-950/60">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50/90 dark:bg-slate-950/60">
             <div className="flex items-center gap-2.5">
               <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-400 to-violet-500 flex items-center justify-center font-bold text-slate-950 shadow-sm">
                 <Bot className="w-4 h-4" />
               </div>
               <div>
-                <h3 className="font-display font-bold text-xs sm:text-sm text-slate-100 flex items-center gap-1.5">
+                <h3 className="font-display font-bold text-xs sm:text-sm text-slate-900 dark:text-slate-100 flex items-center gap-1.5">
                   <span>Neural Assistant</span>
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 </h3>
-                <p className="text-[10px] font-mono text-cyan-400">Gemini 1.5 Grounded Assistant</p>
+                <p className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400">Gemini 1.5 Grounded Assistant</p>
               </div>
             </div>
 
@@ -174,16 +173,16 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
               <button
                 type="button"
                 onClick={clearChat}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.04] transition-colors"
+                className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-white/[0.04] transition-colors"
                 title="Clear Chat History"
-                aria-label="Clear chat"
+                aria-label="Clear chat history"
               >
                 <Trash2 className="w-3.5 h-3.5" />
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/[0.04] transition-colors"
+                className="p-1.5 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-200/50 dark:hover:bg-white/[0.04] transition-colors"
                 aria-label="Close chat window"
               >
                 <X className="w-4 h-4" />
@@ -201,7 +200,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
                   className={`flex items-start gap-2.5 ${isAssistant ? 'justify-start' : 'justify-end'}`}
                 >
                   {isAssistant && (
-                    <div className="w-6 h-6 rounded-lg bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-lg bg-cyan-500/10 dark:bg-cyan-500/20 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 dark:border-cyan-500/30 flex items-center justify-center shrink-0 mt-0.5">
                       <Bot className="w-3.5 h-3.5" />
                     </div>
                   )}
@@ -209,15 +208,15 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
                   <div
                     className={`max-w-[85%] p-3 rounded-2xl leading-relaxed whitespace-pre-wrap ${
                       isAssistant
-                        ? 'bg-white/[0.04] text-slate-200 border border-white/[0.06]'
-                        : 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-medium ml-auto'
+                        ? 'bg-slate-100 dark:bg-white/[0.04] text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-white/[0.06] shadow-sm'
+                        : 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-medium ml-auto shadow-md'
                     }`}
                   >
                     {msg.content}
                   </div>
 
                   {!isAssistant && (
-                    <div className="w-6 h-6 rounded-lg bg-white/[0.1] text-slate-300 flex items-center justify-center shrink-0 mt-0.5">
+                    <div className="w-6 h-6 rounded-lg bg-slate-200 dark:bg-white/[0.1] text-slate-700 dark:text-slate-300 flex items-center justify-center shrink-0 mt-0.5">
                       <User className="w-3.5 h-3.5" />
                     </div>
                   )}
@@ -226,8 +225,8 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
             })}
 
             {isLoading && (
-              <div className="flex items-center gap-2 text-xs text-slate-400 py-1">
-                <span className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 py-1">
+                <span className="w-2 h-2 rounded-full bg-cyan-500 dark:bg-cyan-400 animate-ping" />
                 <span>Neural Assistant is synthesizing response...</span>
               </div>
             )}
@@ -236,13 +235,13 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
           </div>
 
           {/* Quick Prompts */}
-          <div className="px-3 py-2 border-t border-white/[0.04] bg-white/[0.01] flex items-center gap-1.5 overflow-x-auto text-[11px]">
+          <div className="px-3 py-2 border-t border-slate-200 dark:border-white/[0.04] bg-slate-50/50 dark:bg-white/[0.01] flex items-center gap-1.5 overflow-x-auto text-[11px]">
             {SUGGESTED_PROMPTS.map((prompt, idx) => (
               <button
                 key={idx}
                 type="button"
                 onClick={() => sendMessage(prompt)}
-                className="shrink-0 px-2.5 py-1 rounded-full bg-white/[0.04] hover:bg-cyan-500/10 text-slate-300 hover:text-cyan-300 border border-white/[0.06] transition-colors"
+                className="shrink-0 px-2.5 py-1 rounded-full bg-white dark:bg-white/[0.04] hover:bg-cyan-50 dark:hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 hover:text-cyan-700 dark:hover:text-cyan-300 border border-slate-200 dark:border-white/[0.06] transition-colors shadow-sm"
               >
                 {prompt}
               </button>
@@ -250,7 +249,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
           </div>
 
           {/* Input Bar */}
-          <div className="p-3 border-t border-white/[0.08] bg-slate-950/80 flex items-center gap-2">
+          <div className="p-3 border-t border-slate-200 dark:border-white/[0.08] bg-white dark:bg-slate-950/80 flex items-center gap-2">
             <input
               ref={inputRef}
               type="text"
@@ -259,15 +258,15 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
               onKeyDown={(e) => {
                 if (e.key === 'Enter') sendMessage();
               }}
-              placeholder="Ask about Pavan's AI/ML experience..."
-              className="flex-1 px-3.5 py-2 rounded-xl bg-white/[0.04] border border-white/[0.08] text-xs sm:text-sm text-slate-100 placeholder:text-slate-500 outline-none focus:border-cyan-400/50"
+              placeholder="Ask anything about Pavan's projects..."
+              className="flex-1 px-3.5 py-2 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-xs sm:text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none focus:border-cyan-500 dark:focus:border-cyan-400/50"
             />
             <button
               type="button"
               onClick={() => sendMessage()}
               disabled={isLoading || !input.trim()}
               className="p-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 disabled:opacity-40 text-slate-950 font-bold transition-all"
-              aria-label="Send message to AI assistant"
+              aria-label="Send query"
             >
               <Send className="w-4 h-4" />
             </button>

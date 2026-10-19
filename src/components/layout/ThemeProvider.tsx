@@ -22,19 +22,26 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('pavan_portfolio_theme') as Theme | null;
-    if (savedTheme === 'light' || savedTheme === 'dark') {
-      setThemeState(savedTheme);
-      document.documentElement.classList.toggle('light', savedTheme === 'light');
-    } else {
-      document.documentElement.classList.remove('light');
-    }
+    const initialTheme: Theme = savedTheme === 'light' ? 'light' : 'dark';
+    setThemeState(initialTheme);
+    
+    document.documentElement.classList.remove('dark', 'light');
+    document.documentElement.classList.add(initialTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
     setMounted(true);
   }, []);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem('pavan_portfolio_theme', newTheme);
-    document.documentElement.classList.toggle('light', newTheme === 'light');
+    try {
+      localStorage.setItem('pavan_portfolio_theme', newTheme);
+    } catch {
+      // Storage access may fail in private mode
+    }
+    document.documentElement.classList.remove('dark', 'light');
+    document.documentElement.classList.add(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    window.dispatchEvent(new CustomEvent('themechange', { detail: { theme: newTheme } }));
   };
 
   const toggleTheme = () => {

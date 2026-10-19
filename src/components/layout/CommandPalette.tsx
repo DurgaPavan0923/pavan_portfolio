@@ -204,12 +204,12 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
       aria-label="Command Palette"
       className="fixed inset-0 z-[120] flex items-start justify-center pt-20 sm:pt-28 px-4"
     >
-      <div className="fixed inset-0 bg-black/75 backdrop-blur-md" onClick={onClose} />
+      <div className="fixed inset-0 bg-black/50 dark:bg-black/75 backdrop-blur-md" onClick={onClose} />
 
-      <div className="relative w-full max-w-xl rounded-2xl glass-panel border border-white/[0.12] shadow-2xl overflow-hidden animate-fade-up">
+      <div className="relative w-full max-w-xl rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.12] shadow-2xl overflow-hidden animate-fade-up">
         {/* Search Bar */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/[0.08]">
-          <Search className="w-4 h-4 text-cyan-400 shrink-0" />
+        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08]">
+          <Search className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -220,9 +220,9 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
             }}
             onKeyDown={handleKeyDown}
             placeholder="Type a command, project, or section..."
-            className="w-full bg-transparent text-sm text-slate-100 placeholder:text-slate-500 outline-none"
+            className="w-full bg-transparent text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none"
           />
-          <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-white/[0.06] text-slate-400">ESC</kbd>
+          <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-white/[0.06] text-slate-500 dark:text-slate-400">ESC</kbd>
         </div>
 
         {/* Results List */}
@@ -239,14 +239,16 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
                   onClick={() => cmd.perform()}
                   onMouseEnter={() => setSelectedIndex(idx)}
                   className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs transition-colors ${
-                    isSelected ? 'bg-cyan-500/15 text-cyan-300' : 'text-slate-300 hover:bg-white/[0.04]'
+                    isSelected
+                      ? 'bg-cyan-50 dark:bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 font-semibold'
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/[0.04]'
                   }`}
                 >
                   <div className="flex items-center gap-2.5">
                     {cmd.icon}
                     <span className="font-medium">{cmd.label}</span>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-500 uppercase tracking-wider">{cmd.category}</span>
+                  <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">{cmd.category}</span>
                 </button>
               );
             })
@@ -254,7 +256,7 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
         </div>
 
         {/* Footer shortcuts */}
-        <div className="flex items-center justify-between px-4 py-2 bg-white/[0.02] border-t border-white/[0.06] text-[11px] text-slate-500 font-mono">
+        <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-white/[0.02] border-t border-slate-200 dark:border-white/[0.06] text-[11px] text-slate-500 font-mono">
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>

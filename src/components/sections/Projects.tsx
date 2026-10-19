@@ -22,13 +22,13 @@ export function Projects() {
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
             <span>03 // FEATURED WORK</span>
           </div>
-          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 tracking-tight mb-4">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Production AI Applications &amp; <span className="text-gradient-cyan">Intelligent Systems</span>
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-xl">
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
             Architected with modern ML frameworks, graph databases, multi-agent reasoning, and edge cloud runtimes.
           </p>
         </div>
@@ -42,10 +42,10 @@ export function Projects() {
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all ${
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
                   isSelected
                     ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20 scale-105'
-                    : 'bg-white/[0.04] text-slate-400 hover:text-slate-200 hover:bg-white/[0.08] border border-white/[0.06]'
+                    : 'bg-white dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] shadow-sm'
                 }`}
               >
                 {cat}
@@ -59,11 +59,11 @@ export function Projects() {
           {filteredProjects.map((project) => (
             <div
               key={project.slug}
-              className={`p-6 rounded-3xl glass-card flex flex-col justify-between group relative overflow-hidden ${
-                project.featured ? 'border-cyan-400/30' : ''
+              className={`p-6 rounded-3xl glass-card flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+                project.featured ? 'border-cyan-400/40 dark:border-cyan-400/30' : ''
               }`}
             >
-              {/* Top Accent Gradient Line */}
+              {/* Top Accent Gradient Line for Featured Projects */}
               {project.featured && (
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-emerald-400 to-violet-500" />
               )}
@@ -71,15 +71,15 @@ export function Projects() {
               <div>
                 {/* Header: Emoji & Categories */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl p-2 rounded-2xl bg-white/[0.03] border border-white/[0.06] group-hover:scale-110 transition-transform">
+                  <span className="text-3xl p-2.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] group-hover:scale-110 transition-transform duration-300 shadow-sm">
                     {project.emoji}
                   </span>
                   <div className="flex items-center gap-1.5">
-                    <span className="px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                    <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
                       {project.category}
                     </span>
                     {project.featured && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1">
+                      <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1 shadow-sm">
                         <Sparkles className="w-2.5 h-2.5" />
                         Flagship
                       </span>
@@ -88,19 +88,19 @@ export function Projects() {
                 </div>
 
                 {/* Title & Tagline */}
-                <h3 className="font-display font-bold text-lg sm:text-xl text-slate-100 mb-2 group-hover:text-cyan-400 transition-colors">
+                <h3 className="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-slate-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {project.name}
                 </h3>
-                <p className="text-xs text-slate-400 leading-relaxed line-clamp-3 mb-4">
+                <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed line-clamp-3 mb-4">
                   {project.tagline}
                 </p>
 
                 {/* Metric Highlight Pill */}
                 {project.metrics && project.metrics[0] && (
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-cyan-500/5 border border-cyan-500/15 text-xs font-mono text-cyan-300 mb-5">
-                    <span className="font-bold text-cyan-400">{project.metrics[0].value}</span>
-                    <span className="text-slate-500">·</span>
-                    <span className="text-slate-400">{project.metrics[0].label}</span>
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-cyan-50 dark:bg-cyan-500/5 border border-cyan-200 dark:border-cyan-500/15 text-xs font-mono text-cyan-700 dark:text-cyan-300 mb-5">
+                    <span className="font-bold text-cyan-600 dark:text-cyan-400">{project.metrics[0].value}</span>
+                    <span className="text-slate-400 dark:text-slate-500">·</span>
+                    <span className="text-slate-600 dark:text-slate-400">{project.metrics[0].label}</span>
                   </div>
                 )}
 
@@ -109,13 +109,13 @@ export function Projects() {
                   {project.technologies.slice(0, 4).map((tech, tIdx) => (
                     <span
                       key={tIdx}
-                      className="px-2 py-0.5 rounded-md bg-white/[0.03] border border-white/[0.06] text-[11px] font-mono text-slate-300"
+                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] text-[11px] font-mono text-slate-700 dark:text-slate-300 transition-colors group-hover:border-cyan-400/30"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="px-2 py-0.5 rounded-md bg-white/[0.02] text-[11px] font-mono text-slate-500">
+                    <span className="px-2 py-0.5 rounded-md bg-slate-50 dark:bg-white/[0.02] text-[11px] font-mono text-slate-500">
                       +{project.technologies.length - 4}
                     </span>
                   )}
@@ -123,14 +123,14 @@ export function Projects() {
               </div>
 
               {/* Action Buttons Row */}
-              <div className="flex items-center justify-between pt-4 border-t border-white/[0.04]">
+              <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/[0.04]">
                 <button
                   type="button"
                   onClick={() => setActiveModalProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-400 hover:text-cyan-300 group-hover:translate-x-1 transition-all"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 group-hover:translate-x-1 transition-all"
                 >
-                  <span>Case Study</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>View Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -138,7 +138,7 @@ export function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white transition-colors border border-white/[0.06]"
+                    className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-white/[0.06]"
                     aria-label={`${project.name} Source Code`}
                   >
                     <Github className="w-3.5 h-3.5" />
@@ -149,7 +149,7 @@ export function Projects() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-white/[0.04] hover:bg-cyan-500/20 text-slate-400 hover:text-cyan-300 transition-colors border border-white/[0.06]"
+                      className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:bg-cyan-50 dark:hover:bg-cyan-500/20 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors border border-slate-200 dark:border-white/[0.06]"
                       aria-label={`${project.name} Live Demo`}
                     >
                       <ExternalLink className="w-3.5 h-3.5" />
