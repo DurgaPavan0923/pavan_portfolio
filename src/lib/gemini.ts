@@ -57,10 +57,10 @@ export function getOfflineFallbackResponse(query: string): string {
 
   if (q.includes('project') || q.includes('build') || q.includes('work') || q.includes('factlens') || q.includes('agora') || q.includes('ira')) {
     return `### 🚀 Featured AI & ML Projects by Pavan
-- **FactLens AI**: Multi-agent explainable AI platform for real-time claim verification & media literacy using Gemini API, Neo4j, and Pinecone (96.2% precision).
-- **InsightAI**: Semantic ATS scoring and resume parser reducing HR evaluation time by 60% with transformer embeddings and FastAPI.
-- **IRA**: 3D smart city resource load balancer combining Three.js terrain visualization with predictive regression (35% allocation boost, Proxima 2026).
-- **AGORA**: Web3 AI governance with Soulbound Tokens and greedy petition routing (SOA Regional AI Hackathon 2025).
+- **FactLens AI**: Multi-agent explainable AI platform for claim verification & media literacy using Gemini API, Neo4j, and Pinecone.
+- **InsightAI**: Semantic ATS scoring and resume parser matching candidates using transformer embeddings and FastAPI.
+- **IRA**: 3D smart city resource load balancer combining Three.js terrain visualization with predictive regression (Showcased at Abinya 3.0 at Proxima 2026).
+- **AGORA**: Web3 AI governance with Soulbound Tokens and machine learning petition routing.
 
 Explore interactive case studies in the [Projects](#projects) section!`;
   }
@@ -78,9 +78,10 @@ Check out the full interactive breakdown in the [Toolkit](#skills) section!`;
   if (q.includes('intern') || q.includes('experience') || q.includes('microsoft') || q.includes('iit') || q.includes('work') || q.includes('gdg')) {
     return `### 💼 Professional Experience & Leadership
 - **Student Intern** at **TIH IIT Guwahati** (Jun 2026 – Present): Applied machine learning research.
-- **Club Coordinator** & **Former Design Lead** at **GDGoC ITER** (Sep 2025 – Present): Leading 100+ member team and 1,500+ student community; organized Cloud Study Jams & Algorithm Arena.
-- **Azure Intern** at **Microsoft Elevate (AICTE)** (Jan – Feb 2026): Selected top candidate, engineered scalable Azure cloud services.
-- **AI/ML Intern** at **InternPro** (Jun – Aug 2025): Real estate predictor with 85%+ accuracy.
+- **Club Coordinator** at **GDGoC ITER** (Sep 2025 – Present): Leading chapter initiatives, study jams, and developer workshops.
+- **AI Intern** at **Edunet Foundation (IBM SkillsBuild & AICTE)** (May – Jun 2026): FactLens AI development.
+- **Azure Intern** at **Microsoft Elevate (AICTE)** (Jan – Feb 2026): Scalable Azure cloud infrastructure.
+- **AI/ML Intern** at **InternPro** (Jun – Jul 2025): Machine learning regression models.
 - **Campus Ambassador** at **Cognizance IIT Roorkee** & **eDC IIT Delhi**.`;
   }
 
@@ -88,10 +89,10 @@ Check out the full interactive breakdown in the [Toolkit](#skills) section!`;
     return `### 🎓 Certifications & Honors
 - **Neo4j Certified Professional** (Graph Databases & Knowledge Graphs).
 - **Google Cloud Arcade Diamond League** (98 Badges, Ultimate Milestone).
-- **Microsoft Elevate Azure Cloud Internship** (Top national selection).
-- **Machine Learning Specialist** (IBM Coursera Specialization).
+- **Microsoft Elevate Azure Cloud Internship** (AICTE Initiative).
+- **Machine Learning Specialist** (IBM Coursera).
 - **Convolve 4.0 Pan-IIT AI/ML Hackathon** & **Adobe India Hackathon R1 Qualifier**.
-- **Rajya Puraskar Awardee** (Bharat Scouts & Guides) & **NCC Sergeant** (5+ years leadership).`;
+- **Rajya Puraskar Awardee** (Bharat Scouts & Guides) & **NCC Sergeant**.`;
   }
 
   if (q.includes('resume') || q.includes('cv') || q.includes('hire') || q.includes('contact') || q.includes('email')) {

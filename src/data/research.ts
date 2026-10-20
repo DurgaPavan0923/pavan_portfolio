@@ -23,24 +23,24 @@ export const RESEARCH_INTERESTS: ResearchInterest[] = [
     keywords: ['Self-Supervised Learning', 'Seq2Seq', 'Attention Mechanisms', 'PyTorch'],
   },
   {
-    title: 'Linguistic Misinformation Detection',
+    title: 'Explainable AI & Misinformation Research',
     icon: '📰',
     description:
-      'Developing high-throughput NLP classifiers capable of identifying deceptive stylistic patterns, sentiment bias, and synthetic propaganda at scale.',
-    keywords: ['Feature Attribution', 'SHAP/LIME', 'Ensemble Learning', 'NLTK', 'Explainable AI'],
+      'Investigating multi-agent consensus protocols and knowledge-graph traversal to verify digital claims, surface evidence lineages, and explain reasoning transparently.',
+    keywords: ['Explainable AI', 'Graph RAG', 'Multi-Agent Consensus', 'Citation Provenance', 'NLP'],
   },
   {
     title: 'Urban AI & 3D Spatial Forecasting',
     icon: '🏙️',
     description:
-      'Simulating municipal resource distribution and dynamic traffic pressure using 3D spatial grids and low-latency regression balancing agents.',
+      'Simulating municipal resource distribution and dynamic demand curves using 3D spatial grids and low-latency regression balancing techniques.',
     keywords: ['Three.js', 'Spatial Indexing', 'Predictive Load Balancing', 'Greedy Optimization'],
   },
   {
     title: 'Cloud-Native MLOps Architectures',
     icon: '☁️',
     description:
-      'Streamlining the transition from model training notebooks to containerized, auto-scaling microservices on modern cloud infrastructure.',
+      'Streamlining the transition from model training workflows to containerized, auto-scaling microservices on modern cloud infrastructure.',
     keywords: ['Microsoft Azure', 'FastAPI', 'Docker', 'Vercel Edge', 'CI/CD Pipelines'],
   },
 ];

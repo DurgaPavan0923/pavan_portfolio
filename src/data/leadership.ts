@@ -4,9 +4,9 @@ export const LEADERSHIP_RECOGNITIONS: LeadershipRecognition[] = [
   {
     title: 'NCC Sergeant (A Alpha, B Alpha, C Bravo)',
     organization: 'National Cadet Corps (NCC), SOA University Unit',
-    period: '5+ Years Active Service',
+    period: 'SOA University',
     description:
-      'Awarded top Alpha/Bravo gradings across A, B, and C certificates. Commanded drill contingents, disciplined cadet detachments, and organized university-wide ceremonial parades.',
+      'Awarded top Alpha/Bravo gradings across A, B, and C certificates. Commanded drill contingents, disciplined cadet detachments, and organized university ceremonial parades.',
     icon: '🎖️',
     badge: 'Senior Warrant Rank',
   },
@@ -29,13 +29,13 @@ export const LEADERSHIP_RECOGNITIONS: LeadershipRecognition[] = [
     badge: 'Student Council Head',
   },
   {
-    title: 'Proxima 2026 — Abinya 3.0 Finalist',
+    title: 'Proxima 2026 — Abinya 3.0',
     organization: 'National Technical Symposium',
     period: '2026',
     description:
-      'Presented the IRA 3D Smart City Resource Allocation architecture, earning national jury distinction for applied urban AI simulation.',
+      'Participant / Showcased IRA (Intelligent Resource Architecture), demonstrating 3D urban terrain simulation and predictive regression load balancing.',
     icon: '⚡',
-    badge: 'Innovation Finalist',
+    badge: 'Participant / Showcased IRA',
   },
   {
     title: 'Nyrama.in Representative',

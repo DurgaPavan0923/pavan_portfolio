@@ -14,9 +14,9 @@ export function About() {
     },
     {
       icon: <MapPin className="w-5 h-5 text-violet-500 dark:text-violet-400" />,
-      label: 'Location & Availability',
+      label: 'Location & Region',
       value: 'Bhubaneswar, Odisha',
-      sub: 'Open to Remote & On-Site Roles',
+      sub: 'India · UTC+5:30 (IST)',
     },
     {
       icon: <Cloud className="w-5 h-5 text-emerald-500 dark:text-emerald-400" />,
@@ -28,7 +28,7 @@ export function About() {
       icon: <Award className="w-5 h-5 text-amber-500 dark:text-amber-400" />,
       label: 'Leadership Experience',
       value: 'GDGoC Coordinator & NCC Sergeant',
-      sub: 'Led 100+ member team · Rajya Puraskar',
+      sub: 'Built 100+ member team · Rajya Puraskar',
     },
     {
       icon: <Sparkles className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />,

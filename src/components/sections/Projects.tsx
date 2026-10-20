@@ -4,9 +4,9 @@ import React, { useState } from 'react';
 import { PROJECTS } from '@/data/projects';
 import { Project, ProjectCategory } from '@/types';
 import { ProjectModal } from './ProjectModal';
-import { ExternalLink, Github, Layers, ArrowRight, Sparkles } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Sparkles } from 'lucide-react';
 
-const CATEGORIES: ProjectCategory[] = ['All', 'AI/ML', 'Full Stack AI', 'NLP', 'Web3', 'Open Source'];
+const CATEGORIES: ProjectCategory[] = ['All', 'Full Stack AI', 'NLP', 'Web3', 'Open Source'];
 
 export function Projects() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
@@ -33,22 +33,26 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Filter Tabs */}
+        {/* Filter Tabs with Counts */}
         <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
           {CATEGORIES.map((cat) => {
             const isSelected = selectedCategory === cat;
+            const count = cat === 'All' ? PROJECTS.length : PROJECTS.filter((p) => p.category === cat).length;
             return (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
                   isSelected
                     ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20 scale-105'
                     : 'bg-white dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] shadow-sm'
                 }`}
               >
-                {cat}
+                <span>{cat}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-200 dark:bg-white/[0.08] text-slate-500 dark:text-slate-400'}`}>
+                  {count}
+                </span>
               </button>
             );
           })}
@@ -127,7 +131,7 @@ export function Projects() {
                 <button
                   type="button"
                   onClick={() => setActiveModalProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 group-hover:translate-x-1 transition-all"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 group-hover:translate-x-1 transition-all cursor-pointer"
                 >
                   <span>View Case Study</span>
                   <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />

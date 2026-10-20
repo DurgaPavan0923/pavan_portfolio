@@ -36,15 +36,15 @@ export const PROFILE_DATA: ProfileData = {
     designChallengeUrl: 'https://www.linkedin.com/in/rajana-durga-pavan-kumar-432248298',
   },
   stats: {
-    projectsCount: '12+',
+    projectsCount: '7+',
     certificationsCount: '6+',
     problemsSolved: '300+',
-    hackathonsCount: '4+',
+    hackathonsCount: 'Abinya 3.0',
     cloudBadges: '98 Badges (Arcade Diamond)',
   },
   bioParagraphs: [
     "I’m Rajana Durga Pavan Kumar, an AI & ML Engineer and Computer Science undergraduate at SOA University (ITER). I specialize in designing and deploying end-to-end intelligent systems, Retrieval-Augmented Generation (RAG) pipelines, and cloud-native machine learning architectures.",
-    "My technical focus spans multi-agent orchestration, graph-enhanced semantic search (Neo4j + Pinecone), and natural language processing. I currently serve as a Student Intern at TIH IIT Guwahati and Club Coordinator at GDGoC ITER, having previously led engineering and design teams of 100+ members across national hackathons and study jams.",
-    "From winning regional AI hackathons to architecting 3D predictive planning systems, I bridge the gap between theoretical machine learning checkpoints and production-grade software that solves mission-critical problems.",
+    "My technical focus spans multi-agent orchestration, graph-enhanced semantic search (Neo4j + Pinecone), and natural language processing. I currently serve as a Student Intern at TIH IIT Guwahati and Club Coordinator at GDGoC ITER, coordinating technical workshops, study jams, and developer initiatives across campus.",
+    "From architecting multi-agent fact verification platforms like FactLens AI to developing 3D predictive planning systems, I bridge the gap between theoretical machine learning checkpoints and production-grade software.",
   ],
 };
