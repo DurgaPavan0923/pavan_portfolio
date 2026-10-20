@@ -6,6 +6,8 @@ import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { CustomCursor } from '@/components/layout/CustomCursor';
 import { PROFILE_DATA } from '@/data/profile';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pavan-portfolio-gamma-six.vercel.app';
+
 export const viewport: Viewport = {
   themeColor: [
     { media: '(prefers-color-scheme: dark)', color: '#050814' },
@@ -17,7 +19,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://pavan-portfolio-iota-ruby.vercel.app'),
+  metadataBase: new URL(siteUrl),
   title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
   description:
     'Portfolio of Rajana Durga Pavan Kumar. AI & Machine Learning Engineer specializing in Retrieval-Augmented Generation (RAG), Graph RAG (Neo4j), Multi-Agent AI, and Cloud Architecture.',
@@ -39,14 +41,14 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://pavan-portfolio-iota-ruby.vercel.app',
+    url: siteUrl,
     title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
     description:
       'AI & Machine Learning Engineer building RAG systems, multi-agent pipelines, and cloud architectures. Neo4j Certified · GCP Diamond League · TIH IIT Guwahati Intern.',
     siteName: `${PROFILE_DATA.fullName} Portfolio`,
     images: [
       {
-        url: '/Pavan.jpeg',
+        url: `${siteUrl}/opengraph-image`,
         width: 1200,
         height: 630,
         alt: `${PROFILE_DATA.fullName} - AI & Machine Learning Engineer`,
@@ -58,7 +60,7 @@ export const metadata: Metadata = {
     title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
     description:
       'AI & Machine Learning Engineer building RAG systems, multi-agent pipelines, and cloud architectures.',
-    images: ['/Pavan.jpeg'],
+    images: [`${siteUrl}/opengraph-image`],
   },
   robots: {
     index: true,
@@ -76,7 +78,7 @@ export const metadata: Metadata = {
     apple: '/Pavan.jpeg',
   },
   alternates: {
-    canonical: 'https://pavan-portfolio-iota-ruby.vercel.app',
+    canonical: siteUrl,
   },
 };
 
@@ -90,8 +92,8 @@ export default function RootLayout({
     '@type': 'Person',
     name: PROFILE_DATA.fullName,
     alternateName: PROFILE_DATA.shortName,
-    url: 'https://pavan-portfolio-iota-ruby.vercel.app',
-    image: 'https://pavan-portfolio-iota-ruby.vercel.app/Pavan.jpeg',
+    url: siteUrl,
+    image: `${siteUrl}/Pavan.jpeg`,
     jobTitle: PROFILE_DATA.title,
     worksFor: {
       '@type': 'Organization',
@@ -113,7 +115,7 @@ export default function RootLayout({
       'Natural Language Processing',
       'Cloud Architecture',
       'Neo4j Graph Databases',
-      'Next.js',
+      'Next.js 15',
     ],
   };
 

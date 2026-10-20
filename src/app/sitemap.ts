@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pavan-portfolio-iota-ruby.vercel.app';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pavan-portfolio-gamma-six.vercel.app';
 
   return [
     {

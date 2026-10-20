@@ -13,15 +13,15 @@ interface ChatBotProps {
 const INITIAL_MESSAGE: ChatMessage = {
   id: 'init-msg',
   role: 'assistant',
-  content: `👋 Hi! I'm Pavan's Neural Assistant. I can answer inquiries regarding his AI & ML projects, cloud engineering background, internships, and certifications. How can I assist you today?`,
+  content: `👋 Hi! I'm Pavan's Neural Assistant. I can answer inquiries regarding his AI & ML projects, Graph RAG architectures, internships at TIH IIT Guwahati & Microsoft Elevate, and technical toolkit. How can I assist you today?`,
   timestamp: Date.now(),
 };
 
 const SUGGESTED_PROMPTS = [
   'What AI projects has Pavan built?',
-  'Tell me about his cloud & Azure experience',
+  'Tell me about his Graph RAG & Neo4j experience',
   'What is FactLens AI?',
-  'What certifications does he hold?',
+  'What internships and leadership roles has he held?',
 ];
 
 export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {

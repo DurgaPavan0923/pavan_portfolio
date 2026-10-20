@@ -6,8 +6,10 @@ import { PROFILE_DATA } from '@/data/profile';
 
 export function Footer() {
   const [localTime, setLocalTime] = useState('');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const updateTime = () => {
       const options: Intl.DateTimeFormatOptions = {
         timeZone: 'Asia/Kolkata',
@@ -51,12 +53,14 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-              <span>Available for AI/ML Roles</span>
+              <span>Available for Applied AI Roles</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-slate-600 dark:text-slate-400 text-xs font-mono shadow-sm">
               <Clock className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-              <span>Bhubaneswar, IN: {localTime || '10:45 PM IST'}</span>
+              <span suppressHydrationWarning>
+                Bhubaneswar, IN: {mounted && localTime ? `${localTime} IST` : 'IST (UTC+5:30)'}
+              </span>
             </div>
           </div>
         </div>
@@ -94,7 +98,7 @@ export function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 text-xs transition-colors border border-slate-200 dark:border-white/[0.08] shadow-sm"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 text-xs transition-colors border border-slate-200 dark:border-white/[0.08] shadow-sm cursor-pointer"
             aria-label="Back to top of page"
           >
             <span>Back to top</span>

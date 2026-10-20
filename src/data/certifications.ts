@@ -8,7 +8,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '🔗',
-    verifyUrl: 'https://graphacademy.neo4j.com/',
     badge: 'Certified Professional',
   },
   {
@@ -18,7 +17,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025 – 2026',
     category: 'Cloud',
     icon: '💎',
-    verifyUrl: 'https://www.cloudskillsboost.google/',
     badge: '98 Badges · Ultimate Milestone',
   },
   {
@@ -28,8 +26,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'Feb 2026',
     category: 'Cloud',
     icon: '☁️',
-    verifyUrl: 'https://internship.aicte-india.org/',
-    badge: 'National Top Selection',
+    badge: 'National AICTE Initiative',
   },
   {
     id: 'ibm-ml-cert',
@@ -38,7 +35,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '🤖',
-    verifyUrl: 'https://www.coursera.org/account/accomplishments/verify/IBM-ML',
     badge: 'Professional Specialization',
   },
   {
@@ -48,7 +44,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '🏢',
-    verifyUrl: 'https://www.theforage.com/simulations/deloitte',
     badge: 'Enterprise Simulation',
   },
   {
@@ -94,7 +89,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'Cloud',
     icon: '🔐',
-    verifyUrl: 'https://www.theforage.com/',
     badge: 'Industry Simulation',
   },
   {
@@ -104,7 +98,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2024',
     category: 'AI/ML',
     icon: '🎓',
-    badge: 'Elite Academic Standing',
+    badge: 'Academic Certification',
   },
   {
     id: 'cense-iisc',

@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { CERTIFICATIONS } from '@/data/certifications';
-import { ExternalLink, CheckCircle } from 'lucide-react';
+import { ExternalLink, ShieldCheck } from 'lucide-react';
 
 export function Certifications() {
   const [filter, setFilter] = useState<'All' | 'Cloud' | 'AI/ML' | 'Hackathons' | 'Leadership'>('All');
@@ -39,7 +39,7 @@ export function Certifications() {
                 key={cat}
                 type="button"
                 onClick={() => setFilter(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
                   isSelected
                     ? 'bg-amber-400 text-slate-950 font-bold shadow-md shadow-amber-400/20 scale-105'
                     : 'bg-white dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] shadow-sm'
@@ -87,9 +87,9 @@ export function Certifications() {
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 ) : (
-                  <span className="text-slate-500 flex items-center gap-1">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-500 dark:text-emerald-400" />
-                    <span>Verified</span>
+                  <span className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-cyan-500" />
+                    <span>Available on request</span>
                   </span>
                 )}
               </div>
