@@ -1,11 +1,12 @@
 import { z } from 'zod';
 
 export const contactFormSchema = z.object({
-  name: z.string().min(2, 'Name must be at least 2 characters').max(80, 'Name is too long'),
+  name: z.string().min(2, 'Name must be at least 2 characters').max(80, 'Name must be at most 80 characters'),
   email: z.string().email('Please enter a valid email address'),
-  subject: z.string().min(3, 'Subject must be at least 3 characters').max(150, 'Subject is too long'),
-  message: z.string().min(10, 'Message must be at least 10 characters').max(2500, 'Message is too long'),
+  subject: z.string().min(3, 'Subject must be at least 3 characters').max(120, 'Subject must be at most 120 characters'),
+  message: z.string().min(10, 'Message must be at least 10 characters').max(3000, 'Message must be at most 3000 characters'),
   botcheck: z.string().max(0, 'Bot detected').optional().or(z.literal('')),
+  timestamp: z.number().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;
