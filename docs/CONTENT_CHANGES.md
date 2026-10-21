@@ -1,7 +1,7 @@
 # Content Changes & Verification Audit Log
 
 **Author:** Rajana Durga Pavan Kumar  
-**Branch:** `fix/portfolio-v2-cleanup`  
+**Branch:** `feat/portfolio-final`  
 **Date:** October 2026  
 **Repository:** [https://github.com/DurgaPavan0923/pavan_portfolio.git](https://github.com/DurgaPavan0923/pavan_portfolio.git)  
 **Live Site:** [https://pavan-portfolio-gamma-six.vercel.app/](https://pavan-portfolio-gamma-six.vercel.app/)
@@ -14,19 +14,20 @@ This document details every claim, metric, role, and credential reviewed, modifi
 
 ---
 
-## 2. Removed Duplicate & Redundant Content (Task 1)
+## 2. Removed Duplicate & Redundant Content
 
 | Removed Item | Former Location | Reason for Removal | Replacement / Action Taken |
 | :--- | :--- | :--- | :--- |
-| **"Misinformation Detector & Feature Explainability"** Project Card | `src/data/projects.ts` (slug: `fake-news-classifier`) | Duplicate project card covering the same problem space as FactLens AI. | Removed completely. **FactLens AI** remains the single flagship misinformation verification platform. Filter tabs dynamically update with correct project counts. |
-| **"Design Lead"** Timeline Entry | `src/data/experience.ts` | Overstated / unverified design leadership role. | Removed. Legitimate accomplishments (600+ applications reviewed, 100+ member team built, Google Cloud Study Jam facilitation, Algorithm Arena, 3-day Cybersecurity Workshop, Chakravyuh Genesis) consolidated into **Club Coordinator**. |
+| **"Misinformation Detector & Feature Explainability"** Project Card | `src/data/projects.ts` (slug: `fake-news-classifier`) | Duplicate project card covering the same problem space as FactLens AI. | Removed completely. **FactLens AI** remains the single flagship misinformation verification platform. |
+| **"Design Lead"** Timeline Entry | `src/data/experience.ts` | Overstated / unverified design leadership role. | Removed. Legitimate accomplishments (600+ applications reviewed, 100+ member team built, Google Cloud Study Jam facilitation, Chakravyuh Genesis) consolidated into **Club Coordinator**. |
 | **"Social Media Designer"** Timeline Entry | `src/data/experience.ts` | Redundant design role diluting the core AI/ML engineering positioning. | Removed completely. |
 | **"Linguistic Misinformation Detection"** Research Card | `src/data/research.ts` | Replicated wording from the removed detector project card. | Reworded to **"Explainable AI & Misinformation Research"**, emphasizing multi-agent consensus protocols and knowledge-graph lineage rather than simple classification. |
 | **Design Claims across Profile & Hero** | `src/data/profile.ts`, `src/components/sections/About.tsx`, `src/lib/gemini.ts` | Phrasing claiming leadership of "engineering and design teams of 100+ members". | Rewritten to truthfully state coordinating technical workshops, study jams, and developer initiatives across campus. |
+| **Sub-events under Chakravyuh Genesis** | `src/data/experience.ts`, `src/data/gallery.ts` | Unnecessary nested listing of internal tracks (Algorithm Arena, Cybersecurity workshop). | Normalized strictly to single event name: **"Chakravyuh Genesis"**. |
 
 ---
 
-## 3. Truthful Metric Realignment & Claim Neutralization (Task 4.1)
+## 3. Truthful Metric Realignment & Claim Neutralization
 
 All non-empirical percentage figures, unverifiable efficiency estimates, and marketing fluff were removed and replaced with factual descriptions of system architectures, tech stacks, and verified event participations:
 
@@ -54,14 +55,86 @@ All non-empirical percentage figures, unverifiable efficiency estimates, and mar
 
 ---
 
-## 4. Credentials & Verification Links Audit
+## 4. UI Simplification & Cognitive Decluttering
 
-### 4.1 Placeholder URLs Removed
-The previous version used placeholder generic landing page URLs (`https://graphacademy.neo4j.com/`, `https://www.cloudskillsboost.google/`, `https://internship.aicte-india.org/`, `https://www.theforage.com/`, etc.) that did not link to unique recipient verification certificates.
-- **Action Taken:** Removed generic homepage `verifyUrl` values across all certifications.
-- **Client UX:** When no direct recipient URL is available, the UI now displays a clean, professional badge: **`Credential available on request`** (with a shield icon) rather than a non-functional or misleading external link.
+To eliminate visual noise and provide a scannable, modern user experience:
+1. **Purged Decorative Badges and Filter Bars:**
+   - **Projects:** Removed category filter buttons (`All`, `Applied AI`, `Machine Learning`, `Full-Stack AI`, `Systems`) and per-card category pills. Project cards display their core title, summary, key metrics, and authentic technology stack chips.
+   - **Certifications:** Removed category filter pills (`All`, `Cloud & AI`, `Professional`, `Academic`, `Competitions`) and category chips from credentials.
+   - **Experience:** Removed redundant `exp.type` pill and `Active` badge.
+   - **Leadership:** Removed `item.badge`.
+   - **Blogs:** Removed redundant category pills, read time badges, and `#hashtags`.
+   - **Skills:** Removed tabbed category filter; replaced with clean, semantic grouped sections with high readability.
+2. **Preserved High-Value Semantic Indicators:**
+   - Real-time GitHub "Live" indicator in Open Source metrics.
+   - Availability pill ("Available for Applied AI & ML Roles").
+   - Actual technology chips on projects (Python, PyTorch, Neo4j, Next.js, etc.).
 
-### 4.2 Credentials Requiring Confirmation / LinkedIn Discrepancies
+---
+
+## 5. Moments / Photo Retrospective Strip
+
+- **Continuous Auto-Moving Photo Strip:**
+  - Repositioned directly below the **About** section.
+  - Infinite right-to-left marquee animation with GPU hardware acceleration (`translate3d`).
+  - Automatically pauses on hover or touch so visitors can inspect photos.
+  - Touch-friendly horizontal drag / scroll container with responsive card widths:
+    - Mobile (360-430px): `w-[82vw]`
+    - Tablet (768px): `w-[42vw]`
+    - Desktop: `w-[28vw]` (max 380px)
+  - Accessible manual left/right buttons for users with keyboard navigation or `prefers-reduced-motion`.
+- **Accessible Lightbox Modal:**
+  - Clicking any moment opens a clean modal with high-res photo, title, date, location, and description.
+  - Keyboard navigation: `Esc` to close, `←` / `→` arrow keys to cycle through photos, focus trap, and ARIA dialog semantics.
+
+---
+
+## 6. Core Value Proposition ("Why Work With Me") & Closing Section
+
+### 6.1 "Why Work With Me" Bento Grid
+Located right after Moments and before Skills, this section organizes Pavan's core differentiators into a 5-card responsive bento layout:
+1. **RAG & Graph RAG Engineering:** Enterprise context systems with Neo4j knowledge graphs, hybrid vector search, and cross-encoder rerankers.
+2. **Dual-Cloud Certified:** Microsoft Certified: Azure Data Scientist Associate (DP-100) + Google Cloud Diamond Tier achiever with 10+ completed skill badges.
+3. **100+ Member Leadership:** Club Coordinator at GDGoC ITER leading major initiatives like Chakravyuh Genesis.
+4. **Full-Stack AI Product Delivery:** Production Next.js 15 App Router, streaming FastAPI endpoints, and containerized Docker services.
+5. **Neo4j Certified Professional:** Schema modeling, Cypher optimization, and knowledge graph engineering.
+- **Infinite Tech Marquee:** Seamless right-to-left marquee showcasing core production tooling.
+
+### 6.2 "Thank You for Visiting" Personal Closing Section
+Positioned immediately before the footer, providing a warm, personal closing:
+- Friendly closing statement inviting discussion on Applied AI, ML engineering, and research collaborations.
+- Prominent 4-card contact grid:
+  - **Email:** Direct email with 1-click clipboard copy + direct `mailto:` action.
+  - **LinkedIn:** Verified profile link with handle.
+  - **GitHub:** Verified profile link with handle.
+  - **Resume:** Direct download link to `/Rajana.pdf`.
+- Availability status indicator ("🟢 Available for Full-Time Roles & Opportunities").
+- Smooth "Back to Top" navigation button.
+
+---
+
+## 7. macOS-Style Interaction Layer
+
+- **Mobile & Tablet Bottom Dock (`MobileDock`):**
+  - Floating macOS-style glass dock (`fixed bottom-4 left-1/2 -translate-x-1/2 z-40`).
+  - Quick action icons: Jump to Top, Moments, Projects, Contact, ⌘K Search, AI Chatbot toggle, and Dark/Light Mode toggle.
+  - Safe-area inset aware (`pb-safe`) ensuring it never collides with OS home indicator gestures.
+- **Focus Mode:**
+  - Added to Command Palette (`act-focus`).
+  - Hides navbar, dock, and chat chrome for distraction-free reading of projects and blogs.
+  - Displays a subtle floating pill (`Focus Mode Active • Press ESC or Click to Exit`) to return at any time.
+- **Enhanced Command Palette (`CommandPalette`):**
+  - Added direct commands: `Why Work With Me`, `View Moments`, `Toggle Focus Mode`, `Scroll to Top`.
+  - Added desktop keyboard hints (`↑↓ Navigate`, `↵ Select`, `ESC Close`, `⌘K / Ctrl+K`).
+
+---
+
+## 8. Credentials & Verification Links Audit
+
+### 8.1 Placeholder URLs Removed
+Removed generic homepage `verifyUrl` values across all certifications. When no direct recipient URL is available, the UI displays a clean badge: **`Credential available on request`** (with a shield icon).
+
+### 8.2 Credentials Requiring Confirmation / LinkedIn Discrepancies
 The following credentials listed in the portfolio codebase do **NOT** appear on the user's primary public LinkedIn profile as of October 2026:
 1. **IBM Coursera Machine Learning Specialist** (`ibm-ml-cert`)
 2. **Tata Group Cybersecurity Analyst Simulation** (`tata-cyber`)
@@ -69,22 +142,9 @@ The following credentials listed in the portfolio codebase do **NOT** appear on 
 4. **IISc CeNSE Winter School in Emerging Tech** (`cense-iisc`)
 5. **Generative AI Academy Scholar** (`genai-academy`)
 
-> [!IMPORTANT]
-> **Action Required by User:** Please confirm whether you hold official completion certificates or credential verification URLs for the 5 items above. If verified, provide the direct credential links or upload them to `/public` to enable the "Verify" link. Otherwise, these can be retained with "Credential available on request" or removed if unverified.
-
 ---
 
-## 5. Technical Writing / Blogs Audit
-
-- **Previous State:** Blog cards had external links pointing to the author's root GitHub profile (`https://github.com/DurgaPavan0923`) as a placeholder.
-- **Upgraded Architecture:**
-  - Removed all placeholder GitHub redirect links.
-  - Clicking **"Read Full Article"** now opens the interactive **`BlogModal` reader**, displaying the comprehensive markdown article, architecture diagrams, LaTeX math, and code blocks built into the portfolio.
-  - External publication links (e.g. Medium, Substack, Dev.to) can be populated via `externalUrl` in `src/data/blogs.ts` as posts are published externally.
-
----
-
-## 6. Real-Time GitHub Telemetry vs. Hardcoded Stats (Task 2)
+## 9. Real-Time GitHub Telemetry vs. Hardcoded Stats
 
 | Metric | Previous Hardcoded Value | Upgraded Live Source |
 | :--- | :--- | :--- |
@@ -94,13 +154,15 @@ The following credentials listed in the portfolio codebase do **NOT** appear on 
 | **Streaks** | Static fake streak | Algorithmic streak computation traversing consecutive calendar days. |
 | **Language Distribution** | Hardcoded chips | Byte-weighted language calculation across all non-fork repositories. |
 | **Featured Repos** | Hardcoded stars (185, 155, 124, 82) | Real GitHub stars, forks, primary language, and relative pushed time (`updated X ago`). |
-| **Non-Open-Source Badges** | Cloud Badges & Hackathons in Open Source section | Removed from GitHub section; accurately housed under Credentials. |
 | **Hero Counters SSR Flash** | Initialized to `0+` in state, causing client re-render flash | Initialized directly with baseline numbers (`7+`, `98`, `6+`, `300+`), guaranteeing identical server HTML and smooth hydration. |
 
 ---
 
-## 7. SEO & Environment Variable Configuration
+## 10. Open Items & User Action Checklist
 
-- **Unified Canonical URL:** Standardized on `https://pavan-portfolio-gamma-six.vercel.app/` via `NEXT_PUBLIC_SITE_URL`.
-- **Dynamic OpenGraph Image:** Generated dynamically at `/opengraph-image` (1200×630px) via `@vercel/og` (`next/og` `ImageResponse`) with custom typography and brand colors.
-- **Search Metadata:** Corrected `robots.ts` and `sitemap.ts` to reference `NEXT_PUBLIC_SITE_URL`.
+The following items are open for final user input or external keys:
+- [ ] **GitHub Personal Access Token (`GITHUB_TOKEN`):** If higher rate limits are desired for live telemetry beyond the unauthenticated 60 req/hr public REST limit, set `GITHUB_TOKEN` in `.env.local` / Vercel dashboard. (Automatic verified fallback is built-in).
+- [ ] **Credential URLs:** Provide direct verification URLs for the 5 credentials listed in Section 8.2 if you wish to display "Verify Credential" buttons.
+- [ ] **External Blog URLs:** Populate `externalUrl` in `src/data/blogs.ts` as technical writeups are mirrored to Medium, Dev.to, or Hashnode.
+- [ ] **Client / Peer Testimonials:** Intentionally omitted until real signed testimonials are provided. When available, they can be placed into a dedicated Kind Words card.
+- [ ] **Additional Event Photos:** If more photos from hackathons, workshops, or club events are available, drop them into `/public/photos/` and register them in `src/data/gallery.ts`.

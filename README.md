@@ -4,10 +4,10 @@
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.1.11-black?logo=next.js)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.0.0-blue?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)](https://www.typescriptlang.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 
-A high-performance, accessible AI/ML engineer portfolio architected with **Next.js 15 App Router**, **React 19**, **TypeScript**, and **Tailwind CSS**. Showcases production machine learning applications, multi-agent RAG systems, cloud architectures, live GitHub telemetry via GraphQL, an interactive 22-moment photographic retrospective, and an integrated streaming Neural Assistant powered by Google Gemini.
+A high-performance, accessible AI/ML engineer portfolio architected with **Next.js 15 App Router**, **React 19**, **TypeScript**, and **Tailwind CSS**. Showcases production machine learning applications, multi-agent RAG systems, cloud architectures, live GitHub telemetry via GraphQL, an interactive continuous photographic retrospective, a 5-card "Why Work With Me" bento grid, a macOS-style mobile navigation dock, focus mode, and an integrated streaming Neural Assistant powered by Google Gemini.
 
 🌐 **Live Production Deployment:** [https://pavan-portfolio-gamma-six.vercel.app/](https://pavan-portfolio-gamma-six.vercel.app/)
 
@@ -16,34 +16,36 @@ A high-performance, accessible AI/ML engineer portfolio architected with **Next.
 ## 🚀 Key Highlights & Architecture
 
 - **Next.js 15 App Router & React 19**: Full static generation with edge streaming APIs, dynamic metadata, and OpenGraph card generation (`/opengraph-image`).
+- **Core Value Proposition ("Why Work With Me")**: 5-card responsive bento layout highlighting RAG & Graph RAG Engineering, Dual-Cloud Certification (Azure + GCP Diamond), 100+ Member Leadership, Full-Stack AI Delivery, and Neo4j Professional credentials with an infinite tech-tooling marquee.
+- **Continuous Photographic Retrospective ("Moments")**: Auto-moving right-to-left GPU-accelerated infinite strip showcasing 22 documented event moments with pause-on-hover/touch, accessible manual buttons, and full-screen lightbox.
+- **macOS-Style Interaction Layer**:
+  - **Mobile Bottom Dock (`MobileDock`)**: Floating glass quick-action dock on mobile/tablet devices (`Jump to Top`, `Moments`, `Projects`, `Contact`, `⌘K Search`, `AI Chatbot`, `Theme Toggle`).
+  - **Focus Mode**: Hides chrome and floating assistants for distraction-free reading of case studies and technical articles.
+  - **Command Palette (`CommandPalette`)**: Keyboard-driven command shortcuts (`⌘K`, `Esc`, `↑↓`, `↵`) with quick section jumps and direct actions.
 - **Real-Time GitHub GraphQL Telemetry (`/api/github`)**: Live contributions calendar, commit metrics, byte-weighted languages, and featured repositories with resilient offline snapshot caching.
-- **Resilient Contact Delivery Pipeline (`/api/contact`)**: Dual delivery engine utilizing **Resend** as primary with **Nodemailer Gmail SMTP** automatic fallback, delivering inquiries directly to `rdpkumar2308@gmail.com`. Includes Zod validation, honeypot traps, time-trap checks, and optional sender auto-replies.
-- **Moments in Action / Photo Gallery (`#gallery`)**: Curated photographic archive of 22 real moments across **Hackathons & Tech**, **NCC & Discipline**, and **Community Leadership**, featuring a responsive masonry layout and a full-screen Lightbox modal with keyboard navigation (`←`/`→`/`ESC`), touch swipe, and a thumbnail carousel strip.
+- **Resilient Contact Delivery Pipeline (`/api/contact`)**: Dual delivery engine utilizing **Resend** as primary with **Nodemailer Gmail SMTP** automatic fallback, delivering inquiries directly to `rdpkumar2308@gmail.com`. Includes Zod validation, honeypot traps, and time-trap checks.
 - **AI Neural Assistant (`/api/chat`)**: Google Gemini 1.5 streaming conversational copilot grounded in verified profile data with prompt injection defenses and offline fallback.
 - **60fps Neural Canvas**: Lightweight, battery-efficient particle graph visualization with automatic viewport intersection culling and tab-visibility pause.
-- **Fluid Accessibility & Global UX**:
-  - `Cmd+K` / `Ctrl+K` interactive Command Palette
-  - Lenis smooth inertial scrolling with `prefers-reduced-motion` fallbacks
-  - Dark-first design system with zero-flash theme persistence
-  - Interactive case study modals with deep architectural breakdowns
-  - ATS-friendly resume download (`/Rajana.pdf`)
+- **Cognitive Decluttering**: Purged decorative category pills and filter bars across all sections for clean typography, generous whitespace, and focused visual rhythm.
 
 ---
 
 ## 🧭 Portfolio Sections Breakdown
 
 1. **`01 // HERO`**: Animated identity headline, rotating roles, live availability indicator, magnetic CTAs (*Download Resume*, *Explore Work*, *Talk to AI*), and 60fps neural particle canvas.
-2. **`02 // ABOUT & FOCUS`**: Concise personal story, education card (B.Tech CSE at SOA ITER, CGPA 8.78), core leadership focus, and current technical commitments.
-3. **`03 // TOOLKIT`**: Categorized technical skills (Languages, ML/DL, GenAI/LLM/RAG, Cloud/DevOps, Full Stack, Graph Databases) with interactive hover details.
-4. **`04 // FEATURED WORK`**: Filterable production AI/ML applications (**FactLens AI**, **InsightAI**, **IRA**, **AGORA**, **Seq2Seq Summarizer**, **Fake News Classifier**) featuring interactive case study modals detailing architecture, challenges, and measurable impact.
-5. **`05 // OPEN SOURCE METRICS`**: Live GitHub telemetry displaying repository activity, contribution streaks, commit counts, and language breakdown fetched via GitHub GraphQL API.
-6. **`06 // EXPERIENCE`**: Interactive timeline tracking roles at **TIH IIT Guwahati** (Research Intern), **GDGoC ITER** (Club Coordinator), **Microsoft Elevate** (Azure Intern), and **Edunet IBM SkillsBuild** (AI Intern).
-7. **`07 // RESEARCH FOCUS`**: Academic inquiries in Explainable AI, Linguistic Misinformation Detection, and Graph RAG architectures.
-8. **`08 // CREDENTIALS & HONORS`**: Verified credentials including **Neo4j Certified Professional**, **Google Cloud Arcade Diamond League** (98 badges), **IBM Machine Learning**, and national hackathon qualifiers.
-9. **`09 // LEADERSHIP & SERVICE`**: 5+ years of National Cadet Corps discipline, NCC Sergeant rank, and Odisha State Gubernatorial recognition.
-10. **`10 // MOMENTS IN ACTION`**: 22 documented event moments spanning Smart India Hackathon, Proxima IRA showcase, Odisha Foundation Day honors, CATC military camps, DevFest, and GDGoC freshers orientation.
-11. **`11 // TECHNICAL WRITING`**: Architectural breakdowns on Graph RAG, multi-agent verification loops, and sequence learning.
-12. **`12 // GET IN TOUCH`**: Direct contact gateway with one-click email copying and a resilient dual-engine contact form (Resend + SMTP fallback).
+2. **`02 // ABOUT & FOCUS`**: Concise personal story, education card (B.Tech CSE at SOA ITER), core leadership focus, and current technical commitments.
+3. **`03 // MOMENTS IN ACTION`**: Continuous auto-moving photo retrospective highlighting 22 documented event moments with lightbox modal.
+4. **`04 // VALUE PROPOSITION`**: "Why Work With Me" bento grid (Graph RAG, Dual Cloud, Leadership, Full-Stack Delivery, Neo4j) + infinite tech marquee.
+5. **`05 // TOOLKIT`**: Grouped technical skills (Languages, ML/DL, GenAI/LLM/RAG, Cloud/DevOps, Full Stack, Graph Databases) with clean contrast.
+6. **`06 // FEATURED WORK`**: Flagship AI/ML applications (**FactLens AI**, **InsightAI**, **IRA**, **AGORA**, **Seq2Seq Summarizer**) with interactive case study modals.
+7. **`07 // OPEN SOURCE METRICS`**: Live GitHub telemetry displaying repository activity, contribution streaks, commit counts, and language breakdown fetched via GitHub GraphQL API.
+8. **`08 // EXPERIENCE`**: Interactive timeline tracking roles at **TIH IIT Guwahati** (Research Intern), **GDGoC ITER** (Club Coordinator), **Microsoft Elevate** (Azure Intern), and **Edunet IBM SkillsBuild** (AI Intern).
+9. **`09 // RESEARCH FOCUS`**: Academic inquiries in Explainable AI & Misinformation Research, and Graph RAG architectures.
+10. **`10 // CREDENTIALS & HONORS`**: Verified credentials including **Neo4j Certified Professional**, **Azure Data Scientist Associate (DP-100)**, **Google Cloud Arcade Diamond League** (98 badges), and national hackathons.
+11. **`11 // LEADERSHIP & SERVICE`**: GDGoC ITER Coordinator leading 100+ members and Chakravyuh Genesis, NCC Sergeant rank, and Governor recognition.
+12. **`12 // TECHNICAL WRITING`**: Architectural breakdowns on Graph RAG, multi-agent verification loops, and sequence learning with full-screen reader modals.
+13. **`13 // GET IN TOUCH`**: Direct contact gateway with one-click email copying and resilient dual-engine contact form.
+14. **`14 // CLOSING & CONNECT`**: Warm personal closing note ("Thank You for Visiting") with prominent contact grid and smooth back-to-top button.
 
 ---
 
@@ -52,11 +54,11 @@ A high-performance, accessible AI/ML engineer portfolio architected with **Next.
 ```text
 pavan_portfolio/
 ├── .github/workflows/       # GitHub Actions CI pipeline (lint, typecheck, build)
-├── archive/                 # Preserved legacy v1 static files
 ├── docs/
-│   ├── PLAN.md              # Full portfolio modernization specification
-│   ├── AUDIT.md             # Security, QA, and verification audit report
-│   └── CONTENT_CHANGES.md   # Complete content audit log and verification trail
+│   ├── COMPARISON.md        # Architectural & UX benchmark comparison (vs. vivekrs.in)
+│   ├── CONTENT_CHANGES.md   # Content audit log, claim neutralization & open items
+│   ├── PLAN.md              # Modernization specification
+│   └── AUDIT.md             # Security, QA, and verification audit report
 ├── public/
 │   ├── photos/              # 22 normalized high-res event moments
 │   ├── og-image.png         # Static 1200x630 social preview card
@@ -72,92 +74,39 @@ pavan_portfolio/
 │   │   ├── layout.tsx       # Root layout with JSON-LD Schema & meta tags
 │   │   ├── opengraph-image.tsx # Dynamic 1200x630 OG social preview card
 │   │   ├── not-found.tsx    # Styled 404 error page
-│   │   ├── page.tsx         # Main page composing all sections
-│   │   ├── robots.ts        # Dynamic search crawler rules
-│   │   └── sitemap.ts       # Dynamic XML sitemap generator
+│   │   └── page.tsx         # Main page composing all sections
 │   ├── components/
-│   │   ├── 3d/              # NeuralBackground particle canvas
-│   │   ├── ai/              # Neural Assistant ChatBot widget
-│   │   ├── layout/          # Navbar, Footer, CommandPalette, MobileMenu, ThemeProvider
-│   │   └── sections/        # Hero, About, Skills, Projects, Experience, Gallery, Contact, etc.
-│   ├── data/                # Strongly typed master profile data layer & snapshot
-│   │   ├── gallery.ts       # 22 categorized photographic moments with narrative stories
-│   │   ├── projects.ts      # Flagship and featured production AI/ML projects
-│   │   └── ...
-│   ├── lib/                 # Gemini, GitHub, validators, and utility functions
-│   └── types/               # TypeScript definitions
-├── tests/                   # Vitest unit & component test suites (35 tests passing)
-│   ├── components/          # Projects, ChatBot, Contact, Gallery tests
-│   └── unit/                # Validators, Gemini, GitHub telemetry, utilities
-├── .env.example             # Documented environment variable template
-├── next.config.ts           # Next.js security headers and compilation configuration
-├── package.json             # Dependencies and npm scripts
-└── tsconfig.json            # Strict TypeScript configuration
+│   │   ├── 3d/              # 60fps Neural background canvas
+│   │   ├── ai/              # Neural streaming chatbot
+│   │   ├── layout/          # Navbar, MobileDock, MobileMenu, CommandPalette, ThemeProvider
+│   │   └── sections/        # Hero, About, Gallery, WhyWorkWithMe, Skills, Projects, etc.
+│   ├── data/                # Strongly-typed data modules
+│   ├── lib/                 # Rate-limiting, Gemini AI, GitHub GraphQL, contact delivery
+│   └── types/               # TypeScript interfaces & domain types
+└── tests/                   # Vitest unit and component test suite
 ```
 
 ---
 
-## 🛠️ Getting Started
+## 🛠️ Environment Variables Configuration
 
-### Prerequisites
-
-- **Node.js**: v18.18.0 or higher (v20+ recommended)
-- **npm**: v9+ (or pnpm / yarn)
-
-### 1. Clone & Install
-
-```bash
-git clone https://github.com/DurgaPavan0923/pavan_portfolio.git
-cd pavan_portfolio
-npm install
-```
-
-### 2. Configure Environment Variables
-
-Copy `.env.example` to `.env.local`:
+Copy `.env.example` to `.env.local` to configure optional server integrations:
 
 ```bash
 cp .env.example .env.local
 ```
 
-| Variable | Description | Default / Required |
+| Variable | Required | Default / Description |
 | :--- | :--- | :--- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical site origin | `https://pavan-portfolio-gamma-six.vercel.app` |
-| `GEMINI_API_KEY` | Google Gemini API key for Neural Assistant | *Optional* (falls back to offline mode) |
-| `GITHUB_TOKEN` | GitHub Personal Access Token (read-only) | *Optional* (falls back to cached snapshot) |
-| `RESEND_API_KEY` | Resend API key for primary email delivery | *Optional* (falls back to Gmail SMTP) |
-| `CONTACT_TO_EMAIL` | Target email for contact form submissions | `rdpkumar2308@gmail.com` |
-| `CONTACT_FROM_EMAIL` | Sender email identity for Resend | `Portfolio Contact <onboarding@resend.dev>` |
-| `SEND_AUTOREPLY` | Enable automated confirmation email to senders | `false` |
-| `GMAIL_USER` | Gmail address for SMTP fallback | *Optional* |
-| `GMAIL_APP_PASSWORD` | 16-character Gmail App Password | *Optional* |
-
-### 3. Run Development Server
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) to view the application.
-
----
-
-## ☁️ Vercel Deployment Instructions
-
-To ensure all real-time features and delivery pipelines operate in production on Vercel:
-
-1. Navigate to your project on the [Vercel Dashboard](https://vercel.com/dashboard).
-2. Go to **Settings** → **Environment Variables**.
-3. Add the following keys:
-   - `NEXT_PUBLIC_SITE_URL` = `https://pavan-portfolio-gamma-six.vercel.app`
-   - `GEMINI_API_KEY` = *(Your Gemini API Key)*
-   - `GITHUB_TOKEN` = *(Your GitHub Personal Access Token)*
-   - `RESEND_API_KEY` = *(Your Resend API Key)*
-   - `CONTACT_TO_EMAIL` = `rdpkumar2308@gmail.com`
-   - `CONTACT_FROM_EMAIL` = `Portfolio Contact <onboarding@resend.dev>`
-   - `GMAIL_USER` = *(Optional Gmail fallback address)*
-   - `GMAIL_APP_PASSWORD` = *(Optional Gmail App password)*
-4. Trigger a deployment.
+| `NEXT_PUBLIC_SITE_URL` | No | `https://pavan-portfolio-gamma-six.vercel.app` (Canonical domain) |
+| `GEMINI_API_KEY` | No | Google Gemini API key for live streaming AI chat (gracefully falls back offline) |
+| `GITHUB_TOKEN` | No | Personal Access Token for GitHub GraphQL API (gracefully falls back to public REST/snapshot) |
+| `RESEND_API_KEY` | No | Resend API key for primary contact email delivery |
+| `CONTACT_EMAIL_TO` | No | Recipient email address (defaults to `rdpkumar2308@gmail.com`) |
+| `SMTP_HOST` | No | SMTP host for secondary contact fallback (e.g., `smtp.gmail.com`) |
+| `SMTP_PORT` | No | SMTP port (`465` or `587`) |
+| `SMTP_USER` | No | SMTP authentication username / email |
+| `SMTP_PASS` | No | SMTP app password |
 
 ---
 
@@ -170,7 +119,7 @@ To ensure all real-time features and delivery pipelines operate in production on
 | `npm run start` | Starts Next.js production server |
 | `npm run lint` | Runs ESLint checks across `src/` |
 | `npm run typecheck` | Runs `tsc --noEmit` to verify TypeScript types |
-| `npm run test` | Runs Vitest unit & component test suite (35 tests) |
+| `npm run test` | Runs Vitest unit & component test suite (39 tests) |
 | `npm run format` | Formats codebase with Prettier |
 
 ---
