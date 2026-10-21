@@ -11,6 +11,7 @@ import { ChatBot } from '@/components/ai/ChatBot';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Gallery } from '@/components/sections/Gallery';
+import { WhyWorkWithMe } from '@/components/sections/WhyWorkWithMe';
 import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { GitHubActivity } from '@/components/sections/GitHubActivity';
@@ -20,6 +21,7 @@ import { Certifications } from '@/components/sections/Certifications';
 import { Leadership } from '@/components/sections/Leadership';
 import { Blogs } from '@/components/sections/Blogs';
 import { Contact } from '@/components/sections/Contact';
+import { PersonalClosing } from '@/components/sections/PersonalClosing';
 
 export default function Home() {
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
@@ -55,6 +57,7 @@ export default function Home() {
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <About />
         <Gallery />
+        <WhyWorkWithMe />
         <Skills />
         <Projects />
         <GitHubActivity />
@@ -64,6 +67,7 @@ export default function Home() {
         <Leadership />
         <Blogs />
         <Contact />
+        <PersonalClosing />
       </main>
 
       {/* Semantic Footer */}
