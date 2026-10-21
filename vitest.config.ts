@@ -8,6 +8,8 @@ export default defineConfig({
     environment: 'jsdom',
     globals: true,
     setupFiles: ['./vitest.setup.ts'],
+    fileParallelism: false,
+    testTimeout: 20000,
   },
   resolve: {
     alias: {

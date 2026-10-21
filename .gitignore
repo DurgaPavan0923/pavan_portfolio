@@ -19,6 +19,7 @@
 *.patch
 *.log
 .eslintcache
+/Photos/
 
 # debug logs
 npm-debug.log*

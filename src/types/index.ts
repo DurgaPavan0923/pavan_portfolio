@@ -85,6 +85,22 @@ export interface LeadershipRecognition {
   badge: string;
 }
 
+export type GalleryCategory = 'All' | 'Hackathons & Tech' | 'NCC & Discipline' | 'Community & Leadership';
+
+export interface GalleryItem {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: 'Hackathons & Tech' | 'NCC & Discipline' | 'Community & Leadership';
+  date: string;
+  location: string;
+  description: string;
+  imageSrc: string;
+  aspectRatio: 'portrait' | 'landscape' | 'wide';
+  tags: string[];
+  badge?: string;
+}
+
 export interface BlogPost {
   slug: string;
   title: string;

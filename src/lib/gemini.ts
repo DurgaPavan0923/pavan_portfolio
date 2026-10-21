@@ -49,11 +49,24 @@ ${skillsSummary}
 
 CERTIFICATIONS & ACHIEVEMENTS:
 ${certsSummary}
+
+LIFE & LEADERSHIP IN ACTION (PHOTO GALLERY):
+- 22 documented moments across: Hackathons & Tech (Smart India Hackathon, IRA Showcase at Proxima, Springer Conference, National Cyber Conclave), NCC & Discipline (Odisha State Foundation Day Gubernatorial honors, CATC 2024/2025 army camps, State Camp & Rally championships), and Community & Leadership (GDGoC 500+ student orientation, DevFest 2025, Cloud Community Day, IIC Regional Meet). Available in the interactive [Moments Gallery](#gallery).
 `;
 }
 
 export function getOfflineFallbackResponse(query: string): string {
   const q = query.toLowerCase();
+
+  if (q.includes('photo') || q.includes('gallery') || q.includes('moment') || q.includes('picture') || q.includes('camp') || q.includes('ncc') || q.includes('action')) {
+    return `### 📸 Life & Leadership in Action (Gallery)
+Pavan's portfolio features an interactive photo retrospective documenting 22 real moments across his journey:
+- **Hackathons & Tech**: IRA showcase at Proxima 2026, Smart India Hackathon (SIH), Nirman 4.0, LogicQuest, and the National Cyber Conclave.
+- **NCC & Armed Forces Camps**: Odisha State Foundation Day honors with state dignitaries, CATC 2024/2025 army encampments, and Bharat Scouts & Guides championship sweeps.
+- **Community & Leadership**: Addressing 500+ freshers at GDGoC orientation, DevFest 2025, GDG Cloud Community Day, and the IIC Regional Meet.
+
+Explore all 22 photos with full-screen lightbox previews in the [Gallery](#gallery) section!`;
+  }
 
   if (q.includes('intern') || q.includes('experience') || q.includes('leadership') || q.includes('role') || q.includes('tih') || q.includes('gdg') || q.includes('microsoft')) {
     return `### 💼 Professional Experience & Leadership

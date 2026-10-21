@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { label: 'Experience', href: '#experience' },
   { label: 'Research', href: '#research' },
   { label: 'Credentials', href: '#credentials' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Blogs', href: '#blogs' },
   { label: 'Contact', href: '#contact' },
 ];

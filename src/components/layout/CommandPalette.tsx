@@ -15,6 +15,7 @@ import {
   GraduationCap,
   Mail,
   Check,
+  Camera,
 } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { PROFILE_DATA } from '@/data/profile';
@@ -108,6 +109,13 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
       category: 'Navigation',
       icon: <GraduationCap className="w-4 h-4 text-amber-400" />,
       perform: () => navigateTo('#credentials'),
+    },
+    {
+      id: 'nav-gallery',
+      label: 'View Moments & Photo Gallery',
+      category: 'Navigation',
+      icon: <Camera className="w-4 h-4 text-emerald-400" />,
+      perform: () => navigateTo('#gallery'),
     },
     {
       id: 'nav-contact',

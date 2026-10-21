@@ -17,6 +17,7 @@ import { Experience } from '@/components/sections/Experience';
 import { Research } from '@/components/sections/Research';
 import { Certifications } from '@/components/sections/Certifications';
 import { Leadership } from '@/components/sections/Leadership';
+import { Gallery } from '@/components/sections/Gallery';
 import { Blogs } from '@/components/sections/Blogs';
 import { Contact } from '@/components/sections/Contact';
 
@@ -60,6 +61,7 @@ export default function Home() {
         <Research />
         <Certifications />
         <Leadership />
+        <Gallery />
         <Blogs />
         <Contact />
       </main>
