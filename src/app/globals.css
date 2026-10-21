@@ -287,6 +287,26 @@ body {
   color: #020617 !important;
 }
 
+/* Marquee animations */
+@keyframes marquee-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-rtl {
+  animation: marquee-rtl 55s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-rtl:hover,
+.animate-marquee-rtl[data-paused="true"] {
+  animation-play-state: paused !important;
+}
+
 /* Reduced motion overrides */
 @media (prefers-reduced-motion: reduce) {
   *,

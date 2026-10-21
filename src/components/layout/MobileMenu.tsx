@@ -11,13 +11,13 @@ interface MobileMenuProps {
 
 const NAV_LINKS = [
   { label: 'About', href: '#about' },
+  { label: 'Moments', href: '#moments' },
   { label: 'Toolkit', href: '#skills' },
   { label: 'Projects', href: '#projects' },
   { label: 'GitHub Activity', href: '#activity' },
   { label: 'Experience', href: '#experience' },
   { label: 'Research Focus', href: '#research' },
   { label: 'Credentials', href: '#credentials' },
-  { label: 'Moments / Gallery', href: '#gallery' },
   { label: 'Technical Blogs', href: '#blogs' },
   { label: 'Contact', href: '#contact' },
 ];

@@ -10,6 +10,7 @@ import { ChatBot } from '@/components/ai/ChatBot';
 
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
+import { Gallery } from '@/components/sections/Gallery';
 import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
 import { GitHubActivity } from '@/components/sections/GitHubActivity';
@@ -17,7 +18,6 @@ import { Experience } from '@/components/sections/Experience';
 import { Research } from '@/components/sections/Research';
 import { Certifications } from '@/components/sections/Certifications';
 import { Leadership } from '@/components/sections/Leadership';
-import { Gallery } from '@/components/sections/Gallery';
 import { Blogs } from '@/components/sections/Blogs';
 import { Contact } from '@/components/sections/Contact';
 
@@ -54,6 +54,7 @@ export default function Home() {
       <main id="main-content" className="relative z-10">
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <About />
+        <Gallery />
         <Skills />
         <Projects />
         <GitHubActivity />
@@ -61,7 +62,6 @@ export default function Home() {
         <Research />
         <Certifications />
         <Leadership />
-        <Gallery />
         <Blogs />
         <Contact />
       </main>

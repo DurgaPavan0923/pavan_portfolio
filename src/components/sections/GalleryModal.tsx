@@ -9,8 +9,6 @@ import {
   ChevronRight,
   MapPin,
   Calendar,
-  ExternalLink,
-  Tag,
   Maximize2,
 } from 'lucide-react';
 
@@ -88,19 +86,6 @@ export function GalleryModal({
 
   if (!activeItem || currentIndex === null) return null;
 
-  const getCategoryTheme = (cat: string) => {
-    switch (cat) {
-      case 'Hackathons & Tech':
-        return 'bg-cyan-500/10 border-cyan-500/30 text-cyan-500 dark:text-cyan-400';
-      case 'NCC & Discipline':
-        return 'bg-emerald-500/10 border-emerald-500/30 text-emerald-600 dark:text-emerald-400';
-      case 'Community & Leadership':
-        return 'bg-violet-500/10 border-violet-500/30 text-violet-600 dark:text-violet-400';
-      default:
-        return 'bg-cyan-500/10 border-cyan-500/30 text-cyan-400';
-    }
-  };
-
   return (
     <div
       ref={modalRef}
@@ -120,17 +105,19 @@ export function GalleryModal({
 
       {/* Floating navigation controls - Desktop prev/next */}
       <button
+        type="button"
         onClick={handlePrev}
         aria-label="Previous photograph"
-        className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 cursor-pointer"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
 
       <button
+        type="button"
         onClick={handleNext}
         aria-label="Next photograph"
-        className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 cursor-pointer"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
@@ -139,21 +126,13 @@ export function GalleryModal({
       <div className="relative w-full max-w-5xl bg-white dark:bg-slate-950/95 border border-slate-200 dark:border-white/[0.12] rounded-3xl shadow-2xl overflow-hidden z-[125] flex flex-col my-auto animate-in zoom-in-95 duration-200 max-h-[92vh]">
         {/* Top bar */}
         <div className="flex items-center justify-between px-5 sm:px-8 py-4 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-white/[0.02]">
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
-            <span
-              className={`px-3 py-1 rounded-full border text-xs font-mono font-semibold uppercase tracking-wider ${getCategoryTheme(
-                activeItem.category
-              )}`}
-            >
-              {activeItem.category}
-            </span>
-            {activeItem.badge && (
-              <span className="hidden sm:inline-flex px-2.5 py-0.5 rounded-full bg-slate-200 dark:bg-white/[0.06] border border-slate-300 dark:border-white/[0.1] text-slate-700 dark:text-slate-300 text-xs font-mono">
-                {activeItem.badge}
-              </span>
-            )}
-            <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+          <div className="flex items-center gap-3">
+            <span className="text-xs font-mono font-semibold text-cyan-600 dark:text-cyan-400">
               {currentIndex + 1} / {items.length}
+            </span>
+            <span className="text-xs font-mono text-slate-400 hidden sm:inline">·</span>
+            <span className="text-xs font-mono text-slate-500 dark:text-slate-400 hidden sm:inline">
+              {activeItem.title}
             </span>
           </div>
 
@@ -169,9 +148,10 @@ export function GalleryModal({
               <Maximize2 className="w-4 h-4" />
             </a>
             <button
+              type="button"
               onClick={onClose}
               aria-label="Close dialog"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.12] border border-slate-200 dark:border-white/[0.08] transition-all"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.12] border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
             >
               <X className="w-4 h-4" />
               <span className="hidden sm:inline">ESC</span>
@@ -229,19 +209,6 @@ export function GalleryModal({
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 leading-relaxed">
               {activeItem.description}
             </p>
-
-            {/* Tags and Metadata */}
-            <div className="flex items-center gap-2 flex-wrap pt-2">
-              <Tag className="w-3.5 h-3.5 text-slate-400" />
-              {activeItem.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2.5 py-1 rounded-lg text-xs font-mono bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-slate-600 dark:text-slate-400"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
 
@@ -250,12 +217,13 @@ export function GalleryModal({
           {items.map((item, idx) => (
             <button
               key={item.id}
+              type="button"
               onClick={() => {
                 setImageLoaded(false);
                 onSelectIndex(idx);
               }}
               aria-label={`Jump to ${item.title}`}
-              className={`relative w-12 h-10 sm:w-16 sm:h-12 rounded-lg overflow-hidden shrink-0 transition-all border ${
+              className={`relative w-12 h-10 sm:w-16 sm:h-12 rounded-lg overflow-hidden shrink-0 transition-all border cursor-pointer ${
                 idx === currentIndex
                   ? 'border-cyan-400 ring-2 ring-cyan-400/40 scale-105'
                   : 'border-transparent opacity-60 hover:opacity-100'
