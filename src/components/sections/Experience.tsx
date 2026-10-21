@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { EXPERIENCES } from '@/data/experience';
-import { Calendar, MapPin, CheckCircle, Sparkles } from 'lucide-react';
+import { Calendar, MapPin, CheckCircle } from 'lucide-react';
 
 export function Experience() {
   return (
@@ -43,17 +43,6 @@ export function Experience() {
                 <div className="p-6 rounded-3xl glass-card transition-all duration-300 group-hover:border-cyan-400/40 group-hover:-translate-y-1">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                     <div>
-                      <div className="flex items-center gap-2 mb-1.5">
-                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-[10px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wider">
-                          {exp.type}
-                        </span>
-                        {isCurrent && (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider animate-pulse">
-                            <Sparkles className="w-2.5 h-2.5" />
-                            Active
-                          </span>
-                        )}
-                      </div>
                       <h3 className="font-display font-bold text-lg text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                         {exp.title}
                       </h3>

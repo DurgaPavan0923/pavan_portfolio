@@ -232,7 +232,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   },
   {
     id: 'chakravyuh-genesis-2026',
-    title: 'Chakravyuh & Genesis Flagship Hackathon',
+    title: 'Chakravyuh Genesis',
     subtitle: 'Event Lead & Technical Operations',
     category: 'Community & Leadership',
     date: '2026',
@@ -241,7 +241,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
       'Directing real-time hackathon operations, infrastructure provisioning, problem set distribution, and mentoring hundreds of student developers.',
     imageSrc: '/photos/chakravyuh-genesis-2026.jpeg',
     aspectRatio: 'portrait',
-    tags: ['Chakravyuh', 'Genesis', 'Hackathon Lead', 'Operations'],
+    tags: ['Chakravyuh Genesis', 'Hackathon Lead', 'Operations'],
     badge: 'Event Director',
   },
   {

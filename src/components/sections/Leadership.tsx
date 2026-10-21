@@ -28,12 +28,9 @@ export function Leadership() {
               className="p-6 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               <div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center mb-4">
                   <span className="text-3xl p-2.5 rounded-2xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] group-hover:scale-110 transition-transform duration-300 shadow-sm">
                     {item.icon}
-                  </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold uppercase tracking-wider">
-                    {item.badge}
                   </span>
                 </div>
 

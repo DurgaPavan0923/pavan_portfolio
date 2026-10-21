@@ -2,26 +2,18 @@
 
 import React, { useState } from 'react';
 import { PROJECTS } from '@/data/projects';
-import { Project, ProjectCategory } from '@/types';
+import { Project } from '@/types';
 import { ProjectModal } from './ProjectModal';
-import { ExternalLink, Github, ArrowRight, Sparkles } from 'lucide-react';
-
-const CATEGORIES: ProjectCategory[] = ['All', 'Full Stack AI', 'NLP', 'Web3', 'Open Source'];
+import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 
 export function Projects() {
-  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('All');
   const [activeModalProject, setActiveModalProject] = useState<Project | null>(null);
-
-  const filteredProjects =
-    selectedCategory === 'All'
-      ? PROJECTS
-      : PROJECTS.filter((p) => p.category === selectedCategory);
 
   return (
     <section id="projects" aria-label="Featured Projects" className="relative py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
-        <div className="flex flex-col items-center text-center mb-12">
+        <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
             <span>03 // FEATURED WORK</span>
           </div>
@@ -33,34 +25,9 @@ export function Projects() {
           </p>
         </div>
 
-        {/* Filter Tabs with Counts */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {CATEGORIES.map((cat) => {
-            const isSelected = selectedCategory === cat;
-            const count = cat === 'All' ? PROJECTS.length : PROJECTS.filter((p) => p.category === cat).length;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-1.5 rounded-full text-xs font-medium transition-all duration-200 flex items-center gap-1.5 cursor-pointer ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20 scale-105'
-                    : 'bg-white dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] shadow-sm'
-                }`}
-              >
-                <span>{cat}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-200 dark:bg-white/[0.08] text-slate-500 dark:text-slate-400'}`}>
-                  {count}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
+          {PROJECTS.map((project) => (
             <div
               key={project.slug}
               className={`p-6 rounded-3xl glass-card flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
@@ -73,22 +40,11 @@ export function Projects() {
               )}
 
               <div>
-                {/* Header: Emoji & Categories */}
-                <div className="flex items-center justify-between mb-4">
+                {/* Header: Emoji */}
+                <div className="flex items-center mb-4">
                   <span className="text-3xl p-2.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] group-hover:scale-110 transition-transform duration-300 shadow-sm">
                     {project.emoji}
                   </span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-[10px] font-mono text-slate-600 dark:text-slate-400 uppercase tracking-wider">
-                      {project.category}
-                    </span>
-                    {project.featured && (
-                      <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-[10px] font-mono text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wider flex items-center gap-1 shadow-sm">
-                        <Sparkles className="w-2.5 h-2.5" />
-                        Flagship
-                      </span>
-                    )}
-                  </div>
                 </div>
 
                 {/* Title & Tagline */}
@@ -99,64 +55,56 @@ export function Projects() {
                   {project.tagline}
                 </p>
 
-                {/* Metric Highlight Pill */}
-                {project.metrics && project.metrics[0] && (
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-cyan-50 dark:bg-cyan-500/5 border border-cyan-200 dark:border-cyan-500/15 text-xs font-mono text-cyan-700 dark:text-cyan-300 mb-5">
-                    <span className="font-bold text-cyan-600 dark:text-cyan-400">{project.metrics[0].value}</span>
-                    <span className="text-slate-400 dark:text-slate-500">·</span>
-                    <span className="text-slate-600 dark:text-slate-400">{project.metrics[0].label}</span>
-                  </div>
-                )}
-
-                {/* Technologies Chips */}
+                {/* Tech Stack Chips */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  {project.technologies.slice(0, 4).map((tech, tIdx) => (
+                  {project.technologies.slice(0, 4).map((tech, i) => (
                     <span
-                      key={tIdx}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] text-[11px] font-mono text-slate-700 dark:text-slate-300 transition-colors group-hover:border-cyan-400/30"
+                      key={i}
+                      className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-white/[0.06]"
                     >
                       {tech}
                     </span>
                   ))}
                   {project.technologies.length > 4 && (
-                    <span className="px-2 py-0.5 rounded-md bg-slate-50 dark:bg-white/[0.02] text-[11px] font-mono text-slate-500">
+                    <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-slate-500">
                       +{project.technologies.length - 4}
                     </span>
                   )}
                 </div>
               </div>
 
-              {/* Action Buttons Row */}
-              <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-white/[0.04]">
+              {/* Bottom Actions */}
+              <div className="pt-4 border-t border-slate-100 dark:border-white/[0.04] flex items-center justify-between gap-3">
                 <button
                   type="button"
                   onClick={() => setActiveModalProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 group-hover:translate-x-1 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors group/btn"
                 >
-                  <span>View Case Study</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                  <span>Case Study</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
 
                 <div className="flex items-center gap-2">
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors border border-slate-200 dark:border-white/[0.06]"
-                    aria-label={`${project.name} Source Code`}
-                  >
-                    <Github className="w-3.5 h-3.5" />
-                  </a>
-
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.name} GitHub Repository`}
+                      className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors"
+                    >
+                      <Github className="w-4 h-4" />
+                    </a>
+                  )}
                   {project.liveUrl && (
                     <a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:bg-cyan-50 dark:hover:bg-cyan-500/20 text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-300 transition-colors border border-slate-200 dark:border-white/[0.06]"
                       aria-label={`${project.name} Live Demo`}
+                      className="p-2 rounded-xl text-slate-500 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors"
                     >
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="w-4 h-4" />
                     </a>
                   )}
                 </div>
@@ -164,13 +112,13 @@ export function Projects() {
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Case Study Modal */}
-      <ProjectModal
-        project={activeModalProject}
-        onClose={() => setActiveModalProject(null)}
-      />
+        {/* Deep Case Study Modal */}
+        <ProjectModal
+          project={activeModalProject}
+          onClose={() => setActiveModalProject(null)}
+        />
+      </div>
     </section>
   );
 }

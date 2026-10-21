@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { BLOG_POSTS } from '@/data/blogs';
 import { BlogPost } from '@/types';
 import { BlogModal } from './BlogModal';
-import { BookOpen, Clock, ArrowRight } from 'lucide-react';
+import { BookOpen, Calendar, ArrowRight } from 'lucide-react';
 
 export function Blogs() {
   const [activePost, setActivePost] = useState<BlogPost | null>(null);
@@ -33,15 +33,10 @@ export function Blogs() {
               className="p-6 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
             >
               <div>
-                {/* Meta */}
-                <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
-                  <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wider text-[10px]">
-                    {post.category}
-                  </span>
-                  <span className="flex items-center gap-1 text-[11px]">
-                    <Clock className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
-                    <span>{post.readTime}</span>
-                  </span>
+                {/* Meta: Clean Date */}
+                <div className="flex items-center gap-1.5 text-xs font-mono text-slate-500 dark:text-slate-400 mb-3">
+                  <Calendar className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+                  <span>{post.date}</span>
                 </div>
 
                 {/* Title */}
@@ -56,18 +51,6 @@ export function Blogs() {
               </div>
 
               <div>
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 mb-5 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
-                  {post.tags.slice(0, 3).map((tag, tIdx) => (
-                    <span
-                      key={tIdx}
-                      className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-white/[0.03] text-[10px] font-mono text-slate-600 dark:text-slate-400"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
-                </div>
-
                 {/* Read Button */}
                 <button
                   type="button"

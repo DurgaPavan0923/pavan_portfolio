@@ -45,19 +45,9 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       <div className="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-slate-950 border border-slate-200 dark:border-white/[0.12] rounded-3xl p-6 sm:p-8 shadow-2xl overflow-y-auto z-10 animate-fade-up">
         {/* Header */}
         <div className="flex items-start justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/[0.08]">
-          <div className="flex items-start gap-3">
+          <div className="flex items-center gap-3">
             <span className="text-3xl sm:text-4xl">{project.emoji}</span>
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-mono uppercase tracking-wider font-semibold">
-                  {project.category}
-                </span>
-                {project.featured && (
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-[10px] font-mono uppercase tracking-wider font-semibold">
-                    Flagship
-                  </span>
-                )}
-              </div>
               <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-slate-100">
                 {project.name}
               </h2>

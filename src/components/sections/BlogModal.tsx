@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { BlogPost } from '@/types';
-import { X, Calendar, Clock, Tag } from 'lucide-react';
+import { X, Calendar } from 'lucide-react';
 
 interface BlogModalProps {
   post: BlogPost | null;
@@ -43,18 +43,9 @@ export function BlogModal({ post, onClose }: BlogModalProps) {
         {/* Header */}
         <div className="flex items-start justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/[0.08]">
           <div className="flex-1">
-            <div className="flex items-center gap-3 text-xs font-mono text-cyan-600 dark:text-cyan-400 mb-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 font-semibold uppercase tracking-wider">
-                {post.category}
-              </span>
-              <span className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
-                <Clock className="w-3.5 h-3.5" />
-                <span>{post.readTime}</span>
-              </span>
-              <span className="flex items-center gap-1 text-slate-500">
-                <Calendar className="w-3.5 h-3.5" />
-                <span>{post.date}</span>
-              </span>
+            <div className="flex items-center gap-1.5 text-xs font-mono text-cyan-600 dark:text-cyan-400 mb-2">
+              <Calendar className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+              <span>{post.date}</span>
             </div>
 
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-slate-100 leading-snug">
@@ -72,13 +63,8 @@ export function BlogModal({ post, onClose }: BlogModalProps) {
           </button>
         </div>
 
-        {/* Excerpt Lead */}
-        <div className="p-4 rounded-2xl bg-cyan-50 dark:bg-cyan-500/5 border border-cyan-200 dark:border-cyan-500/15 my-6 text-xs sm:text-sm text-cyan-800 dark:text-cyan-200 leading-relaxed italic">
-          {post.excerpt}
-        </div>
-
         {/* Body Content */}
-        <div className="prose dark:prose-invert prose-sm sm:prose-base max-w-none text-slate-700 dark:text-slate-300 leading-relaxed space-y-4">
+        <div className="prose dark:prose-invert prose-sm sm:prose-base max-w-none text-slate-700 dark:text-slate-300 leading-relaxed space-y-4 pt-6">
           <div
             className="whitespace-pre-line font-sans text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed"
             dangerouslySetInnerHTML={{
@@ -88,19 +74,6 @@ export function BlogModal({ post, onClose }: BlogModalProps) {
                 .replace(/\*\*(.*?)\*\*/g, '<strong class="text-slate-900 dark:text-slate-100 font-semibold">$1</strong>'),
             }}
           />
-        </div>
-
-        {/* Tags */}
-        <div className="flex flex-wrap gap-2 pt-6 mt-8 border-t border-slate-200 dark:border-white/[0.08]">
-          {post.tags.map((tag, idx) => (
-            <span
-              key={idx}
-              className="px-2.5 py-1 rounded-lg bg-slate-100 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] text-xs font-mono text-slate-600 dark:text-slate-400 flex items-center gap-1"
-            >
-              <Tag className="w-3 h-3 text-cyan-600 dark:text-cyan-400" />
-              <span>{tag}</span>
-            </span>
-          ))}
         </div>
       </div>
     </div>

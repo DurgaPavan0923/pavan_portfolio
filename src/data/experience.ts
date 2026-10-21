@@ -26,7 +26,7 @@ export const EXPERIENCES: ExperienceRole[] = [
       'Spearheading chapter operations, technical workshops, and developer initiatives across the university community.',
       'Built a 100+ member cross-functional team and reviewed 600+ recruitment applications.',
       'Facilitated the Google Cloud Study Jam, guiding students to complete skill badges and milestones.',
-      'Directed core execution for flagship events: Algorithm Arena, 3-day Cybersecurity Workshop, and Chakravyuh Genesis.',
+      'Contributed to Chakravyuh Genesis.',
     ],
     skills: ['Technical Leadership', 'Community Building', 'Event Direction', 'Cloud Jam Facilitation'],
   },

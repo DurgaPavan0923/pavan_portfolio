@@ -1,27 +1,25 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { SKILL_CATEGORIES } from '@/data/skills';
-import { Sparkles, Layers, Cpu, Cloud, Terminal, Database, Code2, Zap } from 'lucide-react';
+import { Sparkles, Layers, Cpu, Cloud, Terminal, Database, Code2 } from 'lucide-react';
 
 const MARQUEE_TECH = [
-  { name: 'PyTorch', icon: '🔥', category: 'Deep Learning' },
-  { name: 'Google Gemini 1.5', icon: '✨', category: 'GenAI' },
-  { name: 'Neo4j Graph RAG', icon: '🕸️', category: 'Knowledge Graphs' },
-  { name: 'Microsoft Azure', icon: '☁️', category: 'Cloud Infrastructure' },
-  { name: 'Pinecone Vector DB', icon: '🌲', category: 'Vector Search' },
-  { name: 'Google Cloud Platform', icon: '🌐', category: 'Cloud MLOps' },
-  { name: 'LangChain & LlamaIndex', icon: '🦜', category: 'Agents' },
-  { name: 'Next.js 15 & React 19', icon: '⚛️', category: 'Full Stack' },
-  { name: 'Docker & Kubernetes', icon: '🐳', category: 'DevOps' },
-  { name: 'FastAPI & Python', icon: '⚡', category: 'Backend' },
-  { name: 'Scikit-Learn', icon: '📊', category: 'Machine Learning' },
-  { name: 'Three.js & Canvas', icon: '🎨', category: 'Interactive 3D' },
+  { name: 'PyTorch', icon: '🔥' },
+  { name: 'Google Gemini 1.5', icon: '✨' },
+  { name: 'Neo4j Graph RAG', icon: '🕸️' },
+  { name: 'Microsoft Azure', icon: '☁️' },
+  { name: 'Pinecone Vector DB', icon: '🌲' },
+  { name: 'Google Cloud Platform', icon: '🌐' },
+  { name: 'LangChain & LlamaIndex', icon: '🦜' },
+  { name: 'Next.js 15 & React 19', icon: '⚛️' },
+  { name: 'Docker & Kubernetes', icon: '🐳' },
+  { name: 'FastAPI & Python', icon: '⚡' },
+  { name: 'Scikit-Learn', icon: '📊' },
+  { name: 'Three.js & Canvas', icon: '🎨' },
 ];
 
 export function Skills() {
-  const [selectedCategory, setSelectedCategory] = useState<string>('All');
-
   const categoryIcons: Record<string, React.ReactNode> = {
     'Generative AI, LLMs & RAG': <Sparkles className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />,
     'Machine Learning & Deep Learning': <Cpu className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />,
@@ -30,13 +28,6 @@ export function Skills() {
     'Databases & Storage': <Database className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />,
     'Frontend & Interactive Visuals': <Code2 className="w-4 h-4 text-emerald-500 dark:text-emerald-400" />,
   };
-
-  const categories = ['All', ...SKILL_CATEGORIES.map((c) => c.title)];
-
-  const displayCategories =
-    selectedCategory === 'All'
-      ? SKILL_CATEGORIES
-      : SKILL_CATEGORIES.filter((c) => c.title === selectedCategory);
 
   return (
     <section id="skills" aria-label="Skills & AI Toolkit" className="relative py-20 px-4 sm:px-6">
@@ -55,57 +46,33 @@ export function Skills() {
         </div>
 
         {/* Infinite Animated Marquee Ribbon */}
-        <div className="relative w-full overflow-hidden mb-12 py-3 border-y border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-white/[0.01]">
+        <div className="relative w-full overflow-hidden mb-14 py-3 border-y border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-white/[0.01]">
           <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
           <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
-          
+
           <div className="flex gap-4 w-max animate-marquee hover:[animation-play-state:paused]">
             {[...MARQUEE_TECH, ...MARQUEE_TECH].map((tech, i) => (
               <div
                 key={i}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] shadow-sm text-xs font-medium text-slate-700 dark:text-slate-200 hover:scale-105 hover:border-cyan-400 transition-all cursor-default"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] shadow-sm text-xs font-medium text-slate-700 dark:text-slate-200 hover:scale-105 hover:border-cyan-400 transition-all cursor-default"
               >
                 <span className="text-sm">{tech.icon}</span>
                 <span className="font-semibold text-slate-800 dark:text-slate-100">{tech.name}</span>
-                <span className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-500/10 px-1.5 py-0.5 rounded">
-                  {tech.category}
-                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
-          {categories.map((cat) => {
-            const isSelected = selectedCategory === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-bold shadow-md shadow-cyan-500/20 scale-105'
-                    : 'bg-white dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] shadow-sm'
-                }`}
-              >
-                {cat}
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Categories Grid */}
+        {/* Categories Grid (Clean Grouped Sections) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayCategories.map((cat, idx) => (
+          {SKILL_CATEGORIES.map((cat, idx) => (
             <div
               key={idx}
-              className="p-6 rounded-2xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1"
+              className="p-6 rounded-3xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-cyan-400/40"
             >
               <div>
                 <div className="flex items-center gap-3 mb-3">
-                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] group-hover:border-cyan-400/50 transition-colors">
+                  <div className="p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] group-hover:border-cyan-400/50 transition-colors shadow-sm">
                     {categoryIcons[cat.title] || <Layers className="w-4 h-4 text-cyan-500 dark:text-cyan-400" />}
                   </div>
                   <div>
@@ -117,7 +84,7 @@ export function Skills() {
                 <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-5">{cat.description}</p>
               </div>
 
-              {/* Skills Pills */}
+              {/* Skills Chips */}
               <div className="flex flex-wrap gap-2 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
                 {cat.skills.map((skill, sIdx) => (
                   <div
