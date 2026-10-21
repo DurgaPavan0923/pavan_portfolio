@@ -34,7 +34,9 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
   useEffect(() => {
     if (isOpen) {
       setTimeout(() => inputRef.current?.focus(), 100);
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      if (typeof messagesEndRef.current?.scrollIntoView === 'function') {
+        messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   }, [isOpen, messages]);
 

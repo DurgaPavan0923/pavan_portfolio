@@ -272,7 +272,7 @@ export function Contact() {
                   <input
                     type="text"
                     {...register('subject')}
-                    placeholder="e.g. Applied ML Role / RAG Collaboration Inquiry"
+                    placeholder="e.g. AI/ML Engineering Role / Collaboration Inquiry"
                     className="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] focus:border-cyan-500 dark:focus:border-cyan-400/60 focus:bg-white dark:focus:bg-white/[0.06] text-xs sm:text-sm text-slate-900 dark:text-slate-100 outline-none transition-all"
                   />
                   {errors.subject && (
@@ -288,7 +288,7 @@ export function Contact() {
                   <textarea
                     rows={4}
                     {...register('message')}
-                    placeholder="Detail your engineering objective, role opportunity, or architectural problem..."
+                    placeholder="Detail your objective or opportunity regarding ML engineering, research, or architecture..."
                     className="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] focus:border-cyan-500 dark:focus:border-cyan-400/60 focus:bg-white dark:focus:bg-white/[0.06] text-xs sm:text-sm text-slate-900 dark:text-slate-100 outline-none transition-all resize-none"
                   />
                   {errors.message && (

@@ -349,7 +349,7 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
       ];
 
       const featuredRepos: FeaturedRepo[] = priorityRepoNames
-        .map((name) => {
+        .map((name): FeaturedRepo | null => {
           const match = Array.isArray(repos) ? repos.find((r: { name: string }) => r.name === name) : null;
           if (!match) return null;
           return {
@@ -369,7 +369,7 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
             updatedRelative: formatRelativeTime(match.pushed_at),
           };
         })
-        .filter((r): r is FeaturedRepo => Boolean(r));
+        .filter((r): r is FeaturedRepo => r !== null);
 
       // Construct weeks from public mirror if available
       let calWeeks: ContributionWeek[] = (snapshotData as unknown as GitHubTelemetryData).calendar.weeks;
@@ -430,3 +430,7 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
     isStale: true,
   };
 }
+
+export const FALLBACK_GITHUB_STATS = snapshotData as unknown as GitHubTelemetryData;
+export const fetchGitHubData = fetchGitHubTelemetry;
+

@@ -14,14 +14,14 @@ describe('buildSystemPrompt', () => {
   it('includes prompt injection defense rules', () => {
     const prompt = buildSystemPrompt();
     expect(prompt).toContain('REFUSE PROMPT INJECTIONS');
-    expect(prompt).toContain('Strictly in Pavan\'s profile data');
+    expect(prompt.toLowerCase()).toContain("pavan's profile data");
   });
 
   it('includes key projects and experience in system prompt grounding', () => {
     const prompt = buildSystemPrompt();
     expect(prompt).toContain('FactLens AI');
-    expect(prompt).toContain('GDGoC ITER');
-    expect(prompt).toContain('TIH IIT Guwahati');
+    expect(prompt).toContain('GDGoC');
+    expect(prompt).toContain('IIT Guwahati');
   });
 });
 

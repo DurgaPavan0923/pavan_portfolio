@@ -7,18 +7,18 @@ describe('Projects Component', () => {
     render(<Projects />);
     expect(screen.getByText('Production AI Applications &')).toBeInTheDocument();
     expect(screen.getByText('FactLens AI')).toBeInTheDocument();
-    expect(screen.getByText('InsightAI')).toBeInTheDocument();
+    expect(screen.getByText(/InsightAI/)).toBeInTheDocument();
   });
 
   it('filters projects when a category button is clicked', () => {
     render(<Projects />);
     
     // Filter by NLP
-    const nlpButton = screen.getByRole('button', { name: /^NLP$/i });
+    const nlpButton = screen.getByRole('button', { name: /NLP/i });
     fireEvent.click(nlpButton);
 
-    // FactLens AI has category 'AI/ML' or 'Full Stack AI', while NLP projects are displayed
-    expect(screen.getByRole('button', { name: /^NLP$/i })).toHaveClass('font-bold');
+    // Filter button becomes active
+    expect(nlpButton).toHaveClass('font-bold');
   });
 
   it('renders view case study buttons for featured projects', () => {

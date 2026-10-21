@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     siteName: `${PROFILE_DATA.fullName} Portfolio`,
     images: [
       {
-        url: `${siteUrl}/opengraph-image`,
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
         alt: `${PROFILE_DATA.fullName} - AI & Machine Learning Engineer`,
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
     description:
       'AI & Machine Learning Engineer building RAG systems, multi-agent pipelines, and cloud architectures.',
-    images: [`${siteUrl}/opengraph-image`],
+    images: [`${siteUrl}/og-image.png`],
   },
   robots: {
     index: true,

@@ -55,6 +55,16 @@ ${certsSummary}
 export function getOfflineFallbackResponse(query: string): string {
   const q = query.toLowerCase();
 
+  if (q.includes('intern') || q.includes('experience') || q.includes('leadership') || q.includes('role') || q.includes('tih') || q.includes('gdg') || q.includes('microsoft')) {
+    return `### 💼 Professional Experience & Leadership
+- **Student Intern** at **TIH IIT Guwahati** (Jun 2026 – Present): Applied machine learning research.
+- **Club Coordinator** at **GDGoC ITER** (Sep 2025 – Present): Leading chapter initiatives, study jams, and developer workshops.
+- **AI Intern** at **Edunet Foundation (IBM SkillsBuild & AICTE)** (May – Jun 2026): FactLens AI development.
+- **Azure Intern** at **Microsoft Elevate (AICTE)** (Jan – Feb 2026): Scalable Azure cloud infrastructure.
+- **AI/ML Intern** at **InternPro** (Jun – Jul 2025): Machine learning regression models.
+- **Campus Ambassador** at **Cognizance IIT Roorkee** & **eDC IIT Delhi**.`;
+  }
+
   if (q.includes('project') || q.includes('build') || q.includes('work') || q.includes('factlens') || q.includes('agora') || q.includes('ira')) {
     return `### 🚀 Featured AI & ML Projects by Pavan
 - **FactLens AI**: Multi-agent explainable AI platform for claim verification & media literacy using Gemini API, Neo4j, and Pinecone.
@@ -73,16 +83,6 @@ Explore interactive case studies in the [Projects](#projects) section!`;
 - **Languages & Databases**: Python, Java, SQL, TypeScript, Neo4j AuraDB, PostgreSQL.
 
 Check out the full interactive breakdown in the [Toolkit](#skills) section!`;
-  }
-
-  if (q.includes('intern') || q.includes('experience') || q.includes('microsoft') || q.includes('iit') || q.includes('work') || q.includes('gdg')) {
-    return `### 💼 Professional Experience & Leadership
-- **Student Intern** at **TIH IIT Guwahati** (Jun 2026 – Present): Applied machine learning research.
-- **Club Coordinator** at **GDGoC ITER** (Sep 2025 – Present): Leading chapter initiatives, study jams, and developer workshops.
-- **AI Intern** at **Edunet Foundation (IBM SkillsBuild & AICTE)** (May – Jun 2026): FactLens AI development.
-- **Azure Intern** at **Microsoft Elevate (AICTE)** (Jan – Feb 2026): Scalable Azure cloud infrastructure.
-- **AI/ML Intern** at **InternPro** (Jun – Jul 2025): Machine learning regression models.
-- **Campus Ambassador** at **Cognizance IIT Roorkee** & **eDC IIT Delhi**.`;
   }
 
   if (q.includes('cert') || q.includes('credential') || q.includes('neo4j') || q.includes('badge') || q.includes('hackathon')) {
