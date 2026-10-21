@@ -117,9 +117,9 @@ cp .env.example .env.local
 | `npm run dev` | Starts Next.js development server with Turbopack |
 | `npm run build` | Builds optimized production static bundle |
 | `npm run start` | Starts Next.js production server |
-| `npm run lint` | Runs ESLint checks across `src/` |
-| `npm run typecheck` | Runs `tsc --noEmit` to verify TypeScript types |
-| `npm run test` | Runs Vitest unit & component test suite (39 tests) |
+| `npm run lint` | Runs ESLint checks across `src/` (0 warnings, 0 errors) |
+| `npm run typecheck` | Runs `tsc --noEmit` to verify TypeScript types (0 errors) |
+| `npm run test` | Runs Vitest unit & component test suite (41 tests across 10 suites) |
 | `npm run format` | Formats codebase with Prettier |
 
 ---
