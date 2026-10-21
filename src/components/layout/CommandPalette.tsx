@@ -16,6 +16,11 @@ import {
   Mail,
   Check,
   Camera,
+  Eye,
+  EyeOff,
+  ArrowUp,
+  Sparkles,
+  BookOpen,
 } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { PROFILE_DATA } from '@/data/profile';
@@ -24,6 +29,8 @@ interface CommandPaletteProps {
   isOpen: boolean;
   onClose: () => void;
   onOpenChat: () => void;
+  isFocusMode?: boolean;
+  onToggleFocusMode?: () => void;
 }
 
 interface CommandItem {
@@ -34,7 +41,13 @@ interface CommandItem {
   perform: () => void;
 }
 
-export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPaletteProps) {
+export function CommandPalette({
+  isOpen,
+  onClose,
+  onOpenChat,
+  isFocusMode = false,
+  onToggleFocusMode,
+}: CommandPaletteProps) {
   const [query, setQuery] = useState('');
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [copiedEmail, setCopiedEmail] = useState(false);
@@ -68,6 +81,10 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
 
   const navigateTo = (hash: string) => {
     onClose();
+    if (hash === '#') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.querySelector(hash);
     el?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -86,49 +103,87 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
       id: 'nav-projects',
       label: 'Explore Featured Projects',
       category: 'Navigation',
-      icon: <Layers className="w-4 h-4 text-cyan-400" />,
+      icon: <Layers className="w-4 h-4 text-cyan-500" />,
       perform: () => navigateTo('#projects'),
     },
     {
-      id: 'nav-skills',
-      label: 'View AI Toolkit & Skills',
+      id: 'nav-why-me',
+      label: 'Why Work With Me (Bento Grid)',
       category: 'Navigation',
-      icon: <Code className="w-4 h-4 text-emerald-400" />,
+      icon: <Sparkles className="w-4 h-4 text-amber-500" />,
+      perform: () => navigateTo('#why-me'),
+    },
+    {
+      id: 'nav-moments',
+      label: 'View Moments & Photo Retrospective',
+      category: 'Navigation',
+      icon: <Camera className="w-4 h-4 text-emerald-500" />,
+      perform: () => navigateTo('#moments'),
+    },
+    {
+      id: 'nav-skills',
+      label: 'View AI Toolkit & Core Skills',
+      category: 'Navigation',
+      icon: <Code className="w-4 h-4 text-cyan-500" />,
       perform: () => navigateTo('#skills'),
     },
     {
       id: 'nav-experience',
-      label: 'Review Experience & Internships',
+      label: 'Review Experience & Community Impact',
       category: 'Navigation',
-      icon: <Briefcase className="w-4 h-4 text-violet-400" />,
+      icon: <Briefcase className="w-4 h-4 text-violet-500" />,
       perform: () => navigateTo('#experience'),
     },
     {
       id: 'nav-credentials',
       label: 'Inspect Certifications & Hackathons',
       category: 'Navigation',
-      icon: <GraduationCap className="w-4 h-4 text-amber-400" />,
+      icon: <GraduationCap className="w-4 h-4 text-amber-500" />,
       perform: () => navigateTo('#credentials'),
     },
     {
-      id: 'nav-gallery',
-      label: 'View Moments & Photo Gallery',
+      id: 'nav-blogs',
+      label: 'Read Technical Blogs & Writeups',
       category: 'Navigation',
-      icon: <Camera className="w-4 h-4 text-emerald-400" />,
-      perform: () => navigateTo('#gallery'),
+      icon: <BookOpen className="w-4 h-4 text-blue-500" />,
+      perform: () => navigateTo('#blogs'),
     },
     {
       id: 'nav-contact',
-      label: 'Get In Touch / Send Message',
+      label: 'Get In Touch / Contact',
       category: 'Navigation',
-      icon: <Mail className="w-4 h-4 text-cyan-400" />,
+      icon: <Mail className="w-4 h-4 text-cyan-500" />,
       perform: () => navigateTo('#contact'),
     },
     {
-      id: 'act-resume',
-      label: 'Download Resume (PDF)',
+      id: 'act-focus',
+      label: isFocusMode ? 'Exit Focus Mode' : 'Toggle Focus Mode (Distraction-Free)',
       category: 'Actions',
-      icon: <FileText className="w-4 h-4 text-cyan-400" />,
+      icon: isFocusMode ? (
+        <Eye className="w-4 h-4 text-emerald-500" />
+      ) : (
+        <EyeOff className="w-4 h-4 text-violet-500" />
+      ),
+      perform: () => {
+        onToggleFocusMode?.();
+        onClose();
+      },
+    },
+    {
+      id: 'act-scroll-top',
+      label: 'Scroll to Top of Page',
+      category: 'Actions',
+      icon: <ArrowUp className="w-4 h-4 text-cyan-500" />,
+      perform: () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        onClose();
+      },
+    },
+    {
+      id: 'act-resume',
+      label: 'Download Official Resume (PDF)',
+      category: 'Actions',
+      icon: <FileText className="w-4 h-4 text-cyan-500" />,
       perform: () => {
         window.open('/Rajana.pdf', '_blank');
         onClose();
@@ -138,14 +193,18 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
       id: 'act-copy-email',
       label: copiedEmail ? 'Email Copied!' : `Copy Email (${PROFILE_DATA.contact.email})`,
       category: 'Actions',
-      icon: copiedEmail ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4 text-slate-400" />,
+      icon: copiedEmail ? (
+        <Check className="w-4 h-4 text-emerald-500" />
+      ) : (
+        <Copy className="w-4 h-4 text-slate-400" />
+      ),
       perform: copyEmail,
     },
     {
       id: 'act-chat',
       label: 'Talk to Neural AI Assistant',
       category: 'Actions',
-      icon: <Bot className="w-4 h-4 text-violet-400" />,
+      icon: <Bot className="w-4 h-4 text-violet-500" />,
       perform: () => {
         onClose();
         onOpenChat();
@@ -155,7 +214,11 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
       id: 'act-theme',
       label: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`,
       category: 'Actions',
-      icon: theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-cyan-400" />,
+      icon: theme === 'dark' ? (
+        <Sun className="w-4 h-4 text-amber-500" />
+      ) : (
+        <Moon className="w-4 h-4 text-cyan-500" />
+      ),
       perform: () => {
         toggleTheme();
         onClose();
@@ -175,7 +238,7 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
       id: 'soc-linkedin',
       label: 'Open LinkedIn Profile',
       category: 'Social',
-      icon: <ExternalLink className="w-4 h-4 text-cyan-400" />,
+      icon: <ExternalLink className="w-4 h-4 text-cyan-500" />,
       perform: () => {
         window.open(PROFILE_DATA.contact.linkedin, '_blank');
         onClose();
@@ -183,9 +246,10 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
     },
   ];
 
-  const filteredCommands = COMMANDS.filter((cmd) =>
-    cmd.label.toLowerCase().includes(query.toLowerCase()) ||
-    cmd.category.toLowerCase().includes(query.toLowerCase())
+  const filteredCommands = COMMANDS.filter(
+    (cmd) =>
+      cmd.label.toLowerCase().includes(query.toLowerCase()) ||
+      cmd.category.toLowerCase().includes(query.toLowerCase())
   );
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -230,7 +294,9 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
             placeholder="Type a command, project, or section..."
             className="w-full bg-transparent text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none"
           />
-          <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-white/[0.06] text-slate-500 dark:text-slate-400">ESC</kbd>
+          <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-white/[0.06] text-slate-500 dark:text-slate-400">
+            ESC
+          </kbd>
         </div>
 
         {/* Results List */}
@@ -256,7 +322,9 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
                     {cmd.icon}
                     <span className="font-medium">{cmd.label}</span>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">{cmd.category}</span>
+                  <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                    {cmd.category}
+                  </span>
                 </button>
               );
             })
@@ -268,8 +336,9 @@ export function CommandPalette({ isOpen, onClose, onOpenChat }: CommandPalettePr
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
             <span>↵ Select</span>
+            <span>ESC Close</span>
           </div>
-          <span>Pavan Portfolio v2</span>
+          <span className="hidden sm:inline">⌘K / Ctrl+K</span>
         </div>
       </div>
     </div>
