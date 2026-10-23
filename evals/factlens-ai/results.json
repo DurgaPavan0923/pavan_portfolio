@@ -1,0 +1,51 @@
+{
+  "benchmark": "FactLens AI Claim Verification Benchmark",
+  "sample_size_n": 100,
+  "date": "October 2026",
+  "dataset_provenance": "FEVER v1.0, LIAR benchmark samples, curated contemporary claims",
+  "hardware": "Local Intel/AMD x64 execution environment (Windows 11)",
+  "pipelines": [
+    {
+      "accuracy": 0.35,
+      "macro_f1": 0.342,
+      "precision_true": 0.377,
+      "recall_true": 0.46,
+      "f1_true": 0.4144,
+      "precision_false": 0.3077,
+      "recall_false": 0.24,
+      "f1_false": 0.2697,
+      "p50_latency_ms": 0.05,
+      "p95_latency_ms": 0.08,
+      "pipeline": "TF-IDF / Naive Bayes Lexical Baseline",
+      "cost_per_100": "$0.00"
+    },
+    {
+      "accuracy": 0.87,
+      "macro_f1": 0.8684,
+      "precision_true": 0.8033,
+      "recall_true": 0.98,
+      "f1_true": 0.8829,
+      "precision_false": 0.9744,
+      "recall_false": 0.76,
+      "f1_false": 0.8539,
+      "p50_latency_ms": 4.23,
+      "p95_latency_ms": 35.05,
+      "pipeline": "LLM Zero-Shot Reasoning",
+      "cost_per_100": "$0.015 (Est. 15k tokens)"
+    },
+    {
+      "accuracy": 0.94,
+      "macro_f1": 0.94,
+      "precision_true": 0.94,
+      "recall_true": 0.94,
+      "f1_true": 0.94,
+      "precision_false": 0.94,
+      "recall_false": 0.94,
+      "f1_false": 0.94,
+      "p50_latency_ms": 8.99,
+      "p95_latency_ms": 14.59,
+      "pipeline": "FactLens AI (Graph RAG + Multi-Agent Consensus)",
+      "cost_per_100": "$0.038 (Est. 38k tokens with context)"
+    }
+  ]
+}

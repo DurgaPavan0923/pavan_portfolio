@@ -15,7 +15,18 @@ export interface Project {
   tagline: string;
   description: string;
   problem: string;
+  approach?: string;
   solution: string;
+  evalResult?: {
+    summary: string;
+    dataset: string;
+    sampleSize: string;
+    date: string;
+    metrics: ProjectMetric[];
+    status?: string;
+  };
+  whatIdImprove?: string;
+  evalUrl?: string;
   architecture: string;
   architectureSteps?: {
     icon: string;

@@ -2,7 +2,18 @@
 
 import React, { useEffect } from 'react';
 import { Project } from '@/types';
-import { X, ExternalLink, Github, CheckCircle2, AlertTriangle, Lightbulb, Layers, Cpu } from 'lucide-react';
+import {
+  X,
+  ExternalLink,
+  Github,
+  AlertTriangle,
+  Lightbulb,
+  Layers,
+  Cpu,
+  BarChart3,
+  FileCheck2,
+  Wrench,
+} from 'lucide-react';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -17,11 +28,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       if (e.key === 'Escape') onClose();
     };
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [project, onClose]);
@@ -39,6 +51,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
       <div
         className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-md transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Modal Dialog */}
@@ -57,7 +70,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             type="button"
             onClick={onClose}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-colors"
+            className="p-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
             aria-label="Close dialog"
           >
             <X className="w-5 h-5" />
@@ -69,15 +82,24 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {project.tagline}
         </p>
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
-          {project.metrics.map((m, idx) => (
-            <div key={idx} className="p-3 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] text-center">
-              <div className="font-display font-extrabold text-lg sm:text-xl text-cyan-600 dark:text-cyan-400">{m.value}</div>
-              <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">{m.label}</div>
-            </div>
-          ))}
-        </div>
+        {/* Metrics Grid (Only if metrics are populated) */}
+        {project.metrics && project.metrics.length > 0 && (
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
+            {project.metrics.map((m, idx) => (
+              <div
+                key={idx}
+                className="p-3 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06] text-center"
+              >
+                <div className="font-display font-extrabold text-lg sm:text-xl text-cyan-600 dark:text-cyan-400">
+                  {m.value}
+                </div>
+                <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">
+                  {m.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Deep Dive Sections */}
         <div className="space-y-6 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
@@ -85,19 +107,71 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="p-4 rounded-2xl bg-amber-50 dark:bg-amber-500/5 border border-amber-200 dark:border-amber-500/15">
             <div className="flex items-center gap-2 font-display font-bold text-amber-700 dark:text-amber-400 text-sm mb-1.5">
               <AlertTriangle className="w-4 h-4 shrink-0" />
-              <span>The Problem Space</span>
+              <span>Problem Statement</span>
             </div>
             <p className="leading-relaxed text-slate-700 dark:text-slate-300">{project.problem}</p>
           </div>
 
-          {/* Solution */}
+          {/* Approach & Solution */}
           <div className="p-4 rounded-2xl bg-cyan-50 dark:bg-cyan-500/5 border border-cyan-200 dark:border-cyan-500/15">
             <div className="flex items-center gap-2 font-display font-bold text-cyan-700 dark:text-cyan-400 text-sm mb-1.5">
               <Lightbulb className="w-4 h-4 shrink-0" />
-              <span>Engineered Architectural Solution</span>
+              <span>Engineered Architectural Approach</span>
             </div>
-            <p className="leading-relaxed text-slate-700 dark:text-slate-300">{project.solution}</p>
+            <p className="leading-relaxed text-slate-700 dark:text-slate-300">
+              {project.approach || project.solution}
+            </p>
           </div>
+
+          {/* Evaluation Results */}
+          {project.evalResult && (
+            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/5 border border-emerald-200 dark:border-emerald-500/15">
+              <div className="flex items-center justify-between gap-2 font-display font-bold text-emerald-700 dark:text-emerald-400 text-sm mb-2">
+                <div className="flex items-center gap-2">
+                  <BarChart3 className="w-4 h-4 shrink-0" />
+                  <span>Empirical Evaluation &amp; Benchmarks</span>
+                </div>
+                <span className="text-xs font-mono font-normal text-slate-500">{project.evalResult.date}</span>
+              </div>
+              <p className="leading-relaxed text-slate-700 dark:text-slate-300 mb-3">
+                {project.evalResult.summary}
+              </p>
+              <div className="text-xs font-mono text-slate-500 mb-3">
+                Dataset: <span className="font-semibold text-slate-700 dark:text-slate-300">{project.evalResult.dataset}</span> ({project.evalResult.sampleSize})
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-3">
+                {project.evalResult.metrics.map((m, idx) => (
+                  <div key={idx} className="p-2 rounded-xl bg-white/80 dark:bg-slate-900/80 border border-slate-200 dark:border-white/[0.08] text-center">
+                    <div className="font-bold text-emerald-600 dark:text-emerald-400 text-sm">{m.value}</div>
+                    <div className="text-[10px] font-mono text-slate-500 uppercase">{m.label}</div>
+                  </div>
+                ))}
+              </div>
+              {project.evalUrl && (
+                <a
+                  href={project.evalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+                >
+                  <FileCheck2 className="w-4 h-4" />
+                  <span>View Full /evals Methodology &amp; Script</span>
+                  <span>↗</span>
+                </a>
+              )}
+            </div>
+          )}
+
+          {/* What I'd Improve */}
+          {project.whatIdImprove && (
+            <div className="p-4 rounded-2xl bg-violet-50 dark:bg-violet-500/5 border border-violet-200 dark:border-violet-500/15">
+              <div className="flex items-center gap-2 font-display font-bold text-violet-700 dark:text-violet-400 text-sm mb-1.5">
+                <Wrench className="w-4 h-4 shrink-0" />
+                <span>What I’d Improve in Next Iteration</span>
+              </div>
+              <p className="leading-relaxed text-slate-700 dark:text-slate-300">{project.whatIdImprove}</p>
+            </div>
+          )}
 
           {/* Architecture Steps (if present) */}
           {project.architectureSteps && (
@@ -139,15 +213,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               ))}
             </div>
           </div>
-
-          {/* Impact */}
-          <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/5 border border-emerald-200 dark:border-emerald-500/15">
-            <div className="flex items-center gap-2 font-display font-bold text-emerald-700 dark:text-emerald-400 text-sm mb-1">
-              <CheckCircle2 className="w-4 h-4 shrink-0" />
-              <span>Verified Impact &amp; Evaluation</span>
-            </div>
-            <p className="leading-relaxed text-slate-700 dark:text-slate-300">{project.impact}</p>
-          </div>
         </div>
 
         {/* Action Links */}
@@ -156,7 +221,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.1] text-xs font-semibold transition-colors"
+            className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-slate-100 dark:bg-white/[0.04] hover:bg-slate-200 dark:hover:bg-white/[0.08] text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.1] text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             <Github className="w-3.5 h-3.5" />
             <span>View Source Code</span>
@@ -168,7 +233,7 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-bold text-xs transition-transform hover:-translate-y-0.5 shadow-md shadow-cyan-500/20"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-bold text-xs transition-transform hover:-translate-y-0.5 shadow-md shadow-cyan-500/20 focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               <span>Launch Live System</span>
               <ExternalLink className="w-3.5 h-3.5" />

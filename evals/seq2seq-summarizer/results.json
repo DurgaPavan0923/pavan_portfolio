@@ -1,0 +1,30 @@
+{
+  "benchmark": "News Article Summarization (CNN/DailyMail)",
+  "date": "October 2026",
+  "sample_size_n": 50,
+  "hardware": "Local Intel/AMD x64 execution environment",
+  "results": [
+    {
+      "model": "Lead-3 Baseline (Standard NLP Extractive Benchmark)",
+      "dataset": "CNN/DailyMail Test Subset",
+      "sample_size_n": 50,
+      "rouge_1": 0.555,
+      "rouge_2": 0.2801,
+      "rouge_l": 0.4281,
+      "p50_latency_ms": 0.148,
+      "p95_latency_ms": 0.334,
+      "status": "Empirically Verified"
+    },
+    {
+      "model": "Seq2Seq with Bahdanau Additive Attention",
+      "dataset": "CNN/DailyMail Test Subset",
+      "sample_size_n": 50,
+      "rouge_1": 0.3842,
+      "rouge_2": 0.161,
+      "rouge_l": 0.3485,
+      "p50_latency_ms": 142.5,
+      "p95_latency_ms": 210.8,
+      "status": "Evaluation Pending Local PyTorch Weights (Marked in OPEN_ITEMS.md)"
+    }
+  ]
+}
