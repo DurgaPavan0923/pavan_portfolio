@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { EXPERIENCES } from '@/data/experience';
-import { Calendar, MapPin, CheckCircle } from 'lucide-react';
+import { Calendar, MapPin, CheckCircle, ExternalLink, Github } from 'lucide-react';
 
 export function Experience() {
   return (
-    <section id="experience" aria-label="Experience Timeline" className="relative py-20 px-4 sm:px-6">
+    <section id="experience" aria-label="Work Experience" className="relative py-20 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-16">
@@ -14,10 +14,10 @@ export function Experience() {
             <span>02 // WORK EXPERIENCE</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
-            Internships, Research &amp; <span className="text-gradient-cyan">Community Leadership</span>
+            Internships, Research &amp; <span className="text-gradient-cyan">Engineering Roles</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            A track record of applied research at IITs, enterprise cloud internships, and leading student engineering communities.
+            Hands-on machine learning engineering, applied research at IITs, and technical community leadership with measurable outcomes.
           </p>
         </div>
 
@@ -71,16 +71,45 @@ export function Experience() {
                     ))}
                   </ul>
 
-                  {/* Skills Chips */}
-                  <div className="flex flex-wrap gap-1.5 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
-                    {exp.skills.map((skill, sIdx) => (
-                      <span
-                        key={sIdx}
-                        className="px-2 py-0.5 rounded-md bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] text-[11px] font-mono text-slate-600 dark:text-slate-400 hover:border-cyan-400/40 transition-colors"
-                      >
-                        {skill}
-                      </span>
-                    ))}
+                  {/* Skills Chips & Direct Links */}
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
+                    <div className="flex flex-wrap gap-1.5">
+                      {exp.skills.map((skill, sIdx) => (
+                        <span
+                          key={sIdx}
+                          className="px-2 py-0.5 rounded-md bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] text-[11px] font-mono text-slate-600 dark:text-slate-400 hover:border-cyan-400/40 transition-colors"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Links to repo or verification */}
+                    <div className="flex items-center gap-3 shrink-0">
+                      {exp.repoUrl && (
+                        <a
+                          href={exp.repoUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono font-medium text-cyan-600 dark:text-cyan-400 hover:underline"
+                        >
+                          <Github className="w-3.5 h-3.5" />
+                          <span>Code Repository</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      )}
+                      {exp.verifyUrl && (
+                        <a
+                          href={exp.verifyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:underline"
+                        >
+                          <span>Verification</span>
+                          <ExternalLink className="w-2.5 h-2.5" />
+                        </a>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

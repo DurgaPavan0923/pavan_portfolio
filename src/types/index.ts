@@ -61,11 +61,12 @@ export interface ExperienceRole {
   company: string;
   location: string;
   period: string;
-  type: 'Internship' | 'Leadership' | 'Community' | 'Ambassador';
+  type?: 'Internship' | 'Leadership' | 'Community' | 'Ambassador';
   icon: string;
   points: string[];
   skills: string[];
   verifyUrl?: string;
+  repoUrl?: string;
 }
 
 export interface ResearchInterest {

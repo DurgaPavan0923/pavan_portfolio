@@ -1,4 +1,6 @@
 import { ProfileData } from '@/types';
+import { PROJECTS } from './projects';
+import { CERTIFICATIONS } from './certifications';
 
 export const PROFILE_DATA: ProfileData = {
   fullName: 'Rajana Durga Pavan Kumar',
@@ -7,13 +9,13 @@ export const PROFILE_DATA: ProfileData = {
   roles: [
     'AI & ML Engineer',
     'RAG Systems Architect',
-    'Cloud Solutions Engineer',
     'Deep Learning Practitioner',
+    'Cloud Solutions Engineer',
   ],
   taglines: [
-    'Building RAG Systems & Intelligent Agents',
+    'Building RAG Systems & Evaluation Pipelines',
     'Training Deep Learning & NLP Models',
-    'Architecting Scalable Cloud & MLOps Pipelines',
+    'Deploying Containerized Cloud Microservices',
     'Transforming Model Checkpoints into Production Systems',
   ],
   education: {
@@ -36,8 +38,8 @@ export const PROFILE_DATA: ProfileData = {
     designChallengeUrl: 'https://www.linkedin.com/in/rajana-durga-pavan-kumar-432248298',
   },
   stats: {
-    projectsCount: '7+',
-    certificationsCount: '6+',
+    projectsCount: `${PROJECTS.length}`,
+    certificationsCount: `${CERTIFICATIONS.length}`,
     problemsSolved: '300+',
     hackathonsCount: 'Abinya 3.0',
     cloudBadges: '98 Badges (Arcade Diamond)',

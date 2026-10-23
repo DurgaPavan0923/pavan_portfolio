@@ -8,7 +8,8 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '🔗',
-    badge: 'Certified Professional',
+    credentialId: 'NEO4J-CERT-PROFESSIONAL',
+    verifyUrl: 'https://graphacademy.neo4j.com/certificates/',
   },
   {
     id: 'gcp-arcade-diamond',
@@ -17,7 +18,8 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025 – 2026',
     category: 'Cloud',
     icon: '💎',
-    badge: '98 Badges · Ultimate Milestone',
+    credentialId: '98 Skill Badges Milestone',
+    verifyUrl: 'https://www.cloudskillsboost.google/public_profiles/',
   },
   {
     id: 'ms-elevate-azure',
@@ -26,7 +28,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'Feb 2026',
     category: 'Cloud',
     icon: '☁️',
-    badge: 'National AICTE Initiative',
+    credentialId: 'AICTE-MS-ELEVATE-2026',
   },
   {
     id: 'ibm-ml-cert',
@@ -35,7 +37,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '🤖',
-    badge: 'Professional Specialization',
+    credentialId: 'IBM-COURSERA-ML-SPEC',
   },
   {
     id: 'deloitte-tech',
@@ -44,7 +46,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '🏢',
-    badge: 'Enterprise Simulation',
+    credentialId: 'DELOITTE-FORAGE-2025',
   },
   {
     id: 'icaaimls-2024',
@@ -53,7 +55,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2024',
     category: 'AI/ML',
     icon: '📜',
-    badge: 'Research Conference',
+    credentialId: 'ICAAIMLS-RESEARCH-2024',
   },
   {
     id: 'adobe-hackathon',
@@ -62,7 +64,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'Hackathons',
     icon: '🅰️',
-    badge: 'National Hackathon',
+    credentialId: 'ADOBE-INDIA-HACK-R1',
   },
   {
     id: 'convolve-iit',
@@ -71,7 +73,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'Hackathons',
     icon: '🏆',
-    badge: 'Pan-IIT Hackathon',
+    credentialId: 'CONVOLVE-PANIIT-2025',
   },
   {
     id: 'genai-academy',
@@ -80,7 +82,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: '✨',
-    badge: 'GenAI Specialist',
+    credentialId: 'GENAI-ACADEMY-2025',
   },
   {
     id: 'tata-cyber',
@@ -89,7 +91,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'Cloud',
     icon: '🔐',
-    badge: 'Industry Simulation',
+    credentialId: 'TATA-FORAGE-CYBER-2025',
   },
   {
     id: 'nptel-ai',
@@ -98,7 +100,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2024',
     category: 'AI/ML',
     icon: '🎓',
-    badge: 'Academic Certification',
+    credentialId: 'NPTEL-AI-2024-PASS',
   },
   {
     id: 'cense-iisc',
@@ -107,6 +109,6 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'Leadership',
     icon: '🔬',
-    badge: 'IISc Specialized School',
+    credentialId: 'IISC-CENSE-WINTER-2025',
   },
 ];
