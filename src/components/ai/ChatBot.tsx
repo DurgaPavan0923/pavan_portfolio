@@ -167,7 +167,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
                   <span>Neural Assistant</span>
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                 </h3>
-                <p className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400">Gemini 1.5 Grounded Assistant</p>
+                <p className="text-[10px] font-mono text-cyan-600 dark:text-cyan-400">Grounded Portfolio Assistant</p>
               </div>
             </div>
 

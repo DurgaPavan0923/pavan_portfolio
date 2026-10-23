@@ -118,7 +118,7 @@ export function WhyWorkWithMe() {
           Why Work With Me
         </h2>
         <p className="mt-4 text-base sm:text-lg text-slate-600 dark:text-slate-400">
-          Production AI engineering that bridges cutting-edge research algorithms, verifiable
+          Production AI engineering that bridges research algorithms, verifiable
           dual-cloud systems, and reliable full-stack delivery.
         </p>
       </div>

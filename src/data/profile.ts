@@ -45,6 +45,6 @@ export const PROFILE_DATA: ProfileData = {
   bioParagraphs: [
     "I’m Rajana Durga Pavan Kumar, an AI & ML Engineer and Computer Science undergraduate at SOA University (ITER). I specialize in designing and deploying end-to-end intelligent systems, Retrieval-Augmented Generation (RAG) pipelines, and cloud-native machine learning architectures.",
     "My technical focus spans multi-agent orchestration, graph-enhanced semantic search (Neo4j + Pinecone), and natural language processing. I currently serve as a Student Intern at TIH IIT Guwahati and Club Coordinator at GDGoC ITER, coordinating technical workshops, study jams, and developer initiatives across campus.",
-    "From architecting multi-agent fact verification platforms like FactLens AI to developing 3D predictive planning systems, I bridge the gap between theoretical machine learning checkpoints and production-grade software.",
+    "From architecting multi-agent fact verification platforms like FactLens AI to developing 3D predictive planning systems, I bridge the gap between theoretical machine learning checkpoints and production software systems.",
   ],
 };

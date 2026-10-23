@@ -6,7 +6,7 @@ import { Sparkles, Layers, Cpu, Cloud, Terminal, Database, Code2 } from 'lucide-
 
 const MARQUEE_TECH = [
   { name: 'PyTorch', icon: '🔥' },
-  { name: 'Google Gemini 1.5', icon: '✨' },
+  { name: 'Google Gemini API', icon: '✨' },
   { name: 'Neo4j Graph RAG', icon: '🕸️' },
   { name: 'Microsoft Azure', icon: '☁️' },
   { name: 'Pinecone Vector DB', icon: '🌲' },
