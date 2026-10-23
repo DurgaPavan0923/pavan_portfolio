@@ -9,11 +9,11 @@ export function CustomCursor() {
   const [isPointer, setIsPointer] = useState(false);
 
   useEffect(() => {
-    // Check if device supports fine pointer (mouse)
-    const isFinePointer = window.matchMedia('(pointer: fine)').matches;
+    // Check if device supports fine pointer (mouse) and hover capability
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    if (!isFinePointer || prefersReducedMotion) return;
+    if (!canHover || prefersReducedMotion) return;
 
     setMounted(true);
 

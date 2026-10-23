@@ -34,4 +34,4 @@ jobs:
       - name: Build production bundle
         run: npm run build
         env:
-          NEXT_PUBLIC_SITE_URL: https://pavan-portfolio-iota-ruby.vercel.app
+          NEXT_PUBLIC_SITE_URL: https://pavan-portfolio-gamma-six.vercel.app
