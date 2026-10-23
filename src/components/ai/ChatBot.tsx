@@ -191,8 +191,8 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
                 type="button"
                 onClick={clearChat}
                 className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/[0.06] transition-colors"
-                title="Reset conversation"
-                aria-label="Reset conversation"
+                title="Clear chat history"
+                aria-label="Clear chat history"
               >
                 <Trash2 className="w-4 h-4" />
               </button>
@@ -278,7 +278,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about FactLens AI, skills, experience..."
+              placeholder="Ask anything about Pavan's AI projects, skills, or experience..."
               disabled={isLoading}
               className="flex-1 px-3 py-2 rounded-xl bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] focus:border-cyan-400 text-xs text-slate-900 dark:text-slate-100 placeholder:text-slate-400 outline-none transition-all disabled:opacity-50"
             />
@@ -286,7 +286,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
               type="submit"
               disabled={isLoading || !input.trim()}
               className="p-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 disabled:opacity-40 text-slate-950 font-bold transition-all"
-              aria-label="Send message"
+              aria-label="Send query"
             >
               <Send className="w-3.5 h-3.5" />
             </button>
