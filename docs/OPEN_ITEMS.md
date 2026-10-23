@@ -7,7 +7,7 @@ This document tracks items requiring explicit external documents, weights, links
 ## 1. Academic & Education Verification
 - **Item:** B.Tech Computer Science & Information Technology CGPA (`07/10`).
 - **Where It Appears:** Credentials & Education section (`#credentials`), `src/data/profile.ts`.
-- **Status:** Displayed honestly as `07/10` with a direct link to the SOA University Examination Result Portal (`http://115.240.101.71:81/`).
+- **Status:** Displayed honestly as `07/10` with a direct link to the SOA University Examination Result Portal (`https://soaportals.com/StudentPortalSOA/#/`).
 - **Action Needed:**
   - Place an official semester grade sheet or consolidated transcript PDF in `/public/docs/marksheet.pdf`.
   - Alternatively, provide an authenticated digital verification URL from the university registrar.

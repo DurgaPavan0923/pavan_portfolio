@@ -181,6 +181,16 @@ export function CommandPalette({
       },
     },
     {
+      id: 'act-result-portal',
+      label: 'Verify CGPA on SOA Result Portal (Student login required; marksheet available on request)',
+      category: 'Actions',
+      icon: <GraduationCap className="w-4 h-4 text-amber-400" />,
+      perform: () => {
+        onClose();
+        window.open('https://soaportals.com/StudentPortalSOA/#/', '_blank', 'noopener,noreferrer');
+      },
+    },
+    {
       id: 'act-resume',
       label: 'Download Resume (PDF)',
       category: 'Actions',

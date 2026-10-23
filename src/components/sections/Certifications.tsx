@@ -61,21 +61,26 @@ export function Certifications() {
                 </div>
 
                 {/* CGPA with Verification Path */}
-                <div className="flex items-center gap-2">
-                  <div className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-right">
-                    <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase">Current CGPA</div>
-                    <div className="text-sm font-bold font-mono text-slate-900 dark:text-slate-100">{PROFILE_DATA.education.cgpa}</div>
+                <div className="flex flex-col items-start md:items-end gap-1.5">
+                  <div className="flex items-center gap-2">
+                    <div className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-right">
+                      <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase">Current CGPA</div>
+                      <div className="text-sm font-bold font-mono text-slate-900 dark:text-slate-100">{PROFILE_DATA.education.cgpa}</div>
+                    </div>
+                    <a
+                      href="https://soaportals.com/StudentPortalSOA/#/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.1] text-[11px] font-mono text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
+                      title="SOA University Student Portal (soaportals.com/StudentPortalSOA/#/)"
+                    >
+                      <span>Result Portal</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
                   </div>
-                  <a
-                    href="http://115.240.101.71:81/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.1] text-[11px] font-mono text-cyan-600 dark:text-cyan-400 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                    title="SOA University Student Portal Verification"
-                  >
-                    <span>Result Portal</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
+                  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                    Student login required; marksheet available on request.
+                  </span>
                 </div>
               </div>
             </div>

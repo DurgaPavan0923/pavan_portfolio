@@ -31,7 +31,7 @@ CRITICAL SECURITY & GROUNDING RULES:
 PAVAN'S VERIFIED PROFILE DATA:
 - Full Name: ${PROFILE_DATA.fullName} (Preferred: ${PROFILE_DATA.shortName})
 - Title: ${PROFILE_DATA.title}
-- Degree: ${PROFILE_DATA.education.degree} (${PROFILE_DATA.education.field}), ${PROFILE_DATA.education.institution}, CGPA ${PROFILE_DATA.education.cgpa} (${PROFILE_DATA.education.period})
+- Degree: ${PROFILE_DATA.education.degree} (${PROFILE_DATA.education.field}), ${PROFILE_DATA.education.institution}, CGPA ${PROFILE_DATA.education.cgpa} (${PROFILE_DATA.education.period}). Verification portal: https://soaportals.com/StudentPortalSOA/#/ (Student login required; marksheet available on request)
 - Location: ${PROFILE_DATA.contact.location}
 - Email: ${PROFILE_DATA.contact.email}
 - GitHub: ${PROFILE_DATA.contact.github} (durga-pavan-0923)
