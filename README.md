@@ -15,35 +15,49 @@ A recruiter-first, interview-defensible engineering portfolio built with **Next.
 
 ## 🏗️ System Architecture & Data Flow
 
-```text
-                                 [ Client Browser ]
-                                         │
-                 ┌───────────────────────┼───────────────────────┐
-                 │ (Responsive Viewport: 360px - 1920px)          │
-                 ▼                                               ▼
-         [ Static Next.js Shell ]                     [ Interactive Client Layer ]
-         • 01 Featured Projects                       • Command Palette (⌘K)
-         • 02 Work Experience                         • GPU Transform Carousel
-         • 03 Open Source Metrics                     • Accessible Lightbox Modal
-         • 04 Skills & Toolkit                        • Fluid Theme Switcher
-         • 05 Credentials & Education                 • Bottom Mobile Dock
-         • 06 Leadership & Honors                                │
-         • 07 Moments in Action                                  │
-         • 08 Get in Touch                                       ▼
-                 │                                    [ Neural Chatbot Widget ]
-                 ▼                                               │
-     [ Next.js Node.js API Routes ]                              │
-                 │                                               │
-    ┌────────────┼───────────────────────────┐                   │
-    ▼            ▼                           ▼                   │
-/api/contact   /api/github               /api/chat ◄─────────────┘
-  (Node.js)    (ISR: 3600s)              (Server-Side)
-    │            │                           │
-    ├─► Resend   ├─► GraphQL (DurgaPavan)    ├─► Google Gemini API
-    │   (Primary)│   (Read-Only Token)       │   (Default: gemini-2.5-flash)
-    │            │                           │
-    └─► Gmail    └─► Local Snapshot          └─► Grounded Offline
-        (SMTP)       (github-snapshot.json)      Fallback Engine
+```mermaid
+flowchart TD
+    subgraph Client ["Client Layer (Desktop / Tablet / Mobile 360px-1920px)"]
+        Browser["Next.js 15 Client"]
+        CmdK["Command Palette (⌘K)"]
+        Marquee["Moments 16-Photo Marquee"]
+        Lightbox["Accessible Lightbox Modal"]
+        ChatWidget["AI Assistant Chatbot"]
+    end
+
+    subgraph Server ["Serverless Next.js App Router"]
+        Page["Static & ISR Server Shell"]
+        APIChat["/api/chat (Gemini API)"]
+        APIGitHub["/api/github (GraphQL ISR: 3600s)"]
+        APIContact["/api/contact (Resend & Gmail SMTP)"]
+    end
+
+    subgraph Data ["Data & Machine Learning Pipeline"]
+        EvalsFactLens["evals/factlens-ai (Graph RAG n=100)"]
+        EvalsInsight["evals/insight-ai (ATS Matching n=32)"]
+        EvalsWater["evals/underwater-analytics (TIH IIT Guwahati N=656)"]
+        EvalsSeq2Seq["evals/seq2seq-summarizer (CNN/DM n=50)"]
+    end
+
+    subgraph External ["External Services & Verification"]
+        GeminiAPI["Google Gemini 2.5 Flash"]
+        GitHubAPI["GitHub GraphQL API"]
+        ResendAPI["Resend / Gmail SMTP"]
+        ResultPortal["SOA Result Portal (Student Login)"]
+    end
+
+    Browser --> Page
+    CmdK --> Page
+    Marquee --> Lightbox
+    ChatWidget --> APIChat
+    APIChat --> GeminiAPI
+    APIGitHub --> GitHubAPI
+    APIContact --> ResendAPI
+    Page --> EvalsFactLens
+    Page --> EvalsInsight
+    Page --> EvalsWater
+    Page --> EvalsSeq2Seq
+    Page -.-> ResultPortal
 ```
 
 ---
@@ -55,13 +69,13 @@ The visual layout, navigation dock, Command Palette (⌘K), mobile menu, and scr
 | Step | Section Name | Description & Proof Point |
 | :---: | :--- | :--- |
 | **00** | **Hero** | 1-line value proposition, 3 primary CTAs (*View Projects*, *Download Resume*, *Contact*), and 4 derived stats. |
-| **01** | **Featured Projects** | 3 flagship evaluated systems with empirical benchmarks (**FactLens AI**, **InsightAI**, **News Summarizer Seq2Seq**) + 4 compact secondary systems (**IRA**, **AGORA**, **Algorithm Arena**, **SOA NCC**). |
+| **01** | **Featured Projects** | 3 flagship evaluated systems with empirical benchmarks (**FactLens AI**, **InsightAI**, **AI-Based Underwater Environmental Analytics**) + 4 compact secondary systems (**IRA**, **AGORA**, **Algorithm Arena**, **SOA NCC**). |
 | **02** | **Work Experience** | Hands-on engineering roles rewritten as "Built X using Y → outcome/learning" (**TIH IIT Guwahati**, **GDGoC ITER**, **Edunet IBM SkillsBuild**, **Microsoft Elevate**, **InternPro**). |
 | **03** | **Open Source Metrics** | Real-time GitHub telemetry via GraphQL for user `DurgaPavan0923`: 22 repos, 226 contributions, commit streaks, language distribution, and heatmap with tooltips. |
 | **04** | **Skills & Toolkit** | Concise 3-tier demonstrable stack ($\le 25$ items): **Core** (use daily), **Working** (used in projects), and **Familiar** (coursework/labs). |
 | **05** | **Credentials & Education** | Formal B.Tech CSE degree card (CGPA 07/10 at SOA ITER with portal link) and 12 verifiable industry credentials with IDs. |
 | **06** | **Leadership & Honors** | Certified NCC Sergeant service (Alpha/Bravo grades), Governor's Award (Rajya Puraskar), and GDGoC chapter coordination. |
-| **07** | **Moments in Action** | Curated 6-photo GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and accessible lightbox. |
+| **07** | **Moments in Action** | Curated 16-photo GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and accessible lightbox. |
 | **08** | **Get in Touch** | Resilient contact form dispatching to `rdpkumar2308@gmail.com` via Resend with Nodemailer Gmail SMTP fallback. |
 
 ---
@@ -74,7 +88,8 @@ Every featured project includes reproducible benchmark scripts and datasets loca
 | :--- | :--- | :---: | :--- | :---: | :---: |
 | **FactLens AI** | FEVER / LIAR Claim Sample | $n=100$ | **Accuracy: 94.0%**<br>Macro-F1: 0.9400<br>*(vs. Baseline: 35.0%, Zero-Shot: 87.0%)* | 8.99 ms | ✅ Published |
 | **InsightAI ATS** | Synthetic Resume–JD Matching | $n=32$ | **Precision@1: 100.0%**<br>Precision@3: 66.7%<br>NDCG@3: 0.9955 | 0.197 ms | ✅ Published |
-| **News Summarizer** | CNN/DailyMail Test Articles | $n=50$ | **ROUGE-1: 0.5550**<br>ROUGE-2: 0.2801<br>ROUGE-L: 0.4281 *(Lead-3 Baseline)* | 0.148 ms | ✅ Published *(Checkpoint weights pending)* |
+| **Underwater Analytics** | Quarantined Lockbox & CTD Stream | $N=656$<br>Stream: $N=720$ | **PR-AUC: 0.5951** *(vs. WHO rule: 0.3920)*<br>ROC-AUC: 0.6689, Brier: 0.2154<br>DO Forecaster MAE: 0.1748 *(vs. 0.2980)* | 2.89 ms | ✅ Published |
+| **News Summarizer** | CNN/DailyMail Test Articles | $n=50$ | **ROUGE-1: 0.5550**<br>ROUGE-2: 0.2801<br>ROUGE-L: 0.4281 *(Lead-3 Baseline)* | 0.148 ms | ✅ Published *(Secondary / Weights Pending)* |
 
 ---
 
@@ -118,7 +133,27 @@ Evaluating InsightAI ATS Ranking against Lexical & Vector Baselines (n=32 pairs)
 Benchmark results saved to evals/insight-ai/results.json and results.csv.
 ```
 
-### 3. Seq2Seq News Summarizer Evaluation
+### 3. Underwater Environmental Analytics Evaluation
+```bash
+python evals/underwater-analytics/evaluate.py
+```
+**Expected Output:**
+```text
+Evaluations completed successfully.
+1. Potability Classification:
+   - WHO Permissible Baseline: Accuracy 50.0% | F1: 0.0000 | Latency: 0.0013 ms
+   - Logistic Regression:      Accuracy 100.0% | F1: 1.0000 | Brier: 0.1392
+   - Calibrated Ensemble:      Accuracy 100.0% | F1: 1.0000 | Brier: 0.0886
+2. Full Repo Lockbox Benchmark (N=656 in DurgaPavan0923/water_potability):
+   - Lockbox PR-AUC: 0.5951 [95% CI: 0.534, 0.656] vs 0.3920 WHO Baseline
+   - Lockbox ROC-AUC: 0.6689 | Brier: 0.2154 | Server P50 Latency: 2.89 ms
+3. Dissolved Oxygen Stream Forecaster (MAE):
+   - Persistence Baseline: 0.2980 mg/L
+   - Causal Stream Forecaster: 0.1748 mg/L (41.3% error reduction)
+Benchmark results saved to evals/underwater-analytics/results.json and results.csv.
+```
+
+### 4. Seq2Seq News Summarizer Evaluation
 ```bash
 python evals/seq2seq-summarizer/evaluate.py
 ```

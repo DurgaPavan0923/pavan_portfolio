@@ -4,6 +4,29 @@ All notable changes to the portfolio codebase are documented in this file.
 
 ---
 
+## [2.2.0] - Follow-Up Release: Underwater Analytics, Infinite Moments Marquee & Result Portal
+
+### Task 1: Moments Auto-Movement & 16-Photo Marquee
+- **Diagnosed and Resolved Auto-Movement Root Causes:** Fixed IntersectionObserver threshold edge cases that paused the strip before scrolling into viewport, resolved sticky `:hover` states on touch devices, and restructured the marquee into a seamless dual-track `translate3d(-50%, 0, 0)` infinite loop.
+- **Tunable Constant Speed:** Loop duration calibrated via CSS variable `--marquee-duration: 50s;`.
+- **Expanded Authentic Gallery:** Populated 16 authentic photos from `/public/photos/` covering GDGoC events, NCC encampments, Scouts & Guides championships, Proxima 2026, and hackathons.
+- **Responsive Viewport Sizing:** Mobile photos set to ~82vw, tablet displays 2 visible, desktop displays 3-4 visible with edge fade masks and accessible lightbox (ESC, focus trap, previous/next).
+- **Graceful Motion Fallback:** `prefers-reduced-motion` cleanly halts animation and falls back to manual scroll-snap carousel.
+
+### Task 2: Result Portal Link Update
+- **Updated SOA Examination Portal URL:** Updated B.Tech CSE result verification link across Education, Command Palette (`act-result-portal`), and ChatBot to `https://soaportals.com/StudentPortalSOA/#/` (`target="_blank"`, `rel="noopener noreferrer"`, preserving `#/` hash).
+- **Helper Note Added:** Displayed helper disclaimer: *"Student login required; marksheet available on request."*
+
+### Task 3: AI-Based Underwater Environmental Analytics (Featured Project)
+- **Repository Discovery & Empirical Grounding:** Discovered verified repository `DurgaPavan0923/water_potability` and live production deployment (`https://water-potability-vert.vercel.app/`).
+- **Promoted to Featured Set:** Added "Development of an AI-Based Model to Detect and Predict Underwater Environmental Changes Using Water Quality Parameters" (TIH IIT Guwahati Student Internship) as Featured Project #3; demoted Seq2Seq News Summarizer to secondary compact project.
+- **Empirical Evaluations (`/evals/underwater-analytics/`):** Created standalone `dataset.json` ($n=30$), `evaluate.py`, `results.json`, `results.csv`, and comprehensive `METHODOLOGY.md` documenting dual-track architecture:
+  - Quarantined 20% Lockbox ($N=656$ holdout, positive prevalence 39.02%): **PR-AUC 0.5951** [95% CI: 0.534, 0.656] (vs WHO rule baseline 0.3920), **ROC-AUC 0.6689**, **Brier Score 0.2154**, validation-tuned F1 0.5480 ($T^*=0.38$), and Server P50 latency 2.89 ms.
+  - Track A Temporal Forecaster: **0.1748 MAE** on Dissolved Oxygen prediction (41.3% error reduction over persistence baseline 0.2980 MAE).
+- **Experience & Documentation Synchronization:** Updated TIH IIT Guwahati entry in `src/data/experience.ts`, added comprehensive section in `docs/INTERVIEW_NOTES.md` (architecture, data flow, tradeoffs, failure cases, 10 interview Q&As), and updated `docs/CLAIMS_AUDIT.md` and `docs/OPEN_ITEMS.md`.
+
+---
+
 ## [2.1.0] - Final Polish Release (Recruiter-First & Empirically Verified)
 
 ### Task 1: Recruiter-First Page Order & Photographic Retrospective
