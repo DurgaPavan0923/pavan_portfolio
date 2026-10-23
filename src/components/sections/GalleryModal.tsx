@@ -19,6 +19,9 @@ interface GalleryModalProps {
   onSelectIndex: (index: number) => void;
 }
 
+const BLUR_PLACEHOLDER =
+  'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHJlY3Qgd2lkdGg9IjE2IiBoZWlnaHQ9IjE2IiBmaWxsPSIjMGYxNzJhIi8+PC9zdmc+';
+
 export function GalleryModal({
   items,
   currentIndex,
@@ -28,42 +31,79 @@ export function GalleryModal({
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
 
   const activeItem = currentIndex !== null && items[currentIndex] ? items[currentIndex] : null;
 
   const handlePrev = useCallback(() => {
-    if (currentIndex === null) return;
+    if (currentIndex === null || items.length === 0) return;
     setImageLoaded(false);
     onSelectIndex((currentIndex - 1 + items.length) % items.length);
   }, [currentIndex, items.length, onSelectIndex]);
 
   const handleNext = useCallback(() => {
-    if (currentIndex === null) return;
+    if (currentIndex === null || items.length === 0) return;
     setImageLoaded(false);
     onSelectIndex((currentIndex + 1) % items.length);
   }, [currentIndex, items.length, onSelectIndex]);
 
+  // Keyboard navigation & Focus Trap
   useEffect(() => {
     if (!activeItem) return;
+
+    // Focus close button on mount
+    const timer = setTimeout(() => {
+      closeBtnRef.current?.focus();
+    }, 50);
 
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         e.preventDefault();
         onClose();
-      } else if (e.key === 'ArrowLeft') {
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
         e.preventDefault();
         handlePrev();
-      } else if (e.key === 'ArrowRight') {
+        return;
+      }
+      if (e.key === 'ArrowRight') {
         e.preventDefault();
         handleNext();
+        return;
+      }
+
+      // Focus trap for Tab key
+      if (e.key === 'Tab' && modalRef.current) {
+        const focusableElements = modalRef.current.querySelectorAll<HTMLElement>(
+          'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+          if (document.activeElement === firstElement) {
+            e.preventDefault();
+            lastElement.focus();
+          }
+        } else {
+          if (document.activeElement === lastElement) {
+            e.preventDefault();
+            firstElement.focus();
+          }
+        }
       }
     };
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = 'unset';
+      clearTimeout(timer);
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [activeItem, handlePrev, handleNext, onClose]);
@@ -91,14 +131,14 @@ export function GalleryModal({
       ref={modalRef}
       role="dialog"
       aria-modal="true"
-      aria-label={activeItem.title}
+      aria-label={`Photograph view: ${activeItem.title}`}
       className="fixed inset-0 z-[120] flex items-center justify-center p-2 sm:p-4 md:p-6 overflow-y-auto"
       onTouchStart={handleTouchStart}
       onTouchEnd={handleTouchEnd}
     >
       {/* Immersive backdrop */}
       <div
-        className="fixed inset-0 bg-black/80 dark:bg-black/90 backdrop-blur-xl transition-opacity animate-in fade-in duration-300"
+        className="fixed inset-0 bg-black/85 dark:bg-black/92 backdrop-blur-xl transition-opacity animate-in fade-in duration-300"
         onClick={onClose}
         aria-hidden="true"
       />
@@ -108,7 +148,7 @@ export function GalleryModal({
         type="button"
         onClick={handlePrev}
         aria-label="Previous photograph"
-        className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 cursor-pointer"
+        className="fixed left-3 sm:left-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 cursor-pointer"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
@@ -117,7 +157,7 @@ export function GalleryModal({
         type="button"
         onClick={handleNext}
         aria-label="Next photograph"
-        className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/70 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 cursor-pointer"
+        className="fixed right-3 sm:right-6 top-1/2 -translate-y-1/2 z-[130] p-3 sm:p-4 rounded-full bg-slate-900/80 hover:bg-slate-900 text-white border border-white/10 hover:border-cyan-500/50 backdrop-blur-md transition-all duration-200 hover:scale-110 shadow-2xl focus:outline-none focus:ring-2 focus:ring-cyan-400 cursor-pointer"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
       </button>
@@ -142,16 +182,17 @@ export function GalleryModal({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open original high-resolution photo"
-              className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.08] transition-colors"
+              className="p-2 rounded-xl text-slate-500 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/[0.08] transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
               title="Open full resolution"
             >
               <Maximize2 className="w-4 h-4" />
             </a>
             <button
+              ref={closeBtnRef}
               type="button"
               onClick={onClose}
               aria-label="Close dialog"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.12] border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-mono text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white bg-slate-100 dark:bg-white/[0.06] hover:bg-slate-200 dark:hover:bg-white/[0.12] border border-slate-200 dark:border-white/[0.08] transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
               <X className="w-4 h-4" />
               <span className="hidden sm:inline">ESC</span>
@@ -173,6 +214,8 @@ export function GalleryModal({
               alt={activeItem.title}
               fill
               priority
+              placeholder="blur"
+              blurDataURL={BLUR_PLACEHOLDER}
               sizes="(max-width: 1024px) 100vw, 85vw"
               className={`object-contain transition-opacity duration-300 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
@@ -223,7 +266,7 @@ export function GalleryModal({
                 onSelectIndex(idx);
               }}
               aria-label={`Jump to ${item.title}`}
-              className={`relative w-12 h-10 sm:w-16 sm:h-12 rounded-lg overflow-hidden shrink-0 transition-all border cursor-pointer ${
+              className={`relative w-12 h-10 sm:w-16 sm:h-12 rounded-lg overflow-hidden shrink-0 transition-all border cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 ${
                 idx === currentIndex
                   ? 'border-cyan-400 ring-2 ring-cyan-400/40 scale-105'
                   : 'border-transparent opacity-60 hover:opacity-100'
@@ -233,6 +276,8 @@ export function GalleryModal({
                 src={item.imageSrc}
                 alt={item.title}
                 fill
+                placeholder="blur"
+                blurDataURL={BLUR_PLACEHOLDER}
                 sizes="64px"
                 className="object-cover"
               />

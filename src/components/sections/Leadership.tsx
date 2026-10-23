@@ -10,13 +10,13 @@ export function Leadership() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-3">
-            <span>08 // LEADERSHIP & SERVICE</span>
+            <span>06 // LEADERSHIP & HONORS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Discipline, Service &amp; <span className="text-gradient-cyan">National Recognition</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            Character forged through 5+ years of National Cadet Corps service, state gubernatorial honors, and campus leadership.
+            Demonstrated commitment through certified National Cadet Corps sergeant service, state gubernatorial honors, and campus leadership.
           </p>
         </div>
 

@@ -35,7 +35,7 @@ export function Skills() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-3">
-            <span>02 // TECHNICAL TOOLKIT</span>
+            <span>04 // SKILLS & TOOLKIT</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             AI Toolkit, Cloud Services &amp; <span className="text-gradient-cyan">Core Technologies</span>

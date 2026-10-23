@@ -10,15 +10,13 @@ interface MobileMenuProps {
 }
 
 const NAV_LINKS = [
-  { label: 'About', href: '#about' },
+  { label: 'Featured Projects', href: '#projects' },
+  { label: 'Work Experience', href: '#experience' },
+  { label: 'Open Source', href: '#open-source' },
+  { label: 'Skills & Toolkit', href: '#skills' },
+  { label: 'Credentials & Education', href: '#credentials' },
+  { label: 'Leadership', href: '#leadership' },
   { label: 'Moments', href: '#moments' },
-  { label: 'Toolkit', href: '#skills' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'GitHub Activity', href: '#activity' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Research Focus', href: '#research' },
-  { label: 'Credentials', href: '#credentials' },
-  { label: 'Technical Blogs', href: '#blogs' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -30,11 +28,12 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       if (e.key === 'Escape') onClose();
     };
 
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [isOpen, onClose]);
@@ -52,6 +51,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       <div
         className="fixed inset-0 bg-black/50 dark:bg-black/75 backdrop-blur-sm transition-opacity"
         onClick={onClose}
+        aria-hidden="true"
       />
 
       {/* Drawer */}
@@ -70,21 +70,21 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             <button
               type="button"
               onClick={onClose}
-              className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center border border-slate-200 dark:border-white/[0.08]"
+              className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-white/[0.04] text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white flex items-center justify-center border border-slate-200 dark:border-white/[0.08] focus:outline-none focus:ring-2 focus:ring-cyan-400"
               aria-label="Close menu"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
-          {/* Nav Links */}
+          {/* Nav Links in Recruiter-First Order */}
           <nav className="flex flex-col gap-1 py-6">
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={onClose}
-                className="px-4 py-3 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/[0.04] transition-colors flex items-center justify-between"
+                className="px-4 py-3 rounded-xl text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/[0.04] transition-colors flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-cyan-400"
               >
                 <span>{link.label}</span>
                 <span className="text-xs text-slate-400 font-mono">↗</span>
@@ -99,39 +99,39 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
             href="/Rajana.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 text-slate-950 font-semibold text-sm shadow-lg shadow-cyan-500/20"
+            download="Rajana_Durga_Pavan_Kumar_Resume.pdf"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400"
           >
             <FileText className="w-4 h-4" />
-            <span>Download Official Resume</span>
-            <ArrowUpRight className="w-4 h-4" />
+            <span>Download Resume</span>
           </a>
 
-          {/* Social Icons */}
-          <div className="flex items-center justify-center gap-4 text-slate-500 dark:text-slate-400">
+          {/* Social Links */}
+          <div className="flex items-center justify-center gap-4 text-slate-500">
             <a
               href={PROFILE_DATA.contact.github}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="GitHub Profile"
-              className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:text-cyan-600 dark:hover:text-cyan-400"
+              className="p-2 rounded-lg hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
-              <Github className="w-4 h-4" />
+              <Github className="w-5 h-5" />
             </a>
             <a
               href={PROFILE_DATA.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn Profile"
-              className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:text-cyan-600 dark:hover:text-cyan-400"
+              className="p-2 rounded-lg hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
-              <Linkedin className="w-4 h-4" />
+              <Linkedin className="w-5 h-5" />
             </a>
             <a
               href={`mailto:${PROFILE_DATA.contact.email}`}
               aria-label="Send Email"
-              className="p-2 rounded-lg bg-slate-100 dark:bg-white/[0.04] hover:text-cyan-600 dark:hover:text-cyan-400"
+              className="p-2 rounded-lg hover:text-slate-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
             >
-              <Mail className="w-4 h-4" />
+              <Mail className="w-5 h-5" />
             </a>
           </div>
         </div>

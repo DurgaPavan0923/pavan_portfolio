@@ -15,7 +15,7 @@ export function Projects() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
-            <span>03 // FEATURED WORK</span>
+            <span>01 // FEATURED PROJECTS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Production AI Applications &amp; <span className="text-gradient-cyan">Intelligent Systems</span>

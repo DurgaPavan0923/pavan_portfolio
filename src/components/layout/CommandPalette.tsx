@@ -19,8 +19,8 @@ import {
   Eye,
   EyeOff,
   ArrowUp,
-  Sparkles,
-  BookOpen,
+  Award,
+  GitBranch,
 } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { PROFILE_DATA } from '@/data/profile';
@@ -98,61 +98,62 @@ export function CommandPalette({
     }, 1200);
   };
 
+  // Recruiter-first ordered commands: Hero → Featured Projects → Experience → Open Source → Skills → Credentials & Education → Leadership → Moments → Contact
   const COMMANDS: CommandItem[] = [
     {
       id: 'nav-projects',
-      label: 'Explore Featured Projects',
+      label: 'Featured Projects (FactLens AI, InsightAI, Seq2Seq)',
       category: 'Navigation',
       icon: <Layers className="w-4 h-4 text-cyan-500" />,
       perform: () => navigateTo('#projects'),
     },
     {
-      id: 'nav-why-me',
-      label: 'Why Work With Me (Bento Grid)',
-      category: 'Navigation',
-      icon: <Sparkles className="w-4 h-4 text-amber-500" />,
-      perform: () => navigateTo('#why-me'),
-    },
-    {
-      id: 'nav-moments',
-      label: 'View Moments & Photo Retrospective',
-      category: 'Navigation',
-      icon: <Camera className="w-4 h-4 text-emerald-500" />,
-      perform: () => navigateTo('#moments'),
-    },
-    {
-      id: 'nav-skills',
-      label: 'View AI Toolkit & Core Skills',
-      category: 'Navigation',
-      icon: <Code className="w-4 h-4 text-cyan-500" />,
-      perform: () => navigateTo('#skills'),
-    },
-    {
       id: 'nav-experience',
-      label: 'Review Experience & Community Impact',
+      label: 'Experience (TIH IIT Guwahati, Edunet, GDGoC)',
       category: 'Navigation',
       icon: <Briefcase className="w-4 h-4 text-violet-500" />,
       perform: () => navigateTo('#experience'),
     },
     {
+      id: 'nav-opensource',
+      label: 'Open Source (Live GitHub Telemetry & Repos)',
+      category: 'Navigation',
+      icon: <GitBranch className="w-4 h-4 text-emerald-500" />,
+      perform: () => navigateTo('#open-source'),
+    },
+    {
+      id: 'nav-skills',
+      label: 'Skills & Toolkit (Core, Working, Familiar)',
+      category: 'Navigation',
+      icon: <Code className="w-4 h-4 text-cyan-500" />,
+      perform: () => navigateTo('#skills'),
+    },
+    {
       id: 'nav-credentials',
-      label: 'Inspect Certifications & Hackathons',
+      label: 'Credentials & Education (Certifications, B.Tech)',
       category: 'Navigation',
       icon: <GraduationCap className="w-4 h-4 text-amber-500" />,
       perform: () => navigateTo('#credentials'),
     },
     {
-      id: 'nav-blogs',
-      label: 'Read Technical Blogs & Writeups',
+      id: 'nav-leadership',
+      label: 'Leadership (NCC Sergeant, GDGoC Coordinator)',
       category: 'Navigation',
-      icon: <BookOpen className="w-4 h-4 text-blue-500" />,
-      perform: () => navigateTo('#blogs'),
+      icon: <Award className="w-4 h-4 text-rose-500" />,
+      perform: () => navigateTo('#leadership'),
+    },
+    {
+      id: 'nav-moments',
+      label: 'Moments (Photo Retrospective & Hackathons)',
+      category: 'Navigation',
+      icon: <Camera className="w-4 h-4 text-cyan-400" />,
+      perform: () => navigateTo('#moments'),
     },
     {
       id: 'nav-contact',
-      label: 'Get In Touch / Contact',
+      label: 'Contact (Get in Touch / Inquiry Form)',
       category: 'Navigation',
-      icon: <Mail className="w-4 h-4 text-cyan-500" />,
+      icon: <Mail className="w-4 h-4 text-violet-400" />,
       perform: () => navigateTo('#contact'),
     },
     {
@@ -181,20 +182,20 @@ export function CommandPalette({
     },
     {
       id: 'act-resume',
-      label: 'Download Official Resume (PDF)',
+      label: 'Download Resume (PDF)',
       category: 'Actions',
-      icon: <FileText className="w-4 h-4 text-cyan-500" />,
+      icon: <FileText className="w-4 h-4 text-cyan-400" />,
       perform: () => {
-        window.open('/Rajana.pdf', '_blank');
         onClose();
+        window.open('/Rajana.pdf', '_blank');
       },
     },
     {
       id: 'act-copy-email',
-      label: copiedEmail ? 'Email Copied!' : `Copy Email (${PROFILE_DATA.contact.email})`,
+      label: copiedEmail ? 'Email Copied!' : 'Copy Email Address',
       category: 'Actions',
       icon: copiedEmail ? (
-        <Check className="w-4 h-4 text-emerald-500" />
+        <Check className="w-4 h-4 text-emerald-400" />
       ) : (
         <Copy className="w-4 h-4 text-slate-400" />
       ),
@@ -202,9 +203,9 @@ export function CommandPalette({
     },
     {
       id: 'act-chat',
-      label: 'Talk to Neural AI Assistant',
+      label: 'Ask AI Portfolio Assistant',
       category: 'Actions',
-      icon: <Bot className="w-4 h-4 text-violet-500" />,
+      icon: <Bot className="w-4 h-4 text-violet-400" />,
       perform: () => {
         onClose();
         onOpenChat();
@@ -214,11 +215,12 @@ export function CommandPalette({
       id: 'act-theme',
       label: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`,
       category: 'Actions',
-      icon: theme === 'dark' ? (
-        <Sun className="w-4 h-4 text-amber-500" />
-      ) : (
-        <Moon className="w-4 h-4 text-cyan-500" />
-      ),
+      icon:
+        theme === 'dark' ? (
+          <Sun className="w-4 h-4 text-amber-400" />
+        ) : (
+          <Moon className="w-4 h-4 text-slate-400" />
+        ),
       perform: () => {
         toggleTheme();
         onClose();
@@ -230,35 +232,39 @@ export function CommandPalette({
       category: 'Social',
       icon: <ExternalLink className="w-4 h-4 text-slate-400" />,
       perform: () => {
-        window.open(PROFILE_DATA.contact.github, '_blank');
         onClose();
+        window.open(PROFILE_DATA.contact.github, '_blank');
       },
     },
     {
       id: 'soc-linkedin',
       label: 'Open LinkedIn Profile',
       category: 'Social',
-      icon: <ExternalLink className="w-4 h-4 text-cyan-500" />,
+      icon: <ExternalLink className="w-4 h-4 text-slate-400" />,
       perform: () => {
-        window.open(PROFILE_DATA.contact.linkedin, '_blank');
         onClose();
+        window.open(PROFILE_DATA.contact.linkedin, '_blank');
       },
     },
   ];
 
-  const filteredCommands = COMMANDS.filter(
-    (cmd) =>
-      cmd.label.toLowerCase().includes(query.toLowerCase()) ||
-      cmd.category.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredCommands = query
+    ? COMMANDS.filter(
+        (c) =>
+          c.label.toLowerCase().includes(query.toLowerCase()) ||
+          c.category.toLowerCase().includes(query.toLowerCase())
+      )
+    : COMMANDS;
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'ArrowDown') {
       e.preventDefault();
-      setSelectedIndex((prev) => (prev + 1) % (filteredCommands.length || 1));
+      setSelectedIndex((prev) => (prev + 1) % filteredCommands.length);
     } else if (e.key === 'ArrowUp') {
       e.preventDefault();
-      setSelectedIndex((prev) => (prev - 1 + filteredCommands.length) % (filteredCommands.length || 1));
+      setSelectedIndex(
+        (prev) => (prev - 1 + filteredCommands.length) % filteredCommands.length
+      );
     } else if (e.key === 'Enter') {
       e.preventDefault();
       if (filteredCommands[selectedIndex]) {
@@ -274,14 +280,19 @@ export function CommandPalette({
       role="dialog"
       aria-modal="true"
       aria-label="Command Palette"
-      className="fixed inset-0 z-[120] flex items-start justify-center pt-20 sm:pt-28 px-4"
+      className="fixed inset-0 z-[100] flex items-start justify-center pt-[15vh] px-4"
     >
-      <div className="fixed inset-0 bg-black/50 dark:bg-black/75 backdrop-blur-md" onClick={onClose} />
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/60 dark:bg-black/80 backdrop-blur-sm transition-opacity"
+        onClick={onClose}
+      />
 
-      <div className="relative w-full max-w-xl rounded-2xl glass-panel border border-slate-200 dark:border-white/[0.12] shadow-2xl overflow-hidden animate-fade-up">
-        {/* Search Bar */}
+      {/* Palette Container */}
+      <div className="relative w-full max-w-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/[0.12] rounded-2xl shadow-2xl overflow-hidden z-10 animate-fade-down">
+        {/* Search Input */}
         <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-white/[0.08]">
-          <Search className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+          <Search className="w-5 h-5 text-slate-400" />
           <input
             ref={inputRef}
             type="text"
@@ -291,10 +302,11 @@ export function CommandPalette({
               setSelectedIndex(0);
             }}
             onKeyDown={handleKeyDown}
-            placeholder="Type a command, project, or section..."
-            className="w-full bg-transparent text-sm text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 outline-none"
+            placeholder="Type a command or search sections..."
+            className="w-full bg-transparent text-slate-900 dark:text-slate-100 placeholder:text-slate-400 dark:placeholder:text-slate-500 text-sm focus:outline-none"
+            aria-label="Search portfolio commands"
           />
-          <kbd className="px-2 py-0.5 rounded text-[10px] font-mono bg-slate-100 dark:bg-white/[0.06] text-slate-500 dark:text-slate-400">
+          <kbd className="hidden sm:inline-block px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[10px] text-slate-500 font-mono border border-slate-200 dark:border-white/[0.08]">
             ESC
           </kbd>
         </div>
@@ -302,28 +314,32 @@ export function CommandPalette({
         {/* Results List */}
         <div className="max-h-80 overflow-y-auto p-2">
           {filteredCommands.length === 0 ? (
-            <div className="py-8 text-center text-xs text-slate-500">No matching commands found.</div>
+            <div className="p-8 text-center text-sm text-slate-500">
+              No matching commands found.
+            </div>
           ) : (
-            filteredCommands.map((cmd, idx) => {
-              const isSelected = idx === selectedIndex;
+            filteredCommands.map((command, index) => {
+              const isSelected = index === selectedIndex;
               return (
                 <button
-                  key={cmd.id}
+                  key={command.id}
                   type="button"
-                  onClick={() => cmd.perform()}
-                  onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs transition-colors ${
+                  onClick={() => command.perform()}
+                  onMouseEnter={() => setSelectedIndex(index)}
+                  className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left text-sm transition-colors cursor-pointer ${
                     isSelected
-                      ? 'bg-cyan-50 dark:bg-cyan-500/15 text-cyan-700 dark:text-cyan-300 font-semibold'
+                      ? 'bg-cyan-500/10 text-cyan-700 dark:text-cyan-300 font-medium'
                       : 'text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/[0.04]'
                   }`}
                 >
-                  <div className="flex items-center gap-2.5">
-                    {cmd.icon}
-                    <span className="font-medium">{cmd.label}</span>
+                  <div className="flex items-center gap-3">
+                    <span className="p-1 rounded-lg bg-slate-100 dark:bg-white/[0.04]">
+                      {command.icon}
+                    </span>
+                    <span>{command.label}</span>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                    {cmd.category}
+                  <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider">
+                    {command.category}
                   </span>
                 </button>
               );
@@ -331,11 +347,13 @@ export function CommandPalette({
           )}
         </div>
 
-        {/* Footer shortcuts */}
-        <div className="flex items-center justify-between px-4 py-2 bg-slate-50 dark:bg-white/[0.02] border-t border-slate-200 dark:border-white/[0.06] text-[11px] text-slate-500 font-mono">
-          <div className="flex items-center gap-3">
+        {/* Footer Shortcut Hints */}
+        <div className="px-4 py-2 border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/50 dark:bg-white/[0.02] flex items-center justify-between text-[11px] font-mono text-slate-500">
+          <div className="flex items-center gap-2">
             <span>↑↓ Navigate</span>
+            <span>·</span>
             <span>↵ Select</span>
+            <span>·</span>
             <span>ESC Close</span>
           </div>
           <span className="hidden sm:inline">⌘K / Ctrl+K</span>

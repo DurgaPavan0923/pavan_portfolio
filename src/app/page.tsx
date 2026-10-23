@@ -11,19 +11,14 @@ import { Footer } from '@/components/layout/Footer';
 import { ChatBot } from '@/components/ai/ChatBot';
 
 import { Hero } from '@/components/sections/Hero';
-import { About } from '@/components/sections/About';
-import { Gallery } from '@/components/sections/Gallery';
-import { WhyWorkWithMe } from '@/components/sections/WhyWorkWithMe';
-import { Skills } from '@/components/sections/Skills';
 import { Projects } from '@/components/sections/Projects';
-import { GitHubActivity } from '@/components/sections/GitHubActivity';
 import { Experience } from '@/components/sections/Experience';
-import { Research } from '@/components/sections/Research';
+import { GitHubActivity } from '@/components/sections/GitHubActivity';
+import { Skills } from '@/components/sections/Skills';
 import { Certifications } from '@/components/sections/Certifications';
 import { Leadership } from '@/components/sections/Leadership';
-import { Blogs } from '@/components/sections/Blogs';
+import { Gallery } from '@/components/sections/Gallery';
 import { Contact } from '@/components/sections/Contact';
-import { PersonalClosing } from '@/components/sections/PersonalClosing';
 
 export default function Home() {
   const [isPaletteOpen, setIsPaletteOpen] = useState(false);
@@ -52,7 +47,7 @@ export default function Home() {
           <button
             type="button"
             onClick={() => setIsFocusMode(false)}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 dark:bg-white/90 text-white dark:text-slate-900 text-xs font-mono font-medium shadow-2xl backdrop-blur-md hover:scale-105 active:scale-95 transition-all"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900/90 dark:bg-white/90 text-white dark:text-slate-900 text-xs font-mono font-medium shadow-2xl backdrop-blur-md hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400"
             aria-label="Exit Focus Mode"
           >
             <Eye className="w-3.5 h-3.5 text-cyan-400 dark:text-cyan-600" />
@@ -94,22 +89,18 @@ export default function Home() {
         onToggleFocusMode={() => setIsFocusMode((prev) => !prev)}
       />
 
-      {/* Main Semantic Landmark */}
+      {/* Main Semantic Landmark with Recruiter-First Flow:
+          Hero → Featured Projects → Experience → Open Source (live) → Skills → Credentials & Education → Leadership → Moments (photos) → Contact */}
       <main id="main-content" className="relative z-10 pb-16 lg:pb-0">
         <Hero onOpenChat={() => setIsChatOpen(true)} />
-        <About />
-        <Gallery />
-        <WhyWorkWithMe />
-        <Skills />
         <Projects />
-        <GitHubActivity />
         <Experience />
-        <Research />
+        <GitHubActivity />
+        <Skills />
         <Certifications />
         <Leadership />
-        <Blogs />
+        <Gallery />
         <Contact />
-        <PersonalClosing />
       </main>
 
       {/* Semantic Footer */}

@@ -11,7 +11,7 @@ export function Certifications() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-mono font-medium mb-3">
-            <span>07 // CREDENTIALS & HONORS</span>
+            <span>05 // CREDENTIALS & EDUCATION</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Industry Certifications &amp; <span className="text-gradient-cyan">Hackathon Distinctions</span>
