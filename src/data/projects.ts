@@ -168,13 +168,105 @@ export const PROJECTS: Project[] = [
     forks: 5,
   },
 
-  // 3. FEATURED PROJECT 3: News Article Summarizer with Seq2Seq Attention
+  // 3. FEATURED PROJECT 3: AI-Based Underwater Environmental Analytics
+  {
+    slug: 'underwater-analytics',
+    name: 'AI-Based Underwater Environmental Analytics',
+    emoji: '🌊',
+    category: 'Full Stack AI',
+    featured: true,
+    tagline: 'Dual-Track Machine Learning & Environmental Telemetry for Water Potability & Oceanographic Sensor Forecasting',
+    description:
+      'A zero-leakage machine learning system developed under TIH IIT Guwahati for calibrated water potability classification, WHO guideline compliance auditing, and continuous underwater sensor stream anomaly detection & forecasting.',
+    problem:
+      'Conventional water quality analysis relies on slow batch laboratory assays or rigid regulatory rule envelopes that misclassify non-linear contaminant interactions. Furthermore, oceanographic buoy telemetry suffers from harsh drift and lack of causal forecasting.',
+    approach:
+      'Engineered a dual-track architecture: Track B evaluates 9 bulk physicochemical attributes with fold-isolated scaling, Platt-calibrated XGBoost, and strict WHO guardrails; Track A applies walk-forward causal lag forecasting and Isolation Forest anomaly scoring to continuous CTD sensor streams without future peeking.',
+    solution:
+      'Built a calibrated gradient-boosted classification pipeline (PR-AUC 0.5951, Brier 0.2154) paired with a causal autoregressive forecaster for dissolved oxygen dynamics (0.1748 MAE) and deployed with a responsive FastAPI ASGI dashboard.',
+    evalResult: {
+      summary: 'Evaluated across a quarantined 20% holdout lockbox (N=656) and continuous telemetry stream (N=720). XGBoost with Platt calibration achieved 0.5951 PR-AUC (vs 0.3920 WHO baseline) with 2.89 ms server P50 latency, while the stream forecaster reduced DO prediction MAE by 41.3%.',
+      dataset: 'Quarantined 20% Lockbox Partition (N=656) & CTD Buoy Stream (N=720)',
+      sampleSize: 'N = 656 lockbox holdout (N = 3,276 total samples)',
+      date: 'October 2026',
+      metrics: [
+        { label: 'Lockbox PR-AUC', value: '0.5951' },
+        { label: 'Lockbox ROC-AUC', value: '0.6689' },
+        { label: 'Brier Score', value: '0.2154' },
+        { label: 'Server P50 Latency', value: '2.89 ms' },
+      ],
+    },
+    whatIdImprove:
+      'Deploy quantized ONNX runtime models onto low-power edge microcontrollers (ESP32/STM32) directly aboard oceanographic CTD buoys for real-time in-situ inferencing with solar energy harvesting.',
+    evalUrl: 'https://github.com/DurgaPavan0923/pavan_portfolio/blob/main/evals/underwater-analytics/METHODOLOGY.md',
+    architecture:
+      'Cryptographic SHA-256 Data Ingest → Dual-Track Partitioning → Fold-Isolated Preprocessing → Calibrated Ensemble (XGBoost + Platt) & Isolation Forest → Causal Autoregressive Forecaster → FastAPI Service & AquaGuard Web Dashboard.',
+    architectureSteps: [
+      {
+        icon: '📥',
+        title: 'SHA-256 Verified Ingest',
+        desc: 'Validates raw sensor feeds and tabular datasets with cryptographic checksum verification.',
+      },
+      {
+        icon: '🔀',
+        title: 'Dual-Track Routing',
+        desc: 'Separates continuous temporal CTD telemetry (Track A) from static 9-parameter water attributes (Track B).',
+      },
+      {
+        icon: '🛡️',
+        title: 'Leakage-Free Preprocessing',
+        desc: 'Enforces chronological walk-forward splits for time-series and fold-isolated scaling for cross-validation.',
+      },
+      {
+        icon: '⚡',
+        title: 'Calibrated ML Inference',
+        desc: 'Evaluates samples through Platt-scaled XGBoost (decision threshold T*=0.38) and multi-sensor Isolation Forest (nu=0.021).',
+      },
+      {
+        icon: '📋',
+        title: 'Regulatory Auditing',
+        desc: 'Assesses 9 chemical parameters against strict WHO 4th Ed. and EPA permissible boundary envelopes.',
+      },
+      {
+        icon: '📊',
+        title: 'AquaGuard Dashboard',
+        desc: 'Renders real-time radar envelopes, live buoys simulation, and batch CSV processing.',
+      },
+    ],
+    technologies: [
+      'Python',
+      'FastAPI',
+      'XGBoost',
+      'Scikit-learn',
+      'Pandas',
+      'NumPy',
+      'Docker',
+      'Chart.js',
+      'Vercel Serverless',
+    ],
+    deployment: 'Vercel Serverless ASGI / Uvicorn, Docker Container',
+    impact:
+      'Developed at TIH IIT Guwahati; achieved 0.5951 PR-AUC on quarantined holdout (vs 0.3920 WHO baseline) and 41.3% reduction in DO forecasting error with 2.89 ms P50 latency.',
+    metrics: [
+      { label: 'Lockbox PR-AUC', value: '0.5951' },
+      { label: 'ROC-AUC', value: '0.6689' },
+      { label: 'DO Forecaster MAE', value: '0.1748' },
+      { label: 'Server P50', value: '2.89 ms' },
+    ],
+    tags: ['Python', 'FastAPI', 'Machine Learning', 'Environmental AI', 'Time-Series', 'IIT Guwahati'],
+    githubUrl: 'https://github.com/DurgaPavan0923/water_potability',
+    liveUrl: 'https://water-potability-vert.vercel.app/',
+    stars: 0,
+    forks: 0,
+  },
+
+  // 4. SECONDARY COMPACT: News Article Summarizer with Seq2Seq Attention
   {
     slug: 'seq2seq-summarizer',
     name: 'News Article Summarizer with Seq2Seq Attention',
     emoji: '📰',
     category: 'NLP',
-    featured: true,
+    featured: false,
     tagline: 'Abstractive Neural Text Summarization using Seq2Seq with Bahdanau Attention on CNN/DailyMail',
     description:
       'A deep learning abstractive text summarization system that condenses long-form journalism into grammatically coherent summaries.',
@@ -222,12 +314,7 @@ export const PROJECTS: Project[] = [
     deployment: 'Streamlit Cloud, PyTorch model checkpoints hosted on Hugging Face',
     impact:
       'Trained an encoder-decoder neural network with Bahdanau additive attention on CNN/DailyMail article pairs for abstractive document condensation; evaluated against Lead-3 baseline.',
-    metrics: [
-      { label: 'Lead-3 ROUGE-1', value: '0.5550' },
-      { label: 'Lead-3 ROUGE-L', value: '0.4281' },
-      { label: 'Attention', value: 'Bahdanau Additive' },
-      { label: 'Inference', value: 'Beam Search' },
-    ],
+    metrics: [],
     tags: ['PyTorch', 'Seq2Seq', 'Attention Mechanism', 'NLP', 'Deep Learning'],
     githubUrl: 'https://github.com/DurgaPavan0923/Seq2Seq-model-newspaper-text-summarization',
     liveUrl: 'https://github.com/DurgaPavan0923/Seq2Seq-model-newspaper-text-summarization',

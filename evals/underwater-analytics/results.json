@@ -1,0 +1,68 @@
+{
+  "dataset": {
+    "name": "underwater_environmental_potability_sample",
+    "sample_size_n": 30,
+    "full_repo_tabular_n": 3276,
+    "full_repo_stream_n": 720,
+    "date": "2026-10-23",
+    "provenance": "DurgaPavan0923/water_potability (Technology Innovation Hub, IIT Guwahati)"
+  },
+  "classification_results": {
+    "who_permissible_baseline": {
+      "accuracy": 0.5,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "p50_latency_ms": 0.0013,
+      "p95_latency_ms": 0.0046,
+      "notes": "Deterministic rule: flags non-potable if any of 9 parameters violates WHO safety envelope."
+    },
+    "logistic_regression": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "brier_score": 0.1392,
+      "p50_latency_ms": 0.0136,
+      "p95_latency_ms": 0.0236
+    },
+    "calibrated_ensemble_xgboost": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "brier_score": 0.0886,
+      "p50_latency_ms": 0.0132,
+      "p95_latency_ms": 0.0286,
+      "lockbox_repo_benchmark_n656": {
+        "pr_auc": 0.5951,
+        "pr_auc_ci95": [
+          0.534,
+          0.656
+        ],
+        "roc_auc": 0.6689,
+        "roc_auc_ci95": [
+          0.627,
+          0.711
+        ],
+        "brier_score": 0.2154,
+        "f1_at_t_star": 0.548,
+        "server_p50_latency_ms": 2.89
+      }
+    }
+  },
+  "temporal_forecasting_results": {
+    "target": "dissolved_oxygen_mg_l",
+    "persistence_baseline": {
+      "mae": 0.1213,
+      "rmse": 0.1392
+    },
+    "stream_forecaster": {
+      "mae": 0.2645,
+      "rmse": 0.3704,
+      "full_repo_stream_mae": 0.1748,
+      "persistence_repo_baseline_mae": 0.298,
+      "error_reduction_pct": 41.34
+    }
+  }
+}

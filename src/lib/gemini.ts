@@ -67,7 +67,7 @@ Explore the continuous photo carousel in the [Moments](#moments) section!`;
 
   if (q.includes('intern') || q.includes('experience') || q.includes('leadership') || q.includes('role') || q.includes('tih') || q.includes('gdg') || q.includes('microsoft')) {
     return `### 💼 Professional Experience & Leadership
-- **Student Intern** at **TIH IIT Guwahati** (Jun 2026 – Present): Applied ML research and PyTorch benchmarking.
+- **Student Intern** at **TIH IIT Guwahati** (Jun 2026 – Present): Underwater Environmental Analytics, calibrated ML for water potability (PR-AUC 0.5951), and Dissolved Oxygen stream forecasting.
 - **Club Coordinator** at **GDGoC ITER** (Sep 2025 – Present): Leading 100+ member team, Cloud Study Jams, and Chakravyuh Genesis.
 - **AI Intern** at **Edunet Foundation (IBM SkillsBuild & AICTE)** (May – Jun 2026): FactLens AI development.
 - **Azure Cloud Intern** at **Microsoft Elevate (AICTE)** (20 Jan – 12 Feb 2026): 4-week Azure cloud architecture program.
@@ -75,11 +75,12 @@ Explore the continuous photo carousel in the [Moments](#moments) section!`;
 - **Campus Ambassador** at **Cognizance IIT Roorkee** & **eDC IIT Delhi**.`;
   }
 
-  if (q.includes('project') || q.includes('build') || q.includes('eval') || q.includes('factlens') || q.includes('insight') || q.includes('summariz')) {
+  if (q.includes('project') || q.includes('build') || q.includes('eval') || q.includes('factlens') || q.includes('insight') || q.includes('summariz') || q.includes('water') || q.includes('underwater') || q.includes('potability')) {
     return `### 🚀 Evaluated Projects by Pavan
 - **FactLens AI**: Explainable misinformation verification platform combining Gemini API, Neo4j Graph RAG, and Pinecone (94.0% accuracy on n=100 claims).
 - **InsightAI**: Semantic ATS resume evaluation engine with transformer embeddings and FastAPI (100% P@1 on n=32 pairs).
-- **News Summarizer Seq2Seq**: Abstractive neural summarization with Bahdanau attention (evaluated against Lead-3 baseline on 50 CNN/DailyMail articles).
+- **Underwater Environmental Analytics (AquaGuard AI)**: Dual-track environmental telemetry & potability system with calibrated XGBoost (0.5951 PR-AUC vs 0.3920 WHO baseline) and DO stream forecaster (0.1748 MAE).
+- **News Summarizer Seq2Seq**: Abstractive neural summarization with Bahdanau attention on CNN/DailyMail.
 - **IRA & AGORA**: Secondary systems featuring 3D smart city load balancing and Web3 governance.
 
 Explore the full methodology and scripts in the [Projects](#projects) section and \`/evals\` directory!`;
@@ -115,7 +116,7 @@ You can also send a direct inquiry via the [Contact Form](#contact)!`;
   }
 
   return `👋 Hi! I'm Pavan's Neural Assistant. I can tell you about:
-- **Flagship AI Projects** (FactLens AI, InsightAI, Seq2Seq Summarizer)
+- **Flagship AI Projects** (FactLens AI, InsightAI, Underwater Environmental Analytics)
 - **Verified Skills** (Python, PyTorch, Gemini API, Neo4j, Azure, Next.js 15)
 - **Experience & Internships** (TIH IIT Guwahati, GDGoC ITER, Edunet, Microsoft)
 - **Certifications & Education** (Neo4j Certified, 98 Cloud Badges, B.Tech CSE)

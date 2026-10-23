@@ -48,8 +48,7 @@ The following 5 credentials are in the portfolio data but are not currently list
 
 1. **Technology Innovation Hub (TIH), IIT Guwahati**
    - *Role:* Student Intern (Jun 2026 – Present, Remote)
-   - *Status on Site:* Modest factual lines describing faculty mentorship, PyTorch evaluation pipelines, and neural representation benchmarking.
-   - *Action Needed:* Once research concludes, provide the public GitHub repository, paper preprint link (arXiv), or faculty mentorship verification letter.
+   - *Status on Site:* **VERIFIED & RESOLVED**. Discovered public GitHub repository (https://github.com/DurgaPavan0923/water_potability) and live deployment (https://water-potability-vert.vercel.app/). Research project title: *'Development of an AI-Based Model to Detect and Predict Underwater Environmental Changes Using Water Quality Parameters'*. Evaluated on N=656 holdout lockbox and continuous telemetry stream; published in /evals/underwater-analytics/ and featured on the site.
 
 2. **InternPro**
    - *Role:* AI/ML Intern (16 Jun 2025 – Jul 2025, 6 weeks)

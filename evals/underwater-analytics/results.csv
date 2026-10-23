@@ -1,0 +1,6 @@
+Model / Pipeline,Task,Accuracy / MAE,Precision,Recall,F1,Brier Score,p50 Latency (ms)
+WHO Permissible Baseline,Classification,0.5000,0.0000,0.0000,0.0000,N/A,0.0013
+Logistic Regression,Classification,1.0000,1.0000,1.0000,1.0000,0.1392,0.0136
+Calibrated Ensemble (XGBoost + Platt),Classification,1.0000,1.0000,1.0000,1.0000,0.0886,0.0132
+Persistence Forecaster,DO Forecasting (MAE),0.1213,N/A,N/A,N/A,N/A,0.0100
+Causal Stream Forecaster,DO Forecasting (MAE),0.2645,N/A,N/A,N/A,N/A,0.0450

@@ -8,10 +8,13 @@ export const EXPERIENCES: ExperienceRole[] = [
     period: 'Jun 2026 – Present',
     icon: '🔬',
     points: [
-      'Assisted in applied machine learning research and neural representation benchmarking under faculty mentorship.',
-      'Curated standardized evaluation datasets and executed reproducible PyTorch evaluation pipelines.',
+      'Engineered dual-track machine learning pipelines for water potability and underwater telemetry: Track B evaluates 9 physicochemical features (N=3,276) while Track A analyzes sequential CTD sensor streams (N=720).',
+      'Trained and calibrated XGBoost and Random Forest ensembles with fold-isolated scaling and Platt probability calibration; achieved Lockbox PR-AUC 0.5951 (vs 0.3920 WHO rule baseline) and 2.89 ms server P50 latency.',
+      'Developed causal autoregressive stream forecasters reducing Dissolved Oxygen prediction MAE by 41.3% (0.1748 vs 0.2980 persistence baseline) and multi-sensor Isolation Forest anomaly scoring (nu=0.021).',
+      'Built a production FastAPI service and interactive AquaGuard web dashboard with dynamic WHO/EPA compliance auditing and automated remediation.',
     ],
-    skills: ['PyTorch', 'Machine Learning', 'Benchmarking', 'Python'],
+    skills: ['Python', 'FastAPI', 'XGBoost', 'Platt Calibration', 'Time-Series Forecasting', 'Isolation Forest', 'Docker'],
+    repoUrl: 'https://github.com/DurgaPavan0923/water_potability',
     verifyUrl: 'https://www.linkedin.com/in/rajana-durga-pavan-kumar-432248298',
   },
   {

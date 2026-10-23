@@ -102,7 +102,7 @@ export function CommandPalette({
   const COMMANDS: CommandItem[] = [
     {
       id: 'nav-projects',
-      label: 'Featured Projects (FactLens AI, InsightAI, Seq2Seq)',
+      label: 'Featured Projects (FactLens AI, InsightAI, Underwater Analytics)',
       category: 'Navigation',
       icon: <Layers className="w-4 h-4 text-cyan-500" />,
       perform: () => navigateTo('#projects'),
