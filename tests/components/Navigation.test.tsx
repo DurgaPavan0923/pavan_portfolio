@@ -48,10 +48,9 @@ describe('CommandPalette Component', () => {
     );
 
     expect(screen.getByPlaceholderText(/type a command/i)).toBeDefined();
-    expect(screen.getByText(/Explore Featured Projects/i)).toBeDefined();
-    expect(screen.getByText(/Why Work With Me/i)).toBeDefined();
+    expect(screen.getByText(/Featured Projects/i)).toBeDefined();
     expect(screen.getByText(/Toggle Focus Mode/i)).toBeDefined();
-    expect(screen.getByText(/Download Official Resume/i)).toBeDefined();
+    expect(screen.getByText(/Download Resume/i)).toBeDefined();
   });
 
   it('triggers focus mode toggle command', () => {

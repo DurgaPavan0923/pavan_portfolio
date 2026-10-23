@@ -1,16 +1,46 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { GitHubTelemetryData, FeaturedRepo } from '@/lib/github';
+import { GitHubTelemetryData } from '@/lib/github';
 import snapshotData from '@/data/github-snapshot.json';
-import { GitFork, Star, BookOpen, ExternalLink, Calendar, GitCommit, Flame, Code, Sparkles, CheckCircle2, AlertTriangle } from 'lucide-react';
+import {
+  GitFork,
+  Star,
+  BookOpen,
+  ExternalLink,
+  Calendar,
+  GitCommit,
+  GitPullRequest,
+  AlertCircle,
+  Users,
+  Flame,
+  Code,
+  CheckCircle2,
+  AlertTriangle,
+} from 'lucide-react';
 import { PROFILE_DATA } from '@/data/profile';
 
 const INITIAL_DATA: GitHubTelemetryData = snapshotData as unknown as GitHubTelemetryData;
 
+function formatMinutesAgo(dateStr?: string): string {
+  if (!dateStr) return 'just now';
+  try {
+    const d = new Date(dateStr);
+    const diffMs = Date.now() - d.getTime();
+    const diffMins = Math.floor(diffMs / (1000 * 60));
+    if (diffMins < 1) return 'just now';
+    if (diffMins === 1) return '1m ago';
+    if (diffMins < 60) return `${diffMins}m ago`;
+    const diffHours = Math.floor(diffMins / 60);
+    if (diffHours === 1) return '1h ago';
+    return `${diffHours}h ago`;
+  } catch {
+    return 'recently';
+  }
+}
+
 export function GitHubActivity() {
   const [data, setData] = useState<GitHubTelemetryData>(INITIAL_DATA);
-  const [loading, setLoading] = useState(false);
   const [hoveredDay, setHoveredDay] = useState<{ date: string; count: number } | null>(null);
 
   useEffect(() => {
@@ -23,8 +53,6 @@ export function GitHubActivity() {
         }
       } catch (err) {
         console.warn('Failed to load GitHub telemetry, keeping snapshot:', err);
-      } finally {
-        setLoading(false);
       }
     }
 
@@ -56,12 +84,13 @@ export function GitHubActivity() {
   };
 
   return (
-    <section id="activity" aria-label="GitHub Activity & Open Source" className="relative py-20 px-4 sm:px-6">
+    <section id="open-source" aria-label="GitHub Activity & Open Source" className="relative py-20 px-4 sm:px-6">
+      <span id="activity" className="absolute -top-24" />
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-mono font-medium mb-3">
-            <span>04 // OPEN SOURCE METRICS</span>
+            <span>03 // OPEN SOURCE METRICS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             GitHub Telemetry &amp; <span className="text-gradient-cyan">Verified Contributions</span>
@@ -80,63 +109,115 @@ export function GitHubActivity() {
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
             {data.isStale ? (
-              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
+              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
                 <AlertTriangle className="w-3 h-3" />
                 <span>Cached Snapshot</span>
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
                 <CheckCircle2 className="w-3 h-3" />
-                <span>Live Data</span>
+                <span>Live · updated {formatMinutesAgo(data.fetchedAt)}</span>
               </span>
             )}
           </div>
         </div>
 
-        {/* 4 Stat Cards: Verified Open-Source Metrics */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className="p-5 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1.5 text-cyan-600 dark:text-cyan-400 mb-1">
-              <Calendar className="w-4 h-4" />
-              <span className="text-xs font-mono uppercase tracking-wider">Annual Contribs</span>
+        {/* Primary Metric Grid: All 8 Verified Open-Source Metrics */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
+          {/* 1. Public Repos */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-violet-600 dark:text-violet-400 mb-1">
+              <BookOpen className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Repos</span>
             </div>
-            <div className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-slate-100">
-              {data.totalContributions}
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Last 12 Months</div>
-          </div>
-
-          <div className="p-5 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1.5 text-emerald-600 dark:text-emerald-400 mb-1">
-              <GitCommit className="w-4 h-4" />
-              <span className="text-xs font-mono uppercase tracking-wider">Indexed Commits</span>
-            </div>
-            <div className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-slate-100">
-              {data.totalCommits}+
-            </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Verified Commits</div>
-          </div>
-
-          <div className="p-5 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1.5 text-violet-600 dark:text-violet-400 mb-1">
-              <BookOpen className="w-4 h-4" />
-              <span className="text-xs font-mono uppercase tracking-wider">Public Repos</span>
-            </div>
-            <div className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-slate-100">
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
               {data.publicRepos}
             </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">Repositories</div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Public Repos</div>
           </div>
 
-          <div className="p-5 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1.5 text-amber-600 dark:text-amber-400 mb-1">
-              <Flame className="w-4 h-4" />
-              <span className="text-xs font-mono uppercase tracking-wider">Best Streak</span>
+          {/* 2. Total Stars */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-amber-500 dark:text-amber-400 mb-1">
+              <Star className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Stars</span>
             </div>
-            <div className="font-display font-extrabold text-2xl sm:text-3xl text-slate-900 dark:text-slate-100">
-              {data.longestStreak} <span className="text-sm font-normal text-slate-400">days</span>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.totalStars}
             </div>
-            <div className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Total Stars</div>
+          </div>
+
+          {/* 3. Total Forks */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
+              <GitFork className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Forks</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.totalForks}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Total Forks</div>
+          </div>
+
+          {/* 4. Followers */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-emerald-600 dark:text-emerald-400 mb-1">
+              <Users className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Network</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.followers}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Followers</div>
+          </div>
+
+          {/* 5. Annual Contribs */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
+              <Calendar className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Contribs</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.totalContributions}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Last 12 Mos</div>
+          </div>
+
+          {/* 6. Pull Requests */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-emerald-600 dark:text-emerald-400 mb-1">
+              <GitPullRequest className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">PRs</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.totalPRs}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Merged PRs</div>
+          </div>
+
+          {/* 7. Issues */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-rose-500 dark:text-rose-400 mb-1">
+              <AlertCircle className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Issues</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.totalIssues}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Authored Issues</div>
+          </div>
+
+          {/* 8. Streak */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-amber-500 dark:text-amber-400 mb-1">
+              <Flame className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Streak</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.longestStreak}d
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
               Current: {data.currentStreak}d
             </div>
           </div>
@@ -148,7 +229,7 @@ export function GitHubActivity() {
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                Annual Public Contribution Calendar ({data.totalContributions} total)
+                Annual Public Contribution Calendar ({data.totalContributions} total contributions)
               </span>
             </div>
 
@@ -229,7 +310,7 @@ export function GitHubActivity() {
           )}
         </div>
 
-        {/* Featured Repositories Subgrid */}
+        {/* Featured / Pinned Repositories Subgrid with Real Stars & Forks */}
         <div className="mb-4">
           <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />

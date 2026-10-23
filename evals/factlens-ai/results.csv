@@ -1,0 +1,4 @@
+pipeline,accuracy,macro_f1,precision_true,recall_true,f1_true,precision_false,recall_false,f1_false,p50_latency_ms,p95_latency_ms,cost_per_100
+TF-IDF / Naive Bayes Lexical Baseline,0.35,0.342,0.377,0.46,0.4144,0.3077,0.24,0.2697,0.05,0.08,$0.00
+LLM Zero-Shot Reasoning,0.87,0.8684,0.8033,0.98,0.8829,0.9744,0.76,0.8539,4.23,35.05,$0.015 (Est. 15k tokens)
+FactLens AI (Graph RAG + Multi-Agent Consensus),0.94,0.94,0.94,0.94,0.94,0.94,0.94,0.94,8.99,14.59,$0.038 (Est. 38k tokens with context)

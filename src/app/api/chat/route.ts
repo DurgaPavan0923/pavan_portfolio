@@ -3,7 +3,7 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { chatRequestSchema } from '@/lib/validators';
 import { buildSystemPrompt, getOfflineFallbackResponse } from '@/lib/gemini';
 
-// Simple in-memory rate limiting map: IP -> timestamp[]
+// Simple in-memory sliding-window rate limiter: IP -> timestamps
 const rateLimitMap = new Map<string, number[]>();
 
 function checkRateLimit(ip: string): boolean {
@@ -60,6 +60,7 @@ export async function POST(req: NextRequest) {
     }
 
     const apiKey = process.env.GEMINI_API_KEY;
+    const modelName = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
 
     if (!apiKey) {
       // Offline fallback generator
@@ -69,51 +70,58 @@ export async function POST(req: NextRequest) {
       });
     }
 
-    // Call Gemini API with streaming
-    const genAI = new GoogleGenerativeAI(apiKey);
-    const model = genAI.getGenerativeModel({
-      model: 'gemini-1.5-flash',
-      systemInstruction: buildSystemPrompt(),
-    });
+    // Call Gemini API with streaming and graceful fallback on model deprecation
+    try {
+      const genAI = new GoogleGenerativeAI(apiKey);
+      const model = genAI.getGenerativeModel({
+        model: modelName,
+        systemInstruction: buildSystemPrompt(),
+      });
 
-    const formattedHistory = (history || []).map((h) => ({
-      role: h.role === 'assistant' ? 'model' : 'user',
-      parts: [{ text: h.content }],
-    }));
+      const formattedHistory = (history || []).map((h) => ({
+        role: h.role === 'assistant' ? 'model' : 'user',
+        parts: [{ text: h.content }],
+      }));
 
-    const chat = model.startChat({
-      history: formattedHistory,
-    });
+      const chat = model.startChat({
+        history: formattedHistory,
+      });
 
-    const streamResult = await chat.sendMessageStream(message);
+      const streamResult = await chat.sendMessageStream(message);
 
-    const encoder = new TextEncoder();
-    const readableStream = new ReadableStream({
-      async start(controller) {
-        try {
-          for await (const chunk of streamResult.stream) {
-            const chunkText = chunk.text();
-            controller.enqueue(encoder.encode(chunkText));
+      const encoder = new TextEncoder();
+      const readableStream = new ReadableStream({
+        async start(controller) {
+          try {
+            for await (const chunk of streamResult.stream) {
+              const chunkText = chunk.text();
+              controller.enqueue(encoder.encode(chunkText));
+            }
+          } catch (streamErr) {
+            console.error('Error during streaming chunk:', streamErr);
+            controller.enqueue(encoder.encode(getOfflineFallbackResponse(message)));
+          } finally {
+            controller.close();
           }
-        } catch (streamErr) {
-          console.error('Error during streaming chunk:', streamErr);
-          controller.enqueue(encoder.encode(getOfflineFallbackResponse(message)));
-        } finally {
-          controller.close();
-        }
-      },
-    });
+        },
+      });
 
-    return new Response(readableStream, {
-      headers: {
-        'Content-Type': 'text/event-stream; charset=utf-8',
-        'Cache-Control': 'no-cache, no-transform',
-        Connection: 'keep-alive',
-      },
-    });
+      return new Response(readableStream, {
+        headers: {
+          'Content-Type': 'text/event-stream; charset=utf-8',
+          'Cache-Control': 'no-cache, no-transform',
+          Connection: 'keep-alive',
+        },
+      });
+    } catch (apiError: unknown) {
+      console.warn(`Gemini API error with model ${modelName}, using fallback:`, apiError);
+      const reply = getOfflineFallbackResponse(message);
+      return new Response(reply, {
+        headers: { 'Content-Type': 'text/plain; charset=utf-8' },
+      });
+    }
   } catch (error) {
     console.error('Chat endpoint error:', error);
-    // Return graceful fallback rather than 500 error to ensure flawless UX
     return new Response(
       "I encountered a momentary connection hiccup. Pavan is an AI/ML Engineer specializing in Retrieval-Augmented Generation (RAG) and cloud systems. Feel free to explore his projects above or email him directly at rdpkumar2308@gmail.com.",
       { headers: { 'Content-Type': 'text/plain; charset=utf-8' } }

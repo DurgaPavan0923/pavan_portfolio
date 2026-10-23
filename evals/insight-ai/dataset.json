@@ -1,0 +1,250 @@
+[
+  {
+    "query_id": "jd-ml-01",
+    "jd_title": "Senior Machine Learning Engineer",
+    "jd_text": "Seeking ML Engineer with strong PyTorch, TensorFlow, Python, Docker, FastAPI, and transformer architecture experience. Deep understanding of model evaluation, NLP, and MLOps deployment required.",
+    "resumes": [
+      {
+        "resume_id": "res-01",
+        "title": "AI/ML Engineer",
+        "text": "Experienced AI & ML Engineer with 3 years building PyTorch deep learning models, fine-tuning Hugging Face transformers, containerizing FastAPI microservices in Docker, and deploying ML pipelines.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-02",
+        "title": "Data Scientist",
+        "text": "Data scientist proficient in Python, Scikit-learn, SQL, and statistical regression modeling with exploratory data analysis in Pandas and Jupyter.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-03",
+        "title": "Frontend Developer",
+        "text": "Frontend React and Next.js developer specializing in Tailwind CSS, TypeScript, UI component architecture, and client-side state management with Zustand.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-04",
+        "title": "Creative Content Writer",
+        "text": "Content writer and copywriter experienced in technical blog writing, marketing communications, social media strategy, and SEO optimization.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-devops-02",
+    "jd_title": "Cloud DevOps & Infrastructure Engineer",
+    "jd_text": "Looking for DevOps Engineer with Kubernetes, Docker, Terraform, CI/CD GitHub Actions, Microsoft Azure, Linux system administration, and infrastructure monitoring.",
+    "resumes": [
+      {
+        "resume_id": "res-05",
+        "title": "Senior DevOps Engineer",
+        "text": "Cloud infrastructure specialist managing Kubernetes clusters, Terraform IaC modules, Docker container runtimes, GitHub Actions automated CI/CD workflows on Microsoft Azure.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-06",
+        "title": "Backend Python Developer",
+        "text": "Backend developer building RESTful APIs in Flask and Django with basic familiarity writing Dockerfiles and setting up Linux cron jobs.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-07",
+        "title": "Mobile iOS Developer",
+        "text": "Swift and iOS application engineer skilled in Xcode, UIKit, SwiftUI, CoreData, and Apple App Store deployment lifecycles.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-08",
+        "title": "Financial Accountant",
+        "text": "Certified financial accountant managing ledger reconciliation, balance sheets, corporate tax audits, and QuickBooks payroll processing.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-fullstack-03",
+    "jd_title": "Full Stack Next.js & TypeScript Engineer",
+    "jd_text": "Senior Full Stack Developer with React 19, Next.js 15 App Router, TypeScript, Tailwind CSS, PostgreSQL, Prisma ORM, and REST/GraphQL API integration.",
+    "resumes": [
+      {
+        "resume_id": "res-09",
+        "title": "Full Stack Web Developer",
+        "text": "Full Stack software engineer building production web applications using Next.js 15, TypeScript, React 19, Tailwind CSS, and PostgreSQL databases.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-10",
+        "title": "Backend Java Developer",
+        "text": "Java software engineer proficient in Spring Boot, Hibernate, MySQL, and microservice architecture with basic HTML/CSS knowledge.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-11",
+        "title": "Bioinformatics Lab Technician",
+        "text": "Laboratory assistant specializing in gel electrophoresis, PCR amplification, DNA sequencing protocols, and cell culture maintenance.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-12",
+        "title": "Mechanical Design Draftsman",
+        "text": "AutoCAD and SolidWorks designer creating 3D mechanical assemblies, sheet metal fabrication blueprints, and structural FEA simulations.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-nlp-04",
+    "jd_title": "Natural Language Processing (NLP) Specialist",
+    "jd_text": "NLP Researcher / Engineer experienced in abstractive text summarization, Seq2Seq models, attention mechanisms, tokenization, Hugging Face, PyTorch, and ROUGE benchmark evaluation.",
+    "resumes": [
+      {
+        "resume_id": "res-13",
+        "title": "NLP & Deep Learning Practitioner",
+        "text": "Machine learning researcher specializing in NLP, sequence-to-sequence neural architectures, Bahdanau attention, transformer embeddings, and ROUGE evaluation on CNN/DailyMail.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-14",
+        "title": "General Python Programmer",
+        "text": "Python programmer with experience in web scraping using BeautifulSoup, text file regex manipulation, and CSV data extraction.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-15",
+        "title": "Automotive Diagnostic Technician",
+        "text": "Master automotive mechanic certified in OBD-II diagnostic scanning, electrical wiring troubleshooting, brake overhaul, and transmission repair.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-16",
+        "title": "Hotel Front Desk Supervisor",
+        "text": "Hospitality professional managing guest check-in reservations, billing discrepancies, concierge services, and customer satisfaction metrics.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-graph-05",
+    "jd_title": "Graph Database & Knowledge Graph Architect",
+    "jd_text": "Knowledge Graph Architect experienced in Neo4j, Cypher query language, property graph schema modeling, Graph RAG, vector databases, and semantic relationship extraction.",
+    "resumes": [
+      {
+        "resume_id": "res-17",
+        "title": "Neo4j Certified Professional",
+        "text": "Certified Neo4j Professional with hands-on expertise in Cypher optimization, Graph RAG architectures, property graph modeling, and hybrid semantic vector indexing.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-18",
+        "title": "Relational Database Administrator",
+        "text": "Database administrator managing Oracle and Microsoft SQL Server instances, index tuning, transaction isolation levels, and ACID compliance.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-19",
+        "title": "Culinary Head Chef",
+        "text": "Executive chef managing commercial kitchen operations, food cost budgeting, menu planning, culinary knife skills, and food safety standards.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-20",
+        "title": "Interior Lighting Decorator",
+        "text": "Interior designer creating ambient residential lighting layouts, fixture specifications, color temperature palettes, and architectural drafting.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-cv-06",
+    "jd_title": "Computer Vision & Deep Learning Engineer",
+    "jd_text": "Computer Vision Engineer skilled in OpenCV, YOLO object detection, PyTorch, image segmentation, CNN convolutional neural networks, and edge model inference.",
+    "resumes": [
+      {
+        "resume_id": "res-21",
+        "title": "Computer Vision Engineer",
+        "text": "Deep learning engineer training convolutional neural networks, YOLOv8 object detectors, OpenCV image filtering pipelines, and edge PyTorch deployment.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-22",
+        "title": "Photographer & Photo Editor",
+        "text": "Professional studio photographer skilled in Adobe Photoshop, Lightroom color grading, studio lighting setups, and raw image enhancement.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-23",
+        "title": "Civil Structural Surveyor",
+        "text": "Land surveyor proficient in total station topography, GPS boundary mapping, elevation contour calculations, and municipal permit filings.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-24",
+        "title": "Corporate Travel Agent",
+        "text": "Corporate travel specialist booking international airline itineraries, hotel lodging accommodations, passport visa processing, and travel per diems.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-backend-07",
+    "jd_title": "Backend Microservices API Architect",
+    "jd_text": "Senior Backend Engineer experienced in FastAPI, Go, Docker, Redis caching, PostgreSQL, gRPC, distributed transaction patterns, and rate limiting.",
+    "resumes": [
+      {
+        "resume_id": "res-25",
+        "title": "Senior Backend Engineer",
+        "text": "Backend microservice architect building high-throughput FastAPI and Go services with Redis caching, PostgreSQL indexing, and Docker containerization.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-26",
+        "title": "Webmaster & WordPress Developer",
+        "text": "Webmaster maintaining WordPress CMS sites, PHP plugin customization, MySQL backups, and Apache virtual host configurations.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-27",
+        "title": "Retail Store Manager",
+        "text": "Retail store manager overseeing retail inventory stocking, cash register registers, associate shift scheduling, and store merchandise merchandising.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-28",
+        "title": "Primary School Music Teacher",
+        "text": "Music educator instructing elementary school students in piano accompaniment, vocal choir training, music notation theory, and annual recitals.",
+        "grade": 0
+      }
+    ]
+  },
+  {
+    "query_id": "jd-data-08",
+    "jd_title": "Data Engineering & Analytics Lead",
+    "jd_text": "Data Engineer skilled in Apache Spark, Python ETL pipelines, SQL, Snowflake, data warehousing, Pandas, and Parquet columnar storage.",
+    "resumes": [
+      {
+        "resume_id": "res-29",
+        "title": "Lead Data Engineer",
+        "text": "Data engineer designing batch and streaming ETL pipelines with Apache Spark, Python, SQL, Snowflake data warehousing, and automated Airflow dags.",
+        "grade": 2
+      },
+      {
+        "resume_id": "res-30",
+        "title": "Business Intelligence Analyst",
+        "text": "BI analyst creating Tableau dashboards, Excel pivot tables, and SQL queries to analyze quarterly financial KPIs.",
+        "grade": 1
+      },
+      {
+        "resume_id": "res-31",
+        "title": "Commercial Airline Pilot",
+        "text": "First officer airline pilot certified in Boeing 737 multi-engine flight operations, instrument flight rules IFR, and pre-flight navigational checklists.",
+        "grade": 0
+      },
+      {
+        "resume_id": "res-32",
+        "title": "Real Estate Property Agent",
+        "text": "Licensed real estate broker handling residential home sales, open house showings, escrow documentation, and property mortgage financing.",
+        "grade": 0
+      }
+    ]
+  }
+]

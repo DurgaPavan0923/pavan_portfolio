@@ -15,7 +15,18 @@ export interface Project {
   tagline: string;
   description: string;
   problem: string;
+  approach?: string;
   solution: string;
+  evalResult?: {
+    summary: string;
+    dataset: string;
+    sampleSize: string;
+    date: string;
+    metrics: ProjectMetric[];
+    status?: string;
+  };
+  whatIdImprove?: string;
+  evalUrl?: string;
   architecture: string;
   architectureSteps?: {
     icon: string;
@@ -50,11 +61,12 @@ export interface ExperienceRole {
   company: string;
   location: string;
   period: string;
-  type: 'Internship' | 'Leadership' | 'Community' | 'Ambassador';
+  type?: 'Internship' | 'Leadership' | 'Community' | 'Ambassador';
   icon: string;
   points: string[];
   skills: string[];
   verifyUrl?: string;
+  repoUrl?: string;
 }
 
 export interface ResearchInterest {

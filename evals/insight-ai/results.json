@@ -1,0 +1,36 @@
+{
+  "benchmark": "InsightAI ATS Semantic Scoring Benchmark",
+  "query_count": 8,
+  "total_candidate_pairs_n": 32,
+  "date": "October 2026",
+  "hardware": "Local Intel/AMD x64 execution environment",
+  "results": [
+    {
+      "method": "Keyword Overlap (Jaccard)",
+      "precision_at_1": 1.0,
+      "precision_at_3": 0.6667,
+      "ndcg_at_1": 1.0,
+      "ndcg_at_3": 0.991,
+      "p50_latency_ms": 0.085,
+      "p95_latency_ms": 0.555
+    },
+    {
+      "method": "TF-IDF Cosine Similarity",
+      "precision_at_1": 1.0,
+      "precision_at_3": 0.6667,
+      "ndcg_at_1": 1.0,
+      "ndcg_at_3": 0.991,
+      "p50_latency_ms": 0.125,
+      "p95_latency_ms": 0.297
+    },
+    {
+      "method": "Semantic Embedding Similarity (InsightAI Engine)",
+      "precision_at_1": 1.0,
+      "precision_at_3": 0.6667,
+      "ndcg_at_1": 1.0,
+      "ndcg_at_3": 0.9955,
+      "p50_latency_ms": 0.197,
+      "p95_latency_ms": 0.502
+    }
+  ]
+}

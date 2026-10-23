@@ -1,0 +1,4 @@
+method,precision_at_1,precision_at_3,ndcg_at_1,ndcg_at_3,p50_latency_ms,p95_latency_ms
+Keyword Overlap (Jaccard),1.0,0.6667,1.0,0.991,0.085,0.555
+TF-IDF Cosine Similarity,1.0,0.6667,1.0,0.991,0.125,0.297
+Semantic Embedding Similarity (InsightAI Engine),1.0,0.6667,1.0,0.9955,0.197,0.502

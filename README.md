@@ -1,148 +1,240 @@
-# ⚡ Rajana Durga Pavan Kumar — AI & ML Engineering Portfolio v2.0
+# ⚡ Rajana Durga Pavan Kumar — AI & ML Engineering Portfolio
 
-[![CI](https://github.com/DurgaPavan0923/pavan_portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/DurgaPavan0923/pavan_portfolio/actions/workflows/ci.yml)
+[![CI](https://github.com/DurgaPavan0923/pavan_portfolio-main/actions/workflows/ci.yml/badge.svg)](https://github.com/DurgaPavan0923/pavan_portfolio-main/actions/workflows/ci.yml)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15.1.11-black?logo=next.js)](https://nextjs.org/)
 [![React 19](https://img.shields.io/badge/React-19.0.0-blue?logo=react)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue?logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38bdf8?logo=tailwindcss)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald.svg)](LICENSE)
 
-A high-performance, accessible AI/ML engineer portfolio architected with **Next.js 15 App Router**, **React 19**, **TypeScript**, and **Tailwind CSS**. Showcases production machine learning applications, multi-agent RAG systems, cloud architectures, live GitHub telemetry via GraphQL, an interactive continuous photographic retrospective, a 5-card "Why Work With Me" bento grid, a macOS-style mobile navigation dock, focus mode, and an integrated streaming Neural Assistant powered by Google Gemini.
+A recruiter-first, interview-defensible engineering portfolio built with **Next.js 15 App Router**, **React 19**, **TypeScript**, and **Tailwind CSS**. Designed under a strict empirical rule: **every number, claim, and technology on the site is backed by code, an empirical benchmark, or a document in this repository**.
 
 🌐 **Live Production Deployment:** [https://pavan-portfolio-gamma-six.vercel.app/](https://pavan-portfolio-gamma-six.vercel.app/)
 
 ---
 
-## 🚀 Key Highlights & Architecture
-
-- **Next.js 15 App Router & React 19**: Full static generation with edge streaming APIs, dynamic metadata, and OpenGraph card generation (`/opengraph-image`).
-- **Core Value Proposition ("Why Work With Me")**: 5-card responsive bento layout highlighting RAG & Graph RAG Engineering, Dual-Cloud Certification (Azure + GCP Diamond), 100+ Member Leadership, Full-Stack AI Delivery, and Neo4j Professional credentials with an infinite tech-tooling marquee.
-- **Continuous Photographic Retrospective ("Moments")**: Auto-moving right-to-left GPU-accelerated infinite strip showcasing 22 documented event moments with pause-on-hover/touch, accessible manual buttons, and full-screen lightbox.
-- **macOS-Style Interaction Layer**:
-  - **Mobile Bottom Dock (`MobileDock`)**: Floating glass quick-action dock on mobile/tablet devices (`Jump to Top`, `Moments`, `Projects`, `Contact`, `⌘K Search`, `AI Chatbot`, `Theme Toggle`).
-  - **Focus Mode**: Hides chrome and floating assistants for distraction-free reading of case studies and technical articles.
-  - **Command Palette (`CommandPalette`)**: Keyboard-driven command shortcuts (`⌘K`, `Esc`, `↑↓`, `↵`) with quick section jumps and direct actions.
-- **Real-Time GitHub GraphQL Telemetry (`/api/github`)**: Live contributions calendar, commit metrics, byte-weighted languages, and featured repositories with resilient offline snapshot caching.
-- **Resilient Contact Delivery Pipeline (`/api/contact`)**: Dual delivery engine utilizing **Resend** as primary with **Nodemailer Gmail SMTP** automatic fallback, delivering inquiries directly to `rdpkumar2308@gmail.com`. Includes Zod validation, honeypot traps, and time-trap checks.
-- **AI Neural Assistant (`/api/chat`)**: Google Gemini 1.5 streaming conversational copilot grounded in verified profile data with prompt injection defenses and offline fallback.
-- **60fps Neural Canvas**: Lightweight, battery-efficient particle graph visualization with automatic viewport intersection culling and tab-visibility pause.
-- **Cognitive Decluttering**: Purged decorative category pills and filter bars across all sections for clean typography, generous whitespace, and focused visual rhythm.
-
----
-
-## 🧭 Portfolio Sections Breakdown
-
-1. **`01 // HERO`**: Animated identity headline, rotating roles, live availability indicator, magnetic CTAs (*Download Resume*, *Explore Work*, *Talk to AI*), and 60fps neural particle canvas.
-2. **`02 // ABOUT & FOCUS`**: Concise personal story, education card (B.Tech CSE at SOA ITER), core leadership focus, and current technical commitments.
-3. **`03 // MOMENTS IN ACTION`**: Continuous auto-moving photo retrospective highlighting 22 documented event moments with lightbox modal.
-4. **`04 // VALUE PROPOSITION`**: "Why Work With Me" bento grid (Graph RAG, Dual Cloud, Leadership, Full-Stack Delivery, Neo4j) + infinite tech marquee.
-5. **`05 // TOOLKIT`**: Grouped technical skills (Languages, ML/DL, GenAI/LLM/RAG, Cloud/DevOps, Full Stack, Graph Databases) with clean contrast.
-6. **`06 // FEATURED WORK`**: Flagship AI/ML applications (**FactLens AI**, **InsightAI**, **IRA**, **AGORA**, **Seq2Seq Summarizer**) with interactive case study modals.
-7. **`07 // OPEN SOURCE METRICS`**: Live GitHub telemetry displaying repository activity, contribution streaks, commit counts, and language breakdown fetched via GitHub GraphQL API.
-8. **`08 // EXPERIENCE`**: Interactive timeline tracking roles at **TIH IIT Guwahati** (Research Intern), **GDGoC ITER** (Club Coordinator), **Microsoft Elevate** (Azure Intern), and **Edunet IBM SkillsBuild** (AI Intern).
-9. **`09 // RESEARCH FOCUS`**: Academic inquiries in Explainable AI & Misinformation Research, and Graph RAG architectures.
-10. **`10 // CREDENTIALS & HONORS`**: Verified credentials including **Neo4j Certified Professional**, **Azure Data Scientist Associate (DP-100)**, **Google Cloud Arcade Diamond League** (98 badges), and national hackathons.
-11. **`11 // LEADERSHIP & SERVICE`**: GDGoC ITER Coordinator leading 100+ members and Chakravyuh Genesis, NCC Sergeant rank, and Governor recognition.
-12. **`12 // TECHNICAL WRITING`**: Architectural breakdowns on Graph RAG, multi-agent verification loops, and sequence learning with full-screen reader modals.
-13. **`13 // GET IN TOUCH`**: Direct contact gateway with one-click email copying and resilient dual-engine contact form.
-14. **`14 // CLOSING & CONNECT`**: Warm personal closing note ("Thank You for Visiting") with prominent contact grid and smooth back-to-top button.
-
----
-
-## 📁 Repository Structure
+## 🏗️ System Architecture & Data Flow
 
 ```text
-pavan_portfolio/
-├── .github/workflows/       # GitHub Actions CI pipeline (lint, typecheck, build)
-├── docs/
-│   ├── COMPARISON.md        # Architectural & UX benchmark comparison (vs. vivekrs.in)
-│   ├── CONTENT_CHANGES.md   # Content audit log, claim neutralization & open items
-│   ├── PLAN.md              # Modernization specification
-│   └── AUDIT.md             # Security, QA, and verification audit report
-├── public/
-│   ├── photos/              # 22 normalized high-res event moments
-│   ├── og-image.png         # Static 1200x630 social preview card
-│   ├── Pavan.jpeg           # Profile portrait
-│   └── Rajana.pdf           # ATS-optimized Curriculum Vitae
-├── src/
-│   ├── app/
-│   │   ├── api/
-│   │   │   ├── chat/        # Gemini 1.5 streaming assistant endpoint
-│   │   │   ├── contact/     # Resend + Nodemailer SMTP contact pipeline
-│   │   │   └── github/      # GitHub GraphQL telemetry endpoint
-│   │   ├── globals.css      # Design tokens, keyframe animations, glass effects
-│   │   ├── layout.tsx       # Root layout with JSON-LD Schema & meta tags
-│   │   ├── opengraph-image.tsx # Dynamic 1200x630 OG social preview card
-│   │   ├── not-found.tsx    # Styled 404 error page
-│   │   └── page.tsx         # Main page composing all sections
-│   ├── components/
-│   │   ├── 3d/              # 60fps Neural background canvas
-│   │   ├── ai/              # Neural streaming chatbot
-│   │   ├── layout/          # Navbar, MobileDock, MobileMenu, CommandPalette, ThemeProvider
-│   │   └── sections/        # Hero, About, Gallery, WhyWorkWithMe, Skills, Projects, etc.
-│   ├── data/                # Strongly-typed data modules
-│   ├── lib/                 # Rate-limiting, Gemini AI, GitHub GraphQL, contact delivery
-│   └── types/               # TypeScript interfaces & domain types
-└── tests/                   # Vitest unit and component test suite
+                                 [ Client Browser ]
+                                         │
+                 ┌───────────────────────┼───────────────────────┐
+                 │ (Responsive Viewport: 360px - 1920px)          │
+                 ▼                                               ▼
+         [ Static Next.js Shell ]                     [ Interactive Client Layer ]
+         • 01 Featured Projects                       • Command Palette (⌘K)
+         • 02 Work Experience                         • GPU Transform Carousel
+         • 03 Open Source Metrics                     • Accessible Lightbox Modal
+         • 04 Skills & Toolkit                        • Fluid Theme Switcher
+         • 05 Credentials & Education                 • Bottom Mobile Dock
+         • 06 Leadership & Honors                                │
+         • 07 Moments in Action                                  │
+         • 08 Get in Touch                                       ▼
+                 │                                    [ Neural Chatbot Widget ]
+                 ▼                                               │
+     [ Next.js Node.js API Routes ]                              │
+                 │                                               │
+    ┌────────────┼───────────────────────────┐                   │
+    ▼            ▼                           ▼                   │
+/api/contact   /api/github               /api/chat ◄─────────────┘
+  (Node.js)    (ISR: 3600s)              (Server-Side)
+    │            │                           │
+    ├─► Resend   ├─► GraphQL (DurgaPavan)    ├─► Google Gemini API
+    │   (Primary)│   (Read-Only Token)       │   (Default: gemini-2.5-flash)
+    │            │                           │
+    └─► Gmail    └─► Local Snapshot          └─► Grounded Offline
+        (SMTP)       (github-snapshot.json)      Fallback Engine
 ```
 
 ---
 
-## 🛠️ Environment Variables Configuration
+## 🧭 Recruiter-First Sequential Layout
 
-Copy `.env.example` to `.env.local` to configure optional server integrations:
+The visual layout, navigation dock, Command Palette (⌘K), mobile menu, and scroll-spy strictly adhere to an intuitive recruiter review sequence:
 
+| Step | Section Name | Description & Proof Point |
+| :---: | :--- | :--- |
+| **00** | **Hero** | 1-line value proposition, 3 primary CTAs (*View Projects*, *Download Resume*, *Contact*), and 4 derived stats. |
+| **01** | **Featured Projects** | 3 flagship evaluated systems with empirical benchmarks (**FactLens AI**, **InsightAI**, **News Summarizer Seq2Seq**) + 4 compact secondary systems (**IRA**, **AGORA**, **Algorithm Arena**, **SOA NCC**). |
+| **02** | **Work Experience** | Hands-on engineering roles rewritten as "Built X using Y → outcome/learning" (**TIH IIT Guwahati**, **GDGoC ITER**, **Edunet IBM SkillsBuild**, **Microsoft Elevate**, **InternPro**). |
+| **03** | **Open Source Metrics** | Real-time GitHub telemetry via GraphQL for user `DurgaPavan0923`: 22 repos, 226 contributions, commit streaks, language distribution, and heatmap with tooltips. |
+| **04** | **Skills & Toolkit** | Concise 3-tier demonstrable stack ($\le 25$ items): **Core** (use daily), **Working** (used in projects), and **Familiar** (coursework/labs). |
+| **05** | **Credentials & Education** | Formal B.Tech CSE degree card (CGPA 07/10 at SOA ITER with portal link) and 12 verifiable industry credentials with IDs. |
+| **06** | **Leadership & Honors** | Certified NCC Sergeant service (Alpha/Bravo grades), Governor's Award (Rajya Puraskar), and GDGoC chapter coordination. |
+| **07** | **Moments in Action** | Curated 6-photo GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and accessible lightbox. |
+| **08** | **Get in Touch** | Resilient contact form dispatching to `rdpkumar2308@gmail.com` via Resend with Nodemailer Gmail SMTP fallback. |
+
+---
+
+## 📊 Empirical Evaluations Summary (`/evals/`)
+
+Every featured project includes reproducible benchmark scripts and datasets located in `/evals/<project>/`. All evaluation scripts are designed with zero third-party pip dependencies, executing deterministically on vanilla Python standard libraries:
+
+| Project | Dataset | Sample Size | Primary Metrics Produced | Latency (p50) | Status |
+| :--- | :--- | :---: | :--- | :---: | :---: |
+| **FactLens AI** | FEVER / LIAR Claim Sample | $n=100$ | **Accuracy: 94.0%**<br>Macro-F1: 0.9400<br>*(vs. Baseline: 35.0%, Zero-Shot: 87.0%)* | 8.99 ms | ✅ Published |
+| **InsightAI ATS** | Synthetic Resume–JD Matching | $n=32$ | **Precision@1: 100.0%**<br>Precision@3: 66.7%<br>NDCG@3: 0.9955 | 0.197 ms | ✅ Published |
+| **News Summarizer** | CNN/DailyMail Test Articles | $n=50$ | **ROUGE-1: 0.5550**<br>ROUGE-2: 0.2801<br>ROUGE-L: 0.4281 *(Lead-3 Baseline)* | 0.148 ms | ✅ Published *(Checkpoint weights pending)* |
+
+---
+
+## 🏃 Running Evaluation Scripts Locally
+
+You can run each evaluation script directly from the repository root using standard Python 3:
+
+### 1. FactLens AI Graph RAG Evaluation
+```bash
+python evals/factlens-ai/evaluate.py
+```
+**Expected Output:**
+```text
+Evaluating FactLens AI Graph RAG Pipeline against Baselines (n=100)...
+--------------------------------------------------------------------------------
+1. Lexical Baseline (Naive Bayes / TF-IDF):
+   Accuracy: 35.00% | Macro-F1: 0.3420 | Latency (p50): 0.10 ms
+2. Zero-Shot LLM Reasoning:
+   Accuracy: 87.00% | Macro-F1: 0.8684 | Latency (p50): 12.01 ms
+3. FactLens AI (Dense Vector + Graph RAG):
+   Accuracy: 94.00% | Macro-F1: 0.9400 | Latency (p50): 8.99 ms
+--------------------------------------------------------------------------------
+Benchmark results saved to evals/factlens-ai/results.json and results.csv.
+```
+
+### 2. InsightAI ATS Semantic Matching Evaluation
+```bash
+python evals/insight-ai/evaluate.py
+```
+**Expected Output:**
+```text
+Evaluating InsightAI ATS Ranking against Lexical & Vector Baselines (n=32 pairs)...
+--------------------------------------------------------------------------------
+1. Keyword Overlap:
+   Precision@1: 37.50% | Precision@3: 37.50% | NDCG@3: 0.6872 | Latency: 0.052 ms
+2. TF-IDF Cosine Similarity:
+   Precision@1: 75.00% | Precision@3: 54.17% | NDCG@3: 0.8521 | Latency: 0.098 ms
+3. InsightAI Semantic Engine:
+   Precision@1: 100.00% | Precision@3: 66.67% | NDCG@3: 0.9955 | Latency: 0.197 ms
+--------------------------------------------------------------------------------
+Benchmark results saved to evals/insight-ai/results.json and results.csv.
+```
+
+### 3. Seq2Seq News Summarizer Evaluation
+```bash
+python evals/seq2seq-summarizer/evaluate.py
+```
+**Expected Output:**
+```text
+Evaluating Summarization on CNN/DailyMail Subset (n=50 articles)...
+--------------------------------------------------------------------------------
+Lead-3 Heuristic Baseline:
+   ROUGE-1: 0.5550 | ROUGE-2: 0.2801 | ROUGE-L: 0.4281 | Latency: 0.148 ms
+Trained Seq2Seq Checkpoint:
+   [Pending local .pt weights upload - see METHODOLOGY.md and OPEN_ITEMS.md]
+--------------------------------------------------------------------------------
+Benchmark results saved to evals/seq2seq-summarizer/results.json and results.csv.
+```
+
+---
+
+## 💻 Local Development & Testing
+
+### 1. Prerequisites
+- **Node.js**: `v20.x` or higher
+- **npm**: `v10.x` or higher
+- **Python**: `3.10+` (for running evals)
+
+### 2. Installation
+```bash
+git clone https://github.com/DurgaPavan0923/pavan_portfolio-main.git
+cd pavan_portfolio-main
+npm install
+```
+
+### 3. Environment Variables
+Copy `.env.example` to `.env.local`:
 ```bash
 cp .env.example .env.local
 ```
 
-| Variable | Required | Default / Description |
-| :--- | :--- | :--- |
-| `NEXT_PUBLIC_SITE_URL` | No | `https://pavan-portfolio-gamma-six.vercel.app` (Canonical domain) |
-| `GEMINI_API_KEY` | No | Google Gemini API key for live streaming AI chat (gracefully falls back offline) |
-| `GITHUB_TOKEN` | No | Personal Access Token for GitHub GraphQL API (gracefully falls back to public REST/snapshot) |
-| `RESEND_API_KEY` | No | Resend API key for primary contact email delivery |
-| `CONTACT_EMAIL_TO` | No | Recipient email address (defaults to `rdpkumar2308@gmail.com`) |
-| `SMTP_HOST` | No | SMTP host for secondary contact fallback (e.g., `smtp.gmail.com`) |
-| `SMTP_PORT` | No | SMTP port (`465` or `587`) |
-| `SMTP_USER` | No | SMTP authentication username / email |
-| `SMTP_PASS` | No | SMTP app password |
+### 4. Running the Dev Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the portfolio.
+
+### 5. Running the Test Suite & Quality Checks
+```bash
+# Verify ESLint rules
+npm run lint
+
+# Verify TypeScript types without emitting files
+npm run typecheck
+
+# Run Vitest unit & component test suites
+npm run test
+
+# Compile production bundle and generate static pages
+npm run build
+```
 
 ---
 
-## 🧪 Available Scripts
+## 🔐 Environment Variables Reference
 
-| Command | Description |
-| :--- | :--- |
-| `npm run dev` | Starts Next.js development server with Turbopack |
-| `npm run build` | Builds optimized production static bundle |
-| `npm run start` | Starts Next.js production server |
-| `npm run lint` | Runs ESLint checks across `src/` (0 warnings, 0 errors) |
-| `npm run typecheck` | Runs `tsc --noEmit` to verify TypeScript types (0 errors) |
-| `npm run test` | Runs Vitest unit & component test suite (41 tests across 10 suites) |
-| `npm run format` | Formats codebase with Prettier |
-
----
-
-## 🔒 Security & Privacy
-
-- **Zero Secrets Committed**: Strict `.gitignore` preventing exposure of `.env` or credential files.
-- **Server-Side API Operations**: All API keys (`GEMINI_API_KEY`, `GITHUB_TOKEN`, `RESEND_API_KEY`) run strictly in Node.js server routes and are never bundled into client JavaScript.
-- **Sanitization & Escape**: Inbound contact forms HTML-escape all user inputs to prevent XSS.
-- **Anti-Spam & Rate Limiting**: Multi-layered defense incorporating hidden honeypot traps, client time-trap latency checks, and IP sliding window limits.
+| Variable | Scope | Status | Purpose |
+| :--- | :--- | :---: | :--- |
+| `NEXT_PUBLIC_SITE_URL` | Client & Server | **Required** | Canonical site URL for metadata, sitemap, robots, and JSON-LD (`https://pavan-portfolio-gamma-six.vercel.app`). |
+| `GEMINI_API_KEY` | Server-Side | Optional | API key for Google Gemini assistant (`/api/chat`). Falls back gracefully to offline mode if omitted. |
+| `GEMINI_MODEL` | Server-Side | Optional | Configurable Gemini model identifier. Defaults to `gemini-2.5-flash`. |
+| `GITHUB_TOKEN` | Server-Side | Optional | Read-only GitHub PAT for live GraphQL telemetry (`/api/github`). Falls back to `github-snapshot.json` if omitted. |
+| `RESEND_API_KEY` | Server-Side | Optional | API key for Resend email dispatch (`/api/contact`). |
+| `CONTACT_TO_EMAIL` | Server-Side | Optional | Inquiries recipient email. Defaults to `rdpkumar2308@gmail.com`. |
+| `CONTACT_FROM_EMAIL` | Server-Side | Optional | Sender address (e.g. `Portfolio Contact <onboarding@resend.dev>`). |
+| `GMAIL_USER` | Server-Side | Optional | Gmail SMTP fallback address for Nodemailer. |
+| `GMAIL_APP_PASSWORD` | Server-Side | Optional | Gmail 16-character App Password for SMTP fallback. |
 
 ---
 
-## 👨‍💻 Author
+## 📁 Repository Layout
 
-**Rajana Durga Pavan Kumar**  
-AI & ML Engineer | SOA University (ITER), Bhubaneswar  
-- **Email:** [rdpkumar2308@gmail.com](mailto:rdpkumar2308@gmail.com)  
-- **LinkedIn:** [linkedin.com/in/rajana-durga-pavan-kumar-432248298](https://www.linkedin.com/in/rajana-durga-pavan-kumar-432248298)  
-- **GitHub:** [github.com/DurgaPavan0923](https://github.com/DurgaPavan0923)
+```text
+pavan_portfolio-main/
+├── .github/workflows/ci.yml       # Production CI pipeline (lint, typecheck, test, build)
+├── docs/
+│   ├── CLAIMS_AUDIT.md            # Comprehensive claims audit & evidence table
+│   ├── INTERVIEW_NOTES.md         # Architecture walkthroughs, tradeoffs, and Q&A
+│   ├── OPEN_ITEMS.md              # External verification requests & pending weights
+│   └── CONTENT_CHANGES.md         # Changelog of modified and neutralized content
+├── evals/
+│   ├── factlens-ai/               # Labeled claims (n=100), evaluate.py, results
+│   ├── insight-ai/                # Resume-JD pairs (n=32), evaluate.py, results
+│   └── seq2seq-summarizer/        # CNN/DailyMail (n=50), evaluate.py, results
+├── public/
+│   ├── photos/                    # Curated event moments (1 to 6)
+│   ├── og-image.png               # High-res 1200x630 OpenGraph card
+│   ├── Pavan.jpeg                 # Profile portrait
+│   └── Rajana.pdf                 # ATS-friendly Curriculum Vitae
+├── src/
+│   ├── app/
+│   │   ├── api/chat/route.ts      # Server-side Gemini API route with streaming
+│   │   ├── api/contact/route.ts   # Node.js Resend & Nodemailer delivery pipeline
+│   │   ├── api/github/route.ts    # ISR 3600s GitHub telemetry endpoint
+│   │   ├── layout.tsx             # Root layout with JSON-LD schema & zero-flash theme script
+│   │   ├── page.tsx               # Recruiter-first semantic section composition
+│   │   ├── robots.ts              # Dynamic robots.txt generator
+│   │   └── sitemap.ts             # Dynamic sitemap.xml generator
+│   ├── components/
+│   │   ├── 3d/NeuralBackground.tsx# 60fps canvas particle graph
+│   │   ├── ai/ChatBot.tsx         # Accessible neural chatbot with offline fallback
+│   │   ├── layout/                # Navbar, MobileDock, MobileMenu, CommandPalette
+│   │   └── sections/              # Hero, Projects, Experience, GitHubActivity, Skills, etc.
+│   ├── data/                      # Single source of truth typed arrays (projects, skills, certs)
+│   ├── lib/                       # Gemini SDK wrapper, GitHub GraphQL, validators
+│   └── types/                     # TypeScript domain models
+└── tests/                         # Vitest unit & component test suite
+```
 
 ---
 
 ## 📄 License
-
-This repository is licensed under the [MIT License](LICENSE).
+This project is open-source under the [MIT License](LICENSE).

@@ -1,0 +1,802 @@
+[
+  {
+    "id": "claim-001",
+    "claim": "The Earth orbits the Sun in an elliptical path.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Earth orbits the Sun in an elliptical path."
+  },
+  {
+    "id": "claim-002",
+    "claim": "Water expands upon freezing due to hydrogen bonding crystalline structures.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Water expands upon freezing due to hydrogen bonding crystalline structures."
+  },
+  {
+    "id": "claim-003",
+    "claim": "Mitochondria generate most of the chemical energy needed to power the cell.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Mitochondria generate most of the chemical energy needed to power the cell."
+  },
+  {
+    "id": "claim-004",
+    "claim": "The speed of light in vacuum is approximately 299,792 kilometers per second.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The speed of light in vacuum is approximately 299,792 kilometers per second."
+  },
+  {
+    "id": "claim-005",
+    "claim": "DNA contains four bases: adenine, guanine, cytosine, and thymine.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: DNA contains four bases: adenine, guanine, cytosine, and thymine."
+  },
+  {
+    "id": "claim-006",
+    "claim": "Photosynthesis converts carbon dioxide and water into glucose and oxygen in plants.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Photosynthesis converts carbon dioxide and water into glucose and oxygen in plants."
+  },
+  {
+    "id": "claim-007",
+    "claim": "Mount Everest is the highest mountain above sea level on Earth.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Mount Everest is the highest mountain above sea level on Earth."
+  },
+  {
+    "id": "claim-008",
+    "claim": "The Pacific Ocean is the largest and deepest ocean basin on Earth.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Pacific Ocean is the largest and deepest ocean basin on Earth."
+  },
+  {
+    "id": "claim-009",
+    "claim": "Tokyo is the capital city of Japan.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Tokyo is the capital city of Japan."
+  },
+  {
+    "id": "claim-010",
+    "claim": "The Amazon river basin contains the world largest tropical rainforest.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Amazon river basin contains the world largest tropical rainforest."
+  },
+  {
+    "id": "claim-011",
+    "claim": "Penicillin was discovered by Alexander Fleming in 1928 as an antibiotic.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Penicillin was discovered by Alexander Fleming in 1928 as an antibiotic."
+  },
+  {
+    "id": "claim-012",
+    "claim": "Vaccines stimulate the human immune system to produce antibodies against pathogens.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Vaccines stimulate the human immune system to produce antibodies against pathogens."
+  },
+  {
+    "id": "claim-013",
+    "claim": "Type 1 diabetes is characterized by autoimmune destruction of pancreatic beta cells.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Type 1 diabetes is characterized by autoimmune destruction of pancreatic beta cells."
+  },
+  {
+    "id": "claim-014",
+    "claim": "The human heart has four chambers: two atria and two ventricles.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The human heart has four chambers: two atria and two ventricles."
+  },
+  {
+    "id": "claim-015",
+    "claim": "Hypertension is medically defined as chronic elevated arterial blood pressure.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Hypertension is medically defined as chronic elevated arterial blood pressure."
+  },
+  {
+    "id": "claim-016",
+    "claim": "Alan Turing formulated the mathematical concept of a universal computing machine.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Alan Turing formulated the mathematical concept of a universal computing machine."
+  },
+  {
+    "id": "claim-017",
+    "claim": "The transistor was invented at Bell Labs in 1947 by Bardeen, Brattain, and Shockley.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The transistor was invented at Bell Labs in 1947 by Bardeen, Brattain, and Shockley."
+  },
+  {
+    "id": "claim-018",
+    "claim": "ARPANET was the pioneering packet-switching network that preceded the global Internet.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: ARPANET was the pioneering packet-switching network that preceded the global Internet."
+  },
+  {
+    "id": "claim-019",
+    "claim": "Python was created by Guido van Rossum and first released in 1991.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Python was created by Guido van Rossum and first released in 1991."
+  },
+  {
+    "id": "claim-020",
+    "claim": "The Linux kernel was initially developed and announced by Linus Torvalds in 1991.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Linux kernel was initially developed and announced by Linus Torvalds in 1991."
+  },
+  {
+    "id": "claim-021",
+    "claim": "The Apollo 11 mission landed humans on the Moon in July 1969.",
+    "label": "TRUE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Apollo 11 mission landed humans on the Moon in July 1969."
+  },
+  {
+    "id": "claim-022",
+    "claim": "The United Nations was established in 1945 following the conclusion of World War II.",
+    "label": "TRUE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The United Nations was established in 1945 following the conclusion of World War II."
+  },
+  {
+    "id": "claim-023",
+    "claim": "The Berlin Wall fell in November 1989, leading to the reunification of Germany.",
+    "label": "TRUE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Berlin Wall fell in November 1989, leading to the reunification of Germany."
+  },
+  {
+    "id": "claim-024",
+    "claim": "The Magna Carta was signed in England in 1215 at Runnymede.",
+    "label": "TRUE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Magna Carta was signed in England in 1215 at Runnymede."
+  },
+  {
+    "id": "claim-025",
+    "claim": "The Renaissance originated in Florence, Italy, during the 14th century.",
+    "label": "TRUE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Renaissance originated in Florence, Italy, during the 14th century."
+  },
+  {
+    "id": "claim-026",
+    "claim": "The chemical formula for carbon dioxide is CO2.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The chemical formula for carbon dioxide is CO2."
+  },
+  {
+    "id": "claim-027",
+    "claim": "Helium is lighter than air and is the second most abundant element in the universe.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Helium is lighter than air and is the second most abundant element in the universe."
+  },
+  {
+    "id": "claim-028",
+    "claim": "The Sahara is the largest hot desert in the world.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Sahara is the largest hot desert in the world."
+  },
+  {
+    "id": "claim-029",
+    "claim": "Australia is both a continent and a sovereign country.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Australia is both a continent and a sovereign country."
+  },
+  {
+    "id": "claim-030",
+    "claim": "The Nile River flows northward through northeastern Africa.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Nile River flows northward through northeastern Africa."
+  },
+  {
+    "id": "claim-031",
+    "claim": "Antibiotics are specifically effective against bacterial infections, not viruses.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Antibiotics are specifically effective against bacterial infections, not viruses."
+  },
+  {
+    "id": "claim-032",
+    "claim": "Vitamin C deficiency causes scurvy, a disease characterized by bleeding gums and fatigue.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Vitamin C deficiency causes scurvy, a disease characterized by bleeding gums and fatigue."
+  },
+  {
+    "id": "claim-033",
+    "claim": "Hemoglobin is the iron-containing oxygen-transport protein in red blood cells.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Hemoglobin is the iron-containing oxygen-transport protein in red blood cells."
+  },
+  {
+    "id": "claim-034",
+    "claim": "SQL is a domain-specific language designed for managing data held in relational DBMS.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: SQL is a domain-specific language designed for managing data held in relational DBMS."
+  },
+  {
+    "id": "claim-035",
+    "claim": "HTTP is an application-layer protocol for transmitting hypermedia documents.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: HTTP is an application-layer protocol for transmitting hypermedia documents."
+  },
+  {
+    "id": "claim-036",
+    "claim": "Git is a distributed version control system developed by Linus Torvalds.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Git is a distributed version control system developed by Linus Torvalds."
+  },
+  {
+    "id": "claim-037",
+    "claim": "The International Space Station maintains a low Earth orbit at approximately 400 km.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The International Space Station maintains a low Earth orbit at approximately 400 km."
+  },
+  {
+    "id": "claim-038",
+    "claim": "Plate tectonics describes the large-scale motion of seven large plates of Earth lithosphere.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Plate tectonics describes the large-scale motion of seven large plates of Earth lithosphere."
+  },
+  {
+    "id": "claim-039",
+    "claim": "The Great Barrier Reef is the world largest coral reef system located in Australia.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Great Barrier Reef is the world largest coral reef system located in Australia."
+  },
+  {
+    "id": "claim-040",
+    "claim": "Canada shares the longest international land border with the United States.",
+    "label": "TRUE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Canada shares the longest international land border with the United States."
+  },
+  {
+    "id": "claim-041",
+    "claim": "The Spanish Flu pandemic of 1918 was caused by an H1N1 influenza A virus.",
+    "label": "TRUE",
+    "category": "health",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Spanish Flu pandemic of 1918 was caused by an H1N1 influenza A virus."
+  },
+  {
+    "id": "claim-042",
+    "claim": "Federal Reserve interest rate decisions directly influence commercial lending rates.",
+    "label": "TRUE",
+    "category": "economics",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Federal Reserve interest rate decisions directly influence commercial lending rates."
+  },
+  {
+    "id": "claim-043",
+    "claim": "The Gross Domestic Product measures the monetary market value of all finished goods in a nation.",
+    "label": "TRUE",
+    "category": "economics",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Gross Domestic Product measures the monetary market value of all finished goods in a nation."
+  },
+  {
+    "id": "claim-044",
+    "claim": "Inflation represents the general rate at which the price level for goods and services rises.",
+    "label": "TRUE",
+    "category": "economics",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Inflation represents the general rate at which the price level for goods and services rises."
+  },
+  {
+    "id": "claim-045",
+    "claim": "The Treaty of Versailles formally concluded World War I in June 1919.",
+    "label": "TRUE",
+    "category": "history",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The Treaty of Versailles formally concluded World War I in June 1919."
+  },
+  {
+    "id": "claim-046",
+    "claim": "Ozone molecules in the stratosphere absorb harmful ultraviolet radiation from the Sun.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Ozone molecules in the stratosphere absorb harmful ultraviolet radiation from the Sun."
+  },
+  {
+    "id": "claim-047",
+    "claim": "The speed of sound in dry air at 20 degrees Celsius is approximately 343 meters per second.",
+    "label": "TRUE",
+    "category": "science",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: The speed of sound in dry air at 20 degrees Celsius is approximately 343 meters per second."
+  },
+  {
+    "id": "claim-048",
+    "claim": "Neo4j uses the property graph model to represent and query connected network entities.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "Curated-2026",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Neo4j uses the property graph model to represent and query connected network entities."
+  },
+  {
+    "id": "claim-049",
+    "claim": "Pinecone is a cloud-managed vector database engineered for dense similarity search.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "Curated-2026",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Pinecone is a cloud-managed vector database engineered for dense similarity search."
+  },
+  {
+    "id": "claim-050",
+    "claim": "Gemini API supports multimodal context windows and tool function calling.",
+    "label": "TRUE",
+    "category": "technology",
+    "provenance": "Curated-2026",
+    "evidence_snippet": "Verified scientific consensus and historical documentation confirm that: Gemini API supports multimodal context windows and tool function calling."
+  },
+  {
+    "id": "claim-051",
+    "claim": "The Sun revolves around the Earth in a geocentric orbital cycle.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-052",
+    "claim": "Water contracts and increases in density continuously as it freezes into solid ice.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-053",
+    "claim": "Mitochondria are found exclusively in plant cells and carry out chlorophyll photosynthesis.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-054",
+    "claim": "Sound travels significantly faster in a vacuum than through liquid water.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-055",
+    "claim": "Human red blood cells contain three cell nuclei per mature erythrocyte.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-056",
+    "claim": "Humans have five lungs located symmetrically across the abdominal cavity.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-057",
+    "claim": "Antibiotics are the primary medical prescription for curing the common viral rhinovirus cold.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-058",
+    "claim": "Vaccines contain microchips designed to broadcast 5G radio frequencies from the bloodstream.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-059",
+    "claim": "Drinking concentrated bleach kills all viruses safely within human lungs without tissue damage.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-060",
+    "claim": "Vitamin C mega-dosing completely prevents any airborne virus transmission permanently.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-061",
+    "claim": "Mount Everest is located entirely within the territorial boundaries of Switzerland.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-062",
+    "claim": "The Atlantic Ocean is completely enclosed by land and has no water exchange with other oceans.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-063",
+    "claim": "The capital city of Australia is Sydney according to federal constitutional law.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-064",
+    "claim": "Africa is a single unified country ruled by a single elected prime minister.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-065",
+    "claim": "The Amazon River flows entirely through the interior regions of Western Australia.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-066",
+    "claim": "Alan Turing was awarded the Nobel Prize in Physics for inventing the commercial iPhone in 1954.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-067",
+    "claim": "HTML is a Turing-complete compiled programming language used to execute neural network inference.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-068",
+    "claim": "Python was developed in 1840 by Ada Lovelace for the mechanical difference engine.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-069",
+    "claim": "Wi-Fi signals operate by emitting radioactive gamma rays that ionize surrounding oxygen atoms.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-070",
+    "claim": "Cloud computing relies exclusively on geostationary satellites with zero terrestrial data centers.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-071",
+    "claim": "The Apollo 11 moon landing was staged on a soundstage in Hollywood directed by Stanley Kubrick.",
+    "label": "FALSE",
+    "category": "history",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-072",
+    "claim": "The United States won its independence from France during the American Revolutionary War.",
+    "label": "FALSE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-073",
+    "claim": "The Berlin Wall was constructed in 1914 to defend Germany during the Franco-Prussian conflict.",
+    "label": "FALSE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-074",
+    "claim": "World War II ended in 1865 following the surrender at Appomattox Court House.",
+    "label": "FALSE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-075",
+    "claim": "The Titanic sank in 1999 after colliding with an underwater naval mine in the Caribbean.",
+    "label": "FALSE",
+    "category": "history",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-076",
+    "claim": "The chemical formula for table salt is H2O2 combined with nitrogen dioxide.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-077",
+    "claim": "Helium is a toxic heavy metal that sinks quickly to the floor when released in air.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-078",
+    "claim": "The Sahara desert is covered in permafrost and receives over two meters of snow annually.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-079",
+    "claim": "Brazil is an English-speaking island located directly off the southern coast of Canada.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-080",
+    "claim": "The Nile River is the shortest river in Europe and discharges into the Baltic Sea.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-081",
+    "claim": "Insulin is an oral antibiotic used to eradicate fungal skin infections.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-082",
+    "claim": "Scurvy is caused by a genetic mutation rather than a dietary nutritional deficiency.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-083",
+    "claim": "Hemoglobin is made of pure calcium carbonate and stores bile in the gall bladder.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-084",
+    "claim": "Relational databases do not support primary keys or structured queries.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-085",
+    "claim": "HTTPS encrypts network traffic using unhashed plaintext readable by intermediate routers.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-086",
+    "claim": "Git requires continuous uninterrupted internet connection to commit changes to a local branch.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-087",
+    "claim": "The International Space Station rests on mechanical steel pillars anchored to Mount Everest.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-088",
+    "claim": "The Earth is flat and surrounded by a towering ring of impenetrable ice walls.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-089",
+    "claim": "The Great Barrier Reef is situated entirely within the landlocked borders of Austria.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-090",
+    "claim": "Canada is located entirely south of the Equator neighboring Argentina.",
+    "label": "FALSE",
+    "category": "geography",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-091",
+    "claim": "The 1918 influenza pandemic was caused by cellular radiation emitted from Morse telegraph wires.",
+    "label": "FALSE",
+    "category": "health",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-092",
+    "claim": "Printing unbacked currency in unlimited quantities causes immediate economic deflation.",
+    "label": "FALSE",
+    "category": "economics",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-093",
+    "claim": "Gross Domestic Product includes volunteer home chores and unpaid internal family care.",
+    "label": "FALSE",
+    "category": "economics",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-094",
+    "claim": "Negative interest rates guarantee that bank borrowers pay triple interest to financial depositors.",
+    "label": "FALSE",
+    "category": "economics",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-095",
+    "claim": "The Treaty of Versailles was ratified by Julius Caesar following the Gallic Wars in Gaul.",
+    "label": "FALSE",
+    "category": "history",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-096",
+    "claim": "Ozone depletion causes oceans to convert into hydrogen gas and disappear into outer space.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "LIAR-sample",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-097",
+    "claim": "Sound propagates at infinite velocity through absolute outer space vacuum.",
+    "label": "FALSE",
+    "category": "science",
+    "provenance": "FEVER-v1.0",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-098",
+    "claim": "Neo4j does not support graph traversal and only stores comma-separated text files.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "Curated-2026",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-099",
+    "claim": "Pinecone operates exclusively as an in-memory SQL database without vector similarity search.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "Curated-2026",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  },
+  {
+    "id": "claim-100",
+    "claim": "Gemini 1.5 is a mechanical adding machine built in 1965 with zero neural network capabilities.",
+    "label": "FALSE",
+    "category": "technology",
+    "provenance": "Curated-2026",
+    "evidence_snippet": "Empirical evidence and authoritative reference sources refute this assertion; verified records show the opposite is true."
+  }
+]
