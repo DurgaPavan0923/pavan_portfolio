@@ -4,11 +4,11 @@
   "followers": 22,
   "totalStars": 0,
   "totalForks": 0,
-  "totalContributions": 258,
+  "totalContributions": 279,
   "totalCommits": 215,
   "totalPRs": 2,
   "totalIssues": 0,
-  "currentStreak": 0,
+  "currentStreak": 1,
   "longestStreak": 4,
   "topLanguages": [
     {
@@ -41,50 +41,50 @@
     {
       "name": "AI-Powered-Fake-News-Detector-for-Students",
       "displayName": "FactLens AI",
-      "description": "Multi-agent explainable AI fact-verification platform combining Google Gemini API, Neo4j knowledge graph traversal, and Pinecone vector search.",
+      "description": "Open-source repository by DurgaPavan0923.",
       "language": "TypeScript",
       "languageColor": "#3178c6",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/AI-Powered-Fake-News-Detector-for-Students",
       "updatedAt": "2026-06-13T12:33:30Z",
-      "updatedRelative": "Jun 2026"
+      "updatedRelative": "recently"
     },
     {
       "name": "AI-Resume-Screening-Job-Match-System",
       "displayName": "InsightAI ATS",
-      "description": "Semantic resume screening, ATS alignment scoring, and contextual interview question copilot.",
-      "language": "Python",
-      "languageColor": "#3572A5",
+      "description": "Open-source repository by DurgaPavan0923.",
+      "language": "HTML",
+      "languageColor": "#e34c26",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/AI-Resume-Screening-Job-Match-System",
       "updatedAt": "2026-08-27T05:21:26Z",
-      "updatedRelative": "Aug 2026"
-    },
-    {
-      "name": "RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
-      "displayName": "AquaGuard ML (TIH IIT Guwahati)",
-      "description": "Dual-track environmental machine learning for calibrated water potability classification and oceanographic CTD sensor forecasting.",
-      "language": "Python",
-      "languageColor": "#3572A5",
-      "stars": 0,
-      "forks": 0,
-      "url": "https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
-      "updatedAt": "2026-10-19T04:22:46Z",
-      "updatedRelative": "Oct 2026"
+      "updatedRelative": "recently"
     },
     {
       "name": "IRA",
       "displayName": "IRA 3D Smart City",
-      "description": "Interactive 3D urban terrain simulation and predictive municipal resource regression demand forecasting prototype.",
+      "description": "An AI-powered 3D urban planning platform that analyzes geospatial and environmental data to generate dynamic, grid-based sustainability, construction, solar, and climate resilience recommendations on an interactive map.",
       "language": "TypeScript",
       "languageColor": "#3178c6",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/IRA",
       "updatedAt": "2026-08-31T07:26:51Z",
-      "updatedRelative": "Aug 2026"
+      "updatedRelative": "recently"
+    },
+    {
+      "name": "AGORA-PROXIMA",
+      "displayName": "AGORA Proxima",
+      "description": "PROJECT",
+      "language": "JavaScript",
+      "languageColor": "#f1e05a",
+      "stars": 0,
+      "forks": 0,
+      "url": "https://github.com/DurgaPavan0923/AGORA-PROXIMA",
+      "updatedAt": "2026-03-23T12:19:07Z",
+      "updatedRelative": "recently"
     }
   ],
   "verifiedContributions": [
@@ -108,7 +108,7 @@
     }
   ],
   "calendar": {
-    "totalContributions": 258,
+    "totalContributions": 279,
     "weeks": [
       {
         "contributionDays": [
@@ -2542,14 +2542,14 @@
           },
           {
             "date": "2026-11-07",
-            "contributionCount": 0,
-            "contributionLevel": "NONE",
+            "contributionCount": 21,
+            "contributionLevel": "FOURTH_QUARTILE",
             "weekday": 6
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-07T05:32:35.279Z",
+  "fetchedAt": "2026-11-07T17:38:19.058Z",
   "isStale": true
 }
