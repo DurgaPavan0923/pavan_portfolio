@@ -4,6 +4,33 @@ All notable changes to the portfolio codebase are documented in this file.
 
 ---
 
+## [2.3.0] - 2026-11-07 - GitHub Telemetry Pipeline Hardening & End-to-End QA Sweep
+
+### Task 1: Root Cause Analysis of Stale GitHub Telemetry (`/docs/GITHUB_TELEMETRY_RCA.md`)
+- **Forensic Investigation:** Identified 5 architectural causes for frozen telemetry on production:
+  1. Static prerendering of `/api/github` at build time without dynamic opt-out.
+  2. Lack of client-side cache invalidation or polling loops (single `useEffect` on mount).
+  3. Reverse date slicing on third-party mirror fallback capturing outdated 2024 dates.
+  4. Absence of explicit `from` and `to` DateTime arguments in GraphQL `contributionsCollection`.
+  5. Unhandled GraphQL error objects and lack of on-demand revalidation webhooks.
+
+### Task 2: Live Pipeline Hardening, SWR Integration & 6-Hour Cron
+- **Dynamic Route Handler:** Configured `/api/github` with `export const dynamic = 'force-dynamic'` and `revalidate = 900` (15 min ISR) with `Cache-Control: public, s-maxage=900, stale-while-revalidate=3600`.
+- **Client-Side SWR Hook:** Integrated SWR with 5-minute background refresh, window focus revalidation, and on-demand mutate trigger.
+- **Explicit GraphQL Date Range:** Updated GraphQL query with `$from: DateTime!` and `$to: DateTime!` strictly covering the rolling 365-day calendar.
+- **Robust Streak Calculator (`src/lib/streak.ts`):** Implemented calendar-day arithmetic tested across 9 Vitest unit tests (leap years, year boundaries, active yesterday with zero today).
+- **Verified Contributions Subpanel:** Integrated real closed/merged PRs (e.g., PR #1 on `RajanaDurgaPavanKumar_C1_ONLINETIHIITG` and PR #1 on `pavan_portfolio`) with repository badges and direct GitHub links.
+- **Honest Status Display:** Displayed green pulsing dot + "Live Telemetry" when live; displayed amber dot + "Cached Snapshot · last updated <time>" when fallback snapshot is active.
+- **Automated Snapshot Cron (`.github/workflows/refresh-github-snapshot.yml`):** Runs every 6 hours via GitHub Actions (`0 */6 * * *`) executing `npm run snapshot:github` to commit fresh data if differences exist.
+- **On-Demand Webhook (`/api/revalidate`):** Protected by `REVALIDATE_SECRET` for instant zero-downtime cache revalidation.
+- **Mobile Heatmap Auto-Scroll:** Calendar automatically scrolls to latest weeks on mount so mobile viewers see recent activity immediately.
+
+### Task 3: 18-Point End-to-End QA Sweep (`/docs/QA_REPORT.md`)
+- **100% Pass Rate across 18 criteria:** Initial page load, sticky nav, ⌘K command palette, hero CTAs, 3 flagship evaluated projects, experience timeline, GitHub activity, 3-tier skills, credentials with SOA result portal, leadership honors, 22-photo infinite marquee, contact validation & rate limiting, chatbot streaming & fallback, semantic footer, responsive viewport sweep (320px–2560px), zero banned buzzwords, complete SEO metadata, and accessibility standards.
+- **50 Automated Tests Passing:** All 11 Vitest test suites pass with 0 failures; TypeScript compiles with 0 errors; Next.js production build completes in 8 static pages and 4 dynamic endpoints.
+
+---
+
 ## [2.2.0] - Follow-Up Release: Underwater Analytics, Infinite Moments Marquee & Result Portal
 
 ### Task 1: Moments Auto-Movement & 16-Photo Marquee
