@@ -2,22 +2,37 @@
 
 import React from 'react';
 import { EXPERIENCES } from '@/data/experience';
-import { Calendar, MapPin, CheckCircle, ExternalLink, Github } from 'lucide-react';
+import { Calendar, MapPin, CheckCircle, ExternalLink, Github, Terminal, Cloud, Brain, Award } from 'lucide-react';
 
 export function Experience() {
+  const getRoleIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Terminal':
+        return <Terminal className="w-4 h-4 text-cyan-500" />;
+      case 'Cloud':
+        return <Cloud className="w-4 h-4 text-cyan-500" />;
+      case 'Brain':
+        return <Brain className="w-4 h-4 text-cyan-500" />;
+      case 'Award':
+        return <Award className="w-4 h-4 text-cyan-500" />;
+      default:
+        return <Terminal className="w-4 h-4 text-cyan-500" />;
+    }
+  };
+
   return (
     <section id="experience" aria-label="Work Experience" className="relative py-20 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
-            <span>03 // INTERNSHIPS, RESEARCH & ENGINEERING ROLES</span>
+            <span>03 // EXPERIENCE & INTERNSHIPS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
-            Internships, Research &amp; <span className="text-gradient-cyan">Engineering Roles</span>
+            Internships &amp; <span className="text-gradient-cyan">Engineering Roles</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            Hands-on machine learning engineering, applied research at IITs, and technical community leadership with measurable outcomes.
+            What I built and where.
           </p>
         </div>
 
@@ -33,7 +48,7 @@ export function Experience() {
                     isCurrent ? 'ring-4 ring-cyan-400/20' : ''
                   }`}
                 >
-                  {exp.icon}
+                  {getRoleIcon(exp.icon)}
                   {isCurrent && (
                     <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
                   )}
@@ -61,7 +76,7 @@ export function Experience() {
                     </div>
                   </div>
 
-                  {/* Bullet Points */}
+                  {/* Bullet Points: exactly 3 per role, written "Built X using Y → outcome" */}
                   <ul className="space-y-2 text-xs sm:text-sm text-slate-700 dark:text-slate-300 my-4">
                     {exp.points.map((pt, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2.5">
@@ -103,9 +118,9 @@ export function Experience() {
                           href={exp.verifyUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 text-xs font-mono font-medium text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:underline"
+                          className="inline-flex items-center gap-1 text-xs font-mono text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
                         >
-                          <span>Verification</span>
+                          <span>Profile</span>
                           <ExternalLink className="w-2.5 h-2.5" />
                         </a>
                       )}

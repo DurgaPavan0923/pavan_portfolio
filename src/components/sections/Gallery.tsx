@@ -196,13 +196,13 @@ export function Gallery() {
         <div className="flex flex-col items-center text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
             <Camera className="w-3.5 h-3.5" />
-            <span>09 // MOMENTS & HIGHLIGHTS</span>
+            <span>08 // MOMENTS &amp; HIGHLIGHTS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-3">
             Engineering &amp; Campus <span className="text-gradient-cyan">Moments</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-            Continuous retrospective documenting national hackathons, state honors, technical symposia, and leadership milestones ({GALLERY_ITEMS.length} verified moments).
+            Continuous retrospective documenting hackathons, campus initiatives, and leadership milestones ({GALLERY_ITEMS.length} photo moments).
           </p>
         </div>
 

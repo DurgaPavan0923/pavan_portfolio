@@ -98,22 +98,6 @@ query ($login: String!, $from: DateTime!, $to: DateTime!) {
         }
       }
     }
-    pinnedItems(first: 6, types: REPOSITORY) {
-      nodes {
-        ... on Repository {
-          name
-          description
-          url
-          stargazerCount
-          forkCount
-          pushedAt
-          primaryLanguage {
-            name
-            color
-          }
-        }
-      }
-    }
     pullRequests(first: 10, states: [MERGED], orderBy: {field: UPDATED_AT, direction: DESC}) {
       nodes {
         id
@@ -149,8 +133,10 @@ query ($login: String!, $from: DateTime!, $to: DateTime!) {
 function formatRelativeTime(dateString: string): string {
   try {
     const date = new Date(dateString);
+    if (isNaN(date.getTime())) return 'recently';
     const now = new Date();
     const diffMs = now.getTime() - date.getTime();
+    if (diffMs < 0) return 'recently';
     const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
     if (diffDays <= 0) return 'today';
@@ -164,6 +150,33 @@ function formatRelativeTime(dateString: string): string {
     return 'recently';
   }
 }
+
+const FEATURED_DESCRIPTIONS: Record<string, { displayName: string; desc: string; lang: string; color: string }> = {
+  'AI-Powered-Fake-News-Detector-for-Students': {
+    displayName: 'FactLens AI',
+    desc: 'Multi-agent explainable AI fact-verification platform combining Google Gemini API, Neo4j knowledge graph traversal, and Pinecone vector search.',
+    lang: 'TypeScript',
+    color: '#3178c6',
+  },
+  'AI-Resume-Screening-Job-Match-System': {
+    displayName: 'InsightAI ATS',
+    desc: 'Semantic resume screening, ATS alignment scoring, and contextual interview question copilot.',
+    lang: 'Python',
+    color: '#3572A5',
+  },
+  'RajanaDurgaPavanKumar_C1_ONLINETIHIITG': {
+    displayName: 'AquaGuard ML (TIH IIT Guwahati)',
+    desc: 'Dual-track environmental machine learning for calibrated water potability classification and oceanographic CTD sensor forecasting.',
+    lang: 'Python',
+    color: '#3572A5',
+  },
+  'IRA': {
+    displayName: 'IRA 3D Smart City',
+    desc: 'Interactive 3D urban terrain simulation and predictive municipal resource regression demand forecasting prototype.',
+    lang: 'TypeScript',
+    color: '#3178c6',
+  },
+};
 
 export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise<GitHubTelemetryData> {
   const token = process.env.GITHUB_TOKEN;
@@ -233,42 +246,32 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
             .sort((a, b) => b.percentage - a.percentage)
             .slice(0, 5);
 
-          // Pinned or top repos
-          let rawFeatured = (user.pinnedItems?.nodes || []).filter((r: { name?: string }) => Boolean(r && r.name));
-          if (rawFeatured.length === 0) {
-            rawFeatured = repos.filter((r: { isFork?: boolean }) => !r.isFork).slice(0, 4);
-          }
+          // Pinned or 4 target featured repos
+          const targetNames = [
+            'AI-Powered-Fake-News-Detector-for-Students',
+            'AI-Resume-Screening-Job-Match-System',
+            'RajanaDurgaPavanKumar_C1_ONLINETIHIITG',
+            'IRA',
+          ];
 
-          const featuredRepos: FeaturedRepo[] = rawFeatured.slice(0, 4).map((r: {
-            name: string;
-            description?: string;
-            url: string;
-            stargazerCount?: number;
-            forkCount?: number;
-            pushedAt: string;
-            primaryLanguage?: { name: string; color?: string };
-          }) => ({
-            name: r.name,
-            displayName: r.name === 'AI-Powered-Fake-News-Detector-for-Students'
-              ? 'FactLens AI'
-              : r.name === 'AI-Resume-Screening-Job-Match-System'
-              ? 'InsightAI ATS'
-              : r.name === 'IRA'
-              ? 'IRA 3D Smart City'
-              : r.name === 'AGORA-PROXIMA'
-              ? 'AGORA Proxima'
-              : r.name,
-            description: r.description || 'Open-source repository by DurgaPavan0923.',
-            language: r.primaryLanguage?.name || 'Python',
-            languageColor: r.primaryLanguage?.color || '#3572A5',
-            stars: r.stargazerCount || 0,
-            forks: r.forkCount || 0,
-            url: r.url,
-            updatedAt: r.pushedAt,
-            updatedRelative: formatRelativeTime(r.pushedAt),
-          }));
+          const featuredRepos: FeaturedRepo[] = targetNames.map((targetName) => {
+            const liveRepo = repos.find((r: { name: string }) => r.name === targetName);
+            const meta = FEATURED_DESCRIPTIONS[targetName];
+            return {
+              name: targetName,
+              displayName: meta?.displayName || targetName,
+              description: liveRepo?.description || meta?.desc || 'Open-source repository by DurgaPavan0923.',
+              language: liveRepo?.primaryLanguage?.name || meta?.lang || 'Python',
+              languageColor: liveRepo?.primaryLanguage?.color || meta?.color || '#3572A5',
+              stars: liveRepo?.stargazerCount || 0,
+              forks: liveRepo?.forkCount || 0,
+              url: liveRepo?.url || `https://github.com/${username}/${targetName}`,
+              updatedAt: liveRepo?.pushedAt || new Date().toISOString(),
+              updatedRelative: liveRepo?.pushedAt ? formatRelativeTime(liveRepo.pushedAt) : 'recently',
+            };
+          });
 
-          // Verified PRs from GraphQL
+          // Merged PRs
           const verifiedContributions: VerifiedContribution[] = (user.pullRequests?.nodes || []).map((pr: {
             id: string;
             title: string;
@@ -318,8 +321,6 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
   }
 
   // 2. Fallback: Public REST + Cached Verified Snapshot
-  // When running without GITHUB_TOKEN or when rate-limited, serve verified snapshot
-  // explicitly marked as isStale: true with the authentic timestamp.
   const fallback = snapshotData as unknown as GitHubTelemetryData;
   return {
     ...fallback,

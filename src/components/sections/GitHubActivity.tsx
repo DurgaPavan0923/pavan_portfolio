@@ -11,13 +11,14 @@ import {
   ExternalLink,
   Calendar,
   GitPullRequest,
-  AlertCircle,
   Users,
   Flame,
   Code,
   CheckCircle2,
   AlertTriangle,
   RotateCw,
+  Activity,
+  Layers,
 } from 'lucide-react';
 import { PROFILE_DATA } from '@/data/profile';
 
@@ -99,19 +100,20 @@ export function GitHubActivity() {
 
   return (
     <section id="open-source" aria-label="GitHub Activity & Open Source" className="relative py-20 px-4 sm:px-6">
+      <span id="github" className="absolute -top-24" />
       <span id="activity" className="absolute -top-24" />
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-mono font-medium mb-3">
-            <span>04 // GITHUB TELEMETRY & VERIFIED CONTRIBUTIONS</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
+            <span>04 // OPEN SOURCE &amp; TELEMETRY</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
-            GitHub Telemetry &amp; <span className="text-gradient-cyan">Verified Contributions</span>
+            GitHub Telemetry &amp; <span className="text-gradient-cyan">Open Source Repositories</span>
           </h2>
           <div className="flex flex-wrap items-center justify-center gap-3 text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
             <span>
-              Real-time engineering telemetry for{' '}
+              Telemetry and contribution history for{' '}
               <a
                 href={PROFILE_DATA.contact.github}
                 target="_blank"
@@ -145,17 +147,17 @@ export function GitHubActivity() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
                 <CheckCircle2 className="w-3 h-3" />
-                <span>Live Telemetry · updated {formatMinutesAgo(data.fetchedAt)}</span>
+                <span>Live Data · updated {formatMinutesAgo(data.fetchedAt)}</span>
               </span>
             )}
           </div>
         </div>
 
-        {/* Primary Metric Grid: All 8 Verified Open-Source Metrics */}
+        {/* Primary Metric Grid: Truthful, Non-Vanity Metrics */}
         <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 mb-8">
           {/* 1. Public Repos */}
           <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1 text-violet-600 dark:text-violet-400 mb-1">
+            <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
               <BookOpen className="w-3.5 h-3.5" />
               <span className="text-[10px] font-mono uppercase tracking-wider">Repos</span>
             </div>
@@ -165,31 +167,7 @@ export function GitHubActivity() {
             <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Public Repos</div>
           </div>
 
-          {/* 2. Total Stars */}
-          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1 text-amber-500 dark:text-amber-400 mb-1">
-              <Star className="w-3.5 h-3.5" />
-              <span className="text-[10px] font-mono uppercase tracking-wider">Stars</span>
-            </div>
-            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
-              {data.totalStars}
-            </div>
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Total Stars</div>
-          </div>
-
-          {/* 3. Total Forks */}
-          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
-              <GitFork className="w-3.5 h-3.5" />
-              <span className="text-[10px] font-mono uppercase tracking-wider">Forks</span>
-            </div>
-            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
-              {data.totalForks}
-            </div>
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Total Forks</div>
-          </div>
-
-          {/* 4. Followers */}
+          {/* 2. Followers */}
           <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-center gap-1 text-emerald-600 dark:text-emerald-400 mb-1">
               <Users className="w-3.5 h-3.5" />
@@ -201,7 +179,7 @@ export function GitHubActivity() {
             <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Followers</div>
           </div>
 
-          {/* 5. Annual Contribs */}
+          {/* 3. Annual Contribs */}
           <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
               <Calendar className="w-3.5 h-3.5" />
@@ -213,7 +191,19 @@ export function GitHubActivity() {
             <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Last 12 Mos</div>
           </div>
 
-          {/* 6. Pull Requests */}
+          {/* 4. Total Commits */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
+              <Code className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Commits</span>
+            </div>
+            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
+              {data.totalCommits}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Commits</div>
+          </div>
+
+          {/* 5. Pull Requests */}
           <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-center gap-1 text-emerald-600 dark:text-emerald-400 mb-1">
               <GitPullRequest className="w-3.5 h-3.5" />
@@ -225,19 +215,7 @@ export function GitHubActivity() {
             <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Merged PRs</div>
           </div>
 
-          {/* 7. Issues */}
-          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
-            <div className="flex items-center justify-center gap-1 text-rose-500 dark:text-rose-400 mb-1">
-              <AlertCircle className="w-3.5 h-3.5" />
-              <span className="text-[10px] font-mono uppercase tracking-wider">Issues</span>
-            </div>
-            <div className="font-display font-extrabold text-xl text-slate-900 dark:text-slate-100">
-              {data.totalIssues}
-            </div>
-            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">Authored Issues</div>
-          </div>
-
-          {/* 8. Streak */}
+          {/* 6. Longest Streak */}
           <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
             <div className="flex items-center justify-center gap-1 text-amber-500 dark:text-amber-400 mb-1">
               <Flame className="w-3.5 h-3.5" />
@@ -248,6 +226,34 @@ export function GitHubActivity() {
             </div>
             <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
               Current: {data.currentStreak}d
+            </div>
+          </div>
+
+          {/* 7. Top Language */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-cyan-600 dark:text-cyan-400 mb-1">
+              <Layers className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Main Stack</span>
+            </div>
+            <div className="font-display font-extrabold text-base truncate text-slate-900 dark:text-slate-100">
+              {data.topLanguages[0]?.name || 'Python'}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+              {data.topLanguages[0]?.percentage || 0}% bytes
+            </div>
+          </div>
+
+          {/* 8. Pipeline Status */}
+          <div className="p-4 rounded-2xl glass-card text-center hover:scale-105 transition-all duration-300">
+            <div className="flex items-center justify-center gap-1 text-emerald-600 dark:text-emerald-400 mb-1">
+              <Activity className="w-3.5 h-3.5" />
+              <span className="text-[10px] font-mono uppercase tracking-wider">Pipeline</span>
+            </div>
+            <div className="font-display font-extrabold text-sm sm:text-base text-slate-900 dark:text-slate-100">
+              {data.isStale ? 'Snapshot' : 'Live'}
+            </div>
+            <div className="text-[10px] text-slate-500 dark:text-slate-400 mt-0.5">
+              {data.isStale ? 'Fallback' : 'Active'}
             </div>
           </div>
         </div>
@@ -282,7 +288,7 @@ export function GitHubActivity() {
             </div>
           </div>
 
-          {/* Grid Scrollable Wrapper - with calendarScrollRef */}
+          {/* Grid Scrollable Wrapper */}
           <div ref={calendarScrollRef} className="overflow-x-auto pb-2 scroll-smooth">
             <div className="inline-grid grid-flow-col gap-1.5 auto-cols-max">
               {data.calendar?.weeks?.map((week, wIdx) => (
@@ -339,12 +345,12 @@ export function GitHubActivity() {
           )}
         </div>
 
-        {/* Verified Contributions Subpanel (Merged PRs) - shown only when real records exist */}
+        {/* Pull Requests Panel: Renamed to Recent Merged Pull Requests (own repositories) */}
         {data.verifiedContributions && data.verifiedContributions.length > 0 && (
           <div className="mb-10">
             <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
               <GitPullRequest className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>Verified Open-Source Pull Requests</span>
+              <span>Recent Merged Pull Requests (own repositories)</span>
               <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
                 {data.verifiedContributions.length} Merged
               </span>
@@ -384,7 +390,7 @@ export function GitHubActivity() {
           </div>
         )}
 
-        {/* Featured / Pinned Repositories Subgrid with Real Stars & Forks */}
+        {/* Featured Repositories Subgrid: Clean dates and accurate data */}
         <div className="mb-4">
           <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
@@ -420,15 +426,22 @@ export function GitHubActivity() {
                 </div>
 
                 <div className="flex items-center justify-between text-xs font-mono text-slate-500 pt-3 border-t border-slate-100 dark:border-white/[0.04]">
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1">
-                      <Star className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400" />
-                      <span>{repo.stars}</span>
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <GitFork className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
-                      <span>{repo.forks}</span>
-                    </span>
+                  <div className="flex items-center gap-3">
+                    {repo.stars > 0 && (
+                      <span className="flex items-center gap-1 text-amber-500">
+                        <Star className="w-3.5 h-3.5" />
+                        <span>{repo.stars}</span>
+                      </span>
+                    )}
+                    {repo.forks > 0 && (
+                      <span className="flex items-center gap-1 text-cyan-500">
+                        <GitFork className="w-3.5 h-3.5" />
+                        <span>{repo.forks}</span>
+                      </span>
+                    )}
+                    {repo.stars === 0 && repo.forks === 0 && (
+                      <span className="text-[11px] text-slate-400">{repo.language}</span>
+                    )}
                   </div>
                   {repo.updatedRelative && (
                     <span className="text-[11px] text-slate-400">updated {repo.updatedRelative}</span>

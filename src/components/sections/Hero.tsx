@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, FileText, Mail, Sparkles, Zap, Layers } from 'lucide-react';
+import { ArrowRight, FileText, Mail, Sparkles, Zap, Layers, Compass, BookOpen, Search } from 'lucide-react';
 import { PROFILE_DATA } from '@/data/profile';
 import { PROJECTS } from '@/data/projects';
 import { CERTIFICATIONS } from '@/data/certifications';
@@ -13,10 +13,10 @@ interface HeroProps {
 }
 
 const ROLES = [
-  'Building Retrieval-Augmented Generation Pipelines',
-  'Training Deep Learning & NLP Models',
-  'Evaluating Multi-Agent Verification Systems',
-  'Deploying Containerized Cloud Services',
+  'CS Student (AI & ML) at SOA ITER',
+  'Building Practical AI Applications & RAG Pipelines',
+  'Evaluating Machine Learning Models Honestly',
+  'Deploying Containerized Full-Stack AI Services',
 ];
 
 export function Hero({ onOpenChat }: HeroProps) {
@@ -61,7 +61,7 @@ export function Hero({ onOpenChat }: HeroProps) {
       className="relative min-h-[86vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 overflow-hidden"
     >
       <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        {/* Left Column: Headline, Typewriter, CTAs, Stats */}
+        {/* Left Column: Headline, Typewriter, CTAs, About, Currently, Stats */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
           {/* Availability Status Badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-6 shadow-sm">
@@ -69,7 +69,7 @@ export function Hero({ onOpenChat }: HeroProps) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
             </span>
-            <span>Available for Applied AI &amp; ML Roles</span>
+            <span>Available for AI/ML Internships &amp; Roles</span>
           </div>
 
           {/* Name & Academic Identity */}
@@ -86,12 +86,19 @@ export function Hero({ onOpenChat }: HeroProps) {
           </div>
 
           {/* One-Line Value Statement */}
-          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl font-medium leading-relaxed mb-8">
+          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl font-medium leading-relaxed mb-6">
             Computer Science student specializing in AI &amp; ML, building practical AI applications.
           </p>
 
+          {/* Concise About Block */}
+          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] text-left max-w-2xl mb-8">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              B.Tech Computer Science undergraduate (Class of 2027) at SOA University (ITER), Bhubaneswar. I focus on Retrieval-Augmented Generation (RAG) pipelines, dual-track machine learning systems, and transparent empirical evaluations. Actively seeking AI/ML internships and entry-level engineering roles.
+            </p>
+          </div>
+
           {/* Action CTAs: 3 Explicit Recruiter Actions */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-10">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8">
             {/* 1. View Projects */}
             <a
               href="#projects"
@@ -124,6 +131,18 @@ export function Hero({ onOpenChat }: HeroProps) {
             </a>
           </div>
 
+          {/* Currently Strip */}
+          <div className="w-full max-w-xl p-3 rounded-xl bg-cyan-500/[0.04] border border-cyan-500/20 mb-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-left">
+            <div className="flex items-center gap-2 text-[11px] font-mono text-slate-700 dark:text-slate-300">
+              <span className="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold uppercase text-[9px]">Building</span>
+              <span>FactLens AI &amp; Water Potability ML</span>
+            </div>
+            <div className="flex items-center gap-2 text-[11px] font-mono text-slate-700 dark:text-slate-300">
+              <span className="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-bold uppercase text-[9px]">Learning</span>
+              <span>Distributed Training &amp; Graph RAG</span>
+            </div>
+          </div>
+
           {/* Stats Bar: Truthful stats derived directly from typed data arrays */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 w-full max-w-xl">
             <div className="p-3.5 rounded-2xl glass-card text-center transition-all duration-200 hover:-translate-y-0.5 group">
@@ -132,11 +151,14 @@ export function Hero({ onOpenChat }: HeroProps) {
               </div>
               <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Projects Built</div>
             </div>
-            <div className="p-3.5 rounded-2xl glass-card text-center transition-all duration-200 hover:-translate-y-0.5 group">
+            <div
+              className="p-3.5 rounded-2xl glass-card text-center transition-all duration-200 hover:-translate-y-0.5 group cursor-help"
+              title="57 skill badges · 12 arcade games · 9 trivia · 18 lab-free courses (Apr 1 – Jun 2, 2025, Diamond League, Ultimate Milestone)"
+            >
               <div className="font-display font-extrabold text-2xl sm:text-3xl text-emerald-600 dark:text-emerald-400">
                 {badgesCount}
               </div>
-              <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">GCP Badges</div>
+              <div className="text-[11px] font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mt-0.5">Google Cloud Badges</div>
             </div>
             <div className="p-3.5 rounded-2xl glass-card text-center transition-all duration-200 hover:-translate-y-0.5 group">
               <div className="font-display font-extrabold text-2xl sm:text-3xl text-cyan-600 dark:text-cyan-400">
@@ -166,10 +188,10 @@ export function Hero({ onOpenChat }: HeroProps) {
             <div className="relative w-[94%] h-[94%] rounded-full overflow-hidden bg-slate-100 dark:bg-slate-900 border-2 border-slate-200 dark:border-white/[0.12] shadow-xl flex items-center justify-center">
               <Image
                 src="/Pavan.jpeg"
-                alt="Rajana Durga Pavan Kumar - AI & ML Engineer"
+                alt="Rajana Durga Pavan Kumar - CS Student specializing in AI & ML"
                 fill
                 priority
-                sizes="(max-width: 768px) 256px, 320px"
+                sizes="(max-width: 640px) 256px, 320px"
                 className="object-cover object-top scale-105 hover:scale-110 transition-transform duration-500 ease-out"
               />
             </div>

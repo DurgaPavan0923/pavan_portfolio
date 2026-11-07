@@ -41,50 +41,50 @@
     {
       "name": "AI-Powered-Fake-News-Detector-for-Students",
       "displayName": "FactLens AI",
-      "description": "Open-source repository by DurgaPavan0923.",
+      "description": "Multi-agent explainable AI fact-verification platform combining Google Gemini API, Neo4j knowledge graph traversal, and Pinecone vector search.",
       "language": "TypeScript",
       "languageColor": "#3178c6",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/AI-Powered-Fake-News-Detector-for-Students",
       "updatedAt": "2026-06-13T12:33:30Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "Jun 2026"
     },
     {
       "name": "AI-Resume-Screening-Job-Match-System",
       "displayName": "InsightAI ATS",
-      "description": "Open-source repository by DurgaPavan0923.",
-      "language": "HTML",
-      "languageColor": "#e34c26",
+      "description": "Semantic resume screening, ATS alignment scoring, and contextual interview question copilot.",
+      "language": "Python",
+      "languageColor": "#3572A5",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/AI-Resume-Screening-Job-Match-System",
       "updatedAt": "2026-08-27T05:21:26Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "Aug 2026"
+    },
+    {
+      "name": "RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
+      "displayName": "AquaGuard ML (TIH IIT Guwahati)",
+      "description": "Dual-track environmental machine learning for calibrated water potability classification and oceanographic CTD sensor forecasting.",
+      "language": "Python",
+      "languageColor": "#3572A5",
+      "stars": 0,
+      "forks": 0,
+      "url": "https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
+      "updatedAt": "2026-10-19T04:22:46Z",
+      "updatedRelative": "Oct 2026"
     },
     {
       "name": "IRA",
       "displayName": "IRA 3D Smart City",
-      "description": "An AI-powered 3D urban planning platform that analyzes geospatial and environmental data to generate dynamic, grid-based sustainability, construction, solar, and climate resilience recommendations on an interactive map.",
+      "description": "Interactive 3D urban terrain simulation and predictive municipal resource regression demand forecasting prototype.",
       "language": "TypeScript",
       "languageColor": "#3178c6",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/IRA",
       "updatedAt": "2026-08-31T07:26:51Z",
-      "updatedRelative": "recently"
-    },
-    {
-      "name": "AGORA-PROXIMA",
-      "displayName": "AGORA Proxima",
-      "description": "PROJECT",
-      "language": "JavaScript",
-      "languageColor": "#f1e05a",
-      "stars": 0,
-      "forks": 0,
-      "url": "https://github.com/DurgaPavan0923/AGORA-PROXIMA",
-      "updatedAt": "2026-03-23T12:19:07Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "Aug 2026"
     }
   ],
   "verifiedContributions": [

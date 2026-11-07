@@ -2,7 +2,28 @@
 
 import React from 'react';
 import { SKILL_CATEGORIES } from '@/data/skills';
-import { Sparkles, Terminal, Code2, Cloud, Brain, Layers } from 'lucide-react';
+import {
+  Sparkles,
+  Terminal,
+  Code2,
+  Cloud,
+  Brain,
+  Layers,
+  BarChart3,
+  Zap,
+  Database,
+  CheckCircle2,
+  Share2,
+  Search,
+  Cpu,
+  Shield,
+  TrendingUp,
+  Activity,
+  Globe,
+  FileCode,
+  Palette,
+  Box,
+} from 'lucide-react';
 
 export function Skills() {
   const categoryIcons: Record<string, React.ReactNode> = {
@@ -10,6 +31,29 @@ export function Skills() {
     'Generative AI': <Sparkles className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     'AI Engineering': <Terminal className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
     'Full-Stack & Cloud': <Cloud className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />,
+  };
+
+  const skillIcons: Record<string, React.ReactNode> = {
+    Code2: <Code2 className="w-3.5 h-3.5 text-cyan-500" />,
+    Brain: <Brain className="w-3.5 h-3.5 text-cyan-500" />,
+    BarChart3: <BarChart3 className="w-3.5 h-3.5 text-cyan-500" />,
+    Zap: <Zap className="w-3.5 h-3.5 text-cyan-500" />,
+    Database: <Database className="w-3.5 h-3.5 text-cyan-500" />,
+    CheckCircle2: <CheckCircle2 className="w-3.5 h-3.5 text-cyan-500" />,
+    Sparkles: <Sparkles className="w-3.5 h-3.5 text-cyan-500" />,
+    Layers: <Layers className="w-3.5 h-3.5 text-cyan-500" />,
+    Share2: <Share2 className="w-3.5 h-3.5 text-cyan-500" />,
+    Search: <Search className="w-3.5 h-3.5 text-cyan-500" />,
+    Cpu: <Cpu className="w-3.5 h-3.5 text-cyan-500" />,
+    Terminal: <Terminal className="w-3.5 h-3.5 text-cyan-500" />,
+    Shield: <Shield className="w-3.5 h-3.5 text-cyan-500" />,
+    TrendingUp: <TrendingUp className="w-3.5 h-3.5 text-cyan-500" />,
+    Activity: <Activity className="w-3.5 h-3.5 text-cyan-500" />,
+    Globe: <Globe className="w-3.5 h-3.5 text-cyan-500" />,
+    FileCode: <FileCode className="w-3.5 h-3.5 text-cyan-500" />,
+    Palette: <Palette className="w-3.5 h-3.5 text-cyan-500" />,
+    Cloud: <Cloud className="w-3.5 h-3.5 text-cyan-500" />,
+    Container: <Box className="w-3.5 h-3.5 text-cyan-500" />,
   };
 
   const totalSkillsCount = SKILL_CATEGORIES.reduce((acc, cat) => acc + cat.skills.length, 0);
@@ -26,7 +70,7 @@ export function Skills() {
             Technical <span className="text-gradient-cyan">Skills</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            Only technologies proven in code repositories, evaluated systems, or university coursework. Structured into 4 core competencies ({totalSkillsCount} total competencies).
+            Technologies evaluated in codebase repositories, ML benchmarks, or academic coursework. Structured into 4 core competencies ({totalSkillsCount} total competencies).
           </p>
         </div>
 
@@ -47,7 +91,7 @@ export function Skills() {
                       {cat.title}
                     </h3>
                     <span className="text-[11px] font-mono text-cyan-600 dark:text-cyan-400">
-                      {cat.skills.length} verified technologies
+                      {cat.skills.length} core competencies
                     </span>
                   </div>
                 </div>
@@ -63,7 +107,7 @@ export function Skills() {
                     key={sIdx}
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-50 dark:bg-white/[0.03] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.06] hover:border-cyan-400/50 text-xs font-mono font-medium text-slate-700 dark:text-slate-200 transition-all duration-200"
                   >
-                    <span>{skill.icon}</span>
+                    <span>{skillIcons[skill.icon] || <Code2 className="w-3.5 h-3.5 text-cyan-500" />}</span>
                     <span>{skill.name}</span>
                   </div>
                 ))}

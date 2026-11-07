@@ -3,22 +3,58 @@
 import React from 'react';
 import { CERTIFICATIONS } from '@/data/certifications';
 import { PROFILE_DATA } from '@/data/profile';
-import { ExternalLink, ShieldCheck, GraduationCap, Calendar, MapPin, Award } from 'lucide-react';
+import {
+  ExternalLink,
+  ShieldCheck,
+  GraduationCap,
+  Calendar,
+  MapPin,
+  Award,
+  Link as LinkIcon,
+  Cloud,
+  Brain,
+  Terminal,
+  Code2,
+  Trophy,
+} from 'lucide-react';
 
 export function Certifications() {
+  const getCertIcon = (iconName: string) => {
+    switch (iconName) {
+      case 'Link':
+        return <LinkIcon className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'Cloud':
+        return <Cloud className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'Brain':
+        return <Brain className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'Terminal':
+        return <Terminal className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'Code2':
+        return <Code2 className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'Trophy':
+        return <Trophy className="w-5 h-5 text-amber-500" />;
+      case 'Award':
+        return <Award className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'GraduationCap':
+        return <GraduationCap className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      default:
+        return <Award className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+    }
+  };
+
   return (
-    <section id="credentials" aria-label="Credentials & Education" className="relative py-20 px-4 sm:px-6">
+    <section id="certifications" aria-label="Education and Certifications" className="relative py-20 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-mono font-medium mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
             <span>06 // EDUCATION &amp; CERTIFICATIONS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
-            Education, Certifications &amp; <span className="text-gradient-cyan">Verified Honors</span>
+            Education &amp; <span className="text-gradient-cyan">Certifications</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            Formal university engineering foundation, specialized industry certifications, and national hackathon qualifications.
+            Formal university engineering foundation at SOA ITER, professional industry certifications, and hackathon participations.
           </p>
         </div>
 
@@ -72,14 +108,14 @@ export function Certifications() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.1] text-[11px] font-mono text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                      title="SOA University Student Portal (soaportals.com/StudentPortalSOA/#/)"
+                      title="SOA University Student Portal"
                     >
                       <span>Result Portal</span>
                       <ExternalLink className="w-3 h-3" />
                     </a>
                   </div>
                   <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                    Student login required; marksheet available on request.
+                    Student login required; official marksheet available on request.
                   </span>
                 </div>
               </div>
@@ -90,11 +126,11 @@ export function Certifications() {
         {/* 2. Industry Certifications Grid */}
         <div className="flex items-center justify-between mb-6 pb-3 border-b border-slate-200 dark:border-white/[0.08]">
           <h3 className="font-display font-bold text-lg text-slate-900 dark:text-slate-100 flex items-center gap-2">
-            <Award className="w-5 h-5 text-amber-500" />
-            <span>Professional Certifications &amp; Hackathon Honors</span>
+            <Award className="w-5 h-5 text-cyan-500" />
+            <span>Certifications</span>
           </h3>
           <span className="text-xs font-mono text-slate-500 dark:text-slate-400">
-            {CERTIFICATIONS.length} Verified Credentials
+            {CERTIFICATIONS.length} Credentials Listed
           </span>
         </div>
 
@@ -105,10 +141,15 @@ export function Certifications() {
               className="p-5 rounded-2xl glass-card flex flex-col justify-between group transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:border-cyan-400/30"
             >
               <div>
-                <div className="flex items-center mb-3">
-                  <span className="text-2xl p-2 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06] shadow-sm">
-                    {cert.icon}
-                  </span>
+                <div className="flex items-center justify-between mb-3">
+                  <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.06] shadow-sm">
+                    {getCertIcon(cert.icon)}
+                  </div>
+                  {cert.type && (
+                    <span className="px-2 py-0.5 rounded text-[10px] font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-white/[0.04]">
+                      {cert.type}
+                    </span>
+                  )}
                 </div>
 
                 <h4 className="font-display font-bold text-sm sm:text-base text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors mb-1">
@@ -117,8 +158,8 @@ export function Certifications() {
                 <p className="text-xs text-slate-600 dark:text-slate-400">{cert.issuer}</p>
 
                 {cert.credentialId && (
-                  <p className="text-[10px] font-mono text-slate-500 dark:text-slate-500 mt-2">
-                    ID: {cert.credentialId}
+                  <p className="text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-2">
+                    {cert.credentialId}
                   </p>
                 )}
               </div>
@@ -132,7 +173,7 @@ export function Certifications() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-400"
                   >
-                    <span>Verify</span>
+                    <span>Verification Portal</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
                 ) : (
