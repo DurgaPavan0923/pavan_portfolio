@@ -84,15 +84,16 @@ The visual layout, navigation dock, Command Palette (⌘K), mobile menu, and scr
 
 | Step | Section Name | Description & Proof Point |
 | :---: | :--- | :--- |
-| **00** | **Hero** | 1-line value proposition, 3 primary CTAs (*View Projects*, *Download Resume*, *Contact*), and 4 derived stats (23 public repos, 7 projects built, 98 GCP badges, 12 certifications). |
-| **01** | **Featured Projects** | 3 flagship evaluated systems with empirical benchmarks (**FactLens AI**, **InsightAI**, **AI-Based Underwater Environmental Analytics**) + compact secondary systems (**IRA**, **AGORA**, **Seq2Seq Summarizer**). |
-| **02** | **Work Experience** | Hands-on engineering roles rewritten as "Built X using Y → outcome/learning" (**TIH IIT Guwahati**, **GDGoC ITER**, **Edunet IBM SkillsBuild**, **Microsoft Elevate**). |
-| **03** | **Open Source Metrics** | Real-time GitHub telemetry via GraphQL for user `DurgaPavan0923`: 23 repos, 258 contributions, verified merged PRs subpanel, streak calculator, language breakdown, and 53-week heatmap. |
-| **04** | **Skills & Toolkit** | Concise 3-tier demonstrable stack ($\le 25$ items): **Core** (use daily), **Working** (used in projects), and **Familiar** (coursework/labs). |
-| **05** | **Credentials & Education** | Formal B.Tech CSE degree card (CGPA 7.85/10.0 at SOA ITER with Result Portal link) and 12 verifiable industry credentials with IDs. |
-| **06** | **Leadership & Honors** | Certified NCC Sergeant service (Alpha/Bravo grades), Governor's Award (Rajya Puraskar), and GDGoC chapter coordination. |
-| **07** | **Moments in Action** | Curated 22-photo GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and accessible lightbox. |
-| **08** | **Get in Touch** | Resilient contact form dispatching to `rdpkumar2308@gmail.com` via Resend with Nodemailer Gmail SMTP fallback, rate-limited and honeypot-protected. |
+| **01** | **Hero** | 1-line value proposition, 3 primary CTAs (*View Projects*, *Download Resume*, *Contact*), and 4 derived stats (23 public repos, 7 projects built, 98 GCP badges, 9 certifications). |
+| **02** | **Featured Projects** | 3 flagship evaluated systems with empirical benchmarks (**FactLens AI**, **InsightAI**, **AI-Based Underwater Environmental Analytics**) + compact secondary systems (**Seq2Seq Summarizer**, **IRA**, **AGORA**, **Algorithm Arena**, **SOA NCC**). |
+| **03** | **Internships, Research & Roles** | Hands-on engineering roles with exactly 3 bullets per role ("Built X using Y → outcome/learning"): **TIH IIT Guwahati**, **GDGoC ITER**, **Edunet IBM SkillsBuild**, **Microsoft Elevate**, **InternPro**, **Cognizance IIT Roorkee**. |
+| **04** | **GitHub Telemetry & Contributions** | Real-time GitHub telemetry via GraphQL for user `DurgaPavan0923`: 23 repos, 258 contributions, verified merged PRs subpanel, streak calculator, language breakdown, and 52-week heatmap. |
+| **05** | **Technical Skills** | 4 balanced competency groups in a clean 2x2 grid (24 items total): **Machine Learning**, **Generative AI**, **AI Engineering**, **Full-Stack & Cloud**. |
+| **06** | **Education & Certifications** | Formal B.Tech CSE degree card (CGPA 7.85/10.0 at SOA ITER with Result Portal link) and 9 verifiable industry credentials with IDs. |
+| **07** | **Leadership & Achievements** | Certified NCC Sergeant service (Alpha/Bravo grades), Governor's Award (Rajya Puraskar), School Captain, and symposium leadership. |
+| **08** | **Technical Insights & Articles** | 3 in-depth engineering breakdowns (Graph RAG, Multi-Agent Verification, Deep Sequence Learning) rendered in a native modal reader. |
+| **09** | **Moments & Highlights** | Curated 16-photo GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and accessible lightbox. |
+| **10** | **Contact & Collaboration** | Resilient contact form dispatching via Resend with rate limiting and one-click email copy button. |
 
 ---
 
