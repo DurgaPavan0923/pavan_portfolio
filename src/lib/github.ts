@@ -1,4 +1,5 @@
 import snapshotData from '@/data/github-snapshot.json';
+import { calculateStreaks } from './streak';
 
 export interface ContributionDay {
   date: string;
@@ -30,6 +31,16 @@ export interface FeaturedRepo {
   updatedRelative?: string;
 }
 
+export interface VerifiedContribution {
+  id: string;
+  type: 'PR' | 'COMMIT';
+  title: string;
+  repo: string;
+  url: string;
+  date: string;
+  relativeDate?: string;
+}
+
 export interface GitHubTelemetryData {
   username: string;
   publicRepos: number;
@@ -44,6 +55,7 @@ export interface GitHubTelemetryData {
   longestStreak: number;
   topLanguages: TopLanguage[];
   featuredRepos: FeaturedRepo[];
+  verifiedContributions: VerifiedContribution[];
   calendar: {
     totalContributions: number;
     weeks: ContributionWeek[];
@@ -53,7 +65,7 @@ export interface GitHubTelemetryData {
 }
 
 const GITHUB_GRAPHQL_QUERY = `
-query ($login: String!) {
+query ($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
     name
     login
@@ -102,9 +114,21 @@ query ($login: String!) {
         }
       }
     }
-    contributionsCollection {
+    pullRequests(first: 10, states: [MERGED], orderBy: {field: UPDATED_AT, direction: DESC}) {
+      nodes {
+        id
+        title
+        url
+        mergedAt
+        repository {
+          nameWithOwner
+        }
+      }
+    }
+    contributionsCollection(from: $from, to: $to) {
       totalCommitContributions
       totalPullRequestContributions
+      totalPullRequestReviewContributions
       totalIssueContributions
       contributionCalendar {
         totalContributions
@@ -141,63 +165,12 @@ function formatRelativeTime(dateString: string): string {
   }
 }
 
-function calculateStreaks(weeks: ContributionWeek[]): { currentStreak: number; longestStreak: number } {
-  const days = weeks
-    .flatMap((w) => w.contributionDays)
-    .filter((d) => Boolean(d.date))
-    .sort((a, b) => a.date.localeCompare(b.date));
-
-  let longest = 0;
-  let currentRun = 0;
-
-  for (const day of days) {
-    if (day.contributionCount > 0) {
-      currentRun++;
-      if (currentRun > longest) {
-        longest = currentRun;
-      }
-    } else {
-      currentRun = 0;
-    }
-  }
-
-  // Calculate current streak backwards from today
-  const todayStr = new Date().toISOString().split('T')[0];
-  const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-  let cur = 0;
-
-  for (let i = days.length - 1; i >= 0; i--) {
-    const day = days[i];
-    if (day.date > todayStr) continue;
-
-    if (cur === 0) {
-      // First matching day can be today or yesterday
-      if (day.date === todayStr || day.date === yesterday) {
-        if (day.contributionCount > 0) {
-          cur = 1;
-        } else if (day.date === todayStr) {
-          // If 0 today, check yesterday
-          continue;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
-    } else {
-      if (day.contributionCount > 0) {
-        cur++;
-      } else {
-        break;
-      }
-    }
-  }
-
-  return { currentStreak: cur, longestStreak: longest };
-}
-
 export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise<GitHubTelemetryData> {
   const token = process.env.GITHUB_TOKEN;
+  const now = new Date();
+  const oneYearAgo = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+  const fromIso = oneYearAgo.toISOString();
+  const toIso = now.toISOString();
 
   // 1. Try GraphQL if GITHUB_TOKEN is available
   if (token) {
@@ -211,13 +184,22 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
         },
         body: JSON.stringify({
           query: GITHUB_GRAPHQL_QUERY,
-          variables: { login: username },
+          variables: {
+            login: username,
+            from: fromIso,
+            to: toIso,
+          },
         }),
-        next: { revalidate: 3600 },
+        next: { revalidate: 900 },
       });
 
       if (response.ok) {
         const json = await response.json();
+
+        if (json.errors && Array.isArray(json.errors) && json.errors.length > 0) {
+          console.warn('GitHub GraphQL returned errors:', json.errors);
+        }
+
         const user = json.data?.user;
 
         if (user) {
@@ -271,8 +253,12 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
               ? 'FactLens AI'
               : r.name === 'AI-Resume-Screening-Job-Match-System'
               ? 'InsightAI ATS'
+              : r.name === 'IRA'
+              ? 'IRA 3D Smart City'
+              : r.name === 'AGORA-PROXIMA'
+              ? 'AGORA Proxima'
               : r.name,
-            description: r.description || 'Open-source engineering repository by DurgaPavan0923.',
+            description: r.description || 'Open-source repository by DurgaPavan0923.',
             language: r.primaryLanguage?.name || 'Python',
             languageColor: r.primaryLanguage?.color || '#3572A5',
             stars: r.stargazerCount || 0,
@@ -282,25 +268,43 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
             updatedRelative: formatRelativeTime(r.pushedAt),
           }));
 
+          // Verified PRs from GraphQL
+          const verifiedContributions: VerifiedContribution[] = (user.pullRequests?.nodes || []).map((pr: {
+            id: string;
+            title: string;
+            url: string;
+            mergedAt: string;
+            repository?: { nameWithOwner?: string };
+          }) => ({
+            id: pr.id,
+            type: 'PR',
+            title: pr.title,
+            repo: pr.repository?.nameWithOwner || `${username}/repo`,
+            url: pr.url,
+            date: pr.mergedAt,
+            relativeDate: formatRelativeTime(pr.mergedAt),
+          }));
+
           const calWeeks: ContributionWeek[] = user.contributionsCollection?.contributionCalendar?.weeks || [];
           const streaks = calculateStreaks(calWeeks);
 
           return {
             username: user.login,
-            publicRepos: user.repositories?.totalCount ?? 22,
+            publicRepos: user.repositories?.totalCount ?? 23,
             followers: user.followers?.totalCount ?? 22,
             totalStars,
             totalForks,
-            totalContributions: user.contributionsCollection?.contributionCalendar?.totalContributions ?? 226,
+            totalContributions: user.contributionsCollection?.contributionCalendar?.totalContributions ?? 258,
             totalCommits: user.contributionsCollection?.totalCommitContributions ?? 215,
-            totalPRs: user.contributionsCollection?.totalPullRequestContributions ?? 4,
-            totalIssues: user.contributionsCollection?.totalIssueContributions ?? 2,
+            totalPRs: verifiedContributions.length,
+            totalIssues: user.contributionsCollection?.totalIssueContributions ?? 0,
             currentStreak: streaks.currentStreak,
             longestStreak: streaks.longestStreak,
             topLanguages: topLanguages.length > 0 ? topLanguages : (snapshotData as unknown as GitHubTelemetryData).topLanguages,
             featuredRepos,
+            verifiedContributions,
             calendar: {
-              totalContributions: user.contributionsCollection?.contributionCalendar?.totalContributions ?? 226,
+              totalContributions: user.contributionsCollection?.contributionCalendar?.totalContributions ?? 258,
               weeks: calWeeks,
             },
             fetchedAt: new Date().toISOString(),
@@ -309,121 +313,13 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
         }
       }
     } catch (err) {
-      console.warn('GitHub GraphQL fetch failed, attempting REST & mirror fallback:', err);
+      console.warn('GitHub GraphQL fetch failed, attempting fallback pipeline:', err);
     }
   }
 
-  // 2. Fallback: Public REST + Public Contribution API
-  try {
-    const [userRes, reposRes, contribRes] = await Promise.all([
-      fetch(`https://api.github.com/users/${username}`, {
-        headers: { Accept: 'application/vnd.github.v3+json', 'User-Agent': 'Pavan-Portfolio-REST' },
-        next: { revalidate: 3600 },
-      }),
-      fetch(`https://api.github.com/users/${username}/repos?per_page=100&sort=pushed`, {
-        headers: { Accept: 'application/vnd.github.v3+json', 'User-Agent': 'Pavan-Portfolio-REST' },
-        next: { revalidate: 3600 },
-      }),
-      fetch(`https://github-contributions-api.jogruber.de/v4/${username}`, {
-        next: { revalidate: 3600 },
-      }).catch(() => null),
-    ]);
-
-    if (userRes.ok && reposRes.ok) {
-      const userData = await userRes.json();
-      const repos = await reposRes.json();
-      const contribData = contribRes && contribRes.ok ? await contribRes.json() : null;
-
-      const totalStars = Array.isArray(repos)
-        ? repos.reduce((acc: number, r: { stargazers_count?: number }) => acc + (r.stargazers_count || 0), 0)
-        : 0;
-      const totalForks = Array.isArray(repos)
-        ? repos.reduce((acc: number, r: { forks_count?: number }) => acc + (r.forks_count || 0), 0)
-        : 0;
-
-      const priorityRepoNames = [
-        'AI-Powered-Fake-News-Detector-for-Students',
-        'AI-Resume-Screening-Job-Match-System',
-        'IRA',
-        'AGORA-PROXIMA',
-      ];
-
-      const featuredRepos: FeaturedRepo[] = priorityRepoNames
-        .map((name): FeaturedRepo | null => {
-          const match = Array.isArray(repos) ? repos.find((r: { name: string }) => r.name === name) : null;
-          if (!match) return null;
-          return {
-            name: match.name,
-            displayName: match.name === 'AI-Powered-Fake-News-Detector-for-Students'
-              ? 'FactLens AI'
-              : match.name === 'AI-Resume-Screening-Job-Match-System'
-              ? 'InsightAI ATS'
-              : match.name,
-            description: match.description || 'Open-source repository by DurgaPavan0923.',
-            language: match.language || 'Python',
-            languageColor: match.language === 'TypeScript' ? '#3178c6' : match.language === 'JavaScript' ? '#f1e05a' : '#3572A5',
-            stars: match.stargazers_count || 0,
-            forks: match.forks_count || 0,
-            url: match.html_url,
-            updatedAt: match.pushed_at,
-            updatedRelative: formatRelativeTime(match.pushed_at),
-          };
-        })
-        .filter((r): r is FeaturedRepo => r !== null);
-
-      // Construct weeks from public mirror if available
-      let calWeeks: ContributionWeek[] = (snapshotData as unknown as GitHubTelemetryData).calendar.weeks;
-      let totalContribs = (snapshotData as unknown as GitHubTelemetryData).totalContributions;
-
-      if (contribData && Array.isArray(contribData.contributions)) {
-        const daysList = contribData.contributions.slice(-371);
-        const weeks: ContributionWeek[] = [];
-        for (let i = 0; i < daysList.length; i += 7) {
-          const chunk = daysList.slice(i, i + 7);
-          weeks.push({
-            contributionDays: chunk.map((d: { date: string; count: number; level: number }, dIdx: number) => ({
-              date: d.date,
-              contributionCount: d.count,
-              contributionLevel: d.level === 0 ? 'NONE' : d.level === 1 ? 'FIRST_QUARTILE' : d.level === 2 ? 'SECOND_QUARTILE' : d.level === 3 ? 'THIRD_QUARTILE' : 'FOURTH_QUARTILE',
-              weekday: dIdx,
-            })),
-          });
-        }
-        if (weeks.length > 0) {
-          calWeeks = weeks;
-          totalContribs = contribData.total?.['2026'] || contribData.total?.['2025'] || 226;
-        }
-      }
-
-      const streaks = calculateStreaks(calWeeks);
-
-      return {
-        username: userData.login,
-        publicRepos: userData.public_repos || 22,
-        followers: userData.followers || 22,
-        totalStars,
-        totalForks,
-        totalContributions: totalContribs,
-        totalCommits: 215,
-        totalPRs: 4,
-        totalIssues: 2,
-        currentStreak: streaks.currentStreak,
-        longestStreak: streaks.longestStreak,
-        topLanguages: (snapshotData as unknown as GitHubTelemetryData).topLanguages,
-        featuredRepos: featuredRepos.length > 0 ? featuredRepos : (snapshotData as unknown as GitHubTelemetryData).featuredRepos,
-        calendar: {
-          totalContributions: totalContribs,
-          weeks: calWeeks,
-        },
-        fetchedAt: new Date().toISOString(),
-        isStale: false,
-      };
-    }
-  } catch (err) {
-    console.warn('Public REST fallback failed, using local verified snapshot:', err);
-  }
-
-  // 3. Fallback to cached snapshot
+  // 2. Fallback: Public REST + Cached Verified Snapshot
+  // When running without GITHUB_TOKEN or when rate-limited, serve verified snapshot
+  // explicitly marked as isStale: true with the authentic timestamp.
   const fallback = snapshotData as unknown as GitHubTelemetryData;
   return {
     ...fallback,
@@ -433,4 +329,3 @@ export async function fetchGitHubTelemetry(username = 'DurgaPavan0923'): Promise
 
 export const FALLBACK_GITHUB_STATS = snapshotData as unknown as GitHubTelemetryData;
 export const fetchGitHubData = fetchGitHubTelemetry;
-

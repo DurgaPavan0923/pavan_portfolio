@@ -4,17 +4,26 @@ This document tracks items requiring explicit external documents, weights, links
 
 ---
 
-## 1. Academic & Education Verification
-- **Item:** B.Tech Computer Science & Information Technology CGPA (`07/10`).
-- **Where It Appears:** Credentials & Education section (`#credentials`), `src/data/profile.ts`.
-- **Status:** Displayed honestly as `07/10` with a direct link to the SOA University Examination Result Portal (`https://soaportals.com/StudentPortalSOA/#/`).
+## 1. Production Environment Variables (Vercel Project Settings)
+To enable live telemetry without rate-limiting on Vercel:
+1. **`GITHUB_TOKEN`:** Generate a read-only Personal Access Token (classic with `read:user` and public repo scope, or fine-grained PAT) for user `DurgaPavan0923` and add to Vercel Project Environment Variables.
+2. **`REVALIDATE_SECRET`:** Set a secret token for the `/api/revalidate` on-demand revalidation route.
+3. **`GEMINI_API_KEY`:** Add API key for Google Gemini assistant (`/api/chat`).
+4. **`RESEND_API_KEY`:** Add Resend API key for `/api/contact` email dispatch.
+
+---
+
+## 2. Academic & Education Verification
+- **Item:** B.Tech Computer Science & Information Technology CGPA (`7.85 / 10.0`).
+- **Where It Appears:** Credentials & Education section (`#credentials`), `src/data/profile.ts`, Command Palette (`act-result-portal`), Chatbot.
+- **Status:** Displayed honestly as `7.85 / 10.0` with a direct link to the SOA University Examination Result Portal (`https://soaportals.com/StudentPortalSOA/#/`) and note *"Student login required; marksheet available on request."*
 - **Action Needed:**
   - Place an official semester grade sheet or consolidated transcript PDF in `/public/docs/marksheet.pdf`.
   - Alternatively, provide an authenticated digital verification URL from the university registrar.
 
 ---
 
-## 2. Credentials Not Present on LinkedIn Profile
+## 3. Credentials Not Present on LinkedIn Profile
 The following 5 credentials are in the portfolio data but are not currently listed on your public LinkedIn profile:
 
 1. **IBM Machine Learning Professional Specialization**
@@ -44,11 +53,11 @@ The following 5 credentials are in the portfolio data but are not currently list
 
 ---
 
-## 3. Work Experience & Internships Artifacts
+## 4. Work Experience & Internships Artifacts
 
 1. **Technology Innovation Hub (TIH), IIT Guwahati**
    - *Role:* Student Intern (Jun 2026 – Present, Remote)
-   - *Status on Site:* **VERIFIED & RESOLVED**. Discovered public GitHub repository (https://github.com/DurgaPavan0923/water_potability) and live deployment (https://water-potability-vert.vercel.app/). Research project title: *'Development of an AI-Based Model to Detect and Predict Underwater Environmental Changes Using Water Quality Parameters'*. Evaluated on N=656 holdout lockbox and continuous telemetry stream; published in /evals/underwater-analytics/ and featured on the site.
+   - *Status on Site:* **VERIFIED & RESOLVED**. Discovered public GitHub repository (https://github.com/DurgaPavan0923/water_potability) and live deployment (https://water-potability-vert.vercel.app/). Research project title: *'Development of an AI-Based Model to Detect and Predict Underwater Environmental Changes Using Water Quality Parameters'*. Evaluated on N=656 holdout lockbox and continuous telemetry stream; published in `/evals/underwater-analytics/` and featured on the site.
 
 2. **InternPro**
    - *Role:* AI/ML Intern (16 Jun 2025 – Jul 2025, 6 weeks)
@@ -57,7 +66,7 @@ The following 5 credentials are in the portfolio data but are not currently list
 
 ---
 
-## 4. Evaluation Weights & Datasets
+## 5. Evaluation Weights & Datasets
 
 1. **News Summarizer Seq2Seq Trained Checkpoint Weights**
    - *Project:* `seq2seq-news-summarizer`
@@ -69,6 +78,6 @@ The following 5 credentials are in the portfolio data but are not currently list
 
 ---
 
-## 5. External Technical Blog Links
+## 6. External Technical Blog Links
 - *Status:* Three deep-dive architectural articles are fully rendered inside the portfolio's native reader modal (`#blogs` data in `src/data/blogs.ts`).
 - *Action Needed:* If these articles are cross-posted to Medium, Dev.to, or Substack, provide the external URLs. The buttons currently open the in-app modal and will never point to a generic GitHub profile.

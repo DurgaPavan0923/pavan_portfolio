@@ -1,14 +1,15 @@
 import { NextResponse } from 'next/server';
 import { fetchGitHubTelemetry } from '@/lib/github';
 
-export const revalidate = 3600; // Cache for 1 hour
+export const dynamic = 'force-dynamic';
+export const revalidate = 900; // 15 minutes
 
 export async function GET() {
   try {
     const data = await fetchGitHubTelemetry('DurgaPavan0923');
     return NextResponse.json(data, {
       headers: {
-        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+        'Cache-Control': 'public, s-maxage=900, stale-while-revalidate=3600',
       },
     });
   } catch (error) {

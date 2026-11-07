@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import useSWR from 'swr';
 import { GitHubTelemetryData } from '@/lib/github';
 import snapshotData from '@/data/github-snapshot.json';
 import {
@@ -9,7 +10,6 @@ import {
   BookOpen,
   ExternalLink,
   Calendar,
-  GitCommit,
   GitPullRequest,
   AlertCircle,
   Users,
@@ -17,10 +17,19 @@ import {
   Code,
   CheckCircle2,
   AlertTriangle,
+  RotateCw,
 } from 'lucide-react';
 import { PROFILE_DATA } from '@/data/profile';
 
 const INITIAL_DATA: GitHubTelemetryData = snapshotData as unknown as GitHubTelemetryData;
+
+const fetcher = async (url: string): Promise<GitHubTelemetryData> => {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error('Failed to fetch telemetry');
+  }
+  return res.json();
+};
 
 function formatMinutesAgo(dateStr?: string): string {
   if (!dateStr) return 'just now';
@@ -33,31 +42,36 @@ function formatMinutesAgo(dateStr?: string): string {
     if (diffMins < 60) return `${diffMins}m ago`;
     const diffHours = Math.floor(diffMins / 60);
     if (diffHours === 1) return '1h ago';
-    return `${diffHours}h ago`;
+    if (diffHours < 24) return `${diffHours}h ago`;
+    const diffDays = Math.floor(diffHours / 24);
+    if (diffDays === 1) return '1d ago';
+    return `${diffDays}d ago`;
   } catch {
     return 'recently';
   }
 }
 
 export function GitHubActivity() {
-  const [data, setData] = useState<GitHubTelemetryData>(INITIAL_DATA);
-  const [hoveredDay, setHoveredDay] = useState<{ date: string; count: number } | null>(null);
-
-  useEffect(() => {
-    async function loadTelemetry() {
-      try {
-        const res = await fetch('/api/github');
-        if (res.ok) {
-          const fetched = await res.json();
-          setData(fetched);
-        }
-      } catch (err) {
-        console.warn('Failed to load GitHub telemetry, keeping snapshot:', err);
-      }
+  const { data = INITIAL_DATA, error, isValidating, mutate } = useSWR<GitHubTelemetryData>(
+    '/api/github',
+    fetcher,
+    {
+      fallbackData: INITIAL_DATA,
+      refreshInterval: 300000, // 5 minutes
+      revalidateOnFocus: true,
+      revalidateOnReconnect: true,
     }
+  );
 
-    loadTelemetry();
-  }, []);
+  const [hoveredDay, setHoveredDay] = useState<{ date: string; count: number } | null>(null);
+  const calendarScrollRef = useRef<HTMLDivElement>(null);
+
+  // Auto-scroll contribution calendar to latest weeks on mount
+  useEffect(() => {
+    if (calendarScrollRef.current) {
+      calendarScrollRef.current.scrollLeft = calendarScrollRef.current.scrollWidth;
+    }
+  }, [data]);
 
   const getDayColor = (level: string) => {
     switch (level) {
@@ -90,7 +104,7 @@ export function GitHubActivity() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-mono font-medium mb-3">
-            <span>03 // OPEN SOURCE METRICS</span>
+            <span>04 // OPEN SOURCE TELEMETRY</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             GitHub Telemetry &amp; <span className="text-gradient-cyan">Verified Contributions</span>
@@ -108,15 +122,30 @@ export function GitHubActivity() {
               </a>
             </span>
             <span className="text-slate-300 dark:text-slate-700">·</span>
-            {data.isStale ? (
-              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
+
+            {/* Freshness Badge */}
+            {data.isStale || error ? (
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400">
                 <AlertTriangle className="w-3 h-3" />
-                <span>Cached Snapshot</span>
+                <span>Cached Snapshot · last updated {formatMinutesAgo(data.fetchedAt)}</span>
+                <button
+                  onClick={() => mutate()}
+                  disabled={isValidating}
+                  title="Retry live fetch"
+                  className="ml-1 text-amber-600 dark:text-amber-400 hover:text-amber-700 dark:hover:text-amber-300 disabled:opacity-50"
+                  aria-label="Refresh telemetry data"
+                >
+                  <RotateCw className={`w-3 h-3 ${isValidating ? 'animate-spin' : ''}`} />
+                </button>
               </span>
             ) : (
-              <span className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+              <span className="inline-flex items-center gap-1.5 text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                </span>
                 <CheckCircle2 className="w-3 h-3" />
-                <span>Live · updated {formatMinutesAgo(data.fetchedAt)}</span>
+                <span>Live Telemetry · updated {formatMinutesAgo(data.fetchedAt)}</span>
               </span>
             )}
           </div>
@@ -253,10 +282,10 @@ export function GitHubActivity() {
             </div>
           </div>
 
-          {/* Grid Scrollable Wrapper */}
-          <div className="overflow-x-auto pb-2">
+          {/* Grid Scrollable Wrapper - with calendarScrollRef */}
+          <div ref={calendarScrollRef} className="overflow-x-auto pb-2 scroll-smooth">
             <div className="inline-grid grid-flow-col gap-1.5 auto-cols-max">
-              {data.calendar.weeks.map((week, wIdx) => (
+              {data.calendar?.weeks?.map((week, wIdx) => (
                 <div key={wIdx} className="grid grid-rows-7 gap-1.5">
                   {week.contributionDays.map((day, dIdx) => (
                     <div
@@ -309,6 +338,51 @@ export function GitHubActivity() {
             </div>
           )}
         </div>
+
+        {/* Verified Contributions Subpanel (Merged PRs) - shown only when real records exist */}
+        {data.verifiedContributions && data.verifiedContributions.length > 0 && (
+          <div className="mb-10">
+            <h3 className="font-display font-bold text-base sm:text-lg text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2">
+              <GitPullRequest className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <span>Verified Open-Source Pull Requests</span>
+              <span className="text-xs font-mono text-emerald-600 dark:text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                {data.verifiedContributions.length} Merged
+              </span>
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {data.verifiedContributions.map((contrib) => (
+                <a
+                  key={contrib.id}
+                  href={contrib.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-4 rounded-2xl glass-card flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 border border-slate-200/80 dark:border-white/[0.08]"
+                >
+                  <div className="mb-3">
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="text-[11px] font-mono text-cyan-600 dark:text-cyan-400 truncate">
+                        {contrib.repo}
+                      </span>
+                      <span className="shrink-0 px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 flex items-center gap-1">
+                        <CheckCircle2 className="w-2.5 h-2.5" />
+                        <span>Merged</span>
+                      </span>
+                    </div>
+                    <div className="font-display font-semibold text-sm text-slate-900 dark:text-slate-100 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2 flex items-start gap-1.5">
+                      <span>{contrib.title}</span>
+                      <ExternalLink className="w-3.5 h-3.5 shrink-0 mt-0.5 text-slate-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="text-[11px] font-mono text-slate-400 pt-2 border-t border-slate-100 dark:border-white/[0.04]">
+                    Merged on {formatTooltipDate(contrib.date)}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Featured / Pinned Repositories Subgrid with Real Stars & Forks */}
         <div className="mb-4">

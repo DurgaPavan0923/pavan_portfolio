@@ -6,6 +6,7 @@ import { ArrowRight, FileText, Mail, Sparkles, Zap, Layers } from 'lucide-react'
 import { PROFILE_DATA } from '@/data/profile';
 import { PROJECTS } from '@/data/projects';
 import { CERTIFICATIONS } from '@/data/certifications';
+import snapshotData from '@/data/github-snapshot.json';
 
 interface HeroProps {
   onOpenChat?: () => void;
@@ -27,7 +28,7 @@ export function Hero({ onOpenChat }: HeroProps) {
   const projectsCount = PROJECTS.length;
   const certsCount = CERTIFICATIONS.length;
   const badgesCount = 98; // Verified Google Cloud Arcade Diamond milestone
-  const reposCount = 22; // Verified GitHub public repositories
+  const reposCount = snapshotData.publicRepos || 23; // Verified GitHub public repositories
 
   useEffect(() => {
     const currentFullText = ROLES[currentRoleIndex];
