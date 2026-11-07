@@ -16,7 +16,6 @@ const NAV_LINKS = [
   { label: 'Technical Skills', href: '#skills' },
   { label: 'Education & Certifications', href: '#credentials' },
   { label: 'Leadership & Achievements', href: '#leadership' },
-  { label: 'Technical Insights & Blogs', href: '#blogs' },
   { label: 'Moments & Highlights', href: '#moments' },
   { label: 'Contact', href: '#contact' },
 ];

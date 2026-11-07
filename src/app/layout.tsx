@@ -19,15 +19,15 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
+  title: `${PROFILE_DATA.fullName} — Computer Science Student · AI & ML`,
   description:
     'Portfolio of Rajana Durga Pavan Kumar. Computer Science student specializing in AI & Machine Learning, building practical AI applications.',
   keywords: [
     'Rajana Durga Pavan Kumar',
     'Pavan Kumar',
-    'AI ML Engineer',
-    'Machine Learning Engineer',
-    'RAG Systems Architect',
+    'Computer Science Student',
+    'AI & ML',
+    'Machine Learning',
     'Neo4j Certified Professional',
     'Google Cloud Diamond League',
     'TIH IIT Guwahati Intern',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: siteUrl,
-    title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
+    title: `${PROFILE_DATA.fullName} — Computer Science Student · AI & ML`,
     description:
       'Computer Science student specializing in AI & Machine Learning, building practical AI applications. Neo4j Certified · GCP Diamond League · TIH IIT Guwahati Intern.',
     siteName: `${PROFILE_DATA.fullName} Portfolio`,
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
         url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: `${PROFILE_DATA.fullName} - AI & Machine Learning Engineer`,
+        alt: `${PROFILE_DATA.fullName} - Computer Science Student (AI & ML)`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
+    title: `${PROFILE_DATA.fullName} — Computer Science Student · AI & ML`,
     description:
       'Computer Science student specializing in AI & Machine Learning, building practical AI applications.',
     images: [`${siteUrl}/og-image.png`],
@@ -94,9 +94,9 @@ export default function RootLayout({
     url: siteUrl,
     image: `${siteUrl}/Pavan.jpeg`,
     jobTitle: PROFILE_DATA.title,
-    worksFor: {
-      '@type': 'Organization',
-      name: 'Technology Innovation Hub (TIH), IIT Guwahati',
+    affiliation: {
+      '@type': 'EducationalOrganization',
+      name: PROFILE_DATA.education.institution,
     },
     alumniOf: {
       '@type': 'EducationalOrganization',

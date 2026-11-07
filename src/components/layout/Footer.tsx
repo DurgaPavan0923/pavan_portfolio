@@ -42,7 +42,7 @@ export function Footer() {
               <span className="font-display font-bold text-lg tracking-tight text-slate-900 dark:text-slate-100">
                 {PROFILE_DATA.fullName}
               </span>
-              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">/ AI & ML Engineer</span>
+              <span className="text-cyan-600 dark:text-cyan-400 font-mono text-xs">/ CS Student (AI & ML)</span>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 max-w-md">
               SOA University (ITER) · Neo4j Certified · Google Cloud Diamond League · TIH IIT Guwahati Intern
@@ -53,7 +53,7 @@ export function Footer() {
           <div className="flex flex-col sm:flex-row items-center gap-3">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium shadow-sm">
               <span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400 animate-pulse" />
-              <span>Available for Applied AI Roles</span>
+              <span>Available for AI/ML Internships &amp; Roles</span>
             </div>
 
             <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-slate-600 dark:text-slate-400 text-xs font-mono shadow-sm">
@@ -110,7 +110,7 @@ export function Footer() {
         <div className="text-center text-[11px] text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-2">
           <p>© {new Date().getFullYear()} Rajana Durga Pavan Kumar. Engineered with Next.js 15, TypeScript & Tailwind.</p>
           <p className="flex items-center gap-1">
-            <span>Built with precision & passion</span>
+            <span>Built with Next.js &amp; React</span>
             <Heart className="w-3 h-3 text-cyan-500 fill-cyan-500" />
           </p>
         </div>

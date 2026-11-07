@@ -17,7 +17,6 @@ import { GitHubActivity } from '@/components/sections/GitHubActivity';
 import { Skills } from '@/components/sections/Skills';
 import { Certifications } from '@/components/sections/Certifications';
 import { Leadership } from '@/components/sections/Leadership';
-import { Blogs } from '@/components/sections/Blogs';
 import { Gallery } from '@/components/sections/Gallery';
 import { Contact } from '@/components/sections/Contact';
 
@@ -91,7 +90,7 @@ export default function Home() {
       />
 
       {/* Main Semantic Landmark with Recruiter-First Flow:
-          Hero → Featured Projects → Experience → Open Source (live) → Skills → Credentials & Education → Leadership → Blogs → Moments (photos) → Contact */}
+          01 Hero → 02 Featured Projects → 03 Experience → 04 Open Source (live) → 05 Skills → 06 Credentials & Education → 07 Leadership → 08 Moments (photos) → 09 Contact */}
       <main id="main-content" className="relative z-10 pb-16 lg:pb-0">
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <Projects />
@@ -100,7 +99,6 @@ export default function Home() {
         <Skills />
         <Certifications />
         <Leadership />
-        <Blogs />
         <Gallery />
         <Contact />
       </main>

@@ -81,13 +81,13 @@ export function Contact() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
-            <span>10 // CONTACT & COLLABORATION</span>
+            <span>09 // CONTACT & COLLABORATION</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Let’s Build Intelligent Systems <span className="text-gradient-cyan">Together</span>
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-xl">
-            Whether evaluating candidates for applied machine learning roles, research collaborations, or production RAG deployments.
+            Whether evaluating candidates for machine learning roles, research collaborations, or student engineering projects.
           </p>
         </div>
 
@@ -180,7 +180,7 @@ export function Contact() {
                   <Check className="w-6 h-6" />
                 </div>
                 <h3 className="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-slate-100 mb-2">
-                  Message Dispatched Successfully!
+                  Message Sent Successfully!
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 max-w-md mb-4">
                   Message sent, I’ll reply within 24–48h directly to your inbox.
@@ -305,12 +305,12 @@ export function Contact() {
                   {isSubmitting ? (
                     <>
                       <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin" />
-                      <span>Transmitting Message...</span>
+                      <span>Sending...</span>
                     </>
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      <span>Dispatch Priority Message</span>
+                      <span>Send message</span>
                     </>
                   )}
                 </button>

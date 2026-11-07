@@ -13,7 +13,7 @@ interface ChatBotProps {
 const INITIAL_MESSAGE: ChatMessage = {
   id: 'init-msg',
   role: 'assistant',
-  content: `👋 Hi! I'm Pavan's Neural Assistant. I can answer inquiries regarding his AI & ML projects, Graph RAG architectures, internships at TIH IIT Guwahati & Microsoft Elevate, and technical toolkit. How can I assist you today?`,
+  content: `👋 Hi! I'm Pavan's Neural Assistant. I can answer questions about his AI & ML projects, Graph RAG systems, internship at TIH IIT Guwahati, and technical toolkit. How can I help you today?`,
   timestamp: Date.now(),
 };
 
@@ -128,7 +128,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
         {
           id: `assistant-${Date.now()}`,
           role: 'assistant',
-          content: `I'm currently running in offline portfolio mode. Pavan is an AI/ML Engineer specializing in Retrieval-Augmented Generation (RAG) and cloud platforms. You can download his official resume directly from [/Rajana.pdf](/Rajana.pdf) or contact him at [rdpkumar2308@gmail.com](mailto:rdpkumar2308@gmail.com).`,
+          content: `I'm currently running in offline portfolio mode. Pavan is a Computer Science student (AI & ML) at SOA ITER specializing in practical AI applications and machine learning pipelines. You can download his official resume directly from [/Rajana.pdf](/Rajana.pdf) or contact him at [rdpkumar2308@gmail.com](mailto:rdpkumar2308@gmail.com).`,
           timestamp: Date.now(),
         },
       ]);
