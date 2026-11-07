@@ -3,14 +3,13 @@ import './globals.css';
 import { ThemeProvider } from '@/components/layout/ThemeProvider';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
-import { CustomCursor } from '@/components/layout/CustomCursor';
 import { PROFILE_DATA } from '@/data/profile';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://pavan-portfolio-gamma-six.vercel.app';
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: dark)', color: '#050814' },
+    { media: '(prefers-color-scheme: dark)', color: '#090d16' },
     { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
   ],
   width: 'device-width',
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
   description:
-    'Portfolio of Rajana Durga Pavan Kumar. AI & Machine Learning Engineer specializing in Retrieval-Augmented Generation (RAG), Graph RAG (Neo4j), Multi-Agent AI, and Cloud Architecture.',
+    'Portfolio of Rajana Durga Pavan Kumar. Computer Science student specializing in AI & Machine Learning, building practical AI applications.',
   keywords: [
     'Rajana Durga Pavan Kumar',
     'Pavan Kumar',
@@ -44,7 +43,7 @@ export const metadata: Metadata = {
     url: siteUrl,
     title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
     description:
-      'AI & Machine Learning Engineer building RAG systems, multi-agent pipelines, and cloud architectures. Neo4j Certified · GCP Diamond League · TIH IIT Guwahati Intern.',
+      'Computer Science student specializing in AI & Machine Learning, building practical AI applications. Neo4j Certified · GCP Diamond League · TIH IIT Guwahati Intern.',
     siteName: `${PROFILE_DATA.fullName} Portfolio`,
     images: [
       {
@@ -59,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `${PROFILE_DATA.fullName} — AI & ML Engineer`,
     description:
-      'AI & Machine Learning Engineer building RAG systems, multi-agent pipelines, and cloud architectures.',
+      'Computer Science student specializing in AI & Machine Learning, building practical AI applications.',
     images: [`${siteUrl}/og-image.png`],
   },
   robots: {
@@ -142,7 +141,6 @@ export default function RootLayout({
         <ThemeProvider>
           <SmoothScroll>
             <ScrollProgress />
-            <CustomCursor />
             {children}
           </SmoothScroll>
         </ThemeProvider>

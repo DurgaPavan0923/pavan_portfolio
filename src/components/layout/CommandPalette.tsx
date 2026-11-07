@@ -21,6 +21,7 @@ import {
   ArrowUp,
   Award,
   GitBranch,
+  BookOpen,
 } from 'lucide-react';
 import { useTheme } from './ThemeProvider';
 import { PROFILE_DATA } from '@/data/profile';
@@ -123,7 +124,7 @@ export function CommandPalette({
     },
     {
       id: 'nav-skills',
-      label: 'Skills & Toolkit (Core, Working, Familiar)',
+      label: 'Technical Skills (ML, GenAI, AI Engineering, Full-Stack & Cloud)',
       category: 'Navigation',
       icon: <Code className="w-4 h-4 text-cyan-500" />,
       perform: () => navigateTo('#skills'),
@@ -141,6 +142,13 @@ export function CommandPalette({
       category: 'Navigation',
       icon: <Award className="w-4 h-4 text-rose-500" />,
       perform: () => navigateTo('#leadership'),
+    },
+    {
+      id: 'nav-blogs',
+      label: 'Technical Insights & Articles (Graph RAG, Multi-Agent, Seq2Seq)',
+      category: 'Navigation',
+      icon: <BookOpen className="w-4 h-4 text-cyan-500" />,
+      perform: () => navigateTo('#blogs'),
     },
     {
       id: 'nav-moments',

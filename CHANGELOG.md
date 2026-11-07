@@ -4,6 +4,37 @@ All notable changes to the portfolio codebase are documented in this file.
 
 ---
 
+## [3.0.0] - 2026-11-07 - Premium Recruiter-First AI & ML Student Portfolio (10 out of 10 Upgrade)
+
+### Design & Visual Hierarchy (Linear / Moncy / Vercel Aesthetic)
+- **Surfaces & Theme:** Standardized on deep, restrained near-black surfaces (`#090d16` / `#0d131f`) with clean 1px low-contrast borders (`rgba(255,255,255,0.08)` in dark mode, `rgba(0,0,0,0.08)` in light mode).
+- **Unified Accent Palette:** Replaced multi-color neon gradients with a focused single cyan accent (`#00cfff` / `#38bdf8`), maintaining semantic status highlights (Emerald for verified/active, Amber for problem statements, Violet for improvements).
+- **Restrained Motion:** Motion strictly constrained to GPU-accelerated transform and opacity transitions. Removed decorative custom cursor trails to enhance native browser performance.
+- **Pinch-to-Zoom Enabled:** Explicitly guaranteed unrestricted viewport zooming on mobile devices (`initialScale: 1, maximumScale: 5`, zero `user-scalable=no`).
+
+### Recruiter-First Flow & Mounted Blogs Section
+- **10-Section Recruiter-First Sequence:** Aligned the entire site to the optimal recruiter evaluation flow:
+  1. `Hero` (`#hero`): One-line value proposition ("Computer Science student specializing in AI & ML, building practical AI applications"), 3 explicit CTAs (*View Projects*, *Download Resume*, *Contact*), 4 derived stats, and restrained 1px avatar border.
+  2. `Featured Projects` (`#projects`): 3 flagship evaluated systems (**FactLens AI**, **InsightAI**, **AI-Based Underwater Environmental Analytics**) with Problem → Approach → Result → What I'd Improve breakdowns; compact secondary systems (**Seq2Seq Summarizer**, **IRA**, **AGORA**, **Algorithm Arena**, **SOA NCC**) marked "Demo Mode" or "Open Source".
+  3. `Internships, Research & Engineering Roles` (`#experience`): Exactly 3 outcome-oriented bullets per role across all 6 verified positions (TIH IIT Guwahati, GDGoC ITER, Edunet Foundation, Microsoft Elevate, InternPro, Cognizance IIT Roorkee). Fest strictly named "Chakravyuh Genesis", zero design-lead claims.
+  4. `GitHub Telemetry & Verified Contributions` (`#open-source`): Live 365-day rolling GraphQL telemetry pipeline with 15-minute ISR cache, auto-scrolling 52-week heatmap, streak calculations, and verified merged PRs subpanel.
+  5. `Technical Skills` (`#skills`): Restructured into exactly 4 balanced competency groups (**Machine Learning**, **Generative AI**, **AI Engineering**, **Full-Stack & Cloud**; 6 items each = 24 items total) in a clean 2x2 grid. Removed decorative ribbon marquee and progress bars.
+  6. `Education & Certifications` (`#credentials`): SOA B.Tech CSE degree card (CGPA `7.85 / 10.0`) with direct link to the SOA Student Portal (`https://soaportals.com/StudentPortalSOA/#/`) and note *"Student login required; marksheet available on request."* 9 verifiable credentials with credential IDs.
+  7. `Leadership & Achievements` (`#leadership`): Certified NCC Sergeant service (A/B/C), Rajya Puraskar Governor's Award, School Captain, and symposium leadership; unverified military rank strings removed.
+  8. `Technical Insights & Articles` (`#blogs`): Mounted comprehensive in-depth engineering deep dives (Graph RAG, Multi-Agent Verification, Deep Sequence Learning) with native in-app reader modal (`BlogModal.tsx`).
+  9. `Moments & Highlights` (`#moments`): Seamless 16-photo continuous GPU-accelerated transform loop (`translate3d(-50%, 0, 0)`), pausing on hover/touch/drag/tab switch, with keyboard navigation and accessible lightbox modal.
+  10. `Contact & Collaboration` (`#contact`): Direct email copy button and validated inquiry form with Resend email delivery, rate limiting, and honeypot protection.
+- **Synchronized Navigation Systems:** Synchronized `Navbar.tsx`, `MobileDock.tsx`, `MobileMenu.tsx`, `CommandPalette.tsx` (⌘K), and scroll-spy to match this exact 10-section sequence.
+
+### Code Quality, Verification & Documentation
+- **Zero Fabricated Metrics:** Every statistic, benchmark, and credential backed by repository code, empirical evaluation scripts in `/evals/`, or official records.
+- **100% Passing Test Suite:** All 50 tests across 11 Vitest test suites pass cleanly.
+- **Strict TypeScript & ESLint:** `tsc --noEmit` exits with 0 errors; `next lint` passes with 0 warnings.
+- **Optimized Production Build:** `next build` compiles successfully with 8 static pages and 4 dynamic edge/serverless API endpoints.
+- **Comprehensive Documentation:** Updated `/docs/AUDIT.md`, `/docs/CLAIMS_AUDIT.md`, `/docs/INTERVIEW_NOTES.md`, `/docs/OPEN_ITEMS.md`, `/docs/QA_REPORT.md`, `README.md`, and `CHANGELOG.md`.
+
+---
+
 ## [2.3.0] - 2026-11-07 - GitHub Telemetry Pipeline Hardening & End-to-End QA Sweep
 
 ### Task 1: Root Cause Analysis of Stale GitHub Telemetry (`/docs/GITHUB_TELEMETRY_RCA.md`)

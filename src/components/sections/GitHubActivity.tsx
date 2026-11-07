@@ -104,7 +104,7 @@ export function GitHubActivity() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-600 dark:text-violet-400 text-xs font-mono font-medium mb-3">
-            <span>04 // OPEN SOURCE TELEMETRY</span>
+            <span>04 // GITHUB TELEMETRY & VERIFIED CONTRIBUTIONS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             GitHub Telemetry &amp; <span className="text-gradient-cyan">Verified Contributions</span>

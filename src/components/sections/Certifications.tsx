@@ -12,7 +12,7 @@ export function Certifications() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 text-xs font-mono font-medium mb-3">
-            <span>05 // CREDENTIALS &amp; EDUCATION</span>
+            <span>06 // EDUCATION &amp; CERTIFICATIONS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Education, Certifications &amp; <span className="text-gradient-cyan">Verified Honors</span>
@@ -25,7 +25,7 @@ export function Certifications() {
         {/* 1. Formal University Education Card */}
         <div className="mb-12">
           <div className="p-6 sm:p-8 rounded-3xl glass-card border-cyan-400/30 relative overflow-hidden transition-all duration-300 hover:shadow-xl">
-            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-amber-400 to-violet-500" />
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-cyan-500" />
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 shadow-sm shrink-0">
