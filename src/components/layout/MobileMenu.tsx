@@ -11,12 +11,13 @@ interface MobileMenuProps {
 
 const NAV_LINKS = [
   { label: 'Featured Projects', href: '#projects' },
-  { label: 'Work Experience', href: '#experience' },
-  { label: 'Open Source', href: '#open-source' },
-  { label: 'Skills & Toolkit', href: '#skills' },
-  { label: 'Credentials & Education', href: '#credentials' },
-  { label: 'Leadership', href: '#leadership' },
-  { label: 'Moments', href: '#moments' },
+  { label: 'Internships & Research', href: '#experience' },
+  { label: 'Open Source Telemetry', href: '#open-source' },
+  { label: 'Technical Skills', href: '#skills' },
+  { label: 'Education & Certifications', href: '#credentials' },
+  { label: 'Leadership & Achievements', href: '#leadership' },
+  { label: 'Technical Insights & Blogs', href: '#blogs' },
+  { label: 'Moments & Highlights', href: '#moments' },
   { label: 'Contact', href: '#contact' },
 ];
 

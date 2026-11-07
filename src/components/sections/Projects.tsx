@@ -28,7 +28,7 @@ export function Projects() {
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-medium mb-3">
-            <span>01 // FEATURED PROJECTS</span>
+            <span>02 // FEATURED PROJECTS</span>
           </div>
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900 dark:text-slate-100 tracking-tight mb-4">
             Evaluated AI Systems &amp; <span className="text-gradient-cyan">Engineered Applications</span>
@@ -46,7 +46,7 @@ export function Projects() {
               className="p-6 rounded-3xl glass-card flex flex-col justify-between group relative overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl border-cyan-400/40 dark:border-cyan-400/30"
             >
               {/* Top Accent Gradient Line */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 via-emerald-400 to-violet-500" />
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-cyan-500" />
 
               <div>
                 {/* Header: Emoji & Repo Links */}

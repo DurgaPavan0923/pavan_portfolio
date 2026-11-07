@@ -7,6 +7,7 @@ import {
   Briefcase,
   GitBranch,
   Code,
+  BookOpen,
   Camera,
   Mail,
   Search,
@@ -87,6 +88,16 @@ export function MobileDock({ onOpenPalette, onOpenChat, isChatOpen }: MobileDock
           className="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/[0.08] transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
         >
           <Code className="w-4 h-4" />
+        </button>
+
+        {/* Blogs */}
+        <button
+          type="button"
+          onClick={() => scrollTo('#blogs')}
+          aria-label="Jump to Technical Insights & Articles"
+          className="p-2 rounded-full text-slate-600 dark:text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-white/[0.08] transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-400"
+        >
+          <BookOpen className="w-4 h-4" />
         </button>
 
         {/* Moments */}
