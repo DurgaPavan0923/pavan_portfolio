@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { PROJECTS } from '@/data/projects';
 import { Project } from '@/types';
 import { ProjectModal } from './ProjectModal';
@@ -12,8 +13,15 @@ import {
   Lightbulb,
   AlertCircle,
   FileCheck2,
-  Layers,
   Wrench,
+  ShieldAlert,
+  Search,
+  FileText,
+  Activity,
+  Cpu,
+  Layers,
+  Code2,
+  Compass,
 } from 'lucide-react';
 
 export function Projects() {
@@ -21,6 +29,27 @@ export function Projects() {
 
   const featuredProjects = PROJECTS.filter((p) => p.featured);
   const secondaryProjects = PROJECTS.filter((p) => !p.featured);
+
+  const getProjectIcon = (slug: string) => {
+    switch (slug) {
+      case 'factlens-ai':
+        return <Search className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'insight-ai':
+        return <FileText className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'underwater-analytics':
+        return <Activity className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />;
+      case 'seq2seq-summarizer':
+        return <Cpu className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+      case 'ira-smart-city':
+        return <Compass className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+      case 'agora-governance':
+        return <Layers className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+      case 'algorithm-arena':
+        return <Code2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+      default:
+        return <Code2 className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />;
+    }
+  };
 
   return (
     <section id="projects" aria-label="Featured Projects" className="relative py-20 px-4 sm:px-6">
@@ -49,11 +78,11 @@ export function Projects() {
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-400 to-cyan-500" />
 
               <div>
-                {/* Header: Emoji & Repo Links */}
+                {/* Header: Icon & Repo Links */}
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-3xl p-2.5 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.06] group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                    {project.emoji}
-                  </span>
+                  <div className="p-2.5 rounded-2xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] group-hover:scale-105 transition-transform duration-300 shadow-sm flex items-center justify-center">
+                    {getProjectIcon(project.slug)}
+                  </div>
                   <div className="flex items-center gap-1.5">
                     {project.githubUrl && (
                       <a
@@ -82,6 +111,19 @@ export function Projects() {
                   </div>
                 </div>
 
+                {/* Real UI Screenshot Preview */}
+                {project.screenshotUrl && (
+                  <div className="relative w-full h-44 rounded-2xl overflow-hidden mb-4 border border-slate-200 dark:border-white/[0.08] bg-slate-900 group-hover:border-cyan-400/40 transition-colors shadow-inner">
+                    <Image
+                      src={project.screenshotUrl}
+                      alt={`${project.name} Interface Preview`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 380px"
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-500 ease-out"
+                    />
+                  </div>
+                )}
+
                 {/* Title */}
                 <h3 className="font-display font-bold text-lg sm:text-xl text-slate-900 dark:text-slate-100 mb-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   {project.name}
@@ -90,7 +132,7 @@ export function Projects() {
                   {project.tagline}
                 </p>
 
-                {/* Structured Recruiter Breakdown: Problem → Approach → Result → What I'd Improve */}
+                {/* Structured Recruiter Breakdown: Problem → Approach → Result → Limitations → What I'd Improve */}
                 <div className="space-y-3.5 my-4 text-xs leading-relaxed">
                   {/* 1. Problem */}
                   <div className="p-3 rounded-xl bg-amber-500/[0.06] border border-amber-500/15">
@@ -155,7 +197,18 @@ export function Projects() {
                     </div>
                   )}
 
-                  {/* 4. What I'd Improve */}
+                  {/* 4. Limitations */}
+                  {project.limitations && (
+                    <div className="p-3 rounded-xl bg-slate-500/[0.06] border border-slate-500/15">
+                      <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1">
+                        <ShieldAlert className="w-3.5 h-3.5 shrink-0 text-slate-500" />
+                        <span>Limitations</span>
+                      </div>
+                      <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">{project.limitations}</p>
+                    </div>
+                  )}
+
+                  {/* 5. What I'd Improve */}
                   {project.whatIdImprove && (
                     <div className="p-3 rounded-xl bg-violet-500/[0.06] border border-violet-500/15">
                       <div className="flex items-center gap-1.5 font-bold text-violet-700 dark:text-violet-400 text-[11px] uppercase tracking-wider mb-1">
@@ -167,7 +220,7 @@ export function Projects() {
                   )}
                 </div>
 
-                {/* Tech Stack Chips (Only technology chips) */}
+                {/* Tech Stack Chips */}
                 <div className="flex flex-wrap gap-1.5 my-4">
                   {project.technologies.slice(0, 5).map((tech, i) => (
                     <span
@@ -178,7 +231,10 @@ export function Projects() {
                     </span>
                   ))}
                   {project.technologies.length > 5 && (
-                    <span className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-slate-500">
+                    <span
+                      className="px-1.5 py-0.5 rounded-md text-[10px] font-mono text-slate-500 cursor-help"
+                      title={project.technologies.slice(5).join(', ')}
+                    >
                       +{project.technologies.length - 5}
                     </span>
                   )}
@@ -236,7 +292,9 @@ export function Projects() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-2xl">{project.emoji}</span>
+                    <div className="p-2 rounded-xl bg-slate-50 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08]">
+                      {getProjectIcon(project.slug)}
+                    </div>
                     <a
                       href={project.githubUrl}
                       target="_blank"

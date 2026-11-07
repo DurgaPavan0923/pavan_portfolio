@@ -37,6 +37,9 @@ export interface Project {
   approach?: string;
   solution: string;
   whatIdImprove?: string;
+  limitations?: string;
+  screenshotUrl?: string;
+  architectureDiagram?: string;
   evalResult?: ProjectEvalResult;
   evalUrl?: string;
   architecture: string;
@@ -94,6 +97,7 @@ export interface Certification {
   verifyUrl?: string;
   credentialId?: string;
   badge?: string;
+  type?: 'Certification' | 'Participation';
 }
 
 export interface LeadershipRecognition {
@@ -169,6 +173,14 @@ export interface ProfileData {
     cloudBadges: string;
   };
   bioParagraphs: string[];
+  about?: string;
+  currently?: {
+    building: string;
+    learning: string;
+    seeking: string;
+  };
+  cloudBadgesBreakdown?: string;
+  resultPortalUrl?: string;
 }
 
 export interface ChatMessage {

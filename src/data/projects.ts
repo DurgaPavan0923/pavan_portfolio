@@ -12,28 +12,31 @@ export const PROJECTS: Project[] = [
     description:
       'An explainable fact-verification system combining Google Gemini API, Neo4j knowledge graph traversal, and Pinecone vector search to verify digital claims with evidence citations.',
     problem:
-      'Digital misinformation spreads faster than editorial verification teams can review claims. Black-box classifiers provide arbitrary credibility scores without transparent provenance, citations, or entity relations.',
+      'Digital misinformation spreads rapidly online, while black-box credibility scores lack transparent evidence provenance, knowledge graph relations, and structured citations.',
     approach:
-      'Architected a hybrid Graph RAG pipeline using Pinecone serverless vector search, Neo4j property graph traversal, and an adversarial multi-agent consensus protocol (deconstructor, evidence retriever, devil’s advocate, arbiter) powered by Google Gemini API.',
+      'Architected a hybrid Graph RAG pipeline using Pinecone vector retrieval, Neo4j property graph traversal, and multi-agent consensus prompts (deconstructor, evidence retriever, devil’s advocate, arbiter) powered by Google Gemini API.',
     solution:
-      'Engineered an asynchronous multi-agent consensus architecture using Gemini API, Neo4j graph traversal, and Pinecone semantic embeddings. The platform extracts claims, validates them against trusted vector indices, generates explainability dashboards, and formats academic citations (APA, MLA, BibTeX).',
+      'Engineered an asynchronous multi-agent verification system using Gemini API, Neo4j graph traversal, and Pinecone vector embeddings. Extracts core claims, cross-references indexed knowledge bases, renders XAI diagnostics, and exports academic citations.',
+    screenshotUrl: '/projects/factlens-ai.webp',
     evalResult: {
-      summary: 'Evaluated against lexical baseline (35.0% Acc) and zero-shot LLM (87.0% Acc). FactLens AI achieved 94.0% accuracy with grounded citation generation.',
-      dataset: 'FEVER v1.0 & LIAR Benchmark Sample',
+      summary: 'Offline simulated evaluation against lexical baseline (35.0%) and zero-shot LLM (87.0%). FactLens achieved 94.0% accuracy with grounded citation generation.',
+      dataset: 'FEVER v1.0 & LIAR Benchmark Sample (Single-Claim)',
       sampleSize: 'n = 100 claims (50 True, 50 False)',
       date: 'October 2026',
       metrics: [
-        { label: 'Accuracy', value: '94.0%' },
+        { label: 'Simulated Acc', value: '94.0%' },
         { label: 'Macro-F1', value: '0.9400' },
-        { label: 'p50 Latency', value: '8.99 ms' },
-        { label: 'p95 Latency', value: '14.59 ms' },
+        { label: 'Simulated p50', value: '8.99 ms' },
+        { label: 'Evaluation Type', value: 'Offline Sim' },
       ],
     },
+    limitations:
+      'Evaluation was run offline with simulated local heuristic scoring (zero live API latency); requires live multi-hop API validation and multimodal reverse-search.',
     whatIdImprove:
-      'Add multi-modal image and video reverse-search pipelines, and deploy on-premise quantized small language models (SLMs) to reduce per-query API token costs.',
+      'Integrate multimodal image reverse-search pipelines and deploy on-premise quantized small language models (SLMs) to reduce per-query external API latency.',
     evalUrl: 'https://github.com/DurgaPavan0923/pavan_portfolio/blob/main/evals/factlens-ai/METHODOLOGY.md',
     architecture:
-      'Inbound Claim Ingest → Text Preprocessing & Entity Disambiguation → Pinecone Hybrid Vector Search → Neo4j Knowledge Graph Traversal → Multi-Agent Consensus Validator → Explainable AI (XAI) Dashboard & Report Generation.',
+      'Inbound Claim Ingest → Text Normalization & Entity Disambiguation → Pinecone Vector Search → Neo4j Knowledge Graph Traversal → Multi-Agent Consensus Validator → XAI Dashboard & Citation Export.',
     architectureSteps: [
       {
         icon: '📥',
@@ -53,7 +56,7 @@ export const PROJECTS: Project[] = [
       {
         icon: '🤖',
         title: 'Multi-Agent Consensus Layer',
-        desc: 'Orchestrates Gemini agents in adversarial critique mode to synthesize a balanced credibility verdict.',
+        desc: 'Orchestrates Gemini prompts in adversarial critique mode to synthesize a balanced credibility verdict.',
       },
       {
         icon: '📊',
@@ -74,18 +77,18 @@ export const PROJECTS: Project[] = [
     ],
     deployment: 'Vercel Edge Runtime, Neo4j AuraDB Cloud, Pinecone Serverless Vector Index',
     impact:
-      'Evaluated on n=100 claims (FEVER/LIAR sample); achieved 94.0% verification accuracy and 8.99 ms p50 evaluation latency with structured citation generation.',
+      'Evaluated on n=100 claims (FEVER/LIAR sample); achieved 94.0% simulated verification accuracy and 8.99 ms local scoring latency with structured citation generation.',
     metrics: [
-      { label: 'Accuracy', value: '94.0% (n=100)' },
+      { label: 'Simulated Acc', value: '94.0% (n=100)' },
       { label: 'Macro-F1', value: '0.9400' },
-      { label: 'p50 Latency', value: '8.99 ms' },
+      { label: 'Local p50', value: '8.99 ms' },
       { label: 'Graph DB', value: 'Neo4j AuraDB' },
     ],
     tags: ['Next.js 15', 'Gemini API', 'Neo4j', 'Pinecone', 'Multi-Agent', 'Explainable AI'],
     githubUrl: 'https://github.com/DurgaPavan0923/AI-Powered-Fake-News-Detector-for-Students',
     liveUrl: 'https://ai-powered-fake-news-detector-for-s.vercel.app/',
-    stars: 18,
-    forks: 5,
+    stars: 0,
+    forks: 0,
   },
 
   // 2. FEATURED PROJECT 2: InsightAI ATS Engine
@@ -101,21 +104,24 @@ export const PROJECTS: Project[] = [
     problem:
       'Traditional ATS software relies on primitive keyword matching, discarding qualified candidates with non-identical phrasing while passing keyword-stuffed resumes.',
     approach:
-      'Built a semantic alignment scoring engine combining TF-IDF weighted skill matrices, domain synonym expansion, and embedding cosine similarity to rank candidates against structured job descriptions.',
+      'Built a semantic alignment scoring engine combining TF-IDF weighted skill matrices, domain synonym expansion, and cosine similarity scoring to rank candidates against structured job descriptions.',
     solution:
       'Built a semantic matching engine combining transformer embeddings, TF-IDF skill weightings, and cosine similarity scoring. Automatically highlights skill gaps and generates contextual technical interview questions.',
+    screenshotUrl: '/projects/insight-ai.webp',
     evalResult: {
-      summary: 'Evaluated across 8 engineering roles; achieved 100% Precision@1 and 0.9955 NDCG@3, outperforming keyword overlap (0.9910 NDCG@3) with sub-millisecond scoring.',
-      dataset: 'Technical Resume-JD Screening Corpus',
+      summary: 'Evaluated across 8 engineering roles on a small synthetic corpus (n=32 pairs). Achieved 100% Precision@1 and 0.9955 NDCG@3 with sub-millisecond scoring.',
+      dataset: 'Technical Resume-JD Screening Corpus (Synthetic)',
       sampleSize: 'n = 32 candidate pairs (8 queries)',
       date: 'October 2026',
       metrics: [
         { label: 'Precision@1', value: '100.0%' },
         { label: 'NDCG@3', value: '0.9955' },
-        { label: 'p50 Latency', value: '0.197 ms' },
-        { label: 'p95 Latency', value: '0.502 ms' },
+        { label: 'Scoring p50', value: '0.197 ms' },
+        { label: 'Corpus Size', value: '32 pairs' },
       ],
     },
+    limitations:
+      'Corpus is a small curated synthetic benchmark (32 pairs across 8 queries); latency measures in-memory vector scoring only, excluding document extraction.',
     whatIdImprove:
       'Implement OCR document layout parsing (LayoutLM) to handle complex multi-column PDF formatting and fine-tune a domain-specific cross-encoder for recruiter re-ranking.',
     evalUrl: 'https://github.com/DurgaPavan0923/pavan_portfolio/blob/main/evals/insight-ai/METHODOLOGY.md',
@@ -158,14 +164,14 @@ export const PROJECTS: Project[] = [
     metrics: [
       { label: 'Precision@1', value: '100.0%' },
       { label: 'NDCG@3', value: '0.9955' },
-      { label: 'p50 Latency', value: '0.197 ms' },
+      { label: 'Scoring p50', value: '0.197 ms' },
       { label: 'Runtime', value: 'FastAPI / Docker' },
     ],
     tags: ['Python', 'NLP', 'Transformers', 'FastAPI', 'Semantic Search', 'ATS'],
     githubUrl: 'https://github.com/DurgaPavan0923/AI-Resume-Screening-Job-Match-System',
     liveUrl: 'https://ai-resume-screening-job-match-syste-one.vercel.app/',
-    stars: 15,
-    forks: 5,
+    stars: 0,
+    forks: 0,
   },
 
   // 3. FEATURED PROJECT 3: AI-Based Underwater Environmental Analytics
@@ -179,11 +185,12 @@ export const PROJECTS: Project[] = [
     description:
       'A zero-leakage machine learning system developed under TIH IIT Guwahati for calibrated water potability classification, WHO guideline compliance auditing, and continuous underwater sensor stream anomaly detection & forecasting.',
     problem:
-      'Conventional water quality analysis relies on slow batch laboratory assays or rigid regulatory rule envelopes that misclassify non-linear contaminant interactions. Furthermore, oceanographic buoy telemetry suffers from harsh drift and lack of causal forecasting.',
+      'Conventional water potability checks rely on slow laboratory assays or rigid regulatory boundaries that misclassify non-linear mineral interactions, while ocean buoy telemetry lacks causal walk-forward forecasting.',
     approach:
-      'Engineered a dual-track architecture: Track B evaluates 9 bulk physicochemical attributes with fold-isolated scaling, Platt-calibrated XGBoost, and strict WHO guardrails; Track A applies walk-forward causal lag forecasting and Isolation Forest anomaly scoring to continuous CTD sensor streams without future peeking.',
+      'Engineered a dual-track architecture: Track B evaluates 9 bulk physicochemical attributes (Kaggle dataset, N=3,276) with fold-isolated scaling, Platt-calibrated XGBoost, and strict WHO guardrails; Track A applies walk-forward causal lag forecasting and Isolation Forest anomaly scoring to continuous CTD sensor streams (N=720) without future leakage.',
     solution:
       'Built a calibrated gradient-boosted classification pipeline (PR-AUC 0.5951, Brier 0.2154) paired with a causal autoregressive forecaster for dissolved oxygen dynamics (0.1748 MAE) and deployed with a responsive FastAPI ASGI dashboard.',
+    screenshotUrl: '/projects/underwater-analytics.webp',
     evalResult: {
       summary: 'Evaluated across a quarantined 20% holdout lockbox (N=656) and continuous telemetry stream (N=720). XGBoost with Platt calibration achieved 0.5951 PR-AUC (vs 0.3920 WHO baseline) with 2.89 ms server P50 latency, while the stream forecaster reduced DO prediction MAE by 41.3%.',
       dataset: 'Quarantined 20% Lockbox Partition (N=656) & CTD Buoy Stream (N=720)',
@@ -196,6 +203,8 @@ export const PROJECTS: Project[] = [
         { label: 'Server P50 Latency', value: '2.89 ms' },
       ],
     },
+    limitations:
+      'Track B relies on public Kaggle drinking-water potability data (N=3,276); Track A evaluates historical CTD buoy sensor records (N=720). Requires in-situ hardware deployment aboard active buoys.',
     whatIdImprove:
       'Deploy quantized ONNX runtime models onto low-power edge microcontrollers (ESP32/STM32) directly aboard oceanographic CTD buoys for real-time in-situ inferencing with solar energy harvesting.',
     evalUrl: 'https://github.com/DurgaPavan0923/pavan_portfolio/blob/main/evals/underwater-analytics/METHODOLOGY.md',
@@ -254,7 +263,7 @@ export const PROJECTS: Project[] = [
       { label: 'Server P50', value: '2.89 ms' },
     ],
     tags: ['Python', 'FastAPI', 'Machine Learning', 'Environmental AI', 'Time-Series', 'IIT Guwahati'],
-    githubUrl: 'https://github.com/DurgaPavan0923/water_potability',
+    githubUrl: 'https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG',
     liveUrl: 'https://water-potability-vert.vercel.app/',
     stars: 0,
     forks: 0,
@@ -288,11 +297,13 @@ export const PROJECTS: Project[] = [
         { label: 'Evaluation', value: 'Lead-3 Verified' },
       ],
     },
+    limitations:
+      'Recurrent LSTM cells exhibit slower token generation than modern transformer architectures on long sequences.',
     whatIdImprove:
       'Transition from recurrent LSTM cells to a lightweight fine-tuned PEFT/LoRA transformer model (e.g., DistilBART or T5-small) and integrate coverage mechanisms to reduce token repetition.',
     evalUrl: 'https://github.com/DurgaPavan0923/pavan_portfolio/blob/main/evals/seq2seq-summarizer/METHODOLOGY.md',
     architecture:
-      'News Article Tokenization (Byte-Pair Encoding) → Bidirectional Encoder → Bahdanau Attention Matrix → Decoder with Beam Search → Summary Generation.',
+      'News Article Tokenization → Bidirectional Encoder → Bahdanau Attention Matrix → Decoder with Beam Search → Summary Generation.',
     architectureSteps: [
       {
         icon: '📄',
@@ -318,11 +329,11 @@ export const PROJECTS: Project[] = [
     tags: ['PyTorch', 'Seq2Seq', 'Attention Mechanism', 'NLP', 'Deep Learning'],
     githubUrl: 'https://github.com/DurgaPavan0923/Seq2Seq-model-newspaper-text-summarization',
     liveUrl: 'https://github.com/DurgaPavan0923/Seq2Seq-model-newspaper-text-summarization',
-    stars: 6,
-    forks: 1,
+    stars: 0,
+    forks: 0,
   },
 
-  // 4. SECONDARY COMPACT: IRA Smart City
+  // 5. SECONDARY COMPACT: IRA Smart City
   {
     slug: 'ira-smart-city',
     name: 'IRA — Intelligent Resource Architecture',
@@ -335,7 +346,7 @@ export const PROJECTS: Project[] = [
     problem:
       'Urban public utilities face dynamic spikes in water and electricity demand, leading to resource strain without predictive monitoring and redistribution mechanisms.',
     solution:
-      'Engineered an interactive 3D terrain visualizer in Three.js connected to a machine learning regression forecasting service that models demand curves and computes redistribution paths.',
+      'Engineered an interactive 3D terrain visualizer in Three.js connected to a machine learning regression forecasting service that models demand curves and computes redistribution paths. Built by Ayush Ranjan Pradhan, Prerna Raut, and Pavan Kumar.',
     architecture:
       'IoT Load Sensor Simulators → ML Regression Forecasting Engine → PostgreSQL Store → Three.js 3D Grid Visualizer → Dynamic Routing Balancer.',
     technologies: ['Three.js', 'Python', 'Scikit-learn', 'Node.js', 'Express', 'PostgreSQL'],
@@ -346,11 +357,11 @@ export const PROJECTS: Project[] = [
     tags: ['Three.js', 'Predictive Analytics', 'Python ML', 'Urban AI', 'Full Stack'],
     githubUrl: 'https://github.com/DurgaPavan0923/IRA',
     liveUrl: 'https://infernox21.github.io/IRA/#team',
-    stars: 12,
-    forks: 4,
+    stars: 0,
+    forks: 0,
   },
 
-  // 5. SECONDARY COMPACT: AGORA Governance
+  // 6. SECONDARY COMPACT: AGORA Governance
   {
     slug: 'agora-governance',
     name: 'AGORA — Web3 & AI Civic Governance',
@@ -374,11 +385,11 @@ export const PROJECTS: Project[] = [
     tags: ['Web3', 'Soulbound Tokens', 'Machine Learning', 'DAO', 'Python', 'Governance'],
     githubUrl: 'https://github.com/DurgaPavan0923/AGORA-PROXIMA',
     liveUrl: 'https://github.com/DurgaPavan0923/AGORA-PROXIMA',
-    stars: 8,
-    forks: 2,
+    stars: 0,
+    forks: 0,
   },
 
-  // 6. SECONDARY COMPACT: Algorithm Arena V2
+  // 7. SECONDARY COMPACT: Algorithm Arena V2
   {
     slug: 'algorithm-arena',
     name: 'Algorithm Arena V2',
@@ -387,13 +398,13 @@ export const PROJECTS: Project[] = [
     featured: false,
     tagline: 'Competitive Coding & Algorithmic Contest Platform Built for GDGoC ITER',
     description:
-      'A full-stack competitive programming portal engineered for university-wide coding events and tournaments, featuring problem sets and live scoreboards.',
+      'A full-stack competitive programming portal engineered for university-wide coding events and tournaments, featuring problem sets and submission scoring.',
     problem:
       'Organizing student competitive coding challenges requires a reliable contest environment capable of evaluating submissions concurrently without test execution latency.',
     solution:
-      'Created a responsive contest dashboard with interactive problem sets, dynamic leaderboards, and real-time submission evaluation.',
+      'Created a responsive contest dashboard with interactive problem sets and automated submission testing.',
     architecture:
-      'Student Code Editor → Node.js Runner Sandbox → Test Suite Evaluator → Real-Time Socket Leaderboard.',
+      'Student Code Editor → Node.js Runner Sandbox → Test Suite Evaluator → Real-Time Results Dashboard.',
     technologies: ['JavaScript', 'Node.js', 'Express', 'Tailwind CSS', 'Socket.io'],
     deployment: 'Vercel, Render API Backend',
     impact:
@@ -402,24 +413,24 @@ export const PROJECTS: Project[] = [
     tags: ['Open Source', 'JavaScript', 'Competitive Programming', 'GDGoC'],
     githubUrl: 'https://github.com/DurgaPavan0923/Algorithm-Arena-V2',
     liveUrl: 'https://github.com/DurgaPavan0923/Algorithm-Arena-V2',
-    stars: 5,
-    forks: 2,
+    stars: 0,
+    forks: 0,
   },
 
-  // 7. SECONDARY COMPACT: SOA NCC Cadet Platform
+  // 8. SECONDARY COMPACT: SOA NCC Cadet Platform
   {
     slug: 'soa-ncc-official',
     name: 'SOA NCC Official Cadet Platform',
     emoji: '🎖️',
     category: 'Open Source',
     featured: false,
-    tagline: 'Official Cadet Management, Event Portal & Roll Management for SOA NCC',
+    tagline: 'Official Cadet Portal, Camp Chronicles & Event Management for SOA NCC',
     description:
-      'The official web platform for the National Cadet Corps unit at SOA University, managing cadet registrations, parade roll calls, camp schedules, and achievements.',
+      'The official web portal for the National Cadet Corps unit at SOA University, managing cadet registrations, camp participation chronicles, event announcements, and unit achievements.',
     problem:
       'Cadet attendance, camp allocation records, and official circulars were fragmented across paper logs and messaging groups.',
     solution:
-      'Designed and deployed a centralized web portal providing digitized circulars, rank promotion trackers, camp chronicles, and parade announcements.',
+      'Designed and deployed a centralized web portal providing digitized circulars, rank promotion trackers, camp chronicles, and unit announcements.',
     architecture:
       'Static Web Portal → CDN Caching → Event Management Interface → Cadet Directory.',
     technologies: ['HTML5', 'CSS3', 'JavaScript', 'Vercel'],
@@ -430,7 +441,7 @@ export const PROJECTS: Project[] = [
     tags: ['Open Source', 'Leadership', 'Web Portal', 'NCC'],
     githubUrl: 'https://github.com/DurgaPavan0923/SOA-NCC-official-website',
     liveUrl: 'https://github.com/DurgaPavan0923/SOA-NCC-official-website',
-    stars: 4,
-    forks: 1,
+    stars: 0,
+    forks: 0,
   },
 ];

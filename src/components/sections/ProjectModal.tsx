@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { Project } from '@/types';
 import {
   X,
@@ -13,6 +14,9 @@ import {
   BarChart3,
   FileCheck2,
   Wrench,
+  ShieldAlert,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 
 interface ProjectModalProps {
@@ -21,6 +25,8 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [showDiagram, setShowDiagram] = useState(true);
+
   useEffect(() => {
     if (!project) return;
 
@@ -59,11 +65,13 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Header */}
         <div className="flex items-start justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/[0.08]">
           <div className="flex items-center gap-3">
-            <span className="text-3xl sm:text-4xl">{project.emoji}</span>
             <div>
               <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 dark:text-slate-100">
                 {project.name}
               </h2>
+              <span className="text-xs font-mono text-cyan-600 dark:text-cyan-400">
+                {project.category} {'//'} {project.featured ? 'Featured System' : 'Secondary System'}
+              </span>
             </div>
           </div>
 
@@ -77,12 +85,25 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
         </div>
 
+        {/* Screenshot Preview */}
+        {project.screenshotUrl && (
+          <div className="relative w-full h-56 sm:h-72 rounded-2xl overflow-hidden my-5 border border-slate-200 dark:border-white/[0.1] bg-slate-900 shadow-md">
+            <Image
+              src={project.screenshotUrl}
+              alt={`${project.name} System Interface Preview`}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover object-top"
+            />
+          </div>
+        )}
+
         {/* Tagline */}
         <p className="text-xs sm:text-sm text-cyan-700 dark:text-cyan-300 font-medium my-4 italic">
           {project.tagline}
         </p>
 
-        {/* Metrics Grid (Only if metrics are populated) */}
+        {/* Metrics Grid */}
         {project.metrics && project.metrics.length > 0 && (
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 my-6">
             {project.metrics.map((m, idx) => (
@@ -162,6 +183,17 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
             </div>
           )}
 
+          {/* Limitations */}
+          {project.limitations && (
+            <div className="p-4 rounded-2xl bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800">
+              <div className="flex items-center gap-2 font-display font-bold text-slate-800 dark:text-slate-300 text-sm mb-1.5">
+                <ShieldAlert className="w-4 h-4 text-amber-500 shrink-0" />
+                <span>Known Constraints &amp; Evaluation Boundaries</span>
+              </div>
+              <p className="leading-relaxed text-slate-600 dark:text-slate-400 text-xs sm:text-sm">{project.limitations}</p>
+            </div>
+          )}
+
           {/* What I'd Improve */}
           {project.whatIdImprove && (
             <div className="p-4 rounded-2xl bg-violet-50 dark:bg-violet-500/5 border border-violet-200 dark:border-violet-500/15">
@@ -176,23 +208,38 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Architecture Steps (if present) */}
           {project.architectureSteps && (
             <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.06]">
-              <div className="flex items-center gap-2 font-display font-bold text-slate-900 dark:text-slate-100 text-sm mb-4">
-                <Layers className="w-4 h-4 text-violet-600 dark:text-violet-400 shrink-0" />
-                <span>System Pipeline &amp; Data Flow</span>
+              <div className="flex items-center justify-between font-display font-bold text-slate-900 dark:text-slate-100 text-sm mb-4">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-cyan-600 dark:text-cyan-400 shrink-0" />
+                  <span>Detailed Architecture &amp; Data Pipeline</span>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setShowDiagram(!showDiagram)}
+                  className="inline-flex items-center gap-1 text-xs font-mono text-cyan-600 dark:text-cyan-400 hover:underline"
+                >
+                  <span>{showDiagram ? 'Hide Steps' : 'Show Steps'}</span>
+                  {showDiagram ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                </button>
               </div>
-              <div className="space-y-3">
-                {project.architectureSteps.map((step, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <span className="text-lg">{step.icon}</span>
-                    <div className="flex-1">
-                      <div className="font-semibold text-slate-900 dark:text-slate-200 text-xs sm:text-sm flex items-center gap-1.5">
-                        <span>Step {idx + 1}: {step.title}</span>
+
+              {showDiagram && (
+                <div className="space-y-3 pt-2">
+                  {project.architectureSteps.map((step, idx) => (
+                    <div key={idx} className="flex items-start gap-3 p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/[0.04]">
+                      <div className="p-2 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold font-mono text-xs">
+                        0{idx + 1}
                       </div>
-                      <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{step.desc}</p>
+                      <div className="flex-1">
+                        <div className="font-semibold text-slate-900 dark:text-slate-200 text-xs sm:text-sm">
+                          {step.title}
+                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-0.5">{step.desc}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
             </div>
           )}
 
