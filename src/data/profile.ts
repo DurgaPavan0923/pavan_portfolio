@@ -16,14 +16,14 @@ export const PROFILE_DATA: ProfileData = {
     'Building RAG Systems & Evaluation Pipelines',
     'Training Deep Learning & NLP Models',
     'Deploying Containerized Cloud Microservices',
-    'Transforming Model Checkpoints into Production Systems',
+    'Transforming Model Checkpoints into Practical AI Systems',
   ],
   education: {
     degree: 'B.Tech in Computer Science and Engineering',
     field: 'Artificial Intelligence & Machine Learning',
     institution: 'Siksha ‘O’ Anusandhan (SOA), ITER',
     period: 'Aug 2023 – Jul 2027',
-    cgpa: '07 / 10',
+    cgpa: '7.85 / 10.0',
     location: 'Bhubaneswar, Odisha, India',
   },
   contact: {
@@ -45,8 +45,8 @@ export const PROFILE_DATA: ProfileData = {
     cloudBadges: '98 Badges (Arcade Diamond)',
   },
   bioParagraphs: [
-    "I’m Rajana Durga Pavan Kumar, an AI & ML Engineer and Computer Science undergraduate at SOA University (ITER). I specialize in designing and deploying end-to-end intelligent systems, Retrieval-Augmented Generation (RAG) pipelines, and cloud-native machine learning architectures.",
-    "My technical focus spans multi-agent orchestration, graph-enhanced semantic search (Neo4j + Pinecone), and natural language processing. I currently serve as a Student Intern at TIH IIT Guwahati and Club Coordinator at GDGoC ITER, coordinating technical workshops, study jams, and developer initiatives across campus.",
-    "From architecting multi-agent fact verification platforms like FactLens AI to developing 3D predictive planning systems, I bridge the gap between theoretical machine learning checkpoints and production software systems.",
+    "I’m Rajana Durga Pavan Kumar, a Computer Science undergraduate specializing in AI & Machine Learning at SOA University (ITER). I build practical, well-engineered AI applications, Retrieval-Augmented Generation (RAG) pipelines, and cloud-native machine learning systems.",
+    "My technical focus spans multi-agent orchestration, graph-enhanced semantic search (Neo4j + Pinecone), and natural language processing. I serve as a Student Intern at TIH IIT Guwahati and Club Coordinator at GDGoC ITER, coordinating technical workshops and study jams across campus.",
+    "From architecting multi-agent fact verification platforms like FactLens AI to developing dual-track environmental ML forecasters, I bridge the gap between empirical evaluations and production software systems.",
   ],
 };
