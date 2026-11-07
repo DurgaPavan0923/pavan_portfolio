@@ -18,12 +18,12 @@ describe('Contact Component', () => {
     expect(screen.getByPlaceholderText(/alex@company.com/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/AI\/ML Engineering Role/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Detail your objective/i)).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /Dispatch Priority Message/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /Send message/i })).toBeInTheDocument();
   });
 
   it('displays validation errors when submitting an empty form', async () => {
     render(<Contact />);
-    const submitBtn = screen.getByRole('button', { name: /Dispatch Priority Message/i });
+    const submitBtn = screen.getByRole('button', { name: /Send message/i });
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
@@ -55,11 +55,11 @@ describe('Contact Component', () => {
       target: { value: 'We would love to discuss a RAG architecture position with you.' },
     });
 
-    const submitBtn = screen.getByRole('button', { name: /Dispatch Priority Message/i });
+    const submitBtn = screen.getByRole('button', { name: /Send message/i });
     fireEvent.click(submitBtn);
 
     await waitFor(() => {
-      expect(screen.getByText(/Message Dispatched Successfully!/i)).toBeInTheDocument();
+      expect(screen.getByText(/Message Sent Successfully!/i)).toBeInTheDocument();
     });
   });
 });

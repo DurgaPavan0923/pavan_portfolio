@@ -15,8 +15,8 @@ vi.mock('next/image', () => ({
 describe('Gallery Component', () => {
   it('renders section and photo moments', () => {
     render(<Gallery />);
-    expect(screen.getByText(/09 \/\/ MOMENTS & HIGHLIGHTS/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/IRA Showcase at Abinya 3.0/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/08 \/\/ MOMENTS & HIGHLIGHTS/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Proxima 2026/i).length).toBeGreaterThan(0);
   });
 
   it('provides manual left and right scroll navigation buttons', () => {
@@ -32,7 +32,7 @@ describe('Gallery Component', () => {
   it('opens and closes the lightbox modal when a card is clicked', () => {
     render(<Gallery />);
 
-    const cards = screen.getAllByLabelText(/View photograph: IRA Showcase at Abinya 3.0/i);
+    const cards = screen.getAllByLabelText(/View photograph: Proxima 2026/i);
     fireEvent.click(cards[0]);
 
     // Modal dialog should now be present

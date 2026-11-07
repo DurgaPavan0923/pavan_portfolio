@@ -12,7 +12,7 @@ describe('GitHub Telemetry API', () => {
     expect(FALLBACK_GITHUB_STATS.featuredRepos.length).toBe(4);
     const repoNames = FALLBACK_GITHUB_STATS.featuredRepos.map((r: FeaturedRepo) => r.name);
     expect(repoNames).toContain('IRA');
-    expect(repoNames).toContain('AGORA-PROXIMA');
+    expect(repoNames).toContain('RajanaDurgaPavanKumar_C1_ONLINETIHIITG');
   });
 
   it('returns fallback snapshot gracefully if GitHub API network call throws', async () => {
