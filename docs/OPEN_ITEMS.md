@@ -1,20 +1,24 @@
 # Open Items & Verification Requests
 
-This document tracks items requiring explicit external documents, weights, links, or verification artifacts to uphold the portfolio's hard rule: **every number, claim, and technology on the site must be backed by code, a measurement, or a document in this repo.**
+**Branch:** `feat/final-credibility-pass`  
+**Date:** November 2026  
+**Standard:** Every claim, number, and technology must be backed by code, an evaluation artifact, or a verified document.
+
+This document tracks items requiring explicit external documents, weights, links, or verification artifacts to uphold strict interview defensibility.
 
 ---
 
 ## 1. Production Environment Variables (Vercel Project Settings)
-To enable live telemetry without rate-limiting on Vercel:
-1. **`GITHUB_TOKEN`:** Generate a read-only Personal Access Token (classic with `read:user` and public repo scope, or fine-grained PAT) for user `DurgaPavan0923` and add to Vercel Project Environment Variables.
-2. **`REVALIDATE_SECRET`:** Set a secret token for the `/api/revalidate` on-demand revalidation route.
-3. **`GEMINI_API_KEY`:** Add API key for Google Gemini assistant (`/api/chat`).
-4. **`RESEND_API_KEY`:** Add Resend API key for `/api/contact` email dispatch.
+To enable live telemetry and AI features on Vercel:
+1. **`GITHUB_TOKEN`:** Add a read-only GitHub Personal Access Token (classic with `read:user` and public repo scope, or fine-grained PAT) for user `DurgaPavan0923`. (When omitted, the app gracefully falls back to `github-snapshot.json` with a transparent "Cached" indicator).
+2. **`REVALIDATE_SECRET`:** Set a secret token for the `/api/revalidate` on-demand cache clearing route.
+3. **`GEMINI_API_KEY`:** Add API key for Google Gemini assistant (`/api/chat`). (When omitted, the app gracefully renders structured local answers).
+4. **`RESEND_API_KEY`:** Add Resend API key for `/api/contact` email dispatch to `rdpkumar2308@gmail.com`.
 
 ---
 
 ## 2. Academic & Education Verification
-- **Item:** B.Tech Computer Science & Information Technology CGPA (`7.85 / 10.0`).
+- **Item:** B.Tech Computer Science (AI & ML) CGPA (`7.85 / 10.0`).
 - **Where It Appears:** Credentials & Education section (`#credentials`), `src/data/profile.ts`, Command Palette (`act-result-portal`), Chatbot.
 - **Status:** Displayed honestly as `7.85 / 10.0` with a direct link to the SOA University Examination Result Portal (`https://soaportals.com/StudentPortalSOA/#/`) and note *"Student login required; marksheet available on request."*
 - **Action Needed:**
@@ -23,46 +27,36 @@ To enable live telemetry without rate-limiting on Vercel:
 
 ---
 
-## 3. Credentials Not Present on LinkedIn Profile
-The following 5 credentials are in the portfolio data but are not currently listed on your public LinkedIn profile:
+## 3. Credentials Verification Status
 
-1. **IBM Machine Learning Professional Specialization**
-   - *Issuer:* IBM / Coursera
-   - *Status on Site:* `Credential ID: IBM-COURSERA-ML-SPEC` / "Available on request".
-   - *Action Needed:* Provide the direct Coursera certificate verification link (e.g., `coursera.org/verify/...`) or add the credential to your LinkedIn profile.
-
-2. **Tata Cyber Security Analyst Simulation**
-   - *Issuer:* Tata Group / Forage
-   - *Status on Site:* `Credential ID: TATA-FORAGE-CYBER-2025` / "Available on request".
-   - *Action Needed:* Provide the Forage completion certificate link (e.g., `forage-uploads-prod.s3.amazonaws.com/...`) or verification hash.
-
-3. **NPTEL AI & Deep Learning Certification**
-   - *Issuer:* NPTEL / IIT Madras
-   - *Status on Site:* `Credential ID: NPTEL-AI-2024-PASS` / "Available on request".
-   - *Action Needed:* Provide the NPTEL e-certificate link or roll number verification URL.
-
-4. **IISc CeNSE Winter Specialized School**
-   - *Issuer:* Indian Institute of Science (IISc Bangalore)
-   - *Status on Site:* `Credential ID: IISC-CENSE-WINTER-2025` / "Available on request".
-   - *Action Needed:* Provide the participation certificate PDF or department letter.
-
-5. **Generative AI Academy Certification**
-   - *Issuer:* Google Cloud / GenAI Academy
-   - *Status on Site:* `Credential ID: GENAI-ACADEMY-2025` / "Available on request".
-   - *Action Needed:* Provide the Google Cloud Skills Boost badge/certificate URL.
+| # | Credential / Event | Issuer | Current Portfolio Status | Action Needed from Candidate |
+|---|---|---|---|---|
+| 1 | **Neo4j Certified Professional** | Neo4j Graph Academy | **VERIFIED** (ID: `178619623`) | None; verified and linkable. |
+| 2 | **Google Cloud Badges** | Google Cloud Skills Boost | **VERIFIED** (98 total badges: 57 skill + 12 arcade + 9 trivia + 18 lab-free courses) | Add public profile URL to Skills Boost if desired. |
+| 3 | **IBM Machine Learning Specialization** | IBM / Coursera | "Available on request" | Provide Coursera verification link (`coursera.org/verify/...`). |
+| 4 | **Microsoft Elevate: Azure Cloud** | Microsoft / AICTE | "Available on request" | Provide AICTE/Microsoft certificate link or PDF. |
+| 5 | **NPTEL AI & Deep Learning** | NPTEL / IIT Madras | "Available on request" | Provide NPTEL e-certificate link or roll number. |
+| 6 | **Tata Cyber Security Analyst Simulation** | Tata Group / Forage | "Available on request" | Provide Forage completion link or certificate hash. |
+| 7 | **Adobe India GenAI Hackathon** | Adobe | **Participation** | Participation badge recorded. |
+| 8 | **Convolve 4.0 Pan-IIT AI/ML Hackathon** | IIT Kharagpur & IIT Guwahati | **Participation** | Participation badge recorded. |
+| 9 | **ICAAIMLS 2025 International Conference** | ICAAIMLS | **Participation** | Participation badge recorded. |
 
 ---
 
 ## 4. Work Experience & Internships Artifacts
 
 1. **Technology Innovation Hub (TIH), IIT Guwahati**
-   - *Role:* Student Intern (Jun 2026 – Present, Remote)
-   - *Status on Site:* **VERIFIED & RESOLVED**. Discovered public GitHub repository (https://github.com/DurgaPavan0923/water_potability) and live deployment (https://water-potability-vert.vercel.app/). Research project title: *'Development of an AI-Based Model to Detect and Predict Underwater Environmental Changes Using Water Quality Parameters'*. Evaluated on N=656 holdout lockbox and continuous telemetry stream; published in `/evals/underwater-analytics/` and featured on the site.
+   - *Role:* Project Intern (Jul – Sep 2025, Online)
+   - *Status on Site:* **VERIFIED & RESOLVED**. Canonical repository: `https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG` and live potability deployment: `https://water-potability-vert.vercel.app/`. Project title: *'Development of an AI-Based Model to Detect and Predict Underwater Environmental Changes Using Water Quality Parameters'*. Evaluated on N=656 holdout lockbox and continuous telemetry stream; published in `/evals/underwater-analytics/` and featured on the site.
 
-2. **InternPro**
-   - *Role:* AI/ML Intern (16 Jun 2025 – Jul 2025, 6 weeks)
-   - *Status on Site:* Factual summary of the real estate price prediction regression pipeline using Scikit-Learn and Pandas.
-   - *Action Needed:* Provide the GitHub repository link or internship completion certificate hash/PDF.
+2. **Edunet Foundation (IBM SkillsBuild & AICTE)**
+   - *Role:* Artificial Intelligence Intern (May – Jun 2025)
+   - *Status on Site:* **VERIFIED & RESOLVED**. Canonical repository: `https://github.com/DurgaPavan0923/AI-Powered-Fake-News-Detector-for-Students`. FactLens AI explainable fact-verification architecture with offline evaluation in `/evals/factlens-ai/`.
+
+3. **InternPro**
+   - *Role:* AI/ML Intern (16 Jun – 28 Jul 2025)
+   - *Status on Site:* Factual summary of the real estate price prediction regression pipeline using Scikit-Learn and Pandas (`https://github.com/DurgaPavan0923/real-estate-prediction`).
+   - *Action Needed:* Place internship completion certificate PDF in `/public/docs/internpro-certificate.pdf` if available.
 
 ---
 
@@ -72,12 +66,12 @@ The following 5 credentials are in the portfolio data but are not currently list
    - *Project:* `seq2seq-news-summarizer`
    - *Status in Repo:*
      - Labeled test dataset: 50 CNN/DailyMail articles in `/evals/seq2seq-summarizer/dataset.json`.
-     - Script `/evals/seq2seq-summarizer/evaluate.py` successfully evaluated and published Lead-3 baseline metrics (ROUGE-1: 0.5550, ROUGE-2: 0.2801, ROUGE-L: 0.4281, 0.148 ms inference latency).
+     - Script `/evals/seq2seq-summarizer/evaluate.py` evaluated and published Lead-3 baseline metrics (ROUGE-1: 0.5550, ROUGE-2: 0.2801, ROUGE-L: 0.4281, 0.148 ms inference latency).
      - Trained checkpoint is marked **"Evaluation pending local .pt weights"** on the site and in `/evals/seq2seq-summarizer/METHODOLOGY.md`.
    - *Action Needed:* Place the model weights file (e.g., `checkpoint.pt` or Hugging Face repository link) to run the neural inference benchmark against the Lead-3 baseline.
 
 ---
 
-## 6. External Technical Blog Links
-- *Status:* Three deep-dive architectural articles are fully rendered inside the portfolio's native reader modal (`#blogs` data in `src/data/blogs.ts`).
-- *Action Needed:* If these articles are cross-posted to Medium, Dev.to, or Substack, provide the external URLs. The buttons currently open the in-app modal and will never point to a generic GitHub profile.
+## 6. Technical Blogs Section
+- *Status:* Unmounted from main navigation and page flow because zero `.mdx` files or published external URLs exist in the repository.
+- *Action Needed:* When articles are published to Medium, Dev.to, or Substack, add external publication URLs and remount the section.

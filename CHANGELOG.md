@@ -4,6 +4,24 @@ All notable changes to the portfolio codebase are documented in this file.
 
 ---
 
+## [3.1.0] - 2026-11-07 - Final Credibility & Recruiter-First Polish (feat/final-credibility-pass)
+
+### Credibility & Grounded Claims Pass
+- **Zero Synthetic Identifiers:** Removed all synthetic certificate IDs (`NEO4J-CERT-PROFESSIONAL`, etc.); verified Neo4j ID `178619623`, Google Cloud Arcade milestone (98 badges: 57 skill + 12 arcade + 9 trivia + 18 lab-free courses), and marked others "Available on request".
+- **Participation vs. Certification:** Distinctly classified Adobe GenAI, Convolve 4.0, and ICAAIMLS under "Participation" badges.
+- **Removed Banned Buzzwords:** Neutralized all instances of "verified technologies", "real-time engineering telemetry", "production RAG deployments", "precision & passion", "Dispatch Priority Message", "Engineered AI Systems", and "applied research at IITs".
+- **Contact Form Polish:** Relabeled submit action to "Send message" (from "Dispatch Priority Message"), verified direct email copy to `rdpkumar2308@gmail.com`.
+- **Moments Captions Standardized:** Formatted all 16 photo captions strictly as "Event Name + Year".
+- **Featured Project Limitations:** Added explicit limitation disclosure blocks to cards and architecture modals for all 3 featured projects.
+- **Canonical Repository Links:** Hardcoded canonical URLs for FactLens (`AI-Powered-Fake-News-Detector-for-Students`) and Underwater Analytics (`RajanaDurgaPavanKumar_C1_ONLINETIHIITG`).
+- **Project UI Screenshots:** Added high-fidelity dark-mode interface mockups rendered to WebP in `public/projects/`.
+
+### Recruiter-First 9-Section Flow
+- **Blogs Unmounted:** Since zero `.mdx` files or published external URLs exist in repo, unmounted Blogs from `src/app/page.tsx` and removed `#blogs` from `Navbar.tsx`, `MobileDock.tsx`, `MobileMenu.tsx`, and `CommandPalette.tsx`.
+- **Sequential Section Numbering (01–09):** Hero → Featured Projects → Experience → Open Source → Technical Skills → Education & Certifications → Leadership → Moments → Contact.
+
+---
+
 ## [3.0.0] - 2026-11-07 - Premium Recruiter-First AI & ML Student Portfolio (10 out of 10 Upgrade)
 
 ### Design & Visual Hierarchy (Linear / Moncy / Vercel Aesthetic)

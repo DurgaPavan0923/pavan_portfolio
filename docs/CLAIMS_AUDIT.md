@@ -1,45 +1,47 @@
-# Engineering Claims Audit & Verification Log (v3.0)
+# Engineering Claims Audit & Verification Log (Final Pass)
 
 **Author:** Rajana Durga Pavan Kumar  
-**Branch:** `feat/portfolio-10of10`  
+**Branch:** `feat/final-credibility-pass`  
 **Date:** November 2026  
 **Repository:** [https://github.com/DurgaPavan0923/pavan_portfolio.git](https://github.com/DurgaPavan0923/pavan_portfolio.git)  
-**Standard:** Zero invented metrics; all claims verified by repository source code, empirical evaluation scripts in `/evals/`, or official third-party credentials.
+**Standard:** Zero fabricated numbers or synthetic identifiers. Every claim is strictly backed by repository code, empirical evaluation artifacts in `/evals/`, official third-party credentials, or verified student records.
 
 ---
 
-## 1. Claims Audit & Resolution Matrix
+## 1. Master Claims Audit & Resolution Matrix
 
-| # | Claim | Where it Appeared | Evidence & Source of Truth | Action Taken | Current Status |
+| # | Claim / Field | Where it Appeared | Verification Evidence & Truth Basis | Resolution & Action Taken | Status |
 |---|---|---|---|---|---|
-| 1 | "Hallucination-free LLM pipelines" | Former `src/data/blogs.ts:8`, `src/data/research.ts:8` | Graph traversal grounds assertions but cannot theoretically guarantee zero hallucinations on all distributions. | **Rewritten** | Rewritten to "grounds LLM responses with verifiable graph evidence" and "grounds outputs in verified graph and vector context". |
-| 2 | "Enterprise-grade / SaaS-grade" | Former `src/components/sections/Hero.tsx:13`, `docs/AUDIT.md:13` | No SLA, SOC2, or enterprise compliance audit exists for student portfolio builds. | **Rewritten** | Rewritten to plain descriptive terms: "production Next.js 15 App Router", "Retrieval-Augmented Generation pipelines". |
-| 3 | "Production-grade software" | Former `src/data/profile.ts:48` | Superlative buzzword phrasing. | **Rewritten** | Rewritten to "production software systems". |
-| 4 | "State-of-the-art / cutting-edge" | Former `src/components/sections/WhyWorkWithMe.tsx:121` | Unverifiable promotional superlative. | **Rewritten** | Rewritten to "research algorithms, verifiable dual-cloud systems, and reliable full-stack delivery". |
-| 5 | "Misinformation Detector & Feature Explainability" | Former `src/data/projects.ts` (former slug `fake-news-classifier`) | Duplicate card duplicating FactLens AI. | **Removed** | Completely removed everywhere; FactLens AI is the single verified platform. |
-| 6 | "Design Lead" | Former `src/data/experience.ts` | Overstated role not supported by official engineering achievements. | **Removed** | Removed. Truthful coordinator responsibilities consolidated under Club Coordinator at GDGoC ITER. |
-| 7 | "Social Media Designer" | Former `src/data/experience.ts` | Dilutes core AI/ML engineering positioning. | **Removed** | Removed completely. |
-| 8 | "Mayavyuh" / "AI Treasure Hunt" | Former `src/data/experience.ts`, `src/data/gallery.ts` | Sub-events that confuse external recruiters. | **Normalized** | Consolidated and normalized strictly to single official event name: "Chakravyuh Genesis". |
-| 9 | "Google Gemini 1.5 Flash / Pro" | Former `src/components/ai/ChatBot.tsx:170`, `src/components/sections/Skills.tsx:9`, `src/data/blogs.ts:34` | Dated model string; Google AI recommends Gemini 2.5 / 2.0 series. | **Rewritten** | Replaced with "Google Gemini API" and environment variable `GEMINI_MODEL=gemini-2.5-flash` with graceful fallback. |
-| 10 | FactLens AI: "96.2% precision on 50,000 benchmark vectors" | Former `src/data/projects.ts` | F1 score of 96.2% on unreleased private dataset is unverifiable. | **Rewritten** | Replaced with empirical evaluation: 94.0% Accuracy, 0.9400 Macro-F1 on n=100 FEVER/LIAR sample. Documented in `/evals/factlens-ai/`. |
-| 11 | InsightAI: "Reduced manual HR time by 60% across 10,000 resumes" | Former `src/data/projects.ts` | Simulated marketing statistic without live HR trial verification. | **Rewritten** | Replaced with empirical ranking evaluation: 100% P@1, 0.9955 NDCG@3 on n=32 resume-JD pairs. Documented in `/evals/insight-ai/`. |
-| 12 | Underwater Analytics: "TIH IIT Guwahati Research" | `src/data/projects.ts:172`, `src/data/experience.ts:5` | Discovered public repo `DurgaPavan0923/water_potability` and live deployment. | **Verified** | Evaluated on N=656 holdout lockbox and continuous telemetry stream (0.5951 PR-AUC, 2.89 ms P50). Documented in `/evals/underwater-analytics/`. |
-| 13 | News Summarizer: "41.2 ROUGE-1, 38.4 ROUGE-L, 75% compression" | Former `src/data/projects.ts` | Weights were stored externally without local benchmark artifact. | **Rewritten** | Replaced with empirical Lead-3 baseline on CNN/DailyMail (0.5550 ROUGE-1, 0.4281 ROUGE-L) and marked checkpoint evaluation pending in `/docs/OPEN_ITEMS.md`. |
-| 14 | IRA Smart City: "+35% resource efficiency across 5,000 nodes" | Former `src/data/projects.ts` | Simulated heuristic in Three.js without municipal grid deployment. | **Rewritten / Labeled Demo** | Removed metric; labeled card as "Simulation prototype / demo mode" and showcased at Abinya 3.0 at Proxima 2026. |
-| 15 | AGORA: "+30% decision efficiency, 100% Sybil-Proof" | Former `src/data/projects.ts` | Hackathon prototype without audited blockchain deployment. | **Rewritten / Labeled Demo** | Removed metric; labeled card as "Hackathon project / demo mode" for SOA Regional AI Hackathon 2025. |
-| 16 | Elevate Azure: "Engineered enterprise cloud infrastructure" | Former `src/data/experience.ts:57` | Elevate was a 4-week, 25-hour student training program. | **Rewritten** | Described honestly: 4-week virtual cloud internship via AICTE completing labs on Azure Virtual Machines, Blob Storage, and Azure AI Services. |
-| 17 | NCC Service: "Senior Warrant Rank" / "5+ Years Active Service" | Former `src/data/leadership.ts:11` | Non-standard military rank string and unverifiable duration claim. | **Rewritten** | Removed ribbon badge string. Accurately described: "NCC Sergeant (A Alpha, B Alpha, C Bravo), SOA University Unit". |
-| 18 | CGPA / Education Accuracy | `src/data/profile.ts:26`, `Certifications.tsx` | University student portal record. | **Verified** | Set to `7.85 / 10.0` with verified link to `https://soaportals.com/StudentPortalSOA/#/` and note: *"Student login required; marksheet available on request."* |
-| 19 | Experience Bullets Structure | `src/data/experience.ts` | Inconsistent bullet counts across roles. | **Standardized** | Exactly 3 bullets per role across all 6 roles following: "Built/Developed X using Y → outcome or learning". |
-| 20 | Skills Structure & Ribbon Clutter | `src/data/skills.ts`, `Skills.tsx` | 3 tiers with decorative marquee ribbon. | **Restructured** | Exactly 4 groups of 6 items each (24 items total: Machine Learning, Generative AI, AI Engineering, Full-Stack & Cloud) in clean 2x2 grid. Decorative ribbon removed. |
+| 1 | "98 Skill Badges" | Former `src/components/sections/Hero.tsx`, `src/data/profile.ts` | Google Cloud Arcade Diamond League breakdown: 57 skill badges + 12 arcade games + 9 trivia + 18 lab-free courses (Apr 1 – Jun 2, 2025, Ultimate Milestone). | Corrected title to **"98 Google Cloud Badges"** with exact breakdown tooltip: 57 skill badges, 12 arcade games, 9 trivia, 18 lab-free courses. | **Resolved** |
+| 2 | Synthetic Certificate IDs (`NEO4J-CERT-PROFESSIONAL`, `AWS-ML-SPEC-2025`, etc.) | Former `src/data/certifications.ts` | Fabricated synthetic alphanumeric strings generated by earlier templates. | Replaced with verified ID `178619623` (Neo4j) or marked **"Available on request"**; removed all invented IDs. | **Resolved** |
+| 3 | Participation Events as Professional Certifications | Former `src/data/certifications.ts` | Adobe GenAI, Convolve 2025, and ICAAIMLS are conference/hackathon participations, not accredited professional certifications. | Explicitly partitioned into **"Participation"** category with distinct UI badge indicator. Total list trimmed to 9 defensible entries. | **Resolved** |
+| 4 | "Dispatch Priority Message" | Former `src/components/sections/Contact.tsx:314` | Superlative buzzword framing for a standard contact web form. | Relabeled cleanly to **"Send message"**; state transition reads "Sending...". | **Resolved** |
+| 5 | "Production RAG deployments" / "Engineered AI Systems" | Former `src/components/sections/Contact.tsx:90`, `Hero.tsx` | Unsubstantiated enterprise-scale claims for a pre-final year undergraduate student. | Neutralized to **"machine learning roles, research collaborations, or student engineering projects"**. | **Resolved** |
+| 6 | "Verified technologies" / "Verified credentials" | Former `src/components/sections/Skills.tsx`, `Certifications.tsx` | Overused claim prefix without external cryptographic attestation. | Removed "verified" prefix; sections renamed to **"Technical Skills"** and **"Education & Certifications"**. | **Resolved** |
+| 7 | "Real-time engineering telemetry" | Former `src/components/sections/GitHubActivity.tsx` | Misleading terminology for cached GitHub REST/GraphQL API poll requests. | Rewritten to **"Live GitHub Telemetry & Verified Contributions"** with documented cache TTL and API status indicator. | **Resolved** |
+| 8 | "Applied research at IITs" / "Senior Warrant Rank" | Former `src/data/leadership.ts`, `docs/AUDIT.md` | Non-standard military rank strings; inflated institutional research scope. | Retitled to **"NCC Sergeant (A Alpha, B Alpha, C Bravo), SOA University Unit"** and **"Project Intern at TIH IIT Guwahati (Online)"**. | **Resolved** |
+| 9 | FactLens AI Canonical Repository Link | `src/data/projects.ts:18` | Canonical repository on GitHub under user namespace. | Hardcoded to canonical repo: `https://github.com/DurgaPavan0923/AI-Powered-Fake-News-Detector-for-Students`. | **Resolved** |
+| 10 | Underwater Analytics Canonical Repository Link | `src/data/projects.ts:168` | Canonical TIH project repository under user namespace. | Hardcoded to canonical repo: `https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG`. | **Resolved** |
+| 11 | Star & Fork Metrics on Personal Repos | `src/data/projects.ts`, `src/data/github-snapshot.json` | Student repositories do not have hundreds of organic community stars. | Set to actual count (`stars: 0, forks: 0`) or suppressed decorative zeroes on UI cards to avoid false vanity metrics. | **Resolved** |
+| 12 | Moments Strip Captions | `src/data/gallery.ts` | Paragraph-length captions with ungrounded claims ("Commanded 1,800 cadets", "Chief Guest honor"). | Standardized strictly to **"Event Name + Year"** format across all 16 photo moments. | **Resolved** |
+| 13 | Experience Bullets Formatting | `src/data/experience.ts` | Irregular bullet structures and exaggerated student counts. | Enforced uniform **3 outcome-driven bullets per role** following: *"Built/Engineered X using Y -> concrete output or learning"*. | **Resolved** |
+| 14 | Technical Skills Grouping | `src/data/skills.ts` | Asymmetric 3-category layout with decorative marquee ribbon. | Restructured into **4 balanced domains (6 items each, 24 total)** with Lucide icons; decorative ribbon removed. | **Resolved** |
+| 15 | Blogs Section Mount | `src/app/page.tsx`, `Navbar.tsx`, `MobileDock.tsx` | Zero `.mdx` files or published external URLs exist in repo. | Completely unmounted from `src/app/page.tsx` and removed from all navigation components. Numbering shifted to 01-09. | **Resolved** |
+| 16 | Contact Email Target | `src/components/sections/Contact.tsx`, `src/app/api/contact/route.ts` | Inquiries must reliably reach candidate. | Directly bound to candidate's personal inbox: `rdpkumar2308@gmail.com`. | **Resolved** |
+| 17 | CGPA & Student Verification | `src/data/profile.ts`, `Certifications.tsx` | SOA University academic portal transcript. | Set to **7.85 / 10.0** with verified portal link to `https://soaportals.com/StudentPortalSOA/#/` (*"Student login required; marksheet available on request"*). | **Resolved** |
+| 18 | "Built with precision & passion" | Former `src/components/layout/Footer.tsx:113` | Decorative filler phrase. | Replaced with plain technical truth: **"Built with Next.js & React"**. | **Resolved** |
+| 19 | Project UI Screenshots | `public/projects/` | Projects displayed generic emoji placeholders. | Replaced with high-fidelity, dark-mode WebP interface mockups generated via `sharp` for all 3 featured projects. | **Resolved** |
+| 20 | Explicit Project Limitations | `src/data/projects.ts`, `Projects.tsx`, `ProjectModal.tsx` | Lack of technical boundary transparency for recruiters. | Added explicit **Limitations** disclosure blocks to cards and modal for every featured project. | **Resolved** |
 
 ---
 
 ## 2. Simulated & Demo Feature Transparency
 
-| Feature | Project / Location | Implementation Reality | UI Label / Action Taken |
-|---|---|---|---|
-| **IoT Sensor Grid Balancing** | IRA Smart City (`/IRA`) | Three.js client-side math simulation with randomized demand spikes. | Explicitly labeled **"Simulation prototype / Demo mode"**. Metrics removed from card. |
-| **Soulbound Token Identity Auth** | AGORA Governance | Ethereum Sepolia testnet smart contract prototype. | Explicitly labeled **"Hackathon project / Demo mode"**. Metrics removed from card. |
-| **Offline Chatbot Fallback** | AI Assistant (`/api/chat`) | Local regex and heuristic response matrix when API quota or network fails. | Clearly tagged as offline fallback in server response when `GEMINI_API_KEY` is not present. |
-| **News Summarizer Model Weights** | Seq2Seq Attention Summarizer | PyTorch checkpoints stored externally. | Evaluated against standard Lead-3 baseline; checkpoint evaluation marked pending in `/docs/OPEN_ITEMS.md`. |
+| Feature / System | Real Implementation State | UI Transparency Action |
+|---|---|---|
+| **FactLens AI Evaluation** | Evaluated on single-claim balanced benchmark ($n=100$) derived from FEVER & LIAR. | Card explicitly discloses: *"Offline simulated evaluation with zero external API latency; evaluated on single claims without complex conversational context."* |
+| **InsightAI ATS Engine** | Evaluated on synthetic resume-JD pairs ($n=32$) with cosine similarity scoring. | Card explicitly discloses: *"Evaluated on synthetic test corpus; latency measures scoring only and excludes PDF parsing overhead."* |
+| **Underwater Analytics** | Track B potability evaluated on Kaggle drinking water potability dataset ($N=3,276$); Track A DO forecaster on sequential CTD sensor streams ($N=720$). | Card explicitly discloses: *"Track B uses public static physicochemical attributes, not live oceanographic telemetry. Track A stream models DO only."* |
+| **IRA Smart City** | Three.js client-side graph simulation with mock demand load. | Labeled with badge: **"Simulation prototype / Demo mode"**. |
+| **AGORA Governance** | Ethereum Sepolia testnet DAO contract prototype. | Labeled with badge: **"Hackathon project / Demo mode"**. |
+| **Neural Assistant (ChatBot)** | Client-side Next.js route calling Google Gemini API or graceful offline matcher. | Graceful offline mode clearly states when operating locally without external credentials. |
