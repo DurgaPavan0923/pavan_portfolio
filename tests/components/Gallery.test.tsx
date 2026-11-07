@@ -6,7 +6,7 @@ import { Gallery } from '@/components/sections/Gallery';
 // Mock next/image
 vi.mock('next/image', () => ({
   __esModule: true,
-  default: ({ fill, priority, ...props }: any) => {
+  default: ({ fill, priority, blurDataURL, placeholder, ...props }: any) => {
     // eslint-disable-next-line @next/next/no-img-element
     return <img {...props} alt={props.alt || ''} />;
   },
@@ -15,7 +15,7 @@ vi.mock('next/image', () => ({
 describe('Gallery Component', () => {
   it('renders section and photo moments', () => {
     render(<Gallery />);
-    expect(screen.getByText(/07 \/\/ MOMENTS IN ACTION/i)).toBeInTheDocument();
+    expect(screen.getByText(/09 \/\/ MOMENTS & HIGHLIGHTS/i)).toBeInTheDocument();
     expect(screen.getAllByText(/IRA Showcase at Abinya 3.0/i).length).toBeGreaterThan(0);
   });
 
