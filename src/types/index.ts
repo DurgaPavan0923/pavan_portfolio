@@ -6,6 +6,25 @@ export interface ProjectMetric {
   change?: string;
 }
 
+export interface ArchitectureStep {
+  icon: string;
+  title: string;
+  desc: string;
+}
+
+export interface EvalMetric {
+  label: string;
+  value: string;
+}
+
+export interface ProjectEvalResult {
+  summary: string;
+  dataset: string;
+  sampleSize: string;
+  date: string;
+  metrics: EvalMetric[];
+}
+
 export interface Project {
   slug: string;
   name: string;
@@ -17,22 +36,11 @@ export interface Project {
   problem: string;
   approach?: string;
   solution: string;
-  evalResult?: {
-    summary: string;
-    dataset: string;
-    sampleSize: string;
-    date: string;
-    metrics: ProjectMetric[];
-    status?: string;
-  };
   whatIdImprove?: string;
+  evalResult?: ProjectEvalResult;
   evalUrl?: string;
   architecture: string;
-  architectureSteps?: {
-    icon: string;
-    title: string;
-    desc: string;
-  }[];
+  architectureSteps?: ArchitectureStep[];
   technologies: string[];
   deployment: string;
   impact: string;
@@ -44,16 +52,16 @@ export interface Project {
   forks?: number;
 }
 
-export interface Skill {
+export interface SkillItem {
   name: string;
-  level?: 'Expert' | 'Advanced' | 'Intermediate';
-  icon?: string;
+  icon: string;
+  highlight?: boolean;
 }
 
 export interface SkillCategory {
   title: string;
   description: string;
-  skills: Skill[];
+  skills: SkillItem[];
 }
 
 export interface ExperienceRole {
@@ -94,7 +102,7 @@ export interface LeadershipRecognition {
   period?: string;
   description: string;
   icon: string;
-  badge: string;
+  badge?: string;
 }
 
 export type GalleryCategory = 'All' | 'Hackathons & Tech' | 'NCC & Discipline' | 'Community & Leadership';
@@ -102,15 +110,17 @@ export type GalleryCategory = 'All' | 'Hackathons & Tech' | 'NCC & Discipline' |
 export interface GalleryItem {
   id: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   category: 'Hackathons & Tech' | 'NCC & Discipline' | 'Community & Leadership';
   date: string;
   location: string;
   description: string;
   imageSrc: string;
-  aspectRatio: 'portrait' | 'landscape' | 'wide';
-  tags: string[];
+  aspectRatio?: 'portrait' | 'landscape' | 'wide';
+  tags?: string[];
   badge?: string;
+  width?: number;
+  height?: number;
 }
 
 export interface BlogPost {
@@ -120,9 +130,9 @@ export interface BlogPost {
   content: string;
   date: string;
   readTime: string;
-  category: string;
+  category?: string;
   tags: string[];
-  published: boolean;
+  published?: boolean;
   externalUrl?: string;
 }
 
