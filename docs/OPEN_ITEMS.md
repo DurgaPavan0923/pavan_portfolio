@@ -18,12 +18,10 @@ To enable live telemetry and AI features on Vercel:
 ---
 
 ## 2. Academic & Education Verification
-- **Item:** B.Tech Computer Science (AI & ML) CGPA (`7.85 / 10.0`).
-- **Where It Appears:** Credentials & Education section (`#credentials`), `src/data/profile.ts`, Command Palette (`act-result-portal`), Chatbot.
-- **Status:** Displayed honestly as `7.85 / 10.0` with a direct link to the SOA University Examination Result Portal (`https://soaportals.com/StudentPortalSOA/#/`) and note *"Student login required; marksheet available on request."*
-- **Action Needed:**
-  - Place an official semester grade sheet or consolidated transcript PDF in `/public/docs/marksheet.pdf`.
-  - Alternatively, provide an authenticated digital verification URL from the university registrar.
+- **Item:** B.Tech Computer Science (AI & ML) CGPA & SOA Student Result Portal.
+- **Where It Appears:** Intentionally removed from all public views, components, data files, command palette, chatbot prompts, and metadata.
+- **Status:** **EXPUNGED AS ORDERED**. Degree card displays degree title (`B.Tech in Computer Science and Engineering`), specialization (`Artificial Intelligence & Machine Learning`), institution (`Siksha ‘O’ Anusandhan (SOA), ITER`), period (`Aug 2023 – Jul 2027`), and location (`Bhubaneswar, Odisha, India`) without unverified numbers or external portal login links.
+- **Candidate Note:** Official semester transcripts or marksheets can be provided directly to recruiters upon request via email (`rdpkumar2308@gmail.com`).
 
 ---
 

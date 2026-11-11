@@ -23,7 +23,6 @@ export const PROFILE_DATA: ProfileData = {
     field: 'Artificial Intelligence & Machine Learning',
     institution: 'Siksha ‘O’ Anusandhan (SOA), ITER',
     period: 'Aug 2023 – Jul 2027',
-    cgpa: '7.85 / 10.0',
     location: 'Bhubaneswar, Odisha, India',
   },
   contact: {
@@ -53,7 +52,6 @@ export const PROFILE_DATA: ProfileData = {
     learning: 'Distributed training & graph-augmented retrieval systems',
     seeking: 'AI/ML internships and entry-level software engineering roles',
   },
-  resultPortalUrl: 'https://soaportals.com/StudentPortalSOA/#/',
   bioParagraphs: [
     'I’m Rajana Durga Pavan Kumar, a Computer Science undergraduate specializing in AI & Machine Learning at SOA University (ITER), Class of 2027. I build practical AI applications, Retrieval-Augmented Generation (RAG) pipelines, and machine learning systems backed by empirical evaluations.',
     'My technical focus spans multi-agent orchestration, graph-enhanced semantic search (Neo4j + Pinecone), and natural language processing. I serve as a Student Intern at TIH IIT Guwahati and Club Coordinator at GDGoC ITER, coordinating technical workshops and study jams across campus.',

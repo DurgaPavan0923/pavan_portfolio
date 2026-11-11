@@ -83,41 +83,16 @@ export function Certifications() {
                 </div>
               </div>
 
-              {/* Education Meta Details: Period, Location, CGPA & Verification */}
-              <div className="flex flex-col sm:flex-row md:flex-col items-start md:items-end justify-between gap-3 pt-4 md:pt-0 border-t md:border-t-0 border-slate-100 dark:border-white/[0.04]">
-                <div className="flex items-center gap-3 text-xs font-mono text-slate-500 dark:text-slate-400">
-                  <span className="flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5 text-cyan-500" />
-                    {PROFILE_DATA.education.period}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <MapPin className="w-3.5 h-3.5 text-emerald-500" />
-                    {PROFILE_DATA.education.location}
-                  </span>
-                </div>
-
-                {/* CGPA with Verification Path */}
-                <div className="flex flex-col items-start md:items-end gap-1.5">
-                  <div className="flex items-center gap-2">
-                    <div className="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200 dark:border-white/[0.08] text-right">
-                      <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 uppercase">Current CGPA</div>
-                      <div className="text-sm font-bold font-mono text-slate-900 dark:text-slate-100">{PROFILE_DATA.education.cgpa}</div>
-                    </div>
-                    <a
-                      href="https://soaportals.com/StudentPortalSOA/#/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.1] text-[11px] font-mono text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-cyan-400"
-                      title="SOA University Student Portal"
-                    >
-                      <span>Result Portal</span>
-                      <ExternalLink className="w-3 h-3" />
-                    </a>
-                  </div>
-                  <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                    Student login required; official marksheet available on request.
-                  </span>
-                </div>
+              {/* Education Meta Details: Period & Location */}
+              <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 pt-3 md:pt-0 border-t md:border-t-0 border-slate-100 dark:border-white/[0.04]">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-cyan-600 dark:text-cyan-400" />
+                  {PROFILE_DATA.education.period}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                  {PROFILE_DATA.education.location}
+                </span>
               </div>
             </div>
           </div>

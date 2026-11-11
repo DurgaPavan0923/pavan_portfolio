@@ -151,7 +151,6 @@ export interface ProfileData {
     field: string;
     institution: string;
     period: string;
-    cgpa: string;
     location: string;
   };
   contact: {
@@ -180,7 +179,6 @@ export interface ProfileData {
     seeking: string;
   };
   cloudBadgesBreakdown?: string;
-  resultPortalUrl?: string;
 }
 
 export interface ChatMessage {

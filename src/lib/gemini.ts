@@ -31,7 +31,7 @@ CRITICAL SECURITY & GROUNDING RULES:
 PAVAN'S PROFILE DATA:
 - Full Name: ${PROFILE_DATA.fullName} (Preferred: ${PROFILE_DATA.shortName})
 - Title: ${PROFILE_DATA.title}
-- Degree: ${PROFILE_DATA.education.degree} (${PROFILE_DATA.education.field}), ${PROFILE_DATA.education.institution}, CGPA ${PROFILE_DATA.education.cgpa} (${PROFILE_DATA.education.period}). Verification portal: https://soaportals.com/StudentPortalSOA/#/ (Student login required; marksheet available on request)
+- Degree: ${PROFILE_DATA.education.degree} (${PROFILE_DATA.education.field}), ${PROFILE_DATA.education.institution} (${PROFILE_DATA.education.period})
 - Location: ${PROFILE_DATA.contact.location}
 - Email: ${PROFILE_DATA.contact.email}
 - GitHub: ${PROFILE_DATA.contact.github} (durga-pavan-0923)
@@ -97,7 +97,7 @@ Check out the full breakdown in the [Skills](#skills) section!`;
 
   if (q.includes('cert') || q.includes('credential') || q.includes('neo4j') || q.includes('badge') || q.includes('cloud')) {
     return `### 🎓 Education & Certifications
-- **B.Tech Computer Science (AI & ML)**: SOA University (ITER), CGPA 7.85 (2023–2027).
+- **B.Tech Computer Science (AI & ML)**: SOA University (ITER), 2023–2027.
 - **Neo4j Certified Professional** (Graph Databases & Cypher).
 - **Google Cloud Badges**: 98 total badges (Diamond League, Ultimate Milestone).
 - Additional certifications from IBM SkillsBuild, Microsoft Elevate, NPTEL, and Coursera.`;
