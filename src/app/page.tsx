@@ -8,6 +8,7 @@ import { MobileMenu } from '@/components/layout/MobileMenu';
 import { CommandPalette } from '@/components/layout/CommandPalette';
 import { Footer } from '@/components/layout/Footer';
 import { ChatBot } from '@/components/ai/ChatBot';
+import { ErrorBoundary } from '@/components/layout/ErrorBoundary';
 
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
@@ -38,7 +39,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* 60fps Dynamic Neural Particle Canvas */}
-      <NeuralBackground />
+      <ErrorBoundary fallbackTitle="Background Canvas Unavailable" fallbackMessage="Particle animations suspended.">
+        <NeuralBackground />
+      </ErrorBoundary>
 
       {/* Focus Mode Exit Floating Pill */}
       {isFocusMode && (
@@ -87,7 +90,9 @@ export default function Home() {
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <Projects />
         <Experience />
-        <GitHubActivity />
+        <ErrorBoundary fallbackTitle="GitHub Telemetry Unavailable" fallbackMessage="Unable to load real-time GitHub telemetry. You can still inspect public projects on GitHub.">
+          <GitHubActivity />
+        </ErrorBoundary>
         <Skills />
         <Certifications />
         <Leadership />
@@ -100,11 +105,13 @@ export default function Home() {
 
       {/* Neural AI Assistant */}
       {!isFocusMode && (
-        <ChatBot
-          isOpen={isChatOpen}
-          onToggle={() => setIsChatOpen(!isChatOpen)}
-          onClose={() => setIsChatOpen(false)}
-        />
+        <ErrorBoundary fallbackTitle="AI Assistant Unavailable" fallbackMessage="Unable to initialize Neural Assistant chat session.">
+          <ChatBot
+            isOpen={isChatOpen}
+            onToggle={() => setIsChatOpen(!isChatOpen)}
+            onClose={() => setIsChatOpen(false)}
+          />
+        </ErrorBoundary>
       )}
     </div>
   );

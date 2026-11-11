@@ -29,15 +29,15 @@ To enable live telemetry and AI features on Vercel:
 
 | # | Credential / Event | Issuer | Current Portfolio Status | Action Needed from Candidate |
 |---|---|---|---|---|
-| 1 | **Neo4j Certified Professional** | Neo4j Graph Academy | **VERIFIED** (ID: `178619623`) | None; verified and linkable. |
+| 1 | **Neo4j Certified Professional** | Neo4j Graph Academy | **VERIFIED** (ID: `178619623`, verified portal link) | None; verified on site. |
 | 2 | **Google Cloud Badges** | Google Cloud Skills Boost | **VERIFIED** (98 total badges: 57 skill + 12 arcade + 9 trivia + 18 lab-free courses) | Add public profile URL to Skills Boost if desired. |
-| 3 | **IBM Machine Learning Specialization** | IBM / Coursera | "Available on request" | Provide Coursera verification link (`coursera.org/verify/...`). |
-| 4 | **Microsoft Elevate: Azure Cloud** | Microsoft / AICTE | "Available on request" | Provide AICTE/Microsoft certificate link or PDF. |
-| 5 | **NPTEL AI & Deep Learning** | NPTEL / IIT Madras | "Available on request" | Provide NPTEL e-certificate link or roll number. |
-| 6 | **Tata Cyber Security Analyst Simulation** | Tata Group / Forage | "Available on request" | Provide Forage completion link or certificate hash. |
+| 3 | **IBM Machine Learning Specialization** | IBM SkillsBuild / Edunet | Displayed cleanly as Course Certificate | Provide Coursera/SkillsBuild verification link when ready. |
+| 4 | **Microsoft Elevate: Azure Cloud** | Microsoft / AICTE | Displayed cleanly as Cloud Fundamentals & Architecture | Provide AICTE/Microsoft certificate link or PDF. |
+| 5 | **NPTEL AI & Deep Learning** | NPTEL / IIT Madras | Displayed cleanly as 12-Week AI Curriculum Certificate | Provide NPTEL e-certificate link or roll number. |
+| 6 | **Deloitte Technology Simulation** | Deloitte / Forage | Displayed cleanly as Practical Simulation Certificate | Provide Forage completion link or certificate hash. |
 | 7 | **Adobe India GenAI Hackathon** | Adobe | **Participation** | Participation badge recorded. |
 | 8 | **Convolve 4.0 Pan-IIT AI/ML Hackathon** | IIT Kharagpur & IIT Guwahati | **Participation** | Participation badge recorded. |
-| 9 | **ICAAIMLS 2025 International Conference** | ICAAIMLS | **Participation** | Participation badge recorded. |
+| 9 | **ICAAIMLS 2024 International Conference** | ICAAIMLS / SOA University | **Participation** | Participation badge recorded. |
 
 ---
 

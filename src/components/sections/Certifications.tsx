@@ -5,7 +5,6 @@ import { CERTIFICATIONS } from '@/data/certifications';
 import { PROFILE_DATA } from '@/data/profile';
 import {
   ExternalLink,
-  ShieldCheck,
   GraduationCap,
   Calendar,
   MapPin,
@@ -139,23 +138,18 @@ export function Certifications() {
                 )}
               </div>
 
-              <div className="flex items-center justify-between pt-4 mt-4 border-t border-slate-100 dark:border-white/[0.04] text-xs font-mono">
-                <span className="text-slate-500">{cert.date}</span>
-                {cert.verifyUrl ? (
+              <div className="flex items-center justify-between pt-3 mt-4 border-t border-slate-100 dark:border-white/[0.04] text-xs font-mono">
+                <span className="text-slate-500 dark:text-slate-400">{cert.date}</span>
+                {cert.verifyUrl && (
                   <a
                     href={cert.verifyUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-cyan-600 dark:text-cyan-400 hover:text-cyan-700 dark:hover:text-cyan-300 font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-400"
                   >
-                    <span>Verification Portal</span>
+                    <span>Verify</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
-                ) : (
-                  <span className="text-[11px] text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                    <ShieldCheck className="w-3.5 h-3.5 text-cyan-500" />
-                    <span>Available on request</span>
-                  </span>
                 )}
               </div>
             </div>
