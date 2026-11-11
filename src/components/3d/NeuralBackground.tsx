@@ -32,9 +32,10 @@ export function NeuralBackground() {
     let animationFrameId: number;
     let isPaused = false;
 
-    // Responsive particle count
-    const count = width < 768 ? 40 : width < 1200 ? 70 : 105;
-    const maxDistance = width < 768 ? 95 : 135;
+    // Responsive particle count (reduced on mobile for cool GPU/CPU)
+    const isMobile = width < 768;
+    const count = isMobile ? 20 : width < 1200 ? 55 : 75;
+    const maxDistance = isMobile ? 80 : 130;
 
     const particles: Particle[] = [];
     const colorsDark = ['#00cfff', '#8b5cf6', '#10b981', '#38bdf8'];
@@ -133,7 +134,8 @@ export function NeuralBackground() {
             const dist = Math.sqrt(dx * dx + dy * dy);
 
             if (dist < maxDistance) {
-              const alpha = (1 - dist / maxDistance) * (isLight ? 0.28 : 0.2);
+              const baseAlpha = isMobile ? (isLight ? 0.16 : 0.12) : (isLight ? 0.28 : 0.2);
+              const alpha = (1 - dist / maxDistance) * baseAlpha;
               ctx.beginPath();
               ctx.moveTo(p.x, p.y);
               ctx.lineTo(p2.x, p2.y);

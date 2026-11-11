@@ -22,6 +22,7 @@ import {
   Layers,
   Code2,
   Compass,
+  ChevronDown,
 } from 'lucide-react';
 
 export function Projects() {
@@ -152,71 +153,103 @@ export function Projects() {
                     <p className="text-slate-700 dark:text-slate-300">{project.approach || project.solution}</p>
                   </div>
 
-                  {/* 3. Result (Real numbers, n, dataset, date) */}
+                  {/* 3. Key Impact Metrics Preview */}
                   {project.evalResult && (
-                    <div className="p-3 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/15">
-                      <div className="flex items-center justify-between mb-1.5">
-                        <div className="flex items-center gap-1.5 font-bold text-emerald-700 dark:text-emerald-400 text-[11px] uppercase tracking-wider">
-                          <BarChart3 className="w-3.5 h-3.5 shrink-0" />
-                          <span>Evaluation Result</span>
-                        </div>
-                        <span className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
-                          {project.evalResult.date}
-                        </span>
-                      </div>
-                      <p className="text-slate-700 dark:text-slate-300 mb-2">
-                        {project.evalResult.summary}
-                      </p>
-                      <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400 mb-2">
-                        Dataset: <span className="font-semibold text-slate-700 dark:text-slate-300">{project.evalResult.dataset}</span> ({project.evalResult.sampleSize})
-                      </div>
-                      {/* Metric Pills */}
-                      <div className="grid grid-cols-2 gap-1.5">
-                        {project.evalResult.metrics.map((m, idx) => (
-                          <div key={idx} className="p-1.5 rounded-lg bg-white/60 dark:bg-slate-900/60 border border-slate-200/60 dark:border-white/[0.06] text-center">
-                            <div className="font-bold text-[11px] text-emerald-600 dark:text-emerald-400">{m.value}</div>
-                            <div className="text-[9px] font-mono text-slate-500 uppercase">{m.label}</div>
+                    <div className="grid grid-cols-2 gap-2 pt-1">
+                      {project.evalResult.metrics.slice(0, 2).map((m, idx) => (
+                        <div
+                          key={idx}
+                          className="p-2 rounded-xl bg-emerald-500/[0.06] border border-emerald-500/20 text-center"
+                        >
+                          <div className="font-display font-extrabold text-sm text-emerald-600 dark:text-emerald-400">
+                            {m.value}
                           </div>
-                        ))}
-                      </div>
-                      {/* Link to /evals */}
-                      {project.evalUrl && (
-                        <div className="mt-2.5 pt-2 border-t border-emerald-500/10 flex items-center justify-between">
-                          <a
-                            href={project.evalUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
-                          >
-                            <FileCheck2 className="w-3 h-3" />
-                            <span>Read /evals Methodology</span>
-                            <span className="text-[9px]">↗</span>
-                          </a>
+                          <div className="text-[10px] font-mono text-slate-500 uppercase tracking-wider mt-0.5">
+                            {m.label}
+                          </div>
                         </div>
-                      )}
+                      ))}
                     </div>
                   )}
 
-                  {/* 4. Limitations */}
-                  {project.limitations && (
-                    <div className="p-3 rounded-xl bg-slate-500/[0.06] border border-slate-500/15">
-                      <div className="flex items-center gap-1.5 font-bold text-slate-700 dark:text-slate-400 text-[11px] uppercase tracking-wider mb-1">
-                        <ShieldAlert className="w-3.5 h-3.5 shrink-0 text-slate-500" />
-                        <span>Limitations</span>
-                      </div>
-                      <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">{project.limitations}</p>
-                    </div>
-                  )}
+                  {/* 4. Collapsible Evaluation Details (Collapsed by default for recruiter readability) */}
+                  {project.evalResult && (
+                    <details className="group/eval rounded-2xl border border-slate-200 dark:border-white/[0.08] bg-slate-50/80 dark:bg-white/[0.02] overflow-hidden transition-all duration-200">
+                      <summary className="flex items-center justify-between p-3 cursor-pointer text-xs font-mono font-medium text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 select-none focus:outline-none focus:ring-2 focus:ring-cyan-400">
+                        <span className="flex items-center gap-1.5 font-bold">
+                          <BarChart3 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                          <span>Evaluation details &amp; metrics</span>
+                        </span>
+                        <ChevronDown className="w-4 h-4 text-slate-400 group-open/eval:rotate-180 transition-transform duration-200" />
+                      </summary>
 
-                  {/* 5. What I'd Improve */}
-                  {project.whatIdImprove && (
-                    <div className="p-3 rounded-xl bg-violet-500/[0.06] border border-violet-500/15">
-                      <div className="flex items-center gap-1.5 font-bold text-violet-700 dark:text-violet-400 text-[11px] uppercase tracking-wider mb-1">
-                        <Wrench className="w-3.5 h-3.5 shrink-0" />
-                        <span>What I’d Improve</span>
+                      <div className="p-3 pt-1 space-y-3 border-t border-slate-100 dark:border-white/[0.04] text-xs">
+                        {/* Summary & Dataset Provenance */}
+                        <div>
+                          <p className="text-slate-700 dark:text-slate-300 mb-1.5 leading-relaxed">
+                            {project.evalResult.summary}
+                          </p>
+                          <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                            Dataset: <span className="font-semibold text-slate-800 dark:text-slate-200">{project.evalResult.dataset}</span> ({project.evalResult.sampleSize}) · {project.evalResult.date}
+                          </div>
+                        </div>
+
+                        {/* All Evaluation Metric Pills */}
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {project.evalResult.metrics.map((m, idx) => (
+                            <div
+                              key={idx}
+                              className="p-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-white/[0.06] text-center"
+                            >
+                              <div className="font-bold text-[11px] text-emerald-600 dark:text-emerald-400">{m.value}</div>
+                              <div className="text-[9px] font-mono text-slate-500 uppercase">{m.label}</div>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Limitations */}
+                        {project.limitations && (
+                          <div className="p-2.5 rounded-xl bg-slate-500/[0.06] border border-slate-500/15">
+                            <div className="flex items-center gap-1 font-bold text-slate-700 dark:text-slate-400 text-[10px] uppercase tracking-wider mb-0.5">
+                              <ShieldAlert className="w-3 h-3 text-slate-500" />
+                              <span>Limitations</span>
+                            </div>
+                            <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                              {project.limitations}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* What I'd Improve */}
+                        {project.whatIdImprove && (
+                          <div className="p-2.5 rounded-xl bg-violet-500/[0.06] border border-violet-500/15">
+                            <div className="flex items-center gap-1 font-bold text-violet-700 dark:text-violet-400 text-[10px] uppercase tracking-wider mb-0.5">
+                              <Wrench className="w-3 h-3 text-violet-500" />
+                              <span>What I’d Improve</span>
+                            </div>
+                            <p className="text-slate-600 dark:text-slate-300 text-[11px] leading-relaxed">
+                              {project.whatIdImprove}
+                            </p>
+                          </div>
+                        )}
+
+                        {/* Methodology Link */}
+                        {project.evalUrl && (
+                          <div className="pt-2 border-t border-slate-100 dark:border-white/[0.06] flex items-center justify-between">
+                            <a
+                              href={project.evalUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 text-[11px] font-mono font-semibold text-emerald-600 dark:text-emerald-400 hover:underline"
+                            >
+                              <FileCheck2 className="w-3 h-3" />
+                              <span>Read /evals Methodology</span>
+                              <span className="text-[9px]">↗</span>
+                            </a>
+                          </div>
+                        )}
                       </div>
-                      <p className="text-slate-700 dark:text-slate-300">{project.whatIdImprove}</p>
-                    </div>
+                    </details>
                   )}
                 </div>
 

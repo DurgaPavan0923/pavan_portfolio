@@ -32,7 +32,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/80 dark:bg-slate-950/60 backdrop-blur-md pt-12 pb-8 px-4 sm:px-6">
+    <footer className="relative border-t border-slate-200 dark:border-white/[0.08] bg-slate-50/80 dark:bg-slate-950/60 backdrop-blur-md pt-12 pb-safe pb-10 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto flex flex-col gap-8">
         {/* Top Tier */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">

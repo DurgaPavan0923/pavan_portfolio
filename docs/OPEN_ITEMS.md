@@ -18,12 +18,10 @@ To enable live telemetry and AI features on Vercel:
 ---
 
 ## 2. Academic & Education Verification
-- **Item:** B.Tech Computer Science (AI & ML) CGPA (`7.85 / 10.0`).
-- **Where It Appears:** Credentials & Education section (`#credentials`), `src/data/profile.ts`, Command Palette (`act-result-portal`), Chatbot.
-- **Status:** Displayed honestly as `7.85 / 10.0` with a direct link to the SOA University Examination Result Portal (`https://soaportals.com/StudentPortalSOA/#/`) and note *"Student login required; marksheet available on request."*
-- **Action Needed:**
-  - Place an official semester grade sheet or consolidated transcript PDF in `/public/docs/marksheet.pdf`.
-  - Alternatively, provide an authenticated digital verification URL from the university registrar.
+- **Item:** B.Tech Computer Science (AI & ML) CGPA & SOA Student Result Portal.
+- **Where It Appears:** Intentionally removed from all public views, components, data files, command palette, chatbot prompts, and metadata.
+- **Status:** **EXPUNGED AS ORDERED**. Degree card displays degree title (`B.Tech in Computer Science and Engineering`), specialization (`Artificial Intelligence & Machine Learning`), institution (`Siksha ‘O’ Anusandhan (SOA), ITER`), period (`Aug 2023 – Jul 2027`), and location (`Bhubaneswar, Odisha, India`) without unverified numbers or external portal login links.
+- **Candidate Note:** Official semester transcripts or marksheets can be provided directly to recruiters upon request via email (`rdpkumar2308@gmail.com`).
 
 ---
 
@@ -31,15 +29,15 @@ To enable live telemetry and AI features on Vercel:
 
 | # | Credential / Event | Issuer | Current Portfolio Status | Action Needed from Candidate |
 |---|---|---|---|---|
-| 1 | **Neo4j Certified Professional** | Neo4j Graph Academy | **VERIFIED** (ID: `178619623`) | None; verified and linkable. |
+| 1 | **Neo4j Certified Professional** | Neo4j Graph Academy | **VERIFIED** (ID: `178619623`, verified portal link) | None; verified on site. |
 | 2 | **Google Cloud Badges** | Google Cloud Skills Boost | **VERIFIED** (98 total badges: 57 skill + 12 arcade + 9 trivia + 18 lab-free courses) | Add public profile URL to Skills Boost if desired. |
-| 3 | **IBM Machine Learning Specialization** | IBM / Coursera | "Available on request" | Provide Coursera verification link (`coursera.org/verify/...`). |
-| 4 | **Microsoft Elevate: Azure Cloud** | Microsoft / AICTE | "Available on request" | Provide AICTE/Microsoft certificate link or PDF. |
-| 5 | **NPTEL AI & Deep Learning** | NPTEL / IIT Madras | "Available on request" | Provide NPTEL e-certificate link or roll number. |
-| 6 | **Tata Cyber Security Analyst Simulation** | Tata Group / Forage | "Available on request" | Provide Forage completion link or certificate hash. |
+| 3 | **IBM Machine Learning Specialization** | IBM SkillsBuild / Edunet | Displayed cleanly as Course Certificate | Provide Coursera/SkillsBuild verification link when ready. |
+| 4 | **Microsoft Elevate: Azure Cloud** | Microsoft / AICTE | Displayed cleanly as Cloud Fundamentals & Architecture | Provide AICTE/Microsoft certificate link or PDF. |
+| 5 | **NPTEL AI & Deep Learning** | NPTEL / IIT Madras | Displayed cleanly as 12-Week AI Curriculum Certificate | Provide NPTEL e-certificate link or roll number. |
+| 6 | **Deloitte Technology Simulation** | Deloitte / Forage | Displayed cleanly as Practical Simulation Certificate | Provide Forage completion link or certificate hash. |
 | 7 | **Adobe India GenAI Hackathon** | Adobe | **Participation** | Participation badge recorded. |
 | 8 | **Convolve 4.0 Pan-IIT AI/ML Hackathon** | IIT Kharagpur & IIT Guwahati | **Participation** | Participation badge recorded. |
-| 9 | **ICAAIMLS 2025 International Conference** | ICAAIMLS | **Participation** | Participation badge recorded. |
+| 9 | **ICAAIMLS 2024 International Conference** | ICAAIMLS / SOA University | **Participation** | Participation badge recorded. |
 
 ---
 

@@ -8,7 +8,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: 'Link',
-    credentialId: 'Available on request',
+    credentialId: 'Credential ID: 178619623',
     verifyUrl: 'https://graphacademy.neo4j.com/',
     type: 'Certification',
   },
@@ -30,7 +30,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: 'Jan – Feb 2026',
     category: 'Cloud',
     icon: 'Cloud',
-    credentialId: 'Available on request',
+    credentialId: 'Cloud Fundamentals & Architecture',
     type: 'Certification',
   },
   {
@@ -40,7 +40,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: 'Brain',
-    credentialId: 'Available on request',
+    credentialId: 'Course Completion Certificate',
     type: 'Certification',
   },
   {
@@ -50,7 +50,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2025',
     category: 'AI/ML',
     icon: 'Terminal',
-    credentialId: 'Available on request',
+    credentialId: 'Practical Simulation Certificate',
     type: 'Certification',
   },
   {
@@ -90,7 +90,7 @@ export const CERTIFICATIONS: Certification[] = [
     date: '2024',
     category: 'AI/ML',
     icon: 'GraduationCap',
-    credentialId: 'Available on request',
+    credentialId: '12-Week AI Curriculum Certificate',
     type: 'Certification',
   },
 ];

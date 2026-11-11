@@ -5,10 +5,10 @@ import { Eye } from 'lucide-react';
 import { NeuralBackground } from '@/components/3d/NeuralBackground';
 import { Navbar } from '@/components/layout/Navbar';
 import { MobileMenu } from '@/components/layout/MobileMenu';
-import { MobileDock } from '@/components/layout/MobileDock';
 import { CommandPalette } from '@/components/layout/CommandPalette';
 import { Footer } from '@/components/layout/Footer';
 import { ChatBot } from '@/components/ai/ChatBot';
+import { ErrorBoundary } from '@/components/layout/ErrorBoundary';
 
 import { Hero } from '@/components/sections/Hero';
 import { Projects } from '@/components/sections/Projects';
@@ -39,7 +39,9 @@ export default function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* 60fps Dynamic Neural Particle Canvas */}
-      <NeuralBackground />
+      <ErrorBoundary fallbackTitle="Background Canvas Unavailable" fallbackMessage="Particle animations suspended.">
+        <NeuralBackground />
+      </ErrorBoundary>
 
       {/* Focus Mode Exit Floating Pill */}
       {isFocusMode && (
@@ -65,20 +67,13 @@ export default function Home() {
         />
       )}
 
-      {/* Mobile Slide-Over Drawer */}
+      {/* Mobile Slide-Over Drawer with Recruiter-First Navigation & ⌘K Action */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        onOpenPalette={() => setIsPaletteOpen(true)}
+        onOpenChat={() => setIsChatOpen(true)}
       />
-
-      {/* Mobile / Tablet Quick Navigation Dock */}
-      {!isFocusMode && (
-        <MobileDock
-          onOpenPalette={() => setIsPaletteOpen(true)}
-          onOpenChat={() => setIsChatOpen((prev) => !prev)}
-          isChatOpen={isChatOpen}
-        />
-      )}
 
       {/* Cmd + K Command Palette */}
       <CommandPalette
@@ -91,11 +86,13 @@ export default function Home() {
 
       {/* Main Semantic Landmark with Recruiter-First Flow:
           01 Hero → 02 Featured Projects → 03 Experience → 04 Open Source (live) → 05 Skills → 06 Credentials & Education → 07 Leadership → 08 Moments (photos) → 09 Contact */}
-      <main id="main-content" className="relative z-10 pb-16 lg:pb-0">
+      <main id="main-content" className="relative z-10 pb-safe pb-12 lg:pb-0">
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <Projects />
         <Experience />
-        <GitHubActivity />
+        <ErrorBoundary fallbackTitle="GitHub Telemetry Unavailable" fallbackMessage="Unable to load real-time GitHub telemetry. You can still inspect public projects on GitHub.">
+          <GitHubActivity />
+        </ErrorBoundary>
         <Skills />
         <Certifications />
         <Leadership />
@@ -108,11 +105,13 @@ export default function Home() {
 
       {/* Neural AI Assistant */}
       {!isFocusMode && (
-        <ChatBot
-          isOpen={isChatOpen}
-          onToggle={() => setIsChatOpen(!isChatOpen)}
-          onClose={() => setIsChatOpen(false)}
-        />
+        <ErrorBoundary fallbackTitle="AI Assistant Unavailable" fallbackMessage="Unable to initialize Neural Assistant chat session.">
+          <ChatBot
+            isOpen={isChatOpen}
+            onToggle={() => setIsChatOpen(!isChatOpen)}
+            onClose={() => setIsChatOpen(false)}
+          />
+        </ErrorBoundary>
       )}
     </div>
   );
