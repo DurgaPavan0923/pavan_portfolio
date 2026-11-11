@@ -159,8 +159,8 @@ async function main() {
   const priorityRepoNames = [
     'AI-Powered-Fake-News-Detector-for-Students',
     'AI-Resume-Screening-Job-Match-System',
+    'RajanaDurgaPavanKumar_C1_ONLINETIHIITG',
     'IRA',
-    'AGORA-PROXIMA',
   ];
 
   const featuredRepos: FeaturedRepo[] = priorityRepoNames
@@ -174,14 +174,17 @@ async function main() {
             ? 'FactLens AI'
             : match.name === 'AI-Resume-Screening-Job-Match-System'
             ? 'InsightAI ATS'
+            : match.name === 'RajanaDurgaPavanKumar_C1_ONLINETIHIITG'
+            ? 'AquaGuard ML (TIH IIT Guwahati)'
             : match.name === 'IRA'
             ? 'IRA 3D Smart City'
-            : match.name === 'AGORA-PROXIMA'
-            ? 'AGORA Proxima'
             : match.name,
-        description: match.description || 'Open-source repository by DurgaPavan0923.',
-        language: match.language || 'Python',
-        languageColor: langColors[match.language] || '#3572A5',
+        description:
+          match.name === 'RajanaDurgaPavanKumar_C1_ONLINETIHIITG'
+            ? 'Dual-track environmental machine learning for calibrated water potability classification and oceanographic CTD sensor forecasting.'
+            : match.description || 'Open-source repository by DurgaPavan0923.',
+        language: match.name === 'RajanaDurgaPavanKumar_C1_ONLINETIHIITG' ? 'Python' : match.language || 'Python',
+        languageColor: langColors[match.language] || (match.name === 'RajanaDurgaPavanKumar_C1_ONLINETIHIITG' ? '#3572A5' : '#38bdf8'),
         stars: match.stargazers_count || 0,
         forks: match.forks_count || 0,
         url: match.html_url,
