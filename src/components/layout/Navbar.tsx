@@ -65,7 +65,7 @@ export function Navbar({ onOpenPalette, onOpenMobileMenu }: NavbarProps) {
         {/* Brand Identity */}
         <Link
           href="#hero"
-          className="group flex items-center gap-2.5 font-display font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg"
+          className="group flex items-center gap-2.5 font-display font-extrabold text-base sm:text-lg tracking-tight text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-cyan-400 rounded-lg min-h-[44px]"
         >
           <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-cyan-400 to-emerald-400 flex items-center justify-center text-slate-950 font-mono font-bold text-sm shadow-md shadow-cyan-500/20 group-hover:scale-105 transition-transform">
             P
@@ -112,11 +112,11 @@ export function Navbar({ onOpenPalette, onOpenMobileMenu }: NavbarProps) {
             </kbd>
           </button>
 
-          {/* Theme Switcher Toggle */}
+          {/* Theme Switcher Toggle (≥44px Touch Target) */}
           <button
             type="button"
             onClick={toggleTheme}
-            className="p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-white/[0.08] transition-all hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 hover:text-cyan-600 dark:hover:text-cyan-400 border border-slate-200 dark:border-white/[0.08] transition-all hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 flex items-center justify-center"
             aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           >
             {theme === 'dark' ? (
@@ -132,17 +132,17 @@ export function Navbar({ onOpenPalette, onOpenMobileMenu }: NavbarProps) {
             target="_blank"
             rel="noopener noreferrer"
             download="Rajana_Durga_Pavan_Kumar_Resume.pdf"
-            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="hidden md:inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-slate-950 font-bold text-xs shadow-md shadow-cyan-500/20 transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[44px]"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>
           </a>
 
-          {/* Mobile Hamburger Drawer Trigger */}
+          {/* Mobile Hamburger Drawer Trigger (≥44px Touch Target) */}
           <button
             type="button"
             onClick={onOpenMobileMenu}
-            className="xl:hidden p-2 sm:p-2.5 rounded-xl bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="xl:hidden w-11 h-11 rounded-xl bg-slate-100 dark:bg-white/[0.04] text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-white/[0.08] transition-colors cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 flex items-center justify-center"
             aria-label="Open mobile navigation menu"
           >
             <Menu className="w-5 h-5" />

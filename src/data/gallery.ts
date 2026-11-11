@@ -1,6 +1,6 @@
 import { GalleryItem } from '@/types';
 
-// Curated 16 authentic photos for the Moments infinite marquee, with short factual event + year captions
+// Curated 13 authentic photos for the Moments infinite marquee (de-duplicated events), with short factual event + year captions
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 'proxima-hackathon-2026',
@@ -87,18 +87,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     tags: ['Workshop', 'Three.js'],
   },
   {
-    id: 'proxima-hackathon-2025',
-    title: 'SOA Proxima Fest',
-    subtitle: '2025',
-    category: 'Hackathons & Tech',
-    date: '2025',
-    location: 'SOA University',
-    description: 'SOA Proxima Fest (2025)',
-    imageSrc: '/photos/proxima-hackathon-2025.jpeg',
-    aspectRatio: 'landscape',
-    tags: ['Proxima 2025'],
-  },
-  {
     id: 'odisha-foundation-day-2025',
     title: 'Bharat Scouts & Guides',
     subtitle: '2025',
@@ -133,30 +121,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     imageSrc: '/photos/ncc-catc-2025.jpeg',
     aspectRatio: 'landscape',
     tags: ['NCC', 'CATC 2025'],
-  },
-  {
-    id: 'ncc-catc-2024',
-    title: 'NCC Training Camp (CATC)',
-    subtitle: '2024',
-    category: 'NCC & Discipline',
-    date: '2024',
-    location: 'Odisha',
-    description: 'NCC Annual Training Camp (2024)',
-    imageSrc: '/photos/ncc-catc-2024.jpeg',
-    aspectRatio: 'landscape',
-    tags: ['NCC', 'CATC 2024'],
-  },
-  {
-    id: 'ncc-3rd-state-camp',
-    title: 'Bharat Scouts & Guides Camp',
-    subtitle: '2024',
-    category: 'NCC & Discipline',
-    date: '2024',
-    location: 'Odisha',
-    description: 'Bharat Scouts & Guides Camp (2024)',
-    imageSrc: '/photos/ncc-3rd-state-camp.jpeg',
-    aspectRatio: 'landscape',
-    tags: ['Scouts & Guides', 'Camp'],
   },
   {
     id: 'chakravyuh-genesis-2026',

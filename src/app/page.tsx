@@ -5,7 +5,6 @@ import { Eye } from 'lucide-react';
 import { NeuralBackground } from '@/components/3d/NeuralBackground';
 import { Navbar } from '@/components/layout/Navbar';
 import { MobileMenu } from '@/components/layout/MobileMenu';
-import { MobileDock } from '@/components/layout/MobileDock';
 import { CommandPalette } from '@/components/layout/CommandPalette';
 import { Footer } from '@/components/layout/Footer';
 import { ChatBot } from '@/components/ai/ChatBot';
@@ -65,20 +64,13 @@ export default function Home() {
         />
       )}
 
-      {/* Mobile Slide-Over Drawer */}
+      {/* Mobile Slide-Over Drawer with Recruiter-First Navigation & ⌘K Action */}
       <MobileMenu
         isOpen={isMobileMenuOpen}
         onClose={() => setIsMobileMenuOpen(false)}
+        onOpenPalette={() => setIsPaletteOpen(true)}
+        onOpenChat={() => setIsChatOpen(true)}
       />
-
-      {/* Mobile / Tablet Quick Navigation Dock */}
-      {!isFocusMode && (
-        <MobileDock
-          onOpenPalette={() => setIsPaletteOpen(true)}
-          onOpenChat={() => setIsChatOpen((prev) => !prev)}
-          isChatOpen={isChatOpen}
-        />
-      )}
 
       {/* Cmd + K Command Palette */}
       <CommandPalette
@@ -91,7 +83,7 @@ export default function Home() {
 
       {/* Main Semantic Landmark with Recruiter-First Flow:
           01 Hero → 02 Featured Projects → 03 Experience → 04 Open Source (live) → 05 Skills → 06 Credentials & Education → 07 Leadership → 08 Moments (photos) → 09 Contact */}
-      <main id="main-content" className="relative z-10 pb-16 lg:pb-0">
+      <main id="main-content" className="relative z-10 pb-safe pb-12 lg:pb-0">
         <Hero onOpenChat={() => setIsChatOpen(true)} />
         <Projects />
         <Experience />

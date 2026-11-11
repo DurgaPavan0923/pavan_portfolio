@@ -58,13 +58,13 @@ export function Hero({ onOpenChat }: HeroProps) {
     <section
       id="hero"
       aria-label="Introduction & Headline"
-      className="relative min-h-[86vh] flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 overflow-hidden"
+      className="relative min-h-[86vh] flex items-center justify-center pt-16 sm:pt-24 lg:pt-28 pb-10 sm:pb-16 px-4 sm:px-6 overflow-hidden"
     >
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
         {/* Left Column: Headline, Typewriter, CTAs, About, Currently, Stats */}
         <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left">
           {/* Availability Status Badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-6 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-medium mb-3 sm:mb-4 lg:mb-5 shadow-sm">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
@@ -73,36 +73,29 @@ export function Hero({ onOpenChat }: HeroProps) {
           </div>
 
           {/* Name & Academic Identity */}
-          <h1 className="font-display font-extrabold text-4xl sm:text-5xl md:text-6xl tracking-tight text-slate-900 dark:text-slate-100 leading-[1.1] mb-3">
+          <h1 className="font-display font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-tight text-slate-900 dark:text-slate-100 leading-[1.1] mb-2 sm:mb-3">
             Hi, I’m <span className="text-gradient-cyan">{PROFILE_DATA.fullName}</span>
           </h1>
 
           {/* Dynamic Typewriter Role */}
-          <div className="h-10 sm:h-12 flex items-center justify-center lg:justify-start mb-4">
-            <span className="text-base sm:text-xl font-mono text-cyan-600 dark:text-cyan-400 font-semibold flex items-center">
+          <div className="h-8 sm:h-10 flex items-center justify-center lg:justify-start mb-2 sm:mb-3">
+            <span className="text-sm sm:text-lg font-mono text-cyan-600 dark:text-cyan-400 font-semibold flex items-center">
               {displayedText}
-              <span className="inline-block w-2.5 h-5 ml-1 bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
+              <span className="inline-block w-2.5 h-4 sm:h-5 ml-1 bg-cyan-500 dark:bg-cyan-400 animate-pulse" />
             </span>
           </div>
 
           {/* One-Line Value Statement */}
-          <p className="text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl font-medium leading-relaxed mb-6">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-700 dark:text-slate-300 max-w-2xl font-medium leading-relaxed mb-4 sm:mb-5">
             Computer Science student specializing in AI &amp; ML, building practical AI applications.
           </p>
 
-          {/* Concise About Block */}
-          <div className="p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] text-left max-w-2xl mb-8">
-            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              B.Tech Computer Science undergraduate (Class of 2027) at SOA University (ITER), Bhubaneswar. I focus on Retrieval-Augmented Generation (RAG) pipelines, dual-track machine learning systems, and transparent empirical evaluations. Actively seeking AI/ML internships and entry-level engineering roles.
-            </p>
-          </div>
-
-          {/* Action CTAs: 3 Explicit Recruiter Actions */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-8">
+          {/* Action CTAs: 3 Explicit Recruiter Actions (Visible in First Viewport on Mobile) */}
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-4 mb-5 sm:mb-6 w-full sm:w-auto">
             {/* 1. View Projects */}
             <a
               href="#projects"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md shadow-cyan-500/20 transition-all duration-200 hover:-translate-y-0.5 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-cyan-500 hover:from-cyan-300 hover:to-cyan-400 text-slate-950 font-bold text-xs sm:text-sm shadow-md shadow-cyan-500/20 transition-all duration-200 hover:-translate-y-0.5 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[44px]"
             >
               <Layers className="w-4 h-4" />
               <span>View Projects</span>
@@ -115,7 +108,7 @@ export function Hero({ onOpenChat }: HeroProps) {
               target="_blank"
               rel="noopener noreferrer"
               download="Rajana_Durga_Pavan_Kumar_Resume.pdf"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.12] text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-white font-semibold text-xs sm:text-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-400/50 group shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.12] text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-white font-semibold text-xs sm:text-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-400/50 group shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[44px]"
             >
               <FileText className="w-4 h-4 text-cyan-600 dark:text-cyan-400" />
               <span>Download Resume</span>
@@ -124,15 +117,22 @@ export function Hero({ onOpenChat }: HeroProps) {
             {/* 3. Contact */}
             <a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.12] text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-white font-semibold text-xs sm:text-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-400/50 group shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400"
+              className="inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl bg-white dark:bg-white/[0.04] hover:bg-slate-100 dark:hover:bg-white/[0.08] border border-slate-200 dark:border-white/[0.12] text-slate-800 dark:text-slate-200 hover:text-cyan-600 dark:hover:text-white font-semibold text-xs sm:text-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-cyan-400/50 group shadow-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-cyan-400 min-h-[44px]"
             >
               <Mail className="w-4 h-4 text-cyan-500" />
               <span>Contact</span>
             </a>
           </div>
 
+          {/* Concise About Block */}
+          <div className="p-3.5 sm:p-4 rounded-2xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200 dark:border-white/[0.08] text-left max-w-2xl mb-5 sm:mb-6">
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              B.Tech Computer Science undergraduate (Class of 2027) at SOA University (ITER), Bhubaneswar. I focus on Retrieval-Augmented Generation (RAG) pipelines, dual-track machine learning systems, and transparent empirical evaluations. Actively seeking AI/ML internships and entry-level engineering roles.
+            </p>
+          </div>
+
           {/* Currently Strip */}
-          <div className="w-full max-w-xl p-3 rounded-xl bg-cyan-500/[0.04] border border-cyan-500/20 mb-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-left">
+          <div className="w-full max-w-xl p-3 rounded-xl bg-cyan-500/[0.04] border border-cyan-500/20 mb-6 sm:mb-8 flex flex-col sm:flex-row items-center justify-between gap-2 text-left">
             <div className="flex items-center gap-2 text-[11px] font-mono text-slate-700 dark:text-slate-300">
               <span className="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold uppercase text-[9px]">Building</span>
               <span>FactLens AI &amp; Water Potability ML</span>

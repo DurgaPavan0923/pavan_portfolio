@@ -28,8 +28,33 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([INITIAL_MESSAGE]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isInputFocusedOnPage, setIsInputFocusedOnPage] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  // Detect input/form focus across page to hide floating trigger on mobile and prevent UI collision
+  useEffect(() => {
+    const handleFocusIn = (e: FocusEvent) => {
+      const target = e.target as HTMLElement;
+      if (
+        target &&
+        (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.tagName === 'SELECT') &&
+        !target.closest('[role="dialog"]')
+      ) {
+        setIsInputFocusedOnPage(true);
+      }
+    };
+    const handleFocusOut = () => {
+      setIsInputFocusedOnPage(false);
+    };
+
+    document.addEventListener('focusin', handleFocusIn);
+    document.addEventListener('focusout', handleFocusOut);
+    return () => {
+      document.removeEventListener('focusin', handleFocusIn);
+      document.removeEventListener('focusout', handleFocusOut);
+    };
+  }, []);
 
   // Focus input and handle Escape key to close dialog
   useEffect(() => {
@@ -143,11 +168,15 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
 
   return (
     <>
-      {/* Desktop Floating Action Button (Mobile uses bottom dock) */}
+      {/* Floating Action Button (All Screens, Auto-Hides on Mobile Input Focus) */}
       <button
         type="button"
         onClick={onToggle}
-        className="fixed bottom-5 right-5 z-[80] hidden lg:flex items-center gap-2 px-3.5 py-3 rounded-full bg-gradient-to-tr from-cyan-400 to-violet-600 text-slate-950 font-bold text-xs shadow-xl shadow-cyan-500/25 hover:scale-105 active:scale-95 transition-all group"
+        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-[80] flex items-center gap-2 px-3.5 py-3 rounded-full bg-gradient-to-tr from-cyan-400 to-violet-600 text-slate-950 font-bold text-xs shadow-xl shadow-cyan-500/25 hover:scale-105 active:scale-95 transition-all group min-h-[44px] cursor-pointer ${
+          isInputFocusedOnPage
+            ? 'opacity-0 pointer-events-none translate-y-6 sm:opacity-100 sm:pointer-events-auto sm:translate-y-0'
+            : 'opacity-100 translate-y-0'
+        }`}
         aria-label={isOpen ? 'Close AI Assistant' : 'Open Neural AI Assistant'}
       >
         {isOpen ? (
@@ -169,7 +198,7 @@ export function ChatBot({ isOpen, onToggle, onClose }: ChatBotProps) {
           role="dialog"
           aria-modal="true"
           aria-label="Pavan Neural AI Assistant"
-          className="fixed bottom-20 right-4 sm:right-6 w-[92vw] sm:w-[420px] h-[550px] max-h-[80vh] rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.12] shadow-2xl z-[90] flex flex-col overflow-hidden animate-fade-up backdrop-blur-xl"
+          className="fixed bottom-20 right-3 sm:right-6 left-3 sm:left-auto w-auto sm:w-[420px] h-[550px] max-h-[82vh] rounded-3xl glass-panel border border-slate-200 dark:border-white/[0.12] shadow-2xl z-[90] flex flex-col overflow-hidden animate-fade-up backdrop-blur-xl pb-safe"
         >
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 border-b border-slate-200 dark:border-white/[0.08] bg-slate-50/90 dark:bg-slate-950/60">
