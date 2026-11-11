@@ -42,7 +42,9 @@ async function capture() {
 
     const widths = [360, 390, 430, 768, 1440];
     const themes = ['dark', 'light'];
-    const outDir = path.join(__dirname, '..', 'docs', 'screenshots', 'before');
+    const subfolder = process.argv[2] || 'after';
+    const baseUrl = process.argv[3] || 'http://127.0.0.1:3000';
+    const outDir = path.join(__dirname, '..', 'docs', 'screenshots', subfolder);
     fs.mkdirSync(outDir, { recursive: true });
 
     const listRes = await fetch(`http://127.0.0.1:${port}/json/list`);
@@ -95,7 +97,7 @@ async function capture() {
           features: [{ name: 'prefers-color-scheme', value: theme }]
         });
 
-        await send('Page.navigate', { url: 'https://pavan-portfolio-gamma-six.vercel.app/' });
+        await send('Page.navigate', { url: baseUrl });
         
         // Wait for page to fully render
         await sleep(5000);

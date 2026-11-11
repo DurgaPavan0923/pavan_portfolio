@@ -52,7 +52,6 @@ flowchart TD
     subgraph External ["External Services & Verification"]
         GeminiAPI["Google Gemini 2.5 Flash"]
         ResendAPI["Resend / Nodemailer Gmail"]
-        ResultPortal["SOA Result Portal (Student Login)"]
     end
 
     Browser --> Page
@@ -73,7 +72,6 @@ flowchart TD
     Page --> EvalsInsight
     Page --> EvalsWater
     Page --> EvalsSeq2Seq
-    Page -.-> ResultPortal
 ```
 
 ---
@@ -89,9 +87,9 @@ The visual layout, navigation dock, Command Palette (⌘K), mobile menu, and scr
 | **03** | **Internships, Research & Roles** | Hands-on engineering roles with exactly 3 bullets per role ("Built X using Y → outcome/learning"): **TIH IIT Guwahati**, **GDGoC ITER**, **Edunet IBM SkillsBuild**, **Microsoft Elevate**, **InternPro**, **Cognizance IIT Roorkee**. |
 | **04** | **GitHub Telemetry & Contributions** | Real-time GitHub telemetry via GraphQL for user `DurgaPavan0923`: 23 repos, 258 contributions, verified merged PRs subpanel, streak calculator, language breakdown, and 52-week heatmap. |
 | **05** | **Technical Skills** | 4 balanced competency groups in a clean 2x2 grid (24 items total): **Machine Learning**, **Generative AI**, **AI Engineering**, **Full-Stack & Cloud**. |
-| **06** | **Education & Certifications** | Formal B.Tech CSE degree card (CGPA 7.85/10.0 at SOA ITER with Result Portal link) and 9 verifiable industry credentials and participations. |
+| **06** | **Education & Certifications** | Formal B.Tech CSE degree card at SOA ITER (Class of 2027) and verifiable industry credentials (Neo4j Certified ID `178619623`, GCP 98 Badges, etc.) without unverified numbers or external portal links. |
 | **07** | **Leadership & Achievements** | Certified NCC Sergeant service (Alpha/Bravo grades), Rajya Puraskar Awardee (Scouts & Guides), School Captain, and symposium leadership. |
-| **08** | **Moments & Highlights** | Curated 16-photo GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and accessible lightbox. |
+| **08** | **Moments & Highlights** | Curated 13-photo de-duplicated GPU-accelerated infinite marquee with pause on hover/touch, keyboard navigation, and responsive lightbox modal (88vw/78vh on mobile, 780px on desktop with body scroll lock). |
 | **09** | **Contact & Collaboration** | Resilient contact form with rate limiting, honeypot spam filter, and one-click email copy button to `rdpkumar2308@gmail.com`. |
 
 ---
@@ -247,7 +245,7 @@ pavan_portfolio-main/
 │   ├── components/
 │   │   ├── 3d/NeuralBackground.tsx            # 60fps canvas particle graph
 │   │   ├── ai/ChatBot.tsx                     # Accessible neural chatbot with offline fallback
-│   │   ├── layout/                            # Navbar, MobileDock, MobileMenu, CommandPalette
+│   │   ├── layout/                            # Navbar, MobileMenu, CommandPalette, ErrorBoundary, Footer
 │   │   └── sections/                          # Hero, Projects, Experience, GitHubActivity, Skills, etc.
 │   ├── data/                                  # Single source of truth typed arrays (projects, skills, certs)
 │   ├── lib/                                   # Gemini SDK wrapper, GitHub GraphQL, streak calculator
