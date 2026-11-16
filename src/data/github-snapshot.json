@@ -41,38 +41,38 @@
     {
       "name": "AI-Powered-Fake-News-Detector-for-Students",
       "displayName": "FactLens AI",
-      "description": "Open-source repository by DurgaPavan0923.",
+      "description": "Multi-agent explainable AI fact-verification platform combining Google Gemini API, Neo4j knowledge graph traversal, and Pinecone vector search.",
       "language": "TypeScript",
       "languageColor": "#3178c6",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/AI-Powered-Fake-News-Detector-for-Students",
       "updatedAt": "2026-06-13T12:33:30Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "5mo ago"
     },
     {
       "name": "AI-Resume-Screening-Job-Match-System",
       "displayName": "InsightAI ATS",
-      "description": "Open-source repository by DurgaPavan0923.",
-      "language": "HTML",
-      "languageColor": "#e34c26",
+      "description": "Semantic resume screening, ATS alignment scoring, and contextual interview question copilot.",
+      "language": "Python",
+      "languageColor": "#3572A5",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/AI-Resume-Screening-Job-Match-System",
       "updatedAt": "2026-08-27T05:21:26Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "2mo ago"
     },
     {
       "name": "RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
       "displayName": "AquaGuard ML (TIH IIT Guwahati)",
-      "description": "Dual-track environmental machine learning for calibrated water potability classification and oceanographic CTD sensor forecasting.",
+      "description": "AquaGuard AI: calibrated water potability classifier with a WHO/EPA safety gate (9 chemical limits, grades A to F), plus underwater telemetry anomaly detection (Isolation Forest) and forecasting. FastAPI + Vercel dashboard. TIH IIT Guwahati AI/ML internship.",
       "language": "Python",
-      "languageColor": "#DA5B0B",
+      "languageColor": "#3572A5",
       "stars": 0,
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
       "updatedAt": "2026-10-28T15:02:24Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "18d ago"
     },
     {
       "name": "IRA",
@@ -84,7 +84,7 @@
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/IRA",
       "updatedAt": "2026-08-31T07:26:51Z",
-      "updatedRelative": "recently"
+      "updatedRelative": "2mo ago"
     }
   ],
   "verifiedContributions": [
@@ -2509,11 +2509,17 @@
             "contributionCount": 0,
             "contributionLevel": "NONE",
             "weekday": 0
+          },
+          {
+            "date": "2026-11-16",
+            "contributionCount": 0,
+            "contributionLevel": "NONE",
+            "weekday": 1
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-15T13:43:04.739Z",
+  "fetchedAt": "2026-11-16T05:34:43.404Z",
   "isStale": true
 }

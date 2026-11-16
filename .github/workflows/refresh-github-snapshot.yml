@@ -15,6 +15,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -37,7 +40,8 @@ jobs:
           if [ -n "$(git status --porcelain src/data/github-snapshot.json)" ]; then
             git add src/data/github-snapshot.json
             git commit -m "chore(telemetry): refresh github telemetry snapshot [skip ci]"
-            git push
+            git pull --rebase origin main || true
+            git push origin HEAD:main
           else
             echo "No telemetry changes detected."
           fi
