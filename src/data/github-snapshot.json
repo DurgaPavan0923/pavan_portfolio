@@ -95,7 +95,7 @@
       "repo": "DurgaPavan0923/pavan_portfolio",
       "url": "https://github.com/DurgaPavan0923/pavan_portfolio/pull/1",
       "date": "2026-10-18T20:12:49Z",
-      "relativeDate": "28d ago"
+      "relativeDate": "29d ago"
     }
   ],
   "calendar": {
@@ -103,12 +103,6 @@
     "weeks": [
       {
         "contributionDays": [
-          {
-            "contributionCount": 0,
-            "date": "2025-11-16",
-            "weekday": 0,
-            "contributionLevel": "NONE"
-          },
           {
             "contributionCount": 0,
             "date": "2025-11-17",
@@ -2506,11 +2500,17 @@
             "date": "2026-11-16",
             "weekday": 1,
             "contributionLevel": "FIRST_QUARTILE"
+          },
+          {
+            "contributionCount": 0,
+            "date": "2026-11-17",
+            "weekday": 2,
+            "contributionLevel": "NONE"
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-16T15:18:01.500Z",
+  "fetchedAt": "2026-11-17T01:46:01.130Z",
   "isStale": true
 }
