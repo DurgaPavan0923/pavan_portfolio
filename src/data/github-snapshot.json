@@ -8,7 +8,7 @@
   "totalCommits": 267,
   "totalPRs": 1,
   "totalIssues": 0,
-  "currentStreak": 1,
+  "currentStreak": 0,
   "longestStreak": 4,
   "topLanguages": [
     {
@@ -95,7 +95,7 @@
       "repo": "DurgaPavan0923/pavan_portfolio",
       "url": "https://github.com/DurgaPavan0923/pavan_portfolio/pull/1",
       "date": "2026-10-18T20:12:49Z",
-      "relativeDate": "29d ago"
+      "relativeDate": "1mo ago"
     }
   ],
   "calendar": {
@@ -103,12 +103,6 @@
     "weeks": [
       {
         "contributionDays": [
-          {
-            "contributionCount": 0,
-            "date": "2025-11-17",
-            "weekday": 1,
-            "contributionLevel": "NONE"
-          },
           {
             "contributionCount": 0,
             "date": "2025-11-18",
@@ -2506,11 +2500,17 @@
             "date": "2026-11-17",
             "weekday": 2,
             "contributionLevel": "NONE"
+          },
+          {
+            "contributionCount": 0,
+            "date": "2026-11-18",
+            "weekday": 3,
+            "contributionLevel": "NONE"
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-17T15:45:14.907Z",
+  "fetchedAt": "2026-11-18T00:47:43.034Z",
   "isStale": true
 }
