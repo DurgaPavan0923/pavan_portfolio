@@ -105,22 +105,6 @@
         "contributionDays": [
           {
             "contributionCount": 0,
-            "date": "2025-11-21",
-            "weekday": 5,
-            "contributionLevel": "NONE"
-          },
-          {
-            "contributionCount": 0,
-            "date": "2025-11-22",
-            "weekday": 6,
-            "contributionLevel": "NONE"
-          }
-        ]
-      },
-      {
-        "contributionDays": [
-          {
-            "contributionCount": 0,
             "date": "2025-11-23",
             "weekday": 0,
             "contributionLevel": "NONE"
@@ -2508,9 +2492,19 @@
             "contributionLevel": "NONE"
           }
         ]
+      },
+      {
+        "contributionDays": [
+          {
+            "contributionCount": 0,
+            "date": "2026-11-22",
+            "weekday": 0,
+            "contributionLevel": "NONE"
+          }
+        ]
       }
     ]
   },
-  "fetchedAt": "2026-11-21T18:55:09.809Z",
+  "fetchedAt": "2026-11-22T05:55:12.382Z",
   "isStale": true
 }
