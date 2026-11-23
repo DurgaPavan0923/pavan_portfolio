@@ -1,11 +1,11 @@
 {
   "username": "DurgaPavan0923",
-  "publicRepos": 24,
+  "publicRepos": 25,
   "followers": 23,
   "totalStars": 0,
   "totalForks": 0,
-  "totalContributions": 292,
-  "totalCommits": 269,
+  "totalContributions": 307,
+  "totalCommits": 283,
   "totalPRs": 1,
   "totalIssues": 0,
   "currentStreak": 1,
@@ -13,7 +13,7 @@
   "topLanguages": [
     {
       "name": "JavaScript",
-      "percentage": 69,
+      "percentage": 68,
       "color": "#f1e05a"
     },
     {
@@ -22,19 +22,19 @@
       "color": "#DA5B0B"
     },
     {
+      "name": "Python",
+      "percentage": 3,
+      "color": "#3572A5"
+    },
+    {
       "name": "TypeScript",
       "percentage": 3,
       "color": "#3178c6"
     },
     {
-      "name": "Python",
-      "percentage": 2,
-      "color": "#3572A5"
-    },
-    {
-      "name": "HTML",
+      "name": "CSS",
       "percentage": 1,
-      "color": "#e34c26"
+      "color": "#663399"
     }
   ],
   "featuredRepos": [
@@ -72,7 +72,7 @@
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
       "updatedAt": "2026-10-28T15:02:24Z",
-      "updatedRelative": "25d ago"
+      "updatedRelative": "26d ago"
     },
     {
       "name": "IRA",
@@ -99,7 +99,7 @@
     }
   ],
   "calendar": {
-    "totalContributions": 292,
+    "totalContributions": 307,
     "weeks": [
       {
         "contributionDays": [
@@ -2502,15 +2502,15 @@
             "contributionLevel": "NONE"
           },
           {
-            "contributionCount": 3,
+            "contributionCount": 18,
             "date": "2026-11-23",
             "weekday": 1,
-            "contributionLevel": "FIRST_QUARTILE"
+            "contributionLevel": "THIRD_QUARTILE"
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-23T06:44:54.544Z",
+  "fetchedAt": "2026-11-23T23:38:29.335Z",
   "isStale": true
 }
