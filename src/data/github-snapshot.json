@@ -32,9 +32,9 @@
       "color": "#3178c6"
     },
     {
-      "name": "CSS",
+      "name": "HTML",
       "percentage": 1,
-      "color": "#663399"
+      "color": "#e34c26"
     }
   ],
   "featuredRepos": [
@@ -72,7 +72,7 @@
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
       "updatedAt": "2026-10-28T15:02:24Z",
-      "updatedRelative": "27d ago"
+      "updatedRelative": "28d ago"
     },
     {
       "name": "IRA",
@@ -2511,6 +2511,6 @@
       }
     ]
   },
-  "fetchedAt": "2026-11-25T07:47:15.679Z",
+  "fetchedAt": "2026-11-25T21:25:21.524Z",
   "isStale": true
 }
