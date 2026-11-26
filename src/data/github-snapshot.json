@@ -22,14 +22,14 @@
       "color": "#DA5B0B"
     },
     {
-      "name": "TypeScript",
-      "percentage": 3,
-      "color": "#3178c6"
-    },
-    {
       "name": "Python",
       "percentage": 3,
       "color": "#3572A5"
+    },
+    {
+      "name": "TypeScript",
+      "percentage": 3,
+      "color": "#3178c6"
     },
     {
       "name": "HTML",
@@ -72,7 +72,7 @@
       "forks": 0,
       "url": "https://github.com/DurgaPavan0923/RajanaDurgaPavanKumar_C1_ONLINETIHIITG",
       "updatedAt": "2026-10-28T15:02:24Z",
-      "updatedRelative": "28d ago"
+      "updatedRelative": "29d ago"
     },
     {
       "name": "IRA",
@@ -2511,6 +2511,6 @@
       }
     ]
   },
-  "fetchedAt": "2026-11-26T07:39:04.634Z",
+  "fetchedAt": "2026-11-26T21:12:04.632Z",
   "isStale": true
 }
