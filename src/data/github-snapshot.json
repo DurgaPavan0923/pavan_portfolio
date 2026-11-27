@@ -8,7 +8,7 @@
   "totalCommits": 313,
   "totalPRs": 1,
   "totalIssues": 0,
-  "currentStreak": 3,
+  "currentStreak": 0,
   "longestStreak": 4,
   "topLanguages": [
     {
@@ -22,14 +22,14 @@
       "color": "#DA5B0B"
     },
     {
-      "name": "Python",
-      "percentage": 3,
-      "color": "#3572A5"
-    },
-    {
       "name": "TypeScript",
       "percentage": 3,
       "color": "#3178c6"
+    },
+    {
+      "name": "Python",
+      "percentage": 3,
+      "color": "#3572A5"
     },
     {
       "name": "HTML",
@@ -103,12 +103,6 @@
     "weeks": [
       {
         "contributionDays": [
-          {
-            "contributionCount": 0,
-            "date": "2025-11-26",
-            "weekday": 3,
-            "contributionLevel": "NONE"
-          },
           {
             "contributionCount": 0,
             "date": "2025-11-27",
@@ -2506,11 +2500,17 @@
             "date": "2026-11-26",
             "weekday": 4,
             "contributionLevel": "NONE"
+          },
+          {
+            "contributionCount": 0,
+            "date": "2026-11-27",
+            "weekday": 5,
+            "contributionLevel": "NONE"
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-26T21:12:04.632Z",
+  "fetchedAt": "2026-11-27T07:36:58.993Z",
   "isStale": true
 }
