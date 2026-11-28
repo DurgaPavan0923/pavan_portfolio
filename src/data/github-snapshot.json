@@ -22,14 +22,14 @@
       "color": "#DA5B0B"
     },
     {
-      "name": "Python",
-      "percentage": 3,
-      "color": "#3572A5"
-    },
-    {
       "name": "TypeScript",
       "percentage": 3,
       "color": "#3178c6"
+    },
+    {
+      "name": "Python",
+      "percentage": 3,
+      "color": "#3572A5"
     },
     {
       "name": "HTML",
@@ -103,12 +103,6 @@
     "weeks": [
       {
         "contributionDays": [
-          {
-            "contributionCount": 0,
-            "date": "2025-11-27",
-            "weekday": 4,
-            "contributionLevel": "NONE"
-          },
           {
             "contributionCount": 0,
             "date": "2025-11-28",
@@ -2506,11 +2500,17 @@
             "date": "2026-11-27",
             "weekday": 5,
             "contributionLevel": "NONE"
+          },
+          {
+            "contributionCount": 0,
+            "date": "2026-11-28",
+            "weekday": 6,
+            "contributionLevel": "NONE"
           }
         ]
       }
     ]
   },
-  "fetchedAt": "2026-11-27T20:55:08.338Z",
+  "fetchedAt": "2026-11-28T07:04:34.238Z",
   "isStale": true
 }
